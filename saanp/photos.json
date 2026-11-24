@@ -10,7 +10,13 @@
    "credit": "CIA and/or US Department of Defense",
    "license": "Public domain",
    "source": "https://commons.wikimedia.org/wiki/File:CIA_aerial_view_Osama_bin_Laden_compound_Abbottabad_2004_2011.jpg",
-   "license_ok": true
+   "license_ok": true,
+   "crop": [
+    0.0,
+    0.34,
+    0.94,
+    1.0
+   ]
   },
   {
    "id": "P02",

@@ -1,0 +1,121 @@
+{
+ "duration": 62.133,
+ "cues": [
+  {
+   "type": "heartbeat",
+   "t": 2.306,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 4.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 9.0,
+   "gain": 0.8
+  },
+  {
+   "type": "pop",
+   "t": 9.012,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 13.533,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 18.233,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 24.067,
+   "gain": 0.8
+  },
+  {
+   "type": "pop",
+   "t": 24.074,
+   "gain": 0.8
+  },
+  {
+   "type": "ticks",
+   "t": 26.375,
+   "gain": 0.6
+  },
+  {
+   "type": "pop",
+   "t": 28.298,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 28.4,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 30.259,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 32.0,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 37.067,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 37.972,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 38.272,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 38.422,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 38.572,
+   "gain": 0.8
+  },
+  {
+   "type": "ticks",
+   "t": 38.636,
+   "gain": 0.6
+  },
+  {
+   "type": "whoosh",
+   "t": 41.067,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 47.233,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 54.367,
+   "gain": 0.8
+  },
+  {
+   "type": "boom",
+   "t": 54.672,
+   "gain": 0.5
+  }
+ ],
+ "room_tone": []
+}

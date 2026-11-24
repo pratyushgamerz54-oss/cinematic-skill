@@ -53,7 +53,7 @@ def build_film(doc):
     # ============================================================ COLD OPEN (1-6)
     screen("g_abbottabad", X0, 0.0, L(2) + 0.1)
     screen("compound", X0, L(2), L(3) + 0.4)
-    film.add(BigText("2 मई 2011", X0, SY - 1500, 260, L(1) + 0.2, t_out=L(2) + 0.2, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
+    film.add(BigText("2 मई 2011", X0, SY - 760, 230, L(1) + 0.2, t_out=L(2) + 0.2, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
     into(X0, 0.0, L(2) - 0.05)
     into(X0, L(2), E(2) + 0.3, 1.0, 1.06)
     # line 3: pull back out of the screen onto the wall: the real compound, from the air
@@ -69,7 +69,7 @@ def build_film(doc):
     into(X0, L(5), E(5) + 0.4, 1.0, 1.05)
     cue("heartbeat", W(5, "इत्तेफ़ाक़"), 0.7); cue("heartbeat", W(5, "पैटर्न"), 0.7)
     screen(hf["hf_title"], X0, L(6) + 0.4, L(7) + 0.6)
-    into(X0, L(6) + 0.4, L(7) - 0.2, 1.0, 1.05)
+    into(X0, L(6) + 0.4, L(7) - 0.6, 1.0, 1.05)
     cue("boom", E(6) + 0.2, 0.6)
 
     # ============================================================ ROOTS (7-12)
@@ -90,7 +90,7 @@ def build_film(doc):
     shot(E(12) + 0.6, X2 - 3000, -900, 0.4, 0.0, strength=0.4)
 
     # ============================================================ KASHMIR (13-18)
-    film.add(BigText("1989 · कश्मीर", X2 - 2000, -2400, 520, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
+    film.add(BigText("1989 · कश्मीर", X2 - 2000, -1500, 480, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
     let = film.add(Card(X2 - 3600, 600, 3000, 1800, W(14, "लश्कर") - 0.1, title="लश्कर-ए-तैयबा", lines=["स्थापना: लगभग 1990", "मुख्यालय: मुरीदके, पाकिस्तान"],
                         rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
     film.add(Card(X2 + 200, 300, 2300, 1200, W(15, "आरोप") - 0.1, title="भारत: आरोप", lines=["फ़ौज और ISI का साथ"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=130))
@@ -120,7 +120,7 @@ def build_film(doc):
     # ============================================================ MUMBAI (19-26)
     screen("g_mumbai", X3, L(19) - 0.1, L(20) + 0.3)
     into(X3, L(19) + 0.1, E(19) + 0.1, 1.0, 1.06)
-    film.add(BigText("26/11 · 2008", X3, SY - 1500, 260, L(19) + 0.2, t_out=L(20), bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
+    film.add(BigText("26/11 · 2008", X3, SY - 760, 230, L(19) + 0.2, t_out=L(20), bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
     photo("P04", X3 + 4500, -900, 3000, rot=1.6, t_in=L(20) - 0.2, label="ताज होटल, मुंबई · दिसंबर 2008", label_t=L(20) + 0.4)
     film.add(Counter(X3 + 4500, 2300, 900, 166, W(20, "छियासठ") - 0.6, dur=1.0, caption="लोग मारे गए"))
     shot(L(20) + 0.2, X3 + 4500, 300, 0.42, 0.4)
@@ -183,7 +183,7 @@ def build_film(doc):
 
     # ============================================================ MONEY (39-48)
     cue("riser", L(39) + 0.4, 0.5, dur=1.6)
-    dawn = film.add(PaperDoc(X6 - 4600, -300, 3200, 4000, rot=-1.3, t_in=W(39, "पाकिस्तान") - 0.4, rows=15, sentence_row=6, sentence_size=120,
+    dawn = film.add(PaperDoc(X6 - 4600, -300, 3200, 4000, rot=-1.3, t_in=L(39) + 0.8, rows=15, sentence_row=6, sentence_size=120,
                              header=(("DAWN", 260, "serif"), ("ISLAMABAD · 3 AUGUST 2015", 96, "mono"), ("TARIQ KHOSA, FORMER FIA DIRECTOR GENERAL", 92, "cond")),
                              sentence="Pakistan has to deal with the Mumbai mayhem, planned and launched from its soil."))
     dsp = dawn.phrase_spans(res, "planned and launched from its soil.")
@@ -213,8 +213,8 @@ def build_film(doc):
     cue("heartbeat", W(48, "नहीं"), 0.9)
 
     # ============================================================ NOW (49-60)
-    film.add(BigText("पुलवामा · 14 फ़रवरी 2019", X7 - 4500, -2600, 420, L(49) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
-    film.add(Counter(X7 - 4500, -400, 1100, 40, W(49, "चालीस") - 0.2, dur=0.8, caption="CRPF जवान"))
+    film.add(BigText("पुलवामा · 14 फ़रवरी 2019", X7 - 4500, -2000, 400, L(49) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
+    film.add(Counter(X7 - 4500, -100, 1000, 40, W(49, "चालीस") - 0.2, dur=0.8, caption="CRPF जवान"))
     film.add(StringLine((X7 - 4500, 300), (X2 + 9000, -1300), t_in=W(49, "जैश") - 0.2, dur=1.4, sag=0.05, width=24))
     shot(L(49) + 0.3, X7 - 4500, -1700, 0.55, 0.0)
     shot(W(49, "चालीस"), X7 - 4500, -700, 0.6, 0.3)
@@ -229,7 +229,7 @@ def build_film(doc):
     shot(L(52) + 0.4, X7, 1700, 0.62, 0.0)
     shot(E(52), X7, 1900, 0.64, 0.0)
     screen("g_pahalgam", X7 + 5000, L(53) - 0.2, L(54) + 0.3)
-    film.add(Counter(X7 + 5000, SY + 1300, 600, 26, W(53, "छब्बीस") - 0.1, dur=0.7, caption="आम लोग"))
+    film.add(Counter(X7 + 5000, SY + 780, 420, 26, W(53, "छब्बीस") - 0.1, dur=0.7, caption="आम लोग", t_out=E(53) + 0.4))
     shot(L(53) - 0.35, X7 + 5000, 3800, 0.45, 0.0, strength=0.2)
     into(X7 + 5000, L(53) + 0.1, E(53) + 0.2, 1.0, 1.05)
     film.add(Card(X7 + 9400, -800, 2800, 1700, L(54) - 0.1, title="UN रिपोर्ट · 2025", lines=["ज़िम्मेदारी: TRF (दो बार)", "फिर दावा वापस"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=210, body_size=140))
@@ -245,7 +245,7 @@ def build_film(doc):
     film.add(Stamp("इनकार", X7 + 14100, -600, size=460, rot=-8, t_in=W(59, "इनकार") - 0.05))
     shot(L(59) + 0.2, X7 + 13600, -700, 0.62, 0.3)
     screen("g_pahalgam", X7 + 5000, L(60) - 0.3, L(61) + 0.3, start=5.0)
-    film.add(BigText("ऑपरेशन सिंदूर · 7 मई 2025", X7 + 5000, SY - 1600, 230, L(60) + 0.2, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
+    film.add(BigText("ऑपरेशन सिंदूर · 7 मई 2025", X7 + 5000, SY - 760, 220, L(60) + 0.2, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
     shot(L(60) - 0.45, X7 + 7500, 3600, 0.42, 0.0, strength=0.2)
     into(X7 + 5000, L(60) + 0.2, E(60) + 0.3, 1.0, 1.04)
 
@@ -271,5 +271,25 @@ def build_film(doc):
     cue("boom", L(66) + 0.1, 0.5)
     cue("heartbeat", W(66, "कब") , 0.7)
 
+    tidy_keys(film.cam_keys)
+    tidy_keys(film.focus_keys)
     film.fade_in, film.fade_out = 0.6, 1.5
     return film
+
+
+def tidy_keys(keys, min_gap=0.3, hold_after=1.8, move=0.85):
+    """Separate keys that land on the same moment, and hold each key until shortly before the next
+    one so the camera rests on its hero instead of drifting through the whole line."""
+    keys.sort(key=lambda k: k[0])
+    for i in range(len(keys) - 2, -1, -1):
+        if keys[i + 1][0] - keys[i][0] < min_gap:
+            keys[i] = (keys[i + 1][0] - min_gap,) + tuple(keys[i][1:])
+    keys.sort(key=lambda k: k[0])
+    extra = []
+    for a, b in zip(keys, keys[1:]):
+        if b[0] - a[0] > hold_after:
+            k = list(a); k[0] = b[0] - move
+            if len(k) == 5 and k[3] < 0.95:           # camera key: creep in slightly while it holds
+                k[3] *= 1.035
+            extra.append(tuple(k))
+    keys.extend(extra); keys.sort(key=lambda k: k[0])

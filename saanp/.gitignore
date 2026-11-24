@@ -15,3 +15,9 @@ reel/assets/
 hf/.hyperframes/
 hf/node_modules/
 audio/music/score.wav
+out/*
+!out/thumbnail_youtube.jpg
+!out/thumbnail_reel.jpg
+!out/*_final.mp4
+!out/*_reel.mp4
+!out/captions*.srt

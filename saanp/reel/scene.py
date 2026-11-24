@@ -57,8 +57,8 @@ def build_film(doc):
     head("मुंबई · 26/11", 19, L(19) - 0.2, E(20) + 0.3)
     hold(19, L(19) - 0.15, E(19) + 0.1)
     if "P04" in doc.meta:
-        photo("P04", X[20], -500, 3500, rot=1.2, t_in=L(20) - 0.3, label="ताज होटल · दिसंबर 2008", label_t=L(20) + 0.3)
-    film.add(Counter(X[20], 1700, 1100, 166, W(20, "छियासठ") - 0.6, dur=0.9, caption="लोग मारे गए"))
+        photo("P04", X[20], -750, 3300, rot=1.2, t_in=L(20) - 0.3, label="ताज होटल · दिसंबर 2008", label_t=L(20) + 0.3)
+    film.add(Counter(X[20], 2550, 1000, 166, W(20, "छियासठ") - 0.6, dur=0.9, caption="लोग मारे गए"))
     head("मुंबई · 26/11", 20, L(20) - 0.3, E(20) + 0.3)
     hold(20, L(20) - 0.15, E(20) + 0.1)
     # 41: Pakistan's own investigator
