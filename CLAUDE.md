@@ -24,7 +24,7 @@ When the user asks for a video or documentary, make it with **all of these toget
 | 3D / web motion graphics (GSAP, CSS, canvas) | any page recorded with `frame-capture`, placed as `Clip` |
 | AI stills and clips (only for illustration, never as evidence) | `motion-assets`; `alpha-cutout` to key a subject out for a transparent cut-out |
 | Charts and data colours | `dataviz` |
-| React video components, extra animation, map and 3D templates | the Remotion plugin (`remotion-*` skills), when it is installed |
+| React motion graphics, kinetic type, animated captions, 2D/3D scenes, map flights (MapLibre, Cesium terrain) | Remotion skills (`remotion-best-practices` routes to the rest; `remotion-maps`, `remotion-markup`, `remotion-captions`, `remotion-render`): render a Remotion composition to MP4, then place it as a `Clip` |
 
 Aim for every section of the film to have at least one moving element beyond the camera: a 3D shot,
 a map animation, a motion graphic or a clip. Keep rule 1 of the skill: one hero per line.
@@ -40,4 +40,10 @@ a map animation, a motion graphic or a clip. Keep rule 1 of the skill: one hero 
   standard thumbnail sizes because originals return HTTP 429.
 - Map data: cdn.jsdelivr.net is blocked; get `world-atlas` with `npm pack world-atlas@2` instead.
 - 3D recording runs WebGL in software here: do `--still` and `--draft` passes before a full recording.
+- Remotion skills are not in the repo (their repo has no licence file): the `cinematic-skill`
+  environment's setup script clones https://github.com/remotion-dev/skills into `~/.claude/skills` each
+  session. Remotion itself is free for individuals and companies of up to three people; larger companies
+  need a licence (`remotion-license`). Its npm packages come from the npm registry, which is allowed.
+- Remotion maps: MapLibre needs no key but needs its tile host allowed on the environment; Mapbox,
+  MapTiler and Cesium need the user's own keys. Without them, use `make_globe.py` and `make_map.py`.
 - Show the user stills and the draft at the skill's gates before the final render.

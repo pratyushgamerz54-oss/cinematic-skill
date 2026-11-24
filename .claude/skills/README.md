@@ -15,3 +15,6 @@ Claude Code loads every skill in this folder when it works in this repo.
 The six Open 3D Skills are copied unchanged from https://github.com/Moh4696/open-3d-skills
 (commit 53beb89, MIT License, copyright exploraX: see LICENSE-open-3d-skills).
 `skills/cinematic-film/references/3d.md` says how they plug into a film.
+
+Remotion's agent skills (`remotion-*`) are installed in `~/.claude/skills` by the `cinematic-skill`
+environment's setup script from https://github.com/remotion-dev/skills, not copied here.
