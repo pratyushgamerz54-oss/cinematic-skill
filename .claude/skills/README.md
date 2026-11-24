@@ -9,7 +9,9 @@ Claude Code loads every skill in this folder when it works in this repo.
 | `frame-capture` | Open 3D Skills | records a three.js or motion-graphics page to a frame-exact MP4 |
 | `motion-assets` | Open 3D Skills | plans AI stills and clips in one style, with prompts and costs first |
 | `exploded-view` | Open 3D Skills | 3D "how it works" explainers (weapons, machines, buildings) |
+| `site-check` | Open 3D Skills | checks a 3D page renders (no blank WebGL, errors, frame time) before recording it |
+| `alpha-cutout` | Open 3D Skills | keys a character or object out of a clip, for a transparent cut-out on the board |
 
-The four Open 3D Skills are copied unchanged from https://github.com/Moh4696/open-3d-skills
+The six Open 3D Skills are copied unchanged from https://github.com/Moh4696/open-3d-skills
 (commit 53beb89, MIT License, copyright exploraX: see LICENSE-open-3d-skills).
 `skills/cinematic-film/references/3d.md` says how they plug into a film.

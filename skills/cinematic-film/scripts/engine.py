@@ -988,12 +988,12 @@ class Timeline(Item):
             ex = x0 + self.w * self.pos[i]; up = i % 2 == 0
             sc = ease_out_back(e)
             c.drawCircle(ex, self.y, lw * 1.7 * sc, paint(self.rgb, a))
-            tick = self.size * 0.9 * (-1 if up else 1)
+            tick = self.size * 0.75 * (-1 if up else 1)
             c.drawLine(ex, self.y, ex, self.y + tick * e, paint(self.rgb, 0.8 * a, stroke=lw * 0.6))
-            ty = self.y + tick * 1.35 + (0 if up else self.size * 0.8)
-            draw_text(c, res, date, ex, ty, self.size, "cond", self.rgb, a * e, 0.03, "center")
+            date_y, cap_y = (self.y - self.size * 1.95, self.y - self.size * 1.1) if up else (self.y + self.size * 1.65, self.y + self.size * 2.45)
+            draw_text(c, res, date, ex, date_y, self.size, "cond", self.rgb, a * e, 0.03, "center")
             if cap:
-                draw_text(c, res, cap, ex, ty + self.size * 0.85, self.size * 0.62, "labelm", self.rgb, 0.85 * a * e, 0.0, "center")
+                draw_text(c, res, cap, ex, cap_y, self.size * 0.62, "labelm", self.rgb, 0.85 * a * e, 0.0, "center")
 
 
 class BarChart(Item):
