@@ -184,6 +184,13 @@ class Doc:
             self._res = Res(1.0, self.prep, self.dir / "fonts")
         return self._res
 
+    def clip(self, cid):
+        """Frame info for a clip prepared by prep_clips.py: {"id", "w", "h", "fps", "n", "seconds"}."""
+        p = self.prep / "clips" / cid / "meta.json"
+        if not p.exists():
+            raise SystemExit(f"{p} not found: add the clip to clips.json and run prep_clips.py")
+        return json.loads(p.read_text())
+
     def map(self, name):
         p = self.prep / f"map_{name}.json"
         if not p.exists():
@@ -211,7 +218,7 @@ class Res:
             if not path.exists():
                 raise SystemExit(f"image {key!r} not found at {path}: run prep_assets.py")
             im = Image.open(path).convert("RGBA")
-            lim = int(min(max_side or 3200, 2200) * max(self.scale, 0.35))
+            lim = int((min(max_side or 3200, 2200) if not max_side or max_side <= 3200 else max_side) * max(self.scale, 0.35))
             if max(im.size) > lim:
                 im.thumbnail((lim, lim), Image.LANCZOS)
             arr = np.ascontiguousarray(np.asarray(im))
@@ -604,6 +611,51 @@ class Print(Item):
                            reveal=ramp(t, lt, 0.4), rgb=self.label_rgb)
 
 
+class Clip(Print):
+    """A video playing on the board: a 3D shot recorded with frame-capture, a motion-graphics insert, an
+    archive film or an AI clip. Looks and drops in like a Print (border, pin, name bar), or set frame=False
+    for a bare screen that the camera can fill for a full-frame cutaway.
+
+        globe = film.add(Clip(doc.clip("globe"), x, y, 3840, t_in=L(3), start=0.0, rate=1.0))
+
+    Frames come from assets/prep/clips/<id>/ (prep_clips.py extracts them at the film's fps). Clip time is
+    start + (t - t_in) * rate, held on the last frame (or looped with loop=True)."""
+
+    def __init__(self, info, x, y, w, rot=0.0, t_in=0.0, t_out=None, start=0.0, rate=1.0, loop=False, frame=True,
+                 label=None, label_t=None, z=None, sfx=True, **kw):
+        super().__init__(info["id"], x, y, w, rot=rot, t_in=t_in, t_out=t_out, z=z, label=label, label_t=label_t,
+                         aspect=info["w"] / info["h"], sfx=sfx, border=0.035 if frame else 0.0, pin=frame and kw.pop("pin", True), **kw)
+        self.info, self.start, self.rate, self.loop, self.frame = info, start, rate, loop, frame
+
+    def frame_key(self, t):
+        n, fps = self.info["n"], self.info["fps"]
+        i = int((self.start + max(0.0, t - self.t_in) * self.rate) * fps)
+        i = i % n if self.loop else min(max(i, 0), n - 1)
+        return f"clips/{self.info['id']}/{i + 1:05d}.jpg"
+
+    def cues(self):
+        return [("pop", self.t_in, 0.8, {})] if self.frame else []
+
+    def draw(self, c, res, t):
+        if not self.visible(t):
+            return
+        key = self.frame_key(t)
+        old = getattr(self, "_shown", None)
+        if old and old != key:
+            res.imgs.pop(old, None)           # one decoded frame per clip in memory, not the whole film
+        self._shown = self.key = key
+        if self.frame:
+            return super().draw(c, res, t)
+        a = ramp(t, self.t_in, 0.25) * self.fade(t)
+        if a <= 0:
+            return
+        w, h = self.size(res)
+        ip = skia.Paint(AntiAlias=True); ip.setAlphaf(a)
+        c.save(); c.translate(self.x, self.y); c.rotate(self.rot)
+        c.drawImageRect(res.image(key, max_side=3840), skia.Rect.MakeXYWH(-w / 2, -h / 2, w, h), SAMPLING, ip)
+        c.restore()
+
+
 class MapPin(Item):
     """Red map pin with a soft pulse and a typewriter label (case-board style)."""
     z = 30
@@ -891,6 +943,99 @@ class Counter(Item):
         if self.caption:
             ca = ramp(t, self.t_in + self.dur * 0.6, 0.4) * self.fade(t)
             draw_text(c, res, self.caption, self.x, self.y + self.size * 0.42, self.size * 0.24, "cond", self.rgb, 0.85 * ca, 0.12, "center")
+
+
+class Timeline(Item):
+    """A time axis that draws on, with events popping onto it one by one and a marker riding along.
+
+        Timeline(x, y, 9000, [("336 ई.पू.", "राजा बना", W(5, "राजा")), ("334", "एशिया", W(6, "एशिया"))], t_in=L(5))
+
+    events: (date, caption, t_reveal), spaced evenly left to right (or pass pos= fractions)."""
+    z = 60
+
+    def __init__(self, x, y, w, events, t_in, t_out=None, pos=None, rgb=WHITE, accent=(200, 40, 30), size=170,
+                 dur=0.8, sfx=True):
+        super().__init__(t_in, t_out, None, sfx)
+        self.x, self.y, self.w, self.events, self.rgb, self.accent, self.size, self.dur = x, y, w, events, rgb, accent, size, dur
+        n = len(events)
+        self.pos = pos or [(i + 0.5) / n for i in range(n)]
+
+    def bounds(self, res):
+        return skia.Rect.MakeLTRB(self.x - self.w / 2 - 400, self.y - self.size * 4, self.x + self.w / 2 + 400, self.y + self.size * 4)
+
+    def cues(self):
+        return [("pencil", self.t_in, 0.5, {})] + [("pop", ev[2], 0.6, {}) for ev in self.events]
+
+    def draw(self, c, res, t):
+        a = self.fade(t)
+        u = ease_in_out(ramp(t, self.t_in, self.dur))
+        if a <= 0 or u <= 0:
+            return
+        x0 = self.x - self.w / 2
+        lw = max(10, self.size * 0.09)
+        c.drawLine(x0, self.y, x0 + self.w * u, self.y, paint(self.rgb, 0.9 * a, stroke=lw))
+        shown = [i for i, ev in enumerate(self.events) if t >= ev[2]]
+        if shown:                                       # the marker rides to the newest event
+            i = shown[-1]; prev = shown[-2] if len(shown) > 1 else i
+            k = ease_in_out(ramp(t, self.events[i][2], 0.5))
+            mx = x0 + self.w * (self.pos[prev] + (self.pos[i] - self.pos[prev]) * k)
+            c.drawLine(x0, self.y, mx, self.y, paint(self.accent, a, stroke=lw * 1.6))
+            c.drawCircle(mx, self.y, lw * 2.6, paint(self.accent, a))
+        for i, (date, cap, tr) in enumerate(self.events):
+            e = ramp(t, tr, 0.35)
+            if e <= 0:
+                continue
+            ex = x0 + self.w * self.pos[i]; up = i % 2 == 0
+            sc = ease_out_back(e)
+            c.drawCircle(ex, self.y, lw * 1.7 * sc, paint(self.rgb, a))
+            tick = self.size * 0.9 * (-1 if up else 1)
+            c.drawLine(ex, self.y, ex, self.y + tick * e, paint(self.rgb, 0.8 * a, stroke=lw * 0.6))
+            ty = self.y + tick * 1.35 + (0 if up else self.size * 0.8)
+            draw_text(c, res, date, ex, ty, self.size, "cond", self.rgb, a * e, 0.03, "center")
+            if cap:
+                draw_text(c, res, cap, ex, ty + self.size * 0.85, self.size * 0.62, "labelm", self.rgb, 0.85 * a * e, 0.0, "center")
+
+
+class BarChart(Item):
+    """Bars that grow in one after another, each with its value rolling up and a label under it.
+
+        BarChart(x, y, 6000, 3200, [("फ़ारस", 55), ("सिकंदर", 52), ("रोम", 50)], t_in=W(3, "लाख"), suffix=" लाख")
+
+    (x, y) is the centre of the baseline. highlight= index of the bar in the accent colour."""
+    z = 60
+
+    def __init__(self, x, y, w, h, bars, t_in, t_out=None, stagger=0.25, dur=0.9, vmax=None, prefix="", suffix="",
+                 rgb=WHITE, accent=(214, 160, 40), highlight=None, size=200, sfx=True):
+        super().__init__(t_in, t_out, None, sfx)
+        self.x, self.y, self.w, self.h, self.bars = x, y, w, h, bars
+        self.stagger, self.dur, self.vmax = stagger, dur, vmax or max(v for _, v in bars)
+        self.prefix, self.suffix, self.rgb, self.accent, self.hi, self.size = prefix, suffix, rgb, accent, highlight, size
+
+    def bounds(self, res):
+        return skia.Rect.MakeLTRB(self.x - self.w / 2 - 300, self.y - self.h - self.size * 2, self.x + self.w / 2 + 300, self.y + self.size * 2)
+
+    def cues(self):
+        return [("ticks", self.t_in + i * self.stagger, 0.45, {}) for i in range(len(self.bars))]
+
+    def draw(self, c, res, t):
+        a = self.fade(t)
+        if a <= 0 or t < self.t_in:
+            return
+        n = len(self.bars); slot = self.w / n; bw = slot * 0.62
+        x0 = self.x - self.w / 2
+        c.drawLine(x0 - 60, self.y, x0 + self.w * ease_out_cubic(ramp(t, self.t_in, 0.4)) + 60, self.y, paint(self.rgb, 0.7 * a, stroke=12))
+        for i, (lab, v) in enumerate(self.bars):
+            u = ease_out_cubic(ramp(t, self.t_in + i * self.stagger, self.dur))
+            if u <= 0:
+                continue
+            cx = x0 + slot * (i + 0.5); bh = self.h * v / self.vmax * u
+            col = self.accent if i == self.hi else self.rgb
+            c.drawRect(skia.Rect.MakeXYWH(cx - bw / 2 + 14, self.y - bh + 20, bw, bh), paint((0, 0, 0), 0.35 * a, blur=18))
+            c.drawRect(skia.Rect.MakeXYWH(cx - bw / 2, self.y - bh, bw, bh), paint(col, (0.95 if i == self.hi else 0.8) * a))
+            val = v * u
+            txt = f"{self.prefix}{val:,.0f}{self.suffix}" if float(v).is_integer() else f"{self.prefix}{val:,.1f}{self.suffix}"
+            draw_text(c, res, txt, cx, self.y - bh - self.size * 0.35, self.size, "cond", col, a * min(1, u * 2), 0.03, "center")
+            draw_text(c, res, lab, cx, self.y + self.size * 1.0, self.size * 0.62, "label", self.rgb, a * min(1, u * 2), 0.0, "center")
 
 
 class PaperDoc(Item):

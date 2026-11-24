@@ -18,6 +18,23 @@ Every shape opens on a hook, moves forward, turns, and closes by paying off the 
 - **Turn**: the rival, the mistake, the price. Short punchy lines ("Same river. Same result.").
 - **Close** (2 lines): pay off the cold open, then one line that lands the meaning.
 
+**Investigative documentary** (documentary and investigation mixed: history told as a case)
+- **Cold open** (2 to 4 lines): the outcome as a fact that needs explaining ("He held five million square
+  kilometres. Within a few years it was gone."). A big number or a 3D globe shot pays this off.
+- **The question** (1 line), said plainly: "How did one man take it, and why couldn't anyone keep it?"
+- **Bridge** (1 line): the only step back in time.
+- **Exhibits** (one section each, forward in time): each section is one piece of evidence on the wall: a
+  source (a coin, a mosaic, an inscription, a letter), what it shows, and one stamp or pen mark on the word
+  that matters. Label each exhibit (`EXHIBIT A`, or `सबूत 1`) on its name bar.
+- **The board fills up**: strings tie each exhibit to its place on the map; the camera pulls back to show
+  the connections between sections.
+- **Turn**: the evidence that cuts against the legend (the army that refused, the heir that never was).
+- **Verdict** (2 lines): answer the question; the final pull-back shows the whole case.
+- Say what is reported, disputed or estimated ("according to Arrian", "about") in the line itself, and keep
+  the sources in `fact_notes`. An investigation that overclaims loses the viewer at the first doubt.
+- Mix: 3D globe or terrain shots for scale and journeys, the wall for evidence, motion graphics (timeline,
+  bar chart, counters) for the numbers. See `references/3d.md`.
+
 **Product launch**
 - **Problem** (2 lines): the pain, in the customer's words, with one number.
 - **Reveal** (1 line): the product name, big. Then a title moment.

@@ -67,6 +67,9 @@ def build_film(doc):
 | `XMarker(x, y, label, t_in)` | A map marker with a typed-on label | `side`, `size`, `label_size` |
 | `MapPin(x, y, label, t_in)` | A pulsing red pin with a typewriter label | |
 | `Route(a, b, t_in)` | A white travel arc drawing on | `bend`, `width` |
+| `Clip(doc.clip(id), x, y, w, t_in)` | A video on the wall (3D shot, motion graphics, archive film, AI clip); `frame=False` for a bare screen the camera can fill | `start`, `rate`, `loop`, `label` |
+| `Timeline(x, y, w, events, t_in)` | An axis that draws on; dated events pop on and a marker rides along | `pos`, `size`, `accent` |
+| `BarChart(x, y, w, h, bars, t_in)` | Bars growing one by one, values rolling up | `suffix`, `highlight`, `stagger` |
 
 Every item takes `t_out` (fade out), `z` (stacking order) and `sfx=False` (mute its own sounds). Write a new item by subclassing `Item`: give it `bounds()` for culling, `draw(c, res, t)`, and optionally `cues()` and `shakes()`. A big static drawing (a city street map, a floor plan) subclasses `Cached` too, so it is drawn once and reused.
 

@@ -22,6 +22,8 @@ Built from a 5:22 documentary about Al Capone, then opened up to any subject. Th
 | `scripts/build_narration.py` | Joins the lines into `audio/narration.m4a` and `audio/timing.json`, which the film is built on |
 | `scripts/fetch_commons.py` | Searches Wikimedia Commons, downloads with licence and credit, refuses non-free files, writes `credits.md` |
 | `scripts/make_map.py` | Projects public-domain boundaries (any country or region) for the map |
+| `scripts/make_globe.py` | Builds a 3D globe shot in three.js (fills, great-circle routes, labelled markers, camera flight) and records it with `frame-capture` |
+| `scripts/prep_clips.py` | Extracts clips (3D shots, motion graphics, archive film, AI video) as frames at the film's frame rate, graded to match |
 | `scripts/prep_assets.py` | Grades every image into one look (black and white, sepia or natural colour); generates the board textures |
 | `scripts/engine.py` | The film engine: camera, spotlight, items, maps, looks, film finish |
 | `scripts/render.py` | Stills, contact strips, the cue list, and the parallel MP4 render |
@@ -31,6 +33,10 @@ Built from a 5:22 documentary about Al Capone, then opened up to any subject. Th
 
 Needs Python 3.9+, `pip install skia-python numpy pillow` (scipy optional) and ffmpeg. Run `scripts/check_setup.py` first; on Linux or Windows, also run `scripts/get_fonts.py` per project. All commands take `--project <folder>`.
 
+Works with the Open 3D Skills (installed in this repo under `.claude/skills/`): `threejs-scene` builds any 3D shot,
+`frame-capture` records it frame-exact, `motion-assets` plans AI stills and clips, `exploded-view` makes 3D cutaways.
+Their videos enter the film as `Clip` items. `references/3d.md` has the workflow.
+
 ## Pick the film
 
 | Kind | Look | Images | Typical items |
@@ -39,6 +45,7 @@ Needs Python 3.9+, `pip install skia-python numpy pillow` (scipy optional) and f
 | Product launch, brand or founder story | `studio`, `charcoal` | Your product shots and team photos, graded `natural` | Cards, big numbers, counters, arrows |
 | Science, engineering, how it works | `blueprint`, `paper` | Diagrams, archive or AI stills | Cards, counters, pen marks, maps |
 | Tech, space, trailers | `night` | Screenshots, renders, AI stills | Big type, counters, routes, cards |
+| Investigative documentary (history as a case) | `wall` + 3D globe clips | Archive sources as exhibits, 3D globe and terrain shots | Exhibits with labels and stamps, strings, timeline, bar chart, map routes |
 
 Mix freely: the looks are a board and a finish, and every item works on every look. `references/story.md` has a story shape for each kind.
 
@@ -64,7 +71,7 @@ Stop for the user's approval at the four gates (marked **Gate**).
    - AI stills: generate them in one style (the `motion-assets` skill plans and prices them).
    - `references/archive.md` covers other archives and the rights rules.
 4. **Scratch voice.** Run `tts_say.py`, then `split_takes.py`, then `build_narration.py`. Listen to every line `split_takes.py` flags. Now the timings are real.
-5. **Assets.** Run `make_map.py` if the story travels, then `prep_assets.py`.
+5. **Assets.** Run `make_map.py` if the story travels, then `prep_assets.py`. For 3D shots and other moving footage, run `make_globe.py` (or record a `threejs-scene` page with `frame-capture`), then `prep_clips.py` (`references/3d.md`).
 6. **Scene.** Write `scene.py`: lay out the board in clusters per section, add items on `doc.L`/`doc.W` times, then camera and spotlight keys (`film.shot`). Read `references/film.md`. Both shipped projects show the patterns: `assets/template/scene.py` (explainer, studio look) and `assets/wright-flyer/scene.py` (documentary, every item type).
 7. **Look test.** Run `render.py --probe` on one still per line at 1280x720 and look at all of them, then `--strip` on every big camera move. **Gate:** show the user stills of the opening and the look.
 8. **Draft.** Render the first 30 seconds at 1280x720 with the scratch voice. **Gate:** the user watches it.
