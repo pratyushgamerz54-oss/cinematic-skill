@@ -40,7 +40,13 @@ WHITE = (246, 243, 236)
 
 # Font roles -> candidates, tried in order (family, weight). Drop <project>/fonts/<role>.ttf (or .otf)
 # to force a face, e.g. fonts/cond.ttf = Oswald Bold from Google Fonts (OFL).
+# Text in these scripts needs shaping (conjuncts, vowel signs), so it is drawn as one shaped run.
+COMPLEX = re.compile(r"[\u0900-\u0DFF]")
+# What counts as a letter when timing words by their share of a line: Latin plus Devanagari.
+LETTERS = r"[^a-z\u0900-\u097f]"
+
 FONT_ROLES = {
+    "deva": [("Noto Sans Devanagari", 700), ("Hind", 600), ("Mukta", 700), ("Lohit Devanagari", 400)],
     "serif": [("Baskerville", 400), ("Libre Baskerville", 400), ("Georgia", 400), ("Times New Roman", 400), ("DejaVu Serif", 400)],
     "mono": [("Courier New", 700), ("Courier Prime", 700), ("Courier", 700), ("DejaVu Sans Mono", 700), ("Menlo", 700)],
     "hand": [("Snell Roundhand", 400), ("Homemade Apple", 400), ("Segoe Script", 400), ("Brush Script MT", 400), ("URW Chancery L", 400)],
@@ -156,7 +162,7 @@ class Doc:
         """When `word` is spoken in line i, by its letter share of the line (pauses spread evenly).
         Search the SPOKEN text: "1929" is spoken "nineteen twenty-nine", so ask for "nineteen"."""
         vo = self.seg[i]["vo"]
-        letters = re.sub(r"[^a-z]", "", vo.lower())
+        letters = re.sub(LETTERS, "", vo.lower())
         idx, start = -1, 0
         for _ in range(nth + 1):
             idx = vo.lower().find(word.lower(), start); start = idx + 1
@@ -164,7 +170,7 @@ class Doc:
                 break
         if idx < 0:
             raise ValueError(f"{word!r} (occurrence {nth}) is not in the spoken text of line {i}: {vo!r}")
-        before = len(re.sub(r"[^a-z]", "", vo[:idx].lower()))
+        before = len(re.sub(LETTERS, "", vo[:idx].lower()))
         return self.L(i) + (self.E(i) - self.L(i)) * before / max(1, len(letters)) + 0.04
 
     def on(self, pr, fx, fy):
@@ -268,14 +274,72 @@ def paint(rgb=(0, 0, 0), a=1.0, stroke=None, blur=None, aa=True):
     return p
 
 
-def draw_text(c, res, text, x, y, size, font="serif", rgb=CREAM, a=1.0, track=0.0, align="left", reveal=None):
-    """Draw text with letter tracking (em fraction). reveal=n draws only the first n characters."""
+def _shaped(res, text, size, font):
+    """A laid-out skia Paragraph (HarfBuzz shaping) for scripts that cannot be drawn glyph by glyph, like Devanagari."""
+    key = ("para", text, font, round(size, 1))
+    para = res.cache.get(key)
+    if para is None:
+        tl = skia.textlayout
+        if not hasattr(res, "_fc"):
+            prov = tl.TypefaceFontProvider()
+            res._fc_roles = set()
+            res._prov = prov
+            fb = resolve_typeface("deva", res.fonts_dir)[0]
+            if fb is not None:
+                prov.registerTypeface(fb, "zz_deva")
+            res._fc = tl.FontCollection(); res._fc.setDefaultFontManager(prov)
+        fam = f"zz_role_{font}"
+        if font not in res._fc_roles:
+            res._prov.registerTypeface(res.typeface(font), fam); res._fc_roles.add(font)
+            res._fc = tl.FontCollection(); res._fc.setDefaultFontManager(res._prov)
+        st = tl.TextStyle(); st.setFontFamilies([fam, "zz_deva"]); st.setFontSize(size)
+        st.setForegroundPaint(skia.Paint(AntiAlias=True, Color=skia.ColorBLACK))
+        ps = tl.ParagraphStyle(); ps.setTextStyle(st)
+        b = tl.ParagraphBuilder.make(ps, res._fc, skia.Unicode.ICU_Make())
+        b.pushStyle(st); b.addText(text); para = b.Build(); para.layout(1e7)
+        if len(res.cache) > 4000:
+            for k in [k for k in res.cache if isinstance(k, tuple) and k and k[0] == "para"][:2000]:
+                del res.cache[k]
+        res.cache[key] = para
+    return para
+
+
+def _draw_shaped(c, res, text, x, y, size, font, rgb, a, align, reveal, blur=None):
+    para = _shaped(res, text, size, font)
+    w = para.LongestLine
+    x0 = x - w / 2 if align == "center" else x - w if align == "right" else x
+    top = y - para.AlphabeticBaseline
+    c.save()
+    if reveal is not None:
+        c.clipRect(skia.Rect.MakeLTRB(x0 - size, top - size, x0 + w * clamp(reveal / max(1, len(text))), top + para.Height + size))
+    if a < 1 or blur:
+        lp = skia.Paint(Alphaf=clamp(a))
+        if blur:
+            lp.setImageFilter(skia.ImageFilters.Blur(blur / 2, blur / 2))
+        c.saveLayer(None, lp)
+    c.translate(x0, top)
+    # the paragraph is laid out in black: tint it with a colour filter so one layout serves every colour
+    tint = skia.Paint(ColorFilter=skia.ColorFilters.Blend(color(rgb, 1.0), skia.BlendMode.kSrcIn))
+    c.saveLayer(None, tint)
+    para.paint(c, 0, 0)
+    c.restore()
+    if a < 1 or blur:
+        c.restore()
+    c.restore()
+    return w
+
+
+def draw_text(c, res, text, x, y, size, font="serif", rgb=CREAM, a=1.0, track=0.0, align="left", reveal=None, blur=None):
+    """Draw text with letter tracking (em fraction). reveal=n draws only the first n characters.
+    Complex scripts (Devanagari and other Indic scripts) are shaped as a whole and revealed by width."""
+    if COMPLEX.search(text):
+        return _draw_shaped(c, res, text, x, y, size, font, rgb, a, align, reveal, blur)
     f = res.font(font, size)
     widths = f.getWidths(f.textToGlyphs(text))
     gap = track * size
     total = sum(widths) + gap * (len(text) - 1)
     x0 = x - total / 2 if align == "center" else x - total if align == "right" else x
-    p = paint(rgb, a)
+    p = paint(rgb, a, blur=blur)
     n = len(text) if reveal is None else int(reveal)
     cx = x0
     for i, ch in enumerate(text):
@@ -287,6 +351,8 @@ def draw_text(c, res, text, x, y, size, font="serif", rgb=CREAM, a=1.0, track=0.
 
 
 def text_width(res, text, size, font="serif", track=0.0):
+    if COMPLEX.search(text):
+        return _shaped(res, text, size, font).LongestLine
     f = res.font(font, size)
     return sum(f.getWidths(f.textToGlyphs(text))) + track * size * (len(text) - 1)
 

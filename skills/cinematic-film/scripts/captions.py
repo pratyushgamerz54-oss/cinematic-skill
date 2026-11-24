@@ -24,7 +24,7 @@ def words_with_times(seg):
     disp = seg["caption"].replace('"', "").split()
     lens = []
     for w in disp:
-        letters = len(re.sub(r"[^A-Za-z]", "", w))
+        letters = len(re.sub(r"[^A-Za-z\u0900-\u097F]", "", w))
         if re.search(r"\d", w):                      # 1929 is long when spoken ("nineteen twenty-nine")
             letters = max(letters, 6 * len(re.sub(r"[^0-9]", "", w)) // 2 + 4)
         lens.append(max(1, letters))
@@ -44,7 +44,7 @@ def chunks_for(timing, style):
         cur, line = [], []
         for i, (w, t) in enumerate(ws):
             cur.append((w, t))
-            if len(cur) >= mx or (w[-1] in ".,?!;:" and len(cur) >= max(2, mx // 2)) or i == len(ws) - 1:
+            if len(cur) >= mx or (w[-1] in ".,?!;:\u0964" and len(cur) >= max(2, mx // 2)) or i == len(ws) - 1:
                 line.append({"words": cur, "t0": cur[0][1]}); cur = []
         for a, b in zip(line, line[1:]):
             a["t1"] = b["t0"]
@@ -124,7 +124,7 @@ class Captions:
             y = y0 + i * size * 1.25
             cv.save(); cv.translate(0, 3 * k)
             tw = text_width(self.res, ln, size, f)
-            cv.drawString(ln, self.W / 2 - tw / 2, y, self.res.font(f, size), paint((0, 0, 0), 0.85 * a, blur=6 * k))
+            draw_text(cv, self.res, ln, self.W / 2 - tw / 2, y, size, f, (0, 0, 0), 0.85 * a, 0.0, blur=6 * k)
             cv.restore()
             draw_text(cv, self.res, ln, self.W / 2, y, size, f, (252, 250, 245), a, 0.0, "center")
 

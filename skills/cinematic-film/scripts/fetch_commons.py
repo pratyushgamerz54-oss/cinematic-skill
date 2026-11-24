@@ -17,7 +17,7 @@ credit and licence yourself from the archive's record page (Library of Congress,
 
 Search tips: Commons search matches file names and descriptions, so search the archive's words
 ("first flight", "Kitty Hawk 1903"), then open the category of a good hit to see its siblings.
-Large originals are fetched as 3200 px renders, which is more than a print on screen ever needs.
+Large originals are fetched as standard-size renders (3840, 1920, 1280 or 960 px; Wikimedia rate-limits other sizes and full originals), which is more than a print on screen ever needs.
 """
 import argparse
 import html
@@ -62,7 +62,7 @@ def info(page):
             "desc": g("ImageDescription")[:160]}
 
 
-IIPROP = dict(prop="imageinfo", iiprop="url|size|mime|extmetadata", iiurlwidth=3200)
+IIPROP = dict(prop="imageinfo", iiprop="url|size|mime|extmetadata", iiurlwidth=2560)
 
 
 def show(pages):
@@ -81,6 +81,21 @@ def cmd_category(a):
     cat = a.category if a.category.startswith("Category:") else "Category:" + a.category
     r = api(action="query", generator="categorymembers", gcmtitle=cat, gcmtype="file", gcmlimit=a.limit, **IIPROP)
     show((r.get("query") or {}).get("pages", []))
+
+
+STD_WIDTHS = (3840, 1920, 1280, 960)   # standard Wikimedia thumbnail steps; other sizes and busy originals get HTTP 429
+
+
+def std_thumb(url, w):
+    """The largest standard-size render on upload.wikimedia.org that is smaller than the original
+    (the original itself when it is under 960 px)."""
+    u = urllib.parse.urlparse(url)
+    parts = u.path.split("/")             # /wikipedia/commons/c/c9/Name.jpg
+    for sw in STD_WIDTHS:
+        if sw < w and len(parts) >= 6:
+            name = parts[-1]
+            return f"{u.scheme}://{u.netloc}{'/'.join(parts[:3])}/thumb/{'/'.join(parts[3:])}/{sw}px-{name}"
+    return url.split("?")[0]
 
 
 def download(url, dst):
@@ -113,13 +128,14 @@ def cmd_get(a):
             ok = bool(FREE.search(d["license"] or ""))
             if not ok and not a.allow_nonfree:
                 print(f"{p['id']}: REFUSED, licence {d['license']!r} is not free ({d['source']})"); refused += 1; continue
-            url = d["thumb"] if d["thumb"] and (d["w"] or 0) > 3200 and "svg" not in (d["mime"] or "") else d["url"]
-            if "svg" in (d["mime"] or ""):
-                url = d["thumb"]
+            url = std_thumb(d["url"], d["w"] or 0) if "svg" not in (d["mime"] or "") else d["thumb"]
             ext = pathlib.Path(urllib.parse.urlparse(url).path).suffix.lower() or ".jpg"
             fname = p["file"] if have and not a.force else f"{p['id']}_{re.sub(r'[^A-Za-z0-9]+', '_', title[5:].rsplit('.', 1)[0])[:48]}{ext}"
             if not have or a.force:
-                download(url, dst_dir / fname)   # an existing file only gets its credit and licence filled in
+                try:
+                    download(url, dst_dir / fname)   # an existing file only gets its credit and licence filled in
+                except urllib.error.HTTPError as e:
+                    print(f"{p['id']}: download failed, HTTP {e.code}: {url}"); refused += 1; continue
             p.update(file=fname, source=d["source"], credit=p.get("credit") or d["credit"], license=d["license"],
                      license_url=d["license_url"], date=d["date"], license_ok=ok)
             print(f"{p['id']}: {fname}  [{d['license']}]  {p['credit'][:50]}")
