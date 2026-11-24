@@ -1,5 +1,83 @@
 {
- "grade": "natural",
- "photos": [],
- "recreations": []
+ "grade": "bw",
+ "photos": [
+  {
+   "id": "P01",
+   "what": "CIA aerial view of the Abbottabad compound",
+   "kind": "photo",
+   "commons": "File:CIA aerial view Osama bin Laden compound Abbottabad 2004 2011.jpg"
+  },
+  {
+   "id": "P02",
+   "what": "The Abbottabad compound from the street, 4 May 2011",
+   "kind": "photo",
+   "commons": "File:Osama bin Laden compound2.jpg",
+   "file": "P02_Osama_bin_Laden_compound2.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Osama_bin_Laden_compound2.jpg",
+   "credit": "Sajjad Ali Qureshi",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "date": "2011-05-04",
+   "license_ok": true
+  },
+  {
+   "id": "P03",
+   "what": "Afghan mujahideen in the Durand border region, August 1985",
+   "kind": "photo",
+   "commons": "File:August 1985 Muja.jpg"
+  },
+  {
+   "id": "P04",
+   "what": "Taj Mahal Palace hotel cordoned off after the attacks, December 2008",
+   "kind": "photo",
+   "commons": "File:2008 Mumbai terror attacks Taj Hotel cordoned off.jpg"
+  },
+  {
+   "id": "P05",
+   "what": "Admiral Michael Mullen, official portrait, 2007",
+   "kind": "photo",
+   "commons": "File:Michael Mullen, CJCS, official photo portrait, 2007.jpg",
+   "crop": [
+    0.08,
+    0.04,
+    0.92,
+    0.66
+   ]
+  },
+  {
+   "id": "P06",
+   "what": "Hillary Clinton, official Secretary of State portrait",
+   "kind": "photo",
+   "commons": "File:Hillary Clinton official Secretary of State portrait crop.jpg",
+   "crop": [
+    0.06,
+    0.02,
+    0.94,
+    0.72
+   ]
+  },
+  {
+   "id": "P07",
+   "what": "Imran Khan at the White House, July 2019",
+   "kind": "photo",
+   "commons": "File:Imran Khan In white house.jpg"
+  },
+  {
+   "id": "P08",
+   "what": "Khawaja Muhammad Asif, December 2015",
+   "kind": "photo",
+   "commons": "File:Khawaja Muhammad Asif - December 2015 (cropped).jpg",
+   "file": "P08_Khawaja_Muhammad_Asif_December_2015_cropped_.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Khawaja_Muhammad_Asif_-_December_2015_(cropped).jpg",
+   "credit": "USAID Pakistan",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2015-12-01 09:47:05",
+   "license_ok": true
+  }
+ ],
+ "recreations": [
+  "UN Security Council sanctions list entry for Mohammed Masood Azhar Alvi (QDi.422): the line shown quotes the UN narrative summary; the page is typeset in code.",
+  "Tariq Khosa's op-ed in Dawn, 3 August 2015: the sentence shown is his; the page is typeset in code."
+ ]
 }

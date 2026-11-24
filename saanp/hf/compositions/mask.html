@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  </style>
+  <div id="root" data-composition-id="mask" data-width="1920" data-height="1080">
+    <div id="mask-under" class="clip" data-layout-allow-overlap data-start="0" data-duration="6" style="position:absolute;left:560px;top:330px;width:800px;height:420px;background:#2a1b19;border:4px solid #d8322a;display:flex;align-items:center;justify-content:center;font-family:'Teko HF';font-size:120px;color:#f3ede4">लश्कर-ए-तैयबा</div>
+    <div id="mask-top" class="clip" data-layout-allow-overlap data-start="0" data-duration="6" style="position:absolute;left:560px;top:330px;width:800px;height:420px;background:#e8e1d6;display:flex;align-items:center;justify-content:center;font-family:'Teko HF';font-size:190px;color:#151111">TRF</div>
+    <div id="mask-q" class="clip k" data-start="0" data-duration="6" style="top:820px;font-family:'Hind HF';font-size:48px;color:#cfc6b8">एक मुखौटा?</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#mask-top",{opacity:0,y:40},{opacity:1,y:0,duration:0.4,ease:"power3.out"},0);
+    tl.fromTo("#mask-under",{opacity:0},{opacity:1,duration:0.01},0.3);
+    tl.fromTo("#mask-q",{opacity:0},{opacity:1,duration:0.4},0.6);
+    tl.fromTo("#mask-top",{y:0,rotation:0},{y:-560,rotation:-9,duration:1.1,ease:"power3.inOut",immediateRender:false},2.4);
+    window.__timelines["mask"] = tl;
+  </script>
+</template>

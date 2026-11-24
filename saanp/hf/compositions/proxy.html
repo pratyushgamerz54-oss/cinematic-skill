@@ -1,0 +1,28 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  </style>
+  <div id="root" data-composition-id="proxy" data-width="1920" data-height="1080">
+    <svg id="proxy-strings" class="clip" data-start="0" data-duration="7" style="position:absolute;inset:0" width="1920" height="1080"><line id="proxy-s0" x1="960" y1="400" x2="595" y2="640" stroke="#d8322a" stroke-width="4"/><line id="proxy-s1" x1="960" y1="400" x2="795" y2="640" stroke="#d8322a" stroke-width="4"/><line id="proxy-s2" x1="960" y1="400" x2="995" y2="640" stroke="#d8322a" stroke-width="4"/><line id="proxy-s3" x1="960" y1="400" x2="1195" y2="640" stroke="#d8322a" stroke-width="4"/><line id="proxy-s4" x1="960" y1="400" x2="1395" y2="640" stroke="#d8322a" stroke-width="4"/></svg>
+    <div id="proxy-p0" class="clip" data-start="0" data-duration="7" style="position:absolute;left:560px;top:640px;width:70px;height:110px"><div style="width:44px;height:44px;border-radius:50%;background:#f3ede4;margin:0 auto"></div><div style="width:70px;height:62px;background:#f3ede4;border-radius:30px 30px 6px 6px;margin-top:4px"></div></div><div id="proxy-p1" class="clip" data-start="0" data-duration="7" style="position:absolute;left:760px;top:640px;width:70px;height:110px"><div style="width:44px;height:44px;border-radius:50%;background:#f3ede4;margin:0 auto"></div><div style="width:70px;height:62px;background:#f3ede4;border-radius:30px 30px 6px 6px;margin-top:4px"></div></div><div id="proxy-p2" class="clip" data-start="0" data-duration="7" style="position:absolute;left:960px;top:640px;width:70px;height:110px"><div style="width:44px;height:44px;border-radius:50%;background:#f3ede4;margin:0 auto"></div><div style="width:70px;height:62px;background:#f3ede4;border-radius:30px 30px 6px 6px;margin-top:4px"></div></div><div id="proxy-p3" class="clip" data-start="0" data-duration="7" style="position:absolute;left:1160px;top:640px;width:70px;height:110px"><div style="width:44px;height:44px;border-radius:50%;background:#f3ede4;margin:0 auto"></div><div style="width:70px;height:62px;background:#f3ede4;border-radius:30px 30px 6px 6px;margin-top:4px"></div></div><div id="proxy-p4" class="clip" data-start="0" data-duration="7" style="position:absolute;left:1360px;top:640px;width:70px;height:110px"><div style="width:44px;height:44px;border-radius:50%;background:#f3ede4;margin:0 auto"></div><div style="width:70px;height:62px;background:#f3ede4;border-radius:30px 30px 6px 6px;margin-top:4px"></div></div>
+    <div id="proxy-a" class="clip k" data-start="0.3" data-duration="6.7" style="top:150px;font-family:'Hind HF';font-size:64px">अपनी फ़ौज भेजे बिना...</div>
+    <div id="proxy-b" class="clip k red" data-start="2.6" data-duration="4.4" style="top:250px;font-family:'Teko HF';font-size:150px;line-height:1">...जंग।</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#proxy-a",{opacity:0},{opacity:1,duration:0.5},0.3);
+    for (let i=0;i<5;i++){ tl.fromTo("#proxy-s"+i,{strokeDasharray:500,strokeDashoffset:500},{strokeDashoffset:0,duration:0.7,ease:"power2.out"},0.6+i*0.18);
+      tl.fromTo("#proxy-p"+i,{y:0,opacity:0},{y:0,opacity:1,duration:0.3},0.6+i*0.18);
+      tl.fromTo("#proxy-p"+i,{y:0},{y:-40,duration:0.45,ease:"power2.inOut",yoyo:true,repeat:5},1.8+i*0.12); }
+    tl.fromTo("#proxy-b",{opacity:0,scale:1.4},{opacity:1,scale:1,duration:0.3,ease:"power4.out"},2.6);
+    window.__timelines["proxy"] = tl;
+  </script>
+</template>

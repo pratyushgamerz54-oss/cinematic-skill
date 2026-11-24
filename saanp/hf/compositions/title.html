@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  </style>
+  <div id="root" data-composition-id="title" data-width="1920" data-height="1080">
+    <div id="title-a" class="clip k" data-start="0" data-duration="5" style="top:330px;font-family:'Teko HF';font-size:230px;line-height:1">पिछवाड़े के साँप</div>
+    <svg id="title-snake" class="clip" data-start="0" data-duration="5" style="position:absolute;left:360px;top:610px" width="1200" height="120" viewBox="0 0 1200 120"><path id="title-path" d="M10 60 C 160 0, 260 120, 410 60 S 660 0, 810 60 S 1060 120, 1150 55 L 1185 40" fill="none" stroke="#d8322a" stroke-width="12" stroke-linecap="round"/></svg>
+    <div id="title-b" class="clip k" data-start="1.2" data-duration="3.8" style="top:760px;font-family:'Hind HF';font-size:52px;color:#cfc6b8">पाकिस्तान और आतंक: सबूत क्या कहते हैं</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#title-a",{opacity:0,y:40,scale:1.12},{opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"},0);
+    tl.fromTo("#title-path",{strokeDasharray:1400,strokeDashoffset:1400},{strokeDashoffset:0,duration:1.3,ease:"power2.inOut"},0.4);
+    tl.fromTo("#title-b",{opacity:0,y:20},{opacity:1,y:0,duration:0.5,ease:"power2.out"},1.2);
+    tl.fromTo("#title-a",{scale:1},{scale:1.04,duration:4.1,ease:"none",immediateRender:false},0.9);
+    window.__timelines["title"] = tl;
+  </script>
+</template>

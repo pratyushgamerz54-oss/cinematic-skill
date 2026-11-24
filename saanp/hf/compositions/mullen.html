@@ -1,0 +1,32 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  </style>
+  <div id="root" data-composition-id="mullen" data-width="1920" data-height="1080">
+    <div id="mullen-mark" class="clip" data-start="0" data-duration="6" style="position:absolute;left:180px;top:110px;font-family:'Tiro HF';font-size:300px;color:#d8322a;line-height:1">“</div>
+    <div id="mullen-h" class="clip k" data-start="0.2" data-duration="5.8" style="top:300px;padding:0 220px;font-family:'Hind HF';font-size:76px;line-height:1.35">हक़्क़ानी नेटवर्क, आई एस आई की<br>एक असली बाँह की तरह काम करता है।</div>
+    <div id="mullen-e" class="clip k" data-start="1.0" data-duration="5.0" style="top:640px;font-family:'Tiro HF';font-style:italic;font-size:54px;color:#d8c9a8">“a veritable arm of Pakistan’s Inter-Services Intelligence”</div>
+    <div id="mullen-rule" class="clip rule" data-start="1.0" data-duration="5.0" style="left:760px;top:735px;width:400px"></div>
+    <div id="mullen-src" class="clip src" data-start="1.4" data-duration="4.6">एडमिरल माइक मलन · अमेरिकी सीनेट · 22 सितंबर 2011</div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#mullen-mark",{opacity:0,y:-30},{opacity:0.9,y:0,duration:0.4,ease:"power3.out"},0);
+    tl.fromTo("#mullen-h",{opacity:0,y:30,filter:"blur(6px)"},{opacity:1,y:0,filter:"blur(0px)",duration:0.6,ease:"power3.out"},0.2);
+    tl.fromTo("#mullen-e",{opacity:0},{opacity:1,duration:0.6},1.0);
+    tl.fromTo("#mullen-rule",{scaleX:0},{scaleX:1,duration:0.6,ease:"power2.out"},1.0);
+    tl.fromTo("#mullen-src",{opacity:0},{opacity:1,duration:0.5},1.4);
+    tl.fromTo("#mullen-h",{scale:1},{scale:1.03,duration:5.2,ease:"none",immediateRender:false},0.8);
+
+    window.__timelines["mullen"] = tl;
+  </script>
+</template>

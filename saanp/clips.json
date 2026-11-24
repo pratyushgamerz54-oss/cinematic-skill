@@ -1,0 +1,118 @@
+{
+ "fps": 30,
+ "clips": [
+  {
+   "id": "g_abbottabad",
+   "file": "assets/clips/g_abbottabad.mp4",
+   "what": "3D globe: night descent onto Abbottabad",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qopen",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    0,
+    5
+   ],
+   "what": "HyperFrames motion graphic: qopen",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_title",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    5,
+    10
+   ],
+   "what": "HyperFrames motion graphic: title",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_proxy",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    10,
+    17
+   ],
+   "what": "HyperFrames motion graphic: proxy",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_mullen",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    17,
+    23
+   ],
+   "what": "HyperFrames motion graphic: mullen",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_clinton",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    23,
+    30
+   ],
+   "what": "HyperFrames motion graphic: clinton",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_fatf",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    30,
+    35
+   ],
+   "what": "HyperFrames motion graphic: fatf",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_mask",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    35,
+    41
+   ],
+   "what": "HyperFrames motion graphic: mask",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_asif",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    41,
+    50
+   ],
+   "what": "HyperFrames motion graphic: asif",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qend",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    50,
+    57
+   ],
+   "what": "HyperFrames motion graphic: qend",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "compound",
+   "file": "assets/clips/compound.mp4",
+   "what": "Illustrative 3D model of the Abbottabad compound and the ~1 km line to the Pakistan Military Academy (not survey-accurate)",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  }
+ ]
+}

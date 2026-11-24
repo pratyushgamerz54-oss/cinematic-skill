@@ -9,3 +9,9 @@ out/*
 !out/captions.srt
 assets/globe/
 assets/clips/
+reel/out/
+reel/audio/trimmed/
+reel/assets/
+hf/.hyperframes/
+hf/node_modules/
+audio/music/score.wav

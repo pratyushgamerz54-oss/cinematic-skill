@@ -10,7 +10,8 @@ Reads globe.json in the project:
   {"globes": [{
      "name": "empire", "seconds": 9, "fps": 30, "size": "1920x1080",
      "source": "assets/data/countries-50m.json", "object": "countries",     # same boundaries as map.json
-     "look": "night",                                   # night (space) or board (dark cork brown)
+     "look": "night",                                   # night (space), dark (thriller: charcoal land, red rim) or board (cork brown)
+     "borders": true,                                   # false: land and sea only, no country lines
      "places": {"Pella": [40.76, 22.52], "Babylon": [32.54, 44.42]},      # [lat, lon]
      "fills":   [{"names": ["Greece", "Macedonia"], "rgb": [214, 160, 40], "t_in": 0.8}],
      "routes":  [{"from": "Pella", "to": "Babylon", "t_in": 2.0, "dur": 2.0}],
@@ -49,6 +50,8 @@ from make_map import features, load  # noqa: E402
 LOOKS = {
     "night": dict(background=[6, 8, 13], ocean=[18, 52, 70], land=[205, 199, 186], border=[120, 112, 100],
                   atmosphere=[120, 180, 255], stars=True, exposure=1.05),
+    "dark": dict(background=[5, 6, 9], ocean=[9, 16, 26], land=[64, 66, 70], border=[96, 98, 104],
+                 atmosphere=[150, 60, 50], stars=True, exposure=1.0),
     "board": dict(background=[34, 27, 22], ocean=[96, 176, 186], land=[226, 221, 211], border=[150, 142, 130],
                   atmosphere=[255, 226, 180], stars=False, exposure=1.0),
 }
@@ -91,8 +94,26 @@ def textures(g, feats, out):
     base = Image.new("RGB", (W, H), ocean); d = ImageDraw.Draw(base)
     for _, rings in feats:
         draw_rings(d, rings, W, H, fill=land)
-    for _, rings in feats:
-        draw_rings(d, rings, W, H, outline=border, width=3)
+    if g.get("texture", True):              # faint terrain-like grain on land, so close-ups are not flat
+        import numpy as np
+        from PIL import ImageFilter
+        rng = np.random.default_rng(3)
+        n = Image.fromarray((rng.random((H // 8, W // 8)) * 255).astype("uint8")).resize((W, H), Image.BICUBIC).filter(ImageFilter.GaussianBlur(6))
+        fine = Image.fromarray((rng.random((H // 2, W // 2)) * 255).astype("uint8")).resize((W, H), Image.BILINEAR)
+        arr = np.asarray(base, np.float32)
+        landmask = np.all(np.abs(arr - np.array(land, np.float32)) < 2, axis=-1)[..., None]
+        k = (np.asarray(n, np.float32)[..., None] / 255 - 0.5) * 0.35 + (np.asarray(fine, np.float32)[..., None] / 255 - 0.5) * 0.12
+        arr = np.where(landmask, np.clip(arr * (1 + k), 0, 255), arr)
+        base = Image.fromarray(arr.astype("uint8")); d = ImageDraw.Draw(base)
+    if g.get("grid"):                         # a tactical graticule every N degrees
+        step, gc = g["grid"], tuple(g.get("grid_rgb", [120, 40, 36]))
+        for lon in range(-180, 181, step):
+            x = (lon + 180) / 360 * W; d.line([(x, 0), (x, H)], fill=gc, width=2)
+        for lat in range(-90, 91, step):
+            y = (90 - lat) / 180 * H; d.line([(0, y), (W, y)], fill=gc, width=2)
+    if g.get("borders", True):            # borders: false draws land and sea only (no disputed boundaries)
+        for _, rings in feats:
+            draw_rings(d, rings, W, H, outline=border, width=3)
     base.save(out / "base.png", optimize=True)
     names = {n for n, _ in feats}
     for i, f in enumerate(g.get("fills", [])):

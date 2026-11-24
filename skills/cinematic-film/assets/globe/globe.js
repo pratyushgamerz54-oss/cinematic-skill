@@ -53,7 +53,7 @@ const atmo = new THREE.Mesh(new THREE.SphereGeometry(1.0, 96, 64), new THREE.Sha
   vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }',
   fragmentShader: 'uniform vec3 uColor; varying vec3 vN; varying vec3 vV; void main(){ float k = pow(clamp(1.0 + dot(vN, vV) * 1.0, 0.0, 1.0), 3.0); gl_FragColor = vec4(uColor * k * 1.4, k); }',
 }));
-atmo.scale.setScalar(1.12); scene.add(atmo);
+atmo.scale.setScalar(cfg.atmo_scale ?? 1.06); scene.add(atmo);
 
 // stars
 if (cfg.stars) {
@@ -165,16 +165,16 @@ function draw(t) {
   }
 
   const camDir = camera.position.clone().normalize();
-  const dist = camera.position.length();
   for (const M of markers) {
     const u = ramp(t, M.m.t_in, 0.35), a = u * (M.m.t_out == null ? 1 : 1 - ramp(t, M.m.t_out, 0.4));
     const facing = clamp((M.p.clone().normalize().dot(camDir) - 0.05) * 6);
-    const s = (0.0045 + 0.0035 * dist) * (M.m.size ?? 1) * (u > 0 ? easeOutBack(u) : 0);
+    const dc = camera.position.distanceTo(M.p);          // size by distance to the camera: same size on screen at any zoom
+    const s = 0.016 * dc * (M.m.size ?? 1) * (u > 0 ? easeOutBack(u) : 0);
     M.dot.scale.setScalar(s * 0.55); M.ring.scale.setScalar(s * 0.55);
     M.dot.visible = M.ring.visible = a > 0 && facing > 0;
     M.ring.material.opacity = a * facing;
     if (M.lab) {
-      const la = ramp(t, M.m.t_in + 0.15, 0.3) * a * facing, h = (0.018 + 0.016 * dist) * (M.m.label_size ?? 1);
+      const la = ramp(t, M.m.t_in + 0.15, 0.3) * a * facing, h = 0.042 * dc * (M.m.label_size ?? 1);
       M.lab.material.opacity = la; M.lab.visible = la > 0;
       M.lab.scale.set(h * M.lab.userData.aspect, h, 1);
     }

@@ -1,0 +1,33 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  </style>
+  <div id="root" data-composition-id="asif" data-width="1920" data-height="1080">
+    <div id="asif-mark" class="clip" data-start="0" data-duration="9" style="position:absolute;left:180px;top:110px;font-family:'Tiro HF';font-size:300px;color:#d8322a;line-height:1">“</div>
+    <div id="asif-h" class="clip k" data-start="0.2" data-duration="8.8" style="top:300px;padding:0 220px;font-family:'Hind HF';font-size:76px;line-height:1.35">हम लगभग तीन दशक से, अमेरिका और पश्चिम के लिए,<br>ये गंदा काम करते आए हैं।</div>
+    <div id="asif-e" class="clip k" data-start="1.0" data-duration="8.0" style="top:640px;font-family:'Tiro HF';font-style:italic;font-size:54px;color:#d8c9a8">“dirty work … for about three decades”</div>
+    <div id="asif-rule" class="clip rule" data-start="1.0" data-duration="8.0" style="left:760px;top:735px;width:400px"></div>
+    <div id="asif-src" class="clip src" data-start="1.4" data-duration="7.6">ख़्वाजा आसिफ़ · पाकिस्तान के रक्षा मंत्री · स्काई न्यूज़ · अप्रैल 2025</div>
+    <div id="asif-m" class="clip k red" data-start="5.4" data-duration="3.6" style="top:860px;font-family:'Teko HF';font-size:110px;line-height:1">“ये एक ग़लती थी।”</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#asif-mark",{opacity:0,y:-30},{opacity:0.9,y:0,duration:0.4,ease:"power3.out"},0);
+    tl.fromTo("#asif-h",{opacity:0,y:30,filter:"blur(6px)"},{opacity:1,y:0,filter:"blur(0px)",duration:0.6,ease:"power3.out"},0.2);
+    tl.fromTo("#asif-e",{opacity:0},{opacity:1,duration:0.6},1.0);
+    tl.fromTo("#asif-rule",{scaleX:0},{scaleX:1,duration:0.6,ease:"power2.out"},1.0);
+    tl.fromTo("#asif-src",{opacity:0},{opacity:1,duration:0.5},1.4);
+    tl.fromTo("#asif-h",{scale:1},{scale:1.03,duration:8.2,ease:"none",immediateRender:false},0.8);
+    tl.fromTo("#asif-src",{opacity:1},{opacity:0,duration:0.3,immediateRender:false},5.2);
+    tl.fromTo("#asif-m",{opacity:0,scale:1.3},{opacity:1,scale:1,duration:0.3,ease:"power4.out"},5.4);
+    window.__timelines["asif"] = tl;
+  </script>
+</template>
