@@ -134,6 +134,20 @@
    "what": "3D globe: the sea route from Karachi to Mumbai, November 2008",
    "credit": "Made in code (three.js); boundaries: Natural Earth",
    "license": "Own work"
+  },
+  {
+   "id": "g_pahalgam",
+   "file": "assets/clips/g_pahalgam.mp4",
+   "what": "3D globe: Pahalgam (0-4.8 s), then sites India said it struck in Operation Sindoor (5-9 s)",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_verdict",
+   "file": "assets/clips/g_verdict.mp4",
+   "what": "3D globe: Abbottabad to Pahalgam, then pull back to the whole globe",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
   }
  ]
 }
