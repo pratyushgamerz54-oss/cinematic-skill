@@ -1,6 +1,9 @@
-out/
 audio/lines/
 audio/trimmed/
 audio/sfx.wav
 assets/prep/
 __pycache__/
+!out/
+out/*
+!out/sikandar_ka_samrajya_hindi.mp4
+!out/captions.srt
