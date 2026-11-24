@@ -113,6 +113,20 @@
    "what": "Illustrative 3D model of the Abbottabad compound and the ~1 km line to the Pakistan Military Academy (not survey-accurate)",
    "credit": "Made in code (three.js)",
    "license": "Own work"
+  },
+  {
+   "id": "g_roots",
+   "file": "assets/clips/g_roots.mp4",
+   "what": "3D globe: US and Saudi money and arms routed through Pakistan to Afghanistan, 1980s",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_ic814",
+   "file": "assets/clips/g_ic814.mp4",
+   "what": "3D globe: the route of hijacked IC-814, Kathmandu to Kandahar, December 1999",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
   }
  ]
 }

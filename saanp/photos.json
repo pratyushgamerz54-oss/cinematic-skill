@@ -5,7 +5,12 @@
    "id": "P01",
    "what": "CIA aerial view of the Abbottabad compound",
    "kind": "photo",
-   "commons": "File:CIA aerial view Osama bin Laden compound Abbottabad 2004 2011.jpg"
+   "commons": "File:CIA aerial view Osama bin Laden compound Abbottabad 2004 2011.jpg",
+   "file": "P01_cia_aerial.jpg",
+   "credit": "CIA and/or US Department of Defense",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:CIA_aerial_view_Osama_bin_Laden_compound_Abbottabad_2004_2011.jpg",
+   "license_ok": true
   },
   {
    "id": "P02",
@@ -24,13 +29,23 @@
    "id": "P03",
    "what": "Afghan mujahideen in the Durand border region, August 1985",
    "kind": "photo",
-   "commons": "File:August 1985 Muja.jpg"
+   "commons": "File:August 1985 Muja.jpg",
+   "file": "P03_muja_1985.jpg",
+   "credit": "Erwin Lux",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:August_1985_Muja.jpg",
+   "license_ok": true
   },
   {
    "id": "P04",
    "what": "Taj Mahal Palace hotel cordoned off after the attacks, December 2008",
    "kind": "photo",
-   "commons": "File:2008 Mumbai terror attacks Taj Hotel cordoned off.jpg"
+   "commons": "File:2008 Mumbai terror attacks Taj Hotel cordoned off.jpg",
+   "file": "P04_taj_2008.jpg",
+   "credit": "Nicholas (Nichalp)",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2008_Mumbai_terror_attacks_Taj_Hotel_cordoned_off.jpg",
+   "license_ok": true
   },
   {
    "id": "P05",
@@ -42,7 +57,12 @@
     0.04,
     0.92,
     0.66
-   ]
+   ],
+   "file": "P05_mullen.jpg",
+   "credit": "United States Department of Defense",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Michael_Mullen,_CJCS,_official_photo_portrait,_2007.jpg",
+   "license_ok": true
   },
   {
    "id": "P06",
@@ -54,13 +74,23 @@
     0.02,
     0.94,
     0.72
-   ]
+   ],
+   "file": "P06_clinton.jpg",
+   "credit": "United States Department of State",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg",
+   "license_ok": true
   },
   {
    "id": "P07",
    "what": "Imran Khan at the White House, July 2019",
    "kind": "photo",
-   "commons": "File:Imran Khan In white house.jpg"
+   "commons": "File:Imran Khan In white house.jpg",
+   "file": "P07_imran.jpg",
+   "credit": "The White House (Joyce N. Boghosian)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Imran_Khan_In_white_house.jpg",
+   "license_ok": true
   },
   {
    "id": "P08",
