@@ -21,3 +21,4 @@ out/*
 !out/*_final.mp4
 !out/*_reel.mp4
 !out/captions*.srt
+out/*nocaptions*
