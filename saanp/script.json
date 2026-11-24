@@ -1,0 +1,580 @@
+{
+ "title": "पिछवाड़े के साँप",
+ "subtitle": "पाकिस्तान और आतंक: सबूत क्या कहते हैं",
+ "language": "hi",
+ "format": {
+  "film": "1920x1080, about 5 min",
+  "reel": "1080x1920, about 60 s, lines listed in reel.lines"
+ },
+ "takes": [
+  {
+   "take": "T01_cold_open",
+   "lines": [
+    {
+     "id": 1,
+     "text": "दो मई, दो हज़ार ग्यारह की रात। पाकिस्तान का शहर, एबटाबाद।",
+     "spoken": "दो मई, दो हज़ार ग्यारह की रात। पाकिस्तान का शहर, एबटाबाद।",
+     "hero": "3D: night flight down onto Abbottabad on the globe; date slams in",
+     "typed": "2 मई 2011 · एबटाबाद",
+     "hook": "open"
+    },
+    {
+     "id": 2,
+     "text": "अमेरिकी कमांडो ऊँची दीवारों वाले एक घर में उतरते हैं।",
+     "spoken": "अमेरिकी कमांडो ऊँची दीवारों वाले एक घर में उतरते हैं।",
+     "hero": "3D: code-built model of the walled compound, camera circling it",
+     "typed": ""
+    },
+    {
+     "id": 3,
+     "text": "अंदर था दुनिया का सबसे ज़्यादा ढूँढा जाने वाला आदमी, ओसामा बिन लादेन।",
+     "spoken": "अंदर था दुनिया का सबसे ज़्यादा ढूँढा जाने वाला आदमी, ओसामा बिन लादेन।",
+     "hero": "photo of the compound pinned on the wall; red name bar",
+     "typed": "name bar: बिन लादेन"
+    },
+    {
+     "id": 4,
+     "text": "और उस घर से लगभग एक किलोमीटर दूर था, पाकिस्तान की सबसे बड़ी फ़ौजी अकादमी।",
+     "spoken": "और उस घर से लगभग एक किलोमीटर दूर था, पाकिस्तान की सबसे बड़ी फ़ौजी अकादमी।",
+     "hero": "3D: a measured line draws from the compound to the academy, counter 1 KM",
+     "typed": "≈ 1 किमी"
+    },
+    {
+     "id": 5,
+     "text": "तो सवाल ये है: क्या ये सिर्फ़ एक इत्तेफ़ाक़ था? या एक पैटर्न?",
+     "spoken": "तो सवाल ये है... क्या ये सिर्फ़ एक इत्तेफ़ाक़ था? या एक पैटर्न?",
+     "hero": "HyperFrames kinetic type: the question, word by word; heartbeat",
+     "typed": "इत्तेफ़ाक़? या पैटर्न?",
+     "hook": "question",
+     "gap_after": 0.8
+    },
+    {
+     "id": 6,
+     "text": "आज, सबूतों के सहारे, हम इस सवाल की तह तक जाएँगे।",
+     "spoken": "आज, सबूतों के सहारे, हम इस सवाल की तह तक जाएँगे।",
+     "hero": "title card after the line",
+     "typed": "title पिछवाड़े के साँप",
+     "gap_after": 1.4
+    }
+   ]
+  },
+  {
+   "take": "T02_roots",
+   "lines": [
+    {
+     "id": 7,
+     "text": "कहानी शुरू होती है, उन्नीस सौ अस्सी के दशक में, अफ़ग़ानिस्तान से।",
+     "spoken": "कहानी शुरू होती है, उन्नीस सौ अस्सी के दशक में, अफ़ग़ानिस्तान से।",
+     "hero": "Timeline draws on: 1980s; 3D globe swings to Afghanistan",
+     "typed": "1980 का दशक"
+    },
+    {
+     "id": 8,
+     "text": "सोवियत फ़ौज से लड़ रहे मुजाहिदीन तक, अमेरिका और सऊदी अरब का पैसा और हथियार पहुँचते थे।",
+     "spoken": "सोवियत फ़ौज से लड़ रहे मुजाहिदीन तक, अमेरिका और सऊदी अरब का पैसा और हथियार पहुँचते थे।",
+     "hero": "map: routes from the US and Saudi Arabia converge on Pakistan",
+     "typed": "अमेरिका · सऊदी अरब"
+    },
+    {
+     "id": 9,
+     "text": "और ये सब बँटता था, पाकिस्तान की ख़ुफ़िया एजेंसी, आई एस आई के हाथों से।",
+     "spoken": "और ये सब बँटता था, पाकिस्तान की ख़ुफ़िया एजेंसी, आई एस आई के हाथों से।",
+     "hero": "routes funnel through one point stamped ISI",
+     "typed": "stamp ISI"
+    },
+    {
+     "id": 10,
+     "text": "कई विशेषज्ञों के मुताबिक़, यहीं एक सोच ने जन्म लिया: अपनी फ़ौज भेजे बिना भी जंग लड़ी जा सकती है।",
+     "spoken": "कई विशेषज्ञों के मुताबिक़, यहीं एक सोच ने जन्म लिया... अपनी फ़ौज भेजे बिना भी जंग लड़ी जा सकती है।",
+     "hero": "HyperFrames motion graphic: chess board, a pawn moved by a hand off-screen",
+     "typed": ""
+    },
+    {
+     "id": 11,
+     "text": "इसे कहते हैं, प्रॉक्सी वॉर।",
+     "spoken": "इसे कहते हैं... प्रॉक्सी वॉर।",
+     "hero": "the words slam onto the board",
+     "typed": "प्रॉक्सी वॉर"
+    },
+    {
+     "id": 12,
+     "text": "और जल्द ही, इस हथियार का निशाना बदलने वाला था।",
+     "spoken": "और जल्द ही, इस हथियार का निशाना बदलने वाला था।",
+     "hero": "3D globe swings east from Afghanistan to Kashmir; riser",
+     "typed": "",
+     "hook": "mid",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T03_kashmir",
+   "lines": [
+    {
+     "id": 13,
+     "text": "उन्नीस सौ नवासी। कश्मीर में हथियारबंद बग़ावत भड़क उठी।",
+     "spoken": "उन्नीस सौ नवासी। कश्मीर में हथियारबंद बग़ावत भड़क उठी।",
+     "hero": "map: Kashmir fills red; timeline marker moves to 1989",
+     "typed": "1989 · कश्मीर"
+    },
+    {
+     "id": 14,
+     "text": "इसी दौर में उभरे लश्कर-ए-तैयबा जैसे संगठन, जिनका ठिकाना पाकिस्तान में था।",
+     "spoken": "इसी दौर में उभरे लश्कर-ए-तैयबा जैसे संगठन, जिनका ठिकाना पाकिस्तान में था।",
+     "hero": "evidence card: LASHKAR-E-TAIBA, base: Muridke, Pakistan",
+     "typed": "लश्कर-ए-तैयबा · मुरीदके"
+    },
+    {
+     "id": 15,
+     "text": "भारत आरोप लगाता रहा कि इन्हें पाकिस्तान की फ़ौज और आई एस आई का साथ है। पाकिस्तान हर बार इनकार करता रहा।",
+     "spoken": "भारत आरोप लगाता रहा कि इन्हें पाकिस्तान की फ़ौज और आई एस आई का साथ है। पाकिस्तान हर बार इनकार करता रहा।",
+     "hero": "two cards face each other: आरोप vs इनकार",
+     "typed": "आरोप · इनकार"
+    },
+    {
+     "id": 16,
+     "text": "दिसंबर उन्नीस सौ निन्यानवे। एक भारतीय विमान अगवा होता है, और यात्रियों के बदले, मसूद अज़हर नाम का आतंकी छोड़ा जाता है।",
+     "spoken": "दिसंबर उन्नीस सौ निन्यानवे। एक भारतीय विमान अगवा होता है, और यात्रियों के बदले, मसूद अज़हर नाम का आतंकी छोड़ा जाता है।",
+     "hero": "3D: plane icon flies Kathmandu → Kandahar on the globe",
+     "typed": "IC-814 · कंधार"
+    },
+    {
+     "id": 17,
+     "text": "रिहाई के बाद उसने जैश-ए-मोहम्मद बनाया। ये बात संयुक्त राष्ट्र के रिकॉर्ड में दर्ज है।",
+     "spoken": "रिहाई के बाद उसने जैश-ए-मोहम्मद बनाया। ये बात संयुक्त राष्ट्र के रिकॉर्ड में दर्ज है।",
+     "hero": "UN sanctions entry (recreation, quoting only its words); highlighter",
+     "typed": "doc header UN SECURITY COUNCIL · QDi.422"
+    },
+    {
+     "id": 18,
+     "text": "लेकिन असली झटका, अभी बाक़ी था।",
+     "spoken": "लेकिन असली झटका... अभी बाक़ी था।",
+     "hero": "the board goes dark; one heartbeat",
+     "typed": "",
+     "hook": "mid",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T04_mumbai",
+   "lines": [
+    {
+     "id": 19,
+     "text": "छब्बीस नवंबर, दो हज़ार आठ। समुद्र के रास्ते, दस हथियारबंद आदमी मुंबई पहुँचते हैं।",
+     "spoken": "छब्बीस नवंबर, दो हज़ार आठ। समुद्र के रास्ते, दस हथियारबंद आदमी मुंबई पहुँचते हैं।",
+     "hero": "3D: sea route Karachi → Mumbai draws on the globe; date",
+     "typed": "26/11 · 2008"
+    },
+    {
+     "id": 20,
+     "text": "लगभग साठ घंटे तक शहर बंधक रहा। एक सौ छियासठ लोग मारे गए।",
+     "spoken": "लगभग साठ घंटे तक शहर बंधक रहा। एक सौ छियासठ लोग मारे गए।",
+     "hero": "photo of the Taj hotel; counter 166",
+     "typed": "166"
+    },
+    {
+     "id": 21,
+     "text": "एक हमलावर ज़िंदा पकड़ा गया, अजमल कसाब। वो पाकिस्तान का नागरिक था।",
+     "spoken": "एक हमलावर ज़िंदा पकड़ा गया, अजमल कसाब। वो पाकिस्तान का नागरिक था।",
+     "hero": "silhouette card (no photo) with name bar; string to Pakistan",
+     "typed": "अजमल कसाब"
+    },
+    {
+     "id": 22,
+     "text": "फिर अमेरिका की एक अदालत में, डेविड हेडली नाम के गवाह ने बयान दिया।",
+     "spoken": "फिर अमेरिका की एक अदालत में, डेविड हेडली नाम के गवाह ने बयान दिया।",
+     "hero": "court-record card: Chicago, 2011",
+     "typed": "शिकागो · 2011"
+    },
+    {
+     "id": 23,
+     "text": "उसने कहा कि आई एस आई का एक अफ़सर, जिसे वो मेजर इक़बाल कहता था, उसका हैंडलर था।",
+     "spoken": "उसने कहा कि आई एस आई का एक अफ़सर, जिसे वो मेजर इक़बाल कहता था, उसका हैंडलर था।",
+     "hero": "blank witness card 'मेजर इक़बाल', a question mark for a face",
+     "typed": "मेजर इक़बाल"
+    },
+    {
+     "id": 24,
+     "text": "अमेरिकी अभियोजकों ने इसी गवाही के आधार पर मेजर इक़बाल पर आरोप तय किए। पाकिस्तान ने उसे कभी पेश नहीं किया।",
+     "spoken": "अमेरिकी अभियोजकों ने इसी गवाही के आधार पर मेजर इक़बाल पर आरोप तय किए। पाकिस्तान ने उसे कभी पेश नहीं किया।",
+     "hero": "stamp on the card",
+     "typed": "stamp आरोपी"
+    },
+    {
+     "id": 25,
+     "text": "हालाँकि हेडली ने ये भी कहा, कि आई एस आई का शीर्ष नेतृत्व इस साज़िश में शामिल नहीं था।",
+     "spoken": "हालाँकि हेडली ने ये भी कहा, कि आई एस आई का शीर्ष नेतृत्व इस साज़िश में शामिल नहीं था।",
+     "hero": "pen underline: the counterpoint",
+     "typed": ""
+    },
+    {
+     "id": 26,
+     "text": "पर एक सवाल बाक़ी था: अगर पाकिस्तान को कुछ पता नहीं, तो दुनिया का सबसे बड़ा आतंकी, वहाँ छिपा कैसे था?",
+     "spoken": "पर एक सवाल बाक़ी था... अगर पाकिस्तान को कुछ पता नहीं, तो दुनिया का सबसे बड़ा आतंकी, वहाँ छिपा कैसे था?",
+     "hero": "camera whips back toward the Abbottabad compound; riser",
+     "typed": "",
+     "hook": "mid",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T05_abbottabad",
+   "lines": [
+    {
+     "id": 27,
+     "text": "अब लौटते हैं, उसी रात पर। दो मई, दो हज़ार ग्यारह।",
+     "spoken": "अब लौटते हैं, उसी रात पर। दो मई, दो हज़ार ग्यारह।",
+     "hero": "the cold-open date again; camera returns to the compound",
+     "typed": ""
+    },
+    {
+     "id": 28,
+     "text": "बिन लादेन बरसों से एबटाबाद में रह रहा था। पाकिस्तान ने कहा, उसे कुछ पता नहीं था।",
+     "spoken": "बिन लादेन बरसों से एबटाबाद में रह रहा था। पाकिस्तान ने कहा, उसे कुछ पता नहीं था।",
+     "hero": "stamp on the compound photo",
+     "typed": "stamp पता नहीं?"
+    },
+    {
+     "id": 29,
+     "text": "उसी साल, अमेरिकी सेना के सबसे बड़े अफ़सर, एडमिरल माइक मलन, सीनेट के सामने बोले:",
+     "spoken": "उसी साल, अमेरिकी सेना के सबसे बड़े अफ़सर, एडमिरल माइक मलन, सीनेट के सामने बोले...",
+     "hero": "official portrait of Mullen (US government, public domain)",
+     "typed": "name bar: एडमिरल मलन · सितंबर 2011"
+    },
+    {
+     "id": 30,
+     "text": "हक़्क़ानी नेटवर्क, आई एस आई की एक असली बाँह की तरह काम करता है।",
+     "spoken": "हक़्क़ानी नेटवर्क, आई एस आई की एक असली बाँह की तरह काम करता है।",
+     "hero": "HyperFrames quote card with the English words 'a veritable arm' under the Hindi",
+     "typed": "\"a veritable arm of the ISI\""
+    },
+    {
+     "id": 31,
+     "text": "और अक्टूबर में, इस्लामाबाद में खड़े होकर, हिलेरी क्लिंटन ने एक चेतावनी दी।",
+     "spoken": "और अक्टूबर में, इस्लामाबाद में खड़े होकर, हिलेरी क्लिंटन ने एक चेतावनी दी।",
+     "hero": "official portrait of Clinton (US government, public domain)",
+     "typed": "हिलेरी क्लिंटन · अक्टूबर 2011"
+    },
+    {
+     "id": 32,
+     "text": "आप अपने पिछवाड़े में साँप पालकर, ये उम्मीद नहीं कर सकते, कि वो सिर्फ़ पड़ोसियों को डसेंगे।",
+     "spoken": "आप अपने पिछवाड़े में साँप पालकर, ये उम्मीद नहीं कर सकते, कि वो सिर्फ़ पड़ोसियों को डसेंगे।",
+     "hero": "HyperFrames: a snake line slides across the map and turns back on itself; title word lands",
+     "typed": "\"snakes in your backyard\""
+    },
+    {
+     "id": 33,
+     "text": "तीन साल बाद, ये चेतावनी, सच साबित हुई।",
+     "spoken": "तीन साल बाद... ये चेतावनी, सच साबित हुई।",
+     "hero": "heartbeat; camera turns to Peshawar",
+     "typed": "",
+     "hook": "mid",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T06_peshawar",
+   "lines": [
+    {
+     "id": 34,
+     "text": "सोलह दिसंबर, दो हज़ार चौदह। पेशावर का आर्मी पब्लिक स्कूल।",
+     "spoken": "सोलह दिसंबर, दो हज़ार चौदह। पेशावर का आर्मी पब्लिक स्कूल।",
+     "hero": "date; map pin Peshawar",
+     "typed": "16 दिसंबर 2014 · पेशावर"
+    },
+    {
+     "id": 35,
+     "text": "पाकिस्तानी तालिबान के हमलावरों ने, एक सौ बत्तीस बच्चों की जान ले ली।",
+     "spoken": "पाकिस्तानी तालिबान के हमलावरों ने, एक सौ बत्तीस बच्चों की जान ले ली।",
+     "hero": "counter 132, slow; candles motion graphic, no images of victims",
+     "typed": "132 बच्चे"
+    },
+    {
+     "id": 36,
+     "text": "साँप अब, घर वालों को ही डस रहे थे। पाकिस्तान ख़ुद, आतंक के सबसे बड़े शिकारों में से एक बन गया।",
+     "spoken": "साँप अब, घर वालों को ही डस रहे थे। पाकिस्तान ख़ुद, आतंक के सबसे बड़े शिकारों में से एक बन गया।",
+     "hero": "the snake line from line 34 bites back into Pakistan on the map",
+     "typed": ""
+    },
+    {
+     "id": 37,
+     "text": "पाकिस्तान ने नेशनल एक्शन प्लान बनाया, और अपने यहाँ के आतंकियों पर बड़े अभियान चलाए।",
+     "spoken": "पाकिस्तान ने नेशनल एक्शन प्लान बनाया, और अपने यहाँ के आतंकियों पर बड़े अभियान चलाए।",
+     "hero": "card: नेशनल एक्शन प्लान",
+     "typed": "NAP · दिसंबर 2014"
+    },
+    {
+     "id": 38,
+     "text": "लेकिन आलोचकों का आरोप है, कि भारत और अफ़ग़ानिस्तान को निशाना बनाने वाले गुटों पर, रवैया अलग रहा।",
+     "spoken": "लेकिन आलोचकों का आरोप है, कि भारत और अफ़ग़ानिस्तान को निशाना बनाने वाले गुटों पर, रवैया अलग रहा।",
+     "hero": "split card: अच्छे तालिबान / बुरे तालिबान",
+     "typed": "अच्छे · बुरे",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T07_money",
+   "lines": [
+    {
+     "id": 39,
+     "text": "और फिर, अगले साल, सबसे चौंकाने वाली गवाही आई, ख़ुद पाकिस्तान के अंदर से।",
+     "spoken": "और फिर, अगले साल, सबसे चौंकाने वाली गवाही आई... ख़ुद पाकिस्तान के अंदर से।",
+     "hero": "riser; camera whips to a newspaper clipping",
+     "typed": "",
+     "hook": "mid"
+    },
+    {
+     "id": 40,
+     "text": "पाकिस्तान की जाँच एजेंसी, एफ आई ए के पूर्व प्रमुख तारिक़ खोसा ने, दो हज़ार पंद्रह में लिखा:",
+     "spoken": "पाकिस्तान की जाँच एजेंसी, एफ आई ए के पूर्व प्रमुख तारिक़ खोसा ने, दो हज़ार पंद्रह में लिखा...",
+     "hero": "Dawn op-ed (recreation, quoting only his words)",
+     "typed": "doc header DAWN · 2015"
+    },
+    {
+     "id": 41,
+     "text": "मुंबई हमला, पाकिस्तान की ज़मीन से प्लान और लॉन्च किया गया था।",
+     "spoken": "मुंबई हमला, पाकिस्तान की ज़मीन से प्लान और लॉन्च किया गया था।",
+     "hero": "highlighter swipes the quoted sentence",
+     "typed": "",
+     "gap_after": 0.9
+    },
+    {
+     "id": 42,
+     "text": "फिर दुनिया ने पैसों का पीछा करना शुरू किया।",
+     "spoken": "फिर दुनिया ने... पैसों का पीछा करना शुरू किया।",
+     "hero": "HyperFrames: money-trail motion graphic, lines between accounts",
+     "typed": "",
+     "hook": "mid"
+    },
+    {
+     "id": 43,
+     "text": "जून दो हज़ार अठारह।",
+     "spoken": "जून दो हज़ार अठारह।",
+     "hero": "date slams onto the board",
+     "typed": "जून 2018"
+    },
+    {
+     "id": 44,
+     "text": "आतंकी फ़ंडिंग पर नज़र रखने वाली संस्था, एफ ए टी एफ ने, पाकिस्तान को ग्रे लिस्ट में डाल दिया।",
+     "spoken": "आतंकी फ़ंडिंग पर नज़र रखने वाली संस्था, एफ ए टी एफ ने, पाकिस्तान को ग्रे लिस्ट में डाल दिया।",
+     "hero": "stamp GREY LIST on a FATF card",
+     "typed": "FATF · stamp ग्रे लिस्ट"
+    },
+    {
+     "id": 45,
+     "text": "बाहर निकलने के लिए, उसे चौंतीस शर्तें पूरी करनी पड़ीं।",
+     "spoken": "बाहर निकलने के लिए, उसे चौंतीस शर्तें पूरी करनी पड़ीं।",
+     "hero": "34 tick boxes fill one by one (motion graphic)",
+     "typed": "34"
+    },
+    {
+     "id": 46,
+     "text": "इसी दबाव में, लश्कर के संस्थापक हाफ़िज़ सईद को, आतंक के लिए पैसा जुटाने के मामलों में सज़ा हुई।",
+     "spoken": "इसी दबाव में, लश्कर के संस्थापक हाफ़िज़ सईद को, आतंक के लिए पैसा जुटाने के मामलों में सज़ा हुई।",
+     "hero": "court card: 31 साल (2022)",
+     "typed": "हाफ़िज़ सईद · 31 साल"
+    },
+    {
+     "id": 47,
+     "text": "अक्टूबर दो हज़ार बाईस में, पाकिस्तान ग्रे लिस्ट से बाहर आ गया।",
+     "spoken": "अक्टूबर दो हज़ार बाईस में, पाकिस्तान ग्रे लिस्ट से बाहर आ गया।",
+     "hero": "the stamp peels off",
+     "typed": "अक्टूबर 2022"
+    },
+    {
+     "id": 48,
+     "text": "तो क्या कहानी यहीं ख़त्म हो गई? नहीं।",
+     "spoken": "तो क्या कहानी यहीं ख़त्म हो गई? ...नहीं।",
+     "hero": "hard cut to black; one beat",
+     "typed": "",
+     "hook": "mid",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T08_now",
+   "lines": [
+    {
+     "id": 49,
+     "text": "चौदह फ़रवरी, दो हज़ार उन्नीस, पुलवामा। सी आर पी एफ़ के चालीस जवान मारे गए। ज़िम्मेदारी ली, जैश-ए-मोहम्मद ने।",
+     "spoken": "चौदह फ़रवरी, दो हज़ार उन्नीस, पुलवामा। सी आर पी एफ़ के चालीस जवान मारे गए। ज़िम्मेदारी ली, जैश-ए-मोहम्मद ने।",
+     "hero": "map pin Pulwama; counter 40; string to the JeM card",
+     "typed": "पुलवामा · 40 जवान"
+    },
+    {
+     "id": 50,
+     "text": "कुछ ही महीनों में, संयुक्त राष्ट्र ने मसूद अज़हर को आतंकियों की सूची में डाल दिया।",
+     "spoken": "कुछ ही महीनों में, संयुक्त राष्ट्र ने मसूद अज़हर को आतंकियों की सूची में डाल दिया।",
+     "hero": "the UN card from line 17 gets a stamp: 1 मई 2019",
+     "typed": "stamp 1 मई 2019"
+    },
+    {
+     "id": 51,
+     "text": "उसी साल, अमेरिका में, इमरान ख़ान ने एक बात मानी।",
+     "spoken": "उसी साल, अमेरिका में, इमरान ख़ान ने एक बात मानी।",
+     "hero": "quote card: इमरान ख़ान · जुलाई 2019",
+     "typed": "इमरान ख़ान · जुलाई 2019"
+    },
+    {
+     "id": 52,
+     "text": "पाकिस्तान में अब भी, तीस से चालीस हज़ार हथियारबंद लोग हैं, जो अफ़ग़ानिस्तान या कश्मीर में लड़ चुके हैं।",
+     "spoken": "पाकिस्तान में अब भी, तीस से चालीस हज़ार हथियारबंद लोग हैं, जो अफ़ग़ानिस्तान या कश्मीर में लड़ चुके हैं।",
+     "hero": "counter rolls to 30,000–40,000",
+     "typed": "30,000–40,000"
+    },
+    {
+     "id": 53,
+     "text": "बाईस अप्रैल, दो हज़ार पच्चीस। पहलगाम। छब्बीस आम लोग मारे गए।",
+     "spoken": "बाईस अप्रैल, दो हज़ार पच्चीस। पहलगाम। छब्बीस आम लोग मारे गए।",
+     "hero": "3D globe push-in to Pahalgam; counter 26",
+     "typed": "पहलगाम · 22 अप्रैल 2025"
+    },
+    {
+     "id": 54,
+     "text": "संयुक्त राष्ट्र की एक रिपोर्ट के मुताबिक़, ज़िम्मेदारी टी आर एफ़ नाम के गुट ने ली थी।",
+     "spoken": "संयुक्त राष्ट्र की एक रिपोर्ट के मुताबिक़, ज़िम्मेदारी टी आर एफ़ नाम के गुट ने ली थी।",
+     "hero": "UN report card; TRF card",
+     "typed": "UN रिपोर्ट · TRF"
+    },
+    {
+     "id": 55,
+     "text": "और कई देश, टी आर एफ़ को, लश्कर का ही मुखौटा मानते हैं।",
+     "spoken": "और कई देश, टी आर एफ़ को, लश्कर का ही मुखौटा मानते हैं।",
+     "hero": "mask motion graphic: TRF card lifts to show the LeT card under it",
+     "typed": ""
+    },
+    {
+     "id": 56,
+     "text": "उन्हीं दिनों, पाकिस्तान के रक्षा मंत्री, ख़्वाजा आसिफ़ से, एक इंटरव्यू में सवाल पूछा गया।",
+     "spoken": "उन्हीं दिनों, पाकिस्तान के रक्षा मंत्री, ख़्वाजा आसिफ़ से, एक इंटरव्यू में सवाल पूछा गया।",
+     "hero": "TV-interview lower third motion graphic",
+     "typed": "ख़्वाजा आसिफ़ · रक्षा मंत्री"
+    },
+    {
+     "id": 57,
+     "text": "उन्होंने कहा, हम लगभग तीन दशक से, अमेरिका और पश्चिम के लिए, ये गंदा काम करते आए हैं।",
+     "spoken": "उन्होंने कहा... हम लगभग तीन दशक से, अमेरिका और पश्चिम के लिए, ये गंदा काम करते आए हैं।",
+     "hero": "HyperFrames quote card, English words under the Hindi",
+     "typed": "\"dirty work\""
+    },
+    {
+     "id": 58,
+     "text": "और ये, एक ग़लती थी।",
+     "spoken": "और ये... एक ग़लती थी।",
+     "hero": "the word ग़लती underlined in red",
+     "typed": ""
+    },
+    {
+     "id": 59,
+     "text": "पर पहलगाम में, पाकिस्तान की किसी भी भूमिका से, उन्होंने इनकार किया।",
+     "spoken": "पर पहलगाम में, पाकिस्तान की किसी भी भूमिका से, उन्होंने इनकार किया।",
+     "hero": "stamp इनकार beside the quote",
+     "typed": "stamp इनकार"
+    },
+    {
+     "id": 60,
+     "text": "सात मई को, भारत ने ऑपरेशन सिंदूर शुरू किया।",
+     "spoken": "सात मई को, भारत ने ऑपरेशन सिंदूर शुरू किया।",
+     "hero": "3D globe: markers on the camps India said it hit (Muridke, Bahawalpur)",
+     "typed": "ऑपरेशन सिंदूर · 7 मई 2025",
+     "gap_after": 1.0
+    }
+   ]
+  },
+  {
+   "take": "T09_verdict",
+   "lines": [
+    {
+     "id": 61,
+     "text": "तो सबूत क्या कहते हैं?",
+     "spoken": "तो... सबूत क्या कहते हैं?",
+     "hero": "camera pulls back over the whole board",
+     "typed": "",
+     "hook": "end"
+    },
+    {
+     "id": 62,
+     "text": "अदालत की गवाहियाँ, अमेरिकी जनरल का बयान, संयुक्त राष्ट्र की सूचियाँ, और ख़ुद पाकिस्तानी नेताओं के शब्द।",
+     "spoken": "अदालत की गवाहियाँ, अमेरिकी जनरल का बयान, संयुक्त राष्ट्र की सूचियाँ, और ख़ुद पाकिस्तानी नेताओं के शब्द।",
+     "hero": "each exhibit lights up in turn as it is named",
+     "typed": ""
+    },
+    {
+     "id": 63,
+     "text": "ये सब, एक ही तरफ़ इशारा करते हैं: प्रॉक्सी का एक लंबा खेल।",
+     "spoken": "ये सब, एक ही तरफ़ इशारा करते हैं... प्रॉक्सी का एक लंबा खेल।",
+     "hero": "red strings tie every exhibit to Pakistan on the map",
+     "typed": ""
+    },
+    {
+     "id": 64,
+     "text": "पाकिस्तान इससे इनकार करता है, और ख़ुद हज़ारों जानें खो चुका है।",
+     "spoken": "पाकिस्तान इससे इनकार करता है, और ख़ुद हज़ारों जानें खो चुका है।",
+     "hero": "the Peshawar card, lit once more",
+     "typed": ""
+    },
+    {
+     "id": 65,
+     "text": "पर एबटाबाद से पहलगाम तक, सवाल वही है।",
+     "spoken": "पर एबटाबाद से पहलगाम तक, सवाल वही है।",
+     "hero": "3D globe: one line from Abbottabad to Pahalgam",
+     "typed": ""
+    },
+    {
+     "id": 66,
+     "text": "जो देश ख़ुद आतंक से लहूलुहान है, वो इन साँपों को पालना कब बंद करेगा? आप क्या सोचते हैं?",
+     "spoken": "जो देश ख़ुद आतंक से लहूलुहान है... वो इन साँपों को पालना कब बंद करेगा? आप क्या सोचते हैं?",
+     "hero": "the question in kinetic type; final pull-back to the whole board",
+     "typed": "",
+     "hook": "question"
+    }
+   ]
+  }
+ ],
+ "reel": {
+  "size": "1080x1920",
+  "target_seconds": 60,
+  "lines": [
+   5,
+   1,
+   3,
+   4,
+   19,
+   20,
+   41,
+   32,
+   35,
+   36,
+   57,
+   58,
+   66
+  ],
+  "note": "Opens on the question (line 5), then the strongest evidence beats, ends on the closing question. Re-uses the film's recorded lines; nothing is re-recorded."
+ },
+ "fact_notes": [
+  "Bin Laden killed in Abbottabad by US forces on 2 May 2011 (local night, 1/2 May). The compound's distance from the Pakistan Military Academy, Kakul, is reported from about 90 m (gate) to about a mile; about 1 km is the most commonly cited figure (CBS News; Wikipedia gives 1.3 km), so the script says 'लगभग एक किलोमीटर'.",
+  "1980s: US (CIA, Operation Cyclone) and Saudi funding and weapons for the Afghan mujahideen were channelled through Pakistan's ISI. Well documented (e.g. Steve Coll, Ghost Wars).",
+  "Armed insurgency in Kashmir began in 1989. Lashkar-e-Taiba was founded around 1990, headquartered at Muridke near Lahore.",
+  "IC-814 was hijacked on 24 December 1999; Masood Azhar was released on 31 December 1999 at Kandahar with two others. UN 1267 narrative summary: he founded Jaish-i-Mohammed upon his release from prison in India in 1999. UN listed him on 1 May 2019.",
+  "26/11 Mumbai: 10 attackers came by sea; the siege lasted about 60 hours (26 to 29 Nov 2008); 166 killed is the commonly cited toll (some sources 160+). Ajmal Kasab was captured alive; Pakistan acknowledged in January 2009 that he was a Pakistani national.",
+  "David Headley testified in Chicago (2011, Tahawwur Rana trial) that an ISI officer he knew as Major Iqbal was his handler and funded his reconnaissance. US prosecutors charged 'Major Iqbal'. Headley also said the ISI's leadership was not involved in planning the attacks; Pakistan denies any ISI role. (ProPublica, Dawn, RFE/RL)",
+  "Tariq Khosa, former FIA director general, Dawn, 3 August 2015: Pakistan 'has to deal with the Mumbai mayhem, planned and launched from its soil'. He later wrote that he meant non-state actors, not state elements: the film quotes only his sentence and does not say he blamed the state.",
+  "Admiral Mike Mullen, Senate Armed Services Committee, 22 September 2011: the Haqqani network 'acts as a veritable arm of Pakistan's Inter-Services Intelligence agency'. Pakistan denied it; some US officials said it was misread; Mullen's office said he stood by every word.",
+  "Hillary Clinton, Islamabad, 21 October 2011, joint press conference with Hina Rabbani Khar: 'you can't keep snakes in your backyard and expect them only to bite your neighbors.'",
+  "Army Public School, Peshawar, 16 December 2014: TTP attackers killed about 147 people, including 132 schoolchildren (Dawn 10-year report). National Action Plan adopted December 2014.",
+  "'Good Taliban, bad Taliban' is a criticism made by analysts and governments; it is presented as critics' allegation.",
+  "FATF grey list: June 2018 to 21 October 2022; two action plans with 34 items in total (27 + 7).",
+  "Hafiz Saeed: convicted of terror financing in 2020 (and later cases); April 2022, a Lahore anti-terrorism court gave him 31 years in two cases (Al Jazeera).",
+  "Pulwama, 14 February 2019: 40 CRPF personnel killed; JeM claimed it.",
+  "Imran Khan, US Institute of Peace, 23 July 2019: Pakistan still had 30,000 to 40,000 armed people trained and who had fought in Afghanistan or Kashmir.",
+  "Pahalgam, 22 April 2025: 26 civilians killed. The UN Security Council 1267 Monitoring Team's July 2025 report records that TRF twice claimed it (then withdrew the claim on 26 April); one member state said it could not have happened without LeT support, and TRF is described as linked to LeT. Pakistan denied involvement.",
+  "Khawaja Asif, Sky News (Yalda Hakim), about 24/25 April 2025: Pakistan had been doing 'dirty work for the United States for about three decades', and the West; he called it a mistake. He denied any Pakistani role in Pahalgam.",
+  "Operation Sindoor began on 7 May 2025 (India's strikes on sites it said were LeT and JeM camps, including Muridke and Bahawalpur).",
+  "Balance: the film states Pakistan's denials (lines 15, 25, 30, 54, 59) and its own losses (lines 37 to 39, 59). It names organisations and officials, never a people, and uses no images of victims or militant propaganda."
+ ]
+}
