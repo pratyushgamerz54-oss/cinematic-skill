@@ -1,5 +1,71 @@
 {
  "grade": "natural",
- "photos": [],
+ "photos": [
+  {
+   "id": "P01",
+   "what": "Alexander, detail of the Alexander Mosaic (House of the Faun, Pompeii, c. 100 BCE)",
+   "kind": "photo",
+   "commons": "File:Alexander Mosaic detail of Alexander the Great (3x4 cropped).jpg",
+   "file": "P01_alexander.jpg",
+   "credit": "Unknown artist (Roman floor mosaic, House of the Faun, Pompeii)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Alexander_Mosaic_detail_of_Alexander_the_Great_(3x4_cropped).jpg",
+   "date": "c. 100 BCE",
+   "license_ok": true,
+   "crop": [
+    0.0,
+    0.03,
+    1.0,
+    0.7
+   ]
+  },
+  {
+   "id": "P02",
+   "what": "Darius III in his chariot, detail of the Alexander Mosaic (Battle of Issus)",
+   "kind": "photo",
+   "commons": "File:Darius III and Oxyathres in Battle of Issus Mosaic.jpg",
+   "file": "P02_darius.jpg",
+   "credit": "Unknown artist (Roman floor mosaic, House of the Faun, Pompeii)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Darius_III_and_Oxyathres_in_Battle_of_Issus_Mosaic.jpg",
+   "date": "c. 100 BCE",
+   "license_ok": true,
+   "crop": [
+    0.0,
+    0.04,
+    1.0,
+    0.8
+   ]
+  },
+  {
+   "id": "P03",
+   "what": "Marble portrait of Alexander, Roman copy of a Greek original, Ny Carlsberg Glyptotek",
+   "kind": "photo",
+   "commons": "File:Alexander the Great, Roman copy of a Greek original, Ny Carlsberg Glyptotek, Copenhagen (35585277224).jpg",
+   "file": "P03_bust.jpg",
+   "credit": "Richard Mortel from Riyadh, Saudi Arabia",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Alexander_the_Great,_Roman_copy_of_a_Greek_original,_Ny_Carlsberg_Glyptotek,_Copenhagen_(35585277224).jpg",
+   "license_ok": true,
+   "crop": [
+    0.33,
+    0.1,
+    0.67,
+    1.0
+   ]
+  },
+  {
+   "id": "P04",
+   "what": "Silver coin struck in Babylon c. 322 BCE: a horseman attacks a war elephant, commonly read as Alexander and Porus",
+   "kind": "photo",
+   "commons": "File:Porus alexander coin.png",
+   "file": "P04_coin.png",
+   "credit": "PHGCOM (cropped from 'Alexander victory coin Babylon silver c 322 BCE.jpg')",
+   "license": "CC0",
+   "source": "https://commons.wikimedia.org/wiki/File:Porus_alexander_coin.png",
+   "license_ok": true
+  }
+ ],
  "recreations": []
 }

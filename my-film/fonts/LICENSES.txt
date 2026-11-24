@@ -1,2 +1,6 @@
-cond.ttf: Bebas Neue, SIL Open Font License 1.1, from https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf
-hand.ttf: Homemade Apple, Apache License 2.0, from https://raw.githubusercontent.com/google/fonts/main/apache/homemadeapple/HomemadeApple-Regular.ttf
+cond.ttf    Teko SemiBold (static instance of the variable font), Indian Type Foundry. SIL Open Font License 1.1. https://github.com/google/fonts/tree/main/ofl/teko
+label.ttf   Hind SemiBold, Indian Type Foundry. SIL Open Font License 1.1. https://github.com/google/fonts/tree/main/ofl/hind
+labelm.ttf  Hind Regular, Indian Type Foundry. SIL Open Font License 1.1.
+serif.ttf   Tiro Devanagari Hindi, Tiro Typeworks. SIL Open Font License 1.1. https://github.com/google/fonts/tree/main/ofl/tirodevanagarihindi
+deva.ttf    Noto Sans Devanagari Bold (static instance), Google. SIL Open Font License 1.1. Fallback for Devanagari in any role.
+hand.ttf    Homemade Apple, Font Diner. Apache License 2.0. (fetched by get_fonts.py; unused in this film)

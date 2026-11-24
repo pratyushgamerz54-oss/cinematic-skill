@@ -1,0 +1,6 @@
+out/
+audio/lines/
+audio/trimmed/
+audio/sfx.wav
+assets/prep/
+__pycache__/

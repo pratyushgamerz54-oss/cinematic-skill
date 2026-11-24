@@ -1,66 +1,83 @@
 {
- "title": "My Film",
+ "title": "सिकंदर का साम्राज्य",
+ "language": "hi",
  "takes": [
-  {
-   "take": "T01_open",
-   "lines": [
-    {
-     "id": 1,
-     "text": "Every cup of coffee starts as a cherry.",
-     "spoken": "Every cup of coffee starts as a cherry.",
-     "hero": "the title, set big",
-     "typed": "FROM CHERRY TO CUP",
-     "gap_after": 0.8
-    }
-   ]
-  },
-  {
-   "take": "T02_journey",
-   "lines": [
-    {
-     "id": 2,
-     "text": "It grows on a shrub, in a band around the equator called the Coffee Belt.",
-     "spoken": "It grows on a shrub, in a band around the equator called the Coffee Belt.",
-     "hero": "card GROW",
-     "typed": "GROW"
-    },
-    {
-     "id": 3,
-     "text": "Pickers take the ripe cherries, and the fruit is washed or dried away.",
-     "spoken": "Pickers take the ripe cherries, and the fruit is washed or dried away.",
-     "hero": "card PICK",
-     "typed": "PICK"
-    },
-    {
-     "id": 4,
-     "text": "The green seed inside is roasted at around 200 degrees.",
-     "spoken": "The green seed inside is roasted at around two hundred degrees.",
-     "hero": "card ROAST; the number rolls up",
-     "typed": "ROAST · 200°C"
-    },
-    {
-     "id": 5,
-     "text": "Then it is ground, brewed, and poured.",
-     "spoken": "Then it is ground, brewed, and poured.",
-     "hero": "card BREW",
-     "typed": "BREW"
-    }
-   ]
-  },
-  {
-   "take": "T03_close",
-   "lines": [
-    {
-     "id": 6,
-     "text": "Months of work, for a few minutes in a cup.",
-     "spoken": "Months of work, for a few minutes in a cup.",
-     "hero": "pull back: the whole journey",
-     "typed": ""
-    }
-   ]
-  }
+  {"take": "T01_cold_open", "lines": [
+   {"id": 1, "text": "बेबीलोन, 323 ईसा पूर्व। एक राजा तेज़ बुख़ार से जूझ रहा है।",
+    "spoken": "बेबीलोन, ईसा पूर्व तीन सौ तेईस। एक राजा तेज़ बुख़ार से जूझ रहा है।",
+    "hero": "the date, set big; then the pin on Babylon", "typed": "323 ई.पू. · बेबीलोन"},
+   {"id": 2, "text": "उसकी उम्र सिर्फ़ बत्तीस साल है।",
+    "spoken": "उसकी उम्र सिर्फ़ बत्तीस साल है।",
+    "hero": "the Alexander mosaic portrait lands; counter 32", "typed": "32 साल"},
+   {"id": 3, "text": "पर उसके राज में लगभग पचास लाख वर्ग किलोमीटर ज़मीन है।",
+    "spoken": "पर उसके राज में लगभग पचास लाख वर्ग किलोमीटर ज़मीन है।",
+    "hero": "the empire fills the map; counter rolls to 50 lakh", "typed": "50 लाख वर्ग किमी"},
+   {"id": 4, "text": "यूनान से लेकर हिंदुस्तान की दहलीज़ तक। उसका नाम है, सिकंदर।",
+    "spoken": "यूनान से लेकर हिंदुस्तान की दहलीज़ तक। उसका नाम है, सिकंदर।",
+    "hero": "wide pull-back over the whole empire; title after the line", "typed": "title सिकंदर का साम्राज्य", "gap_after": 1.3}
+  ]},
+  {"take": "T02_macedon", "lines": [
+   {"id": 5, "text": "तेरह साल पहले, पिता की हत्या के बाद, बीस साल का सिकंदर मकदूनिया का राजा बना।",
+    "spoken": "तेरह साल पहले, पिता की हत्या के बाद, बीस साल का सिकंदर मकदूनिया का राजा बना।",
+    "hero": "string from Babylon back to Pella; the bust of Alexander", "typed": "336 ई.पू. · मकदूनिया"},
+   {"id": 6, "text": "दो साल बाद, वो क़रीब सैंतीस हज़ार सैनिकों के साथ एशिया में उतरा।",
+    "spoken": "दो साल बाद, वो क़रीब सैंतीस हज़ार सैनिकों के साथ एशिया में उतरा।",
+    "hero": "counter 37,000; route across the Hellespont", "typed": "37,000 सैनिक"},
+   {"id": 7, "text": "सामने था फ़ारस, उस ज़माने का सबसे बड़ा साम्राज्य।",
+    "spoken": "सामने था फ़ारस, उस ज़माने का सबसे बड़ा साम्राज्य।",
+    "hero": "the Persian lands fill in red", "typed": "फ़ारस", "gap_after": 0.9}
+  ]},
+  {"take": "T03_persia", "lines": [
+   {"id": 8, "text": "इस्सुस की लड़ाई में फ़ारस का बादशाह दारा मैदान छोड़कर भागा।",
+    "spoken": "इस्सुस की लड़ाई में फ़ारस का बादशाह दारा मैदान छोड़कर भागा।",
+    "hero": "the Darius detail of the Alexander Mosaic; stamp on 'भागा'", "typed": "इस्सुस · 333 ई.पू. · stamp भागा"},
+   {"id": 9, "text": "मिस्र ने बिना लड़े दरवाज़े खोल दिए, और वहाँ उसने अलेक्ज़ेंड्रिया बसाया।",
+    "spoken": "मिस्र ने बिना लड़े दरवाज़े खोल दिए, और वहाँ उसने अलेक्ज़ेंड्रिया बसाया।",
+    "hero": "route to Egypt; marker Alexandria", "typed": "अलेक्ज़ेंड्रिया"},
+   {"id": 10, "text": "गौगामेला में दारा फिर हारा, और फ़ारस का साम्राज्य सिकंदर का हो गया।",
+    "spoken": "गौगामेला में दारा फिर हारा, और फ़ारस का साम्राज्य सिकंदर का हो गया।",
+    "hero": "route to Gaugamela; Persia turns to Alexander's colour", "typed": "गौगामेला · 331 ई.पू.", "gap_after": 0.9}
+  ]},
+  {"take": "T04_india", "lines": [
+   {"id": 11, "text": "फिर वो हिंदू कुश के पहाड़ पार करके हिंदुस्तान पहुँचा।",
+    "spoken": "फिर वो हिंदू कुश के पहाड़ पार करके हिंदुस्तान पहुँचा।",
+    "hero": "long route east over the Hindu Kush", "typed": "हिंदू कुश"},
+   {"id": 12, "text": "झेलम के किनारे, राजा पोरस ने हाथियों के साथ उसका रास्ता रोका।",
+    "spoken": "झेलम के किनारे, राजा पोरस ने हाथियों के साथ उसका रास्ता रोका।",
+    "hero": "the elephant medallion; name bar राजा पोरस", "typed": "झेलम · 326 ई.पू. · राजा पोरस"},
+   {"id": 13, "text": "सिकंदर जीता, पर उसने पोरस को उसका राज्य लौटा दिया।",
+    "spoken": "सिकंदर जीता, पर उसने पोरस को उसका राज्य लौटा दिया।",
+    "hero": "pen ellipse round the medallion", "typed": ""},
+   {"id": 14, "text": "ब्यास नदी पर उसकी थकी हुई फ़ौज ने आगे बढ़ने से मना कर दिया।",
+    "spoken": "ब्यास नदी पर उसकी थकी हुई फ़ौज ने आगे बढ़ने से मना कर दिया।",
+    "hero": "marker Beas; stamp on 'मना'", "typed": "ब्यास · stamp यहीं तक", "gap_after": 1.0}
+  ]},
+  {"take": "T05_close", "lines": [
+   {"id": 15, "text": "तीन साल बाद, बेबीलोन में, सिकंदर की मौत हो गई।",
+    "spoken": "तीन साल बाद, बेबीलोन में, सिकंदर की मौत हो गई।",
+    "hero": "route back west to Babylon; the cold-open date again", "typed": ""},
+   {"id": 16, "text": "कोई वारिस तय नहीं था, और उसके सेनापति आपस में लड़ पड़े।",
+    "spoken": "कोई वारिस तय नहीं था, और उसके सेनापति आपस में लड़ पड़े।",
+    "hero": "the empire's fill cracks into separate colours", "typed": ""},
+   {"id": 17, "text": "जो साम्राज्य ग्यारह साल में बना, वो उसके बाद कभी एक न रह सका।",
+    "spoken": "जो साम्राज्य ग्यारह साल में बना, वो उसके बाद कभी एक न रह सका।",
+    "hero": "final pull-back: the whole board", "typed": ""}
+  ]}
  ],
  "fact_notes": [
-  "Replace this template with your own story; keep one note per claim with its source."
+  "Alexander died in Babylon, June 323 BCE (Babylonian astronomical diary: evening of 10 to 11 June), aged 32, after a fever of about twelve days (Arrian, Plutarch). Cause disputed. Source: worldhistory.org/article/2366.",
+  "Empire at its height: about 5 million km² (commonly cited 5.2 million; Taagepera's estimate), from Greece and the Balkans to Egypt and the Indus. Said as 'लगभग पचास लाख वर्ग किलोमीटर' (about 5 million). Source: worldatlas.com, romanempiretimes.com.",
+  "Became king of Macedon in 336 BCE, aged 20, after his father Philip II was assassinated at Aegae. 336 to 323 = 13 years.",
+  "Crossed the Hellespont in 334 BCE ('two years later'). Army size commonly cited from Diodorus 17.17: about 32,000 infantry and 4,500-5,100 cavalry, so about 37,000. Ancient figures vary (30,000 to 48,000).",
+  "The Achaemenid (Persian) Empire was the largest state of its time (about 5.5 million km² at its peak).",
+  "Issus, November 333 BCE: Darius III fled the field (shown in the Alexander Mosaic, Pompeii).",
+  "Egypt surrendered without resistance in 332 BCE; Alexandria founded 331 BCE.",
+  "Gaugamela, 1 October 331 BCE: Darius III defeated again and fled; Babylon, Susa and Persepolis followed. Darius was killed by his own satrap Bessus in 330 BCE.",
+  "Crossed the Hindu Kush into Bactria (329) and again towards India (327 BCE).",
+  "Battle of the Hydaspes (Jhelum), 326 BCE, against Porus, who fielded war elephants. Porus was kept as ruler of his kingdom, and given more land (Britannica, Arrian 5.19).",
+  "Hyphasis (Beas) river, 326 BCE: the army refused to go further; Alexander turned back. Britannica: farthest advance into the subcontinent.",
+  "326 to 323 BCE = three years.",
+  "No designated heir: generals named his unborn son Alexander IV and half-brother Philip III as joint kings under the regent Perdiccas; the Wars of the Diadochi followed (322 to 301 BCE, Ipsus), and the empire was never reunited.",
+  "Eleven years: crossing into Asia in 334 BCE to death in 323 BCE."
  ]
 }

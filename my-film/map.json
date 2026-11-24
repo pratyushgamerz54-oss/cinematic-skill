@@ -1,10 +1,70 @@
 {
- "maps": [{
-  "name": "world",
-  "source": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
-  "object": "countries",
-  "projection": {"type": "equirect", "lon0": 10, "lat0": 0},
-  "drop": ["Antarctica"],
-  "places": {"Addis Ababa": [9.03, 38.74], "Bogota": [4.71, -74.07], "Hanoi": [21.03, 105.85]}
- }]
+ "maps": [
+  {
+   "name": "empire",
+   "source": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
+   "object": "countries",
+   "projection": {
+    "type": "albers",
+    "lon0": 47,
+    "lat0": 33,
+    "p1": 25,
+    "p2": 42
+   },
+   "clip": [
+    14,
+    17,
+    86,
+    47
+   ],
+   "frame": [
+    16,
+    19,
+    84,
+    46
+   ],
+   "places": {
+    "Pella": [
+     40.76,
+     22.52
+    ],
+    "Hellespont": [
+     40.2,
+     26.4
+    ],
+    "Issus": [
+     36.84,
+     36.21
+    ],
+    "Alexandria": [
+     31.2,
+     29.92
+    ],
+    "Gaugamela": [
+     36.36,
+     43.25
+    ],
+    "Babylon": [
+     32.54,
+     44.42
+    ],
+    "Persepolis": [
+     29.93,
+     52.89
+    ],
+    "Hindu Kush": [
+     35.6,
+     69.8
+    ],
+    "Jhelum": [
+     32.93,
+     73.73
+    ],
+    "Beas": [
+     31.55,
+     75.25
+    ]
+   }
+  }
+ ]
 }
