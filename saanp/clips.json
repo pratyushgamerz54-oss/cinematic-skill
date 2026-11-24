@@ -127,6 +127,13 @@
    "what": "3D globe: the route of hijacked IC-814, Kathmandu to Kandahar, December 1999",
    "credit": "Made in code (three.js); boundaries: Natural Earth",
    "license": "Own work"
+  },
+  {
+   "id": "g_mumbai",
+   "file": "assets/clips/g_mumbai.mp4",
+   "what": "3D globe: the sea route from Karachi to Mumbai, November 2008",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
   }
  ]
 }
