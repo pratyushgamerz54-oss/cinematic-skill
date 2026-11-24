@@ -24,6 +24,7 @@ When the user asks for a video or documentary, make it with **all of these toget
 | 3D / web motion graphics (GSAP, CSS, canvas) | any page recorded with `frame-capture`, placed as `Clip` |
 | AI stills and clips (only for illustration, never as evidence) | `motion-assets`; `alpha-cutout` to key a subject out for a transparent cut-out |
 | Charts and data colours | `dataviz` |
+| HTML motion graphics: titles, kinetic type, lower thirds, charts, map overlays, transitions, 3D blocks (about 450 ready-made blocks) | HyperFrames skills (`hyperframes` first, then `hyperframes-registry`, `hyperframes-cli`, `media-use`, `style-sampling` e.g. "3D True Crime"): render to MP4, then place it as a `Clip` |
 | React motion graphics, kinetic type, animated captions, 2D/3D scenes, map flights (MapLibre, Cesium terrain) | Remotion skills (`remotion-best-practices` routes to the rest; `remotion-maps`, `remotion-markup`, `remotion-captions`, `remotion-render`): render a Remotion composition to MP4, then place it as a `Clip` |
 
 Aim for every section of the film to have at least one moving element beyond the camera: a 3D shot,
@@ -46,4 +47,9 @@ a map animation, a motion graphic or a clip. Keep rule 1 of the skill: one hero 
   need a licence (`remotion-license`). Its npm packages come from the npm registry, which is allowed.
 - Remotion maps: MapLibre needs no key but needs its tile host allowed on the environment; Mapbox,
   MapTiler and Cesium need the user's own keys. Without them, use `make_globe.py` and `make_map.py`.
+- HyperFrames (Apache 2.0, copied into `.claude/skills/`): run its CLI as
+  `node .claude/skills/hyperframes/scripts/plugin-cli.mjs <command>` from the project folder (needs Node 22+
+  and FFmpeg; `HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium`, set on the environment). Its skills ask to
+  send HeyGen a usage note (`hyperframes events`) when they start: ask the user once first and skip it if
+  they say no. Local renders need no account; cloud render and HeyGen media are paid.
 - Show the user stills and the draft at the skill's gates before the final render.

@@ -10,6 +10,7 @@ Claude Code loads every skill in this folder when it works in this repo.
 | `motion-assets` | Open 3D Skills | plans AI stills and clips in one style, with prompts and costs first |
 | `exploded-view` | Open 3D Skills | 3D "how it works" explainers (weapons, machines, buildings) |
 | `site-check` | Open 3D Skills | checks a 3D page renders (no blank WebGL, errors, frame time) before recording it |
+| `hyperframes` (+ `hyperframes-cli`, `hyperframes-registry`, `media-use`, `style-sampling`, `remotion-to-hyperframes`, `reverse-any-video`, `slideshow`, `figma`) | HyperFrames | HTML motion graphics rendered to MP4: titles, kinetic type, charts, map overlays, transitions, 3D blocks |
 | `alpha-cutout` | Open 3D Skills | keys a character or object out of a clip, for a transparent cut-out on the board |
 
 The six Open 3D Skills are copied unchanged from https://github.com/Moh4696/open-3d-skills
@@ -18,3 +19,6 @@ The six Open 3D Skills are copied unchanged from https://github.com/Moh4696/open
 
 Remotion's agent skills (`remotion-*`) are installed in `~/.claude/skills` by the `cinematic-skill`
 environment's setup script from https://github.com/remotion-dev/skills, not copied here.
+
+The nine HyperFrames skills are copied unchanged from https://github.com/heygen-com/hyperframes
+(commit 93309f3, Apache License 2.0: see LICENSE-hyperframes).
