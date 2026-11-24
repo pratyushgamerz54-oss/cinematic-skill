@@ -7,3 +7,5 @@ __pycache__/
 out/*
 !out/sikandar_ka_samrajya_hindi.mp4
 !out/captions.srt
+assets/globe/
+assets/clips/

@@ -1,0 +1,42 @@
+{
+ "globes": [{
+  "name": "empire_globe",
+  "what": "3D globe: Alexander's march from Pella to the Beas and back to Babylon",
+  "seconds": 10, "fps": 30, "size": "1920x1080",
+  "source": "assets/data/countries-50m.json", "object": "countries",
+  "look": "night",
+  "places": {"Pella": [40.76, 22.52], "Hellespont": [40.20, 26.40], "Issus": [36.84, 36.21], "Alexandria": [31.20, 29.92],
+             "Gaugamela": [36.36, 43.25], "Babylon": [32.54, 44.42], "Hindu Kush": [35.6, 69.8], "Jhelum": [32.93, 73.73], "Beas": [31.55, 75.25]},
+  "fills": [
+   {"names": ["Greece", "Macedonia", "Bulgaria", "Albania"], "rgb": [214, 160, 40], "t_in": 0.6},
+   {"names": ["Turkey", "Syria", "Lebanon", "Israel", "Palestine", "Jordan", "Cyprus", "N. Cyprus", "Egypt"], "rgb": [214, 160, 40], "t_in": 2.6},
+   {"names": ["Iraq", "Iran", "Kuwait", "Afghanistan", "Turkmenistan", "Uzbekistan", "Tajikistan", "Armenia", "Azerbaijan"], "rgb": [214, 160, 40], "t_in": 4.4},
+   {"names": ["Pakistan"], "rgb": [214, 160, 40], "t_in": 6.4}
+  ],
+  "routes": [
+   {"from": "Pella", "to": "Issus", "t_in": 1.2, "dur": 1.2},
+   {"from": "Issus", "to": "Alexandria", "t_in": 2.4, "dur": 1.0},
+   {"from": "Alexandria", "to": "Gaugamela", "t_in": 3.4, "dur": 1.1},
+   {"from": "Gaugamela", "to": "Hindu Kush", "t_in": 4.6, "dur": 1.5},
+   {"from": "Hindu Kush", "to": "Beas", "t_in": 6.1, "dur": 0.8},
+   {"from": "Beas", "to": "Babylon", "t_in": 7.4, "dur": 1.4}
+  ],
+  "markers": [
+   {"place": "Pella", "label": "मकदूनिया", "t_in": 0.6, "side": "left"},
+   {"place": "Issus", "label": "इस्सुस", "t_in": 2.3, "side": "left"},
+   {"place": "Alexandria", "label": "अलेक्ज़ेंड्रिया", "t_in": 3.3, "side": "left"},
+   {"place": "Gaugamela", "label": "गौगामेला", "t_in": 4.4, "side": "right"},
+   {"place": "Hindu Kush", "label": "हिंदू कुश", "t_in": 6.0, "side": "left"},
+   {"place": "Beas", "label": "ब्यास", "t_in": 6.8, "side": "right"},
+   {"place": "Babylon", "label": "बेबीलोन", "t_in": 8.7, "side": "right", "size": 1.4}
+  ],
+  "camera": [
+   {"t": 0.0, "lat": 30, "lon": 10, "dist": 5.0},
+   {"t": 1.6, "lat": 37, "lon": 28, "dist": 2.4, "tilt": 6},
+   {"t": 4.2, "lat": 34, "lon": 40, "dist": 2.2, "tilt": 10},
+   {"t": 6.6, "lat": 32, "lon": 62, "dist": 2.3, "tilt": 10},
+   {"t": 8.4, "lat": 33, "lon": 50, "dist": 2.9, "tilt": 6},
+   {"t": 10.0, "lat": 32, "lon": 48, "dist": 3.4}
+  ]
+ }]
+}
