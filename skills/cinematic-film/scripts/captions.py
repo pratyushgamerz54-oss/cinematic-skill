@@ -56,7 +56,7 @@ def chunks_for(timing, style):
 class Captions:
     def __init__(self, style, width, height, timing, fonts_dir=None):
         self.style, self.W, self.H = style, width, height
-        self.k = width / 1920.0
+        self.k = width / 1920.0 * (1.7 if height > width else 1.0)    # vertical video: phone-sized captions
         self.res = Res(width / 3840.0, None, fonts_dir)
         self.chunks = chunks_for(timing, style)
         self.surface = skia.Surface.MakeRaster(skia.ImageInfo.Make(width, height, skia.ColorType.kRGBA_8888_ColorType, skia.AlphaType.kPremul_AlphaType))
