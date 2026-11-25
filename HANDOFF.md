@@ -126,6 +126,8 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
     format.**
 - The mood test `out/mood_test_share.mp4` with `mood_test_stills.jpg`. The user said: **"Ha badhiya"**.
 - The reel format preview `out/reel_format_preview.jpg`.
+- **The new reel in the fixed format** (25 Nov): `out/pichhwade_ke_saanp_reel.mp4` (58.8 s, highlighter
+  captions) with `captions_reel.srt` and the reel cover. Reel work is done; only the film is pending.
 
 ## 2. Pending
 
@@ -170,7 +172,7 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
    - Run one heavy job at a time: two ffmpeg/render jobs together were killed for lack of memory.
 4. Burn captions with `burn_captions.py --style clean` (about 25 min), then write the SRT.
 5. Make the share copies (`-crf 30 -tune grain`): one with captions, one caption-free.
-6. Render the reel:
+6. (Done 25 Nov; redo only if the reel scene changes.) Render the reel:
    - `render.py --cues` and `build_sfx.py` for `saanp/reel`.
    - `mix_soundtrack.py --project saanp/reel --music ../audio/music/score.wav`.
    - Render at 1080x1920 (about 10 min).
