@@ -129,6 +129,19 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
 
 ## 2. Pending
 
+### area51/ — एरिया 51 (new topic, 25 Nov 2026)
+- Script `area51/script.json`: T00_intro (6 lines: welcome, three curiosity questions, title, go) + 63
+  story lines in T01..T11, about 5,630 characters, about 8:15 at Viraj's pace (user: total about 8 min,
+  timed to their recording). `fact_notes` hold the sources. Reel `area51/reel/script.json`: 10 lines, 756
+  characters. Both `beats.md` have 0 warnings. `voiceover_script.md` and `voiceover_script_emotions.md` written.
+- **Waiting for:** the user's approval of the script; then the voice (Viraj, recorded by the user).
+- Next, before the voice: Commons photos (15-20), globe, a 3D-style tilted map and a 3D terrain map of
+  Groom Lake (colourful NASA/USGS imagery), 3D models (the base with runway and hangars, U-2, A-12,
+  Have Blue, the S-4 hangar in the mountain), real public-domain footage (U-2, A-12/SR-71 take-offs),
+  a few HyperFrames graphics only (intro welcome/topic/go, qopen, two quote cards, qend, reel question),
+  thumbnails. Palette with less red (desert amber, night blue, radar green).
+
+
 ### tut/ — तूतनख़ामुन (new topic, 25 Nov 2026)
 - Script `tut/script.json` (film, **50 lines**: the user asked for 50, about 5:10 at Viraj's pace) and
   `tut/reel/script.json` (reel, separate script, 10 lines, about 64 s). Beats and voiceover scripts
@@ -241,6 +254,13 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
     (~3,700-3,900 characters), a separate reel (9-11 lines, ~720 characters), one stop for approval with one
     copyable v3 block per file, 15-20 photos, globe, 2D map, **at least 3-4 3D models**, HyperFrames hero
     graphics only, voice possibly as Greeting + whole story + Reel, 1.0x always, gaps 0.45-0.6 s.
+
+18b. (25 Nov 2026) Topic **Area 51** (`area51/`): total about **8 min**, timed to the user's own recording;
+    mystery, suspense, thriller; **first questions to build curiosity, not explaining at once**; hooks at the
+    start, before the middle, the middle and the end; separate reel and film scripts; "pura kaccha chittha";
+    a **3D-style map animation** and colourful maps from the internet (2D is fine too); **less red**,
+    palette by topic; **more engaging backgrounds** for retention; motion graphics may come from the
+    internet; **HyperFrames very little**. See `CLAUDE.md` ("Area 51 orders").
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.

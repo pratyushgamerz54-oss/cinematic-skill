@@ -172,6 +172,25 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   words (about 3,900 characters) to land near 5:18.
 - HyperFrames usage note: the user said yes to sending it.
 
+## Area 51 orders (user, 25 Nov 2026; keep doing this)
+
+- **Length follows the voice:** when the user names a length ("kul 8 mint"), write for it (≈ 11.4 Hindi
+  characters a second at Viraj's pace, gaps included: 8 min ≈ 5,500 characters) and then fit the film to
+  the recording they send ("jitna der ka hoga uske hisaab se"); the 5:18 default applies only when no
+  length is named.
+- **Curiosity first:** do not start explaining at once ("suru se hi nhi batane lagi ge"). Open with
+  questions about the topic that make the viewer curious, and keep hooks going: at the start, before the
+  middle, in the middle, before the end and at the end. "Pura kaccha chittha khol dena": the full story,
+  every side, with sources.
+- **Maps: a 3D-style map animation** (a tilted 2.5D map or a 3D terrain map that moves), and colourful
+  maps or satellite images from the internet where free ones exist (NASA, USGS Landsat, Commons; credit
+  them); a flat 2D map is fine as well.
+- **Less red:** "thoda red red jyada ho jata hai": pick the palette for the topic (for Area 51: desert
+  amber, night blue, radar green) and keep red for one or two hooks.
+- **More engaging backgrounds** for view retention: moving, topic-matched backgrounds, not one flat board.
+- **Motion graphics may come from the internet** (free licence, credited); **HyperFrames very little**
+  ("hyperframe ka use bahut kam hi karna hai"): only the intro and one or two hero graphics.
+
 ## Practical notes
 
 - Hindi (Devanagari) is shaped by the engine (and label bars now reach vowel signs below the line). Give
