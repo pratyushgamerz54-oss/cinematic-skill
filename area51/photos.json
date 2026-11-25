@@ -54,7 +54,14 @@
    "license": "CC BY-SA 4.0",
    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
    "date": "2019-09-22 10:38:54",
-   "license_ok": true
+   "license_ok": true,
+   "crop": [
+    0.45,
+    0.0,
+    1.0,
+    0.85
+   ],
+   "note": "cropped to the signs: a private visitor stands on the left of the original"
   },
   {
    "id": "P05",
@@ -223,63 +230,134 @@
    "id": "P17",
    "what": "MiG-21 flown by the USAF 4477th TES",
    "kind": "photo",
-   "commons": "File:4477th Test and Evaluation Squadron MiG-21 in flight.jpg"
+   "commons": "File:4477th Test and Evaluation Squadron MiG-21 in flight.jpg",
+   "file": "P17_4477th_Test_and_Evaluation_Squadron_MiG_21_in_fl.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:4477th_Test_and_Evaluation_Squadron_MiG-21_in_flight.jpg",
+   "credit": "United States Department of Defense, Defense Intelligence Agency",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1970sdate QS:P,+1970-00-00T00:00:00Z/8",
+   "license_ok": true
   },
   {
    "id": "P18",
    "what": "HAVE BLUE stealth demonstrator (USAF)",
    "kind": "photo",
-   "commons": "File:DARPA USAirForce HaveBlue.png"
+   "commons": "File:DARPA USAirForce HaveBlue.png",
+   "file": "P18_DARPA_USAirForce_HaveBlue.png",
+   "source": "https://commons.wikimedia.org/wiki/File:DARPA_USAirForce_HaveBlue.png",
+   "credit": "US Air Force Photo",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2011-09-15",
+   "license_ok": true
   },
   {
    "id": "P19",
    "what": "F-117 Nighthawk",
    "kind": "photo",
    "commons": "File:F-117 Nighthawk Front.jpg",
-   "grade": "natural"
+   "grade": "natural",
+   "file": "P19_F_117_Nighthawk_Front.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:F-117_Nighthawk_Front.jpg",
+   "credit": "Staff Sgt. Aaron Allmon II",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2002-08-06",
+   "license_ok": true
   },
   {
    "id": "P20",
    "what": "Roswell Daily Record, 8 July 1947, front page",
    "kind": "doc",
-   "commons": "File:Roswell Daily Record. July 8, 1947. RAAF Captures Flying Saucer On Ranch in Roswell Region. Top of front page.jpg"
+   "commons": "File:Roswell Daily Record. July 8, 1947. RAAF Captures Flying Saucer On Ranch in Roswell Region. Top of front page.jpg",
+   "file": "P20_Roswell_Daily_Record_July_8_1947_RAAF_Captures_F.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Roswell_Daily_Record._July_8,_1947._RAAF_Captures_Flying_Saucer_On_Ranch_in_Roswell_Region._Top_of_front_page.jpg",
+   "credit": "Roswell Daily Record.",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1947-07-08",
+   "license_ok": true
   },
   {
    "id": "P21",
    "what": "Gen. Ramey and Col. DuBose with the Roswell debris, 1947",
    "kind": "photo",
-   "commons": "File:Ramey-dubose-debris.jpg"
+   "commons": "File:Ramey-dubose-debris.jpg",
+   "file": "P21_Ramey_dubose_debris.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Ramey-dubose-debris.jpg",
+   "credit": "Fort Worth Star-Telegram",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1947-07-08",
+   "license_ok": true
   },
   {
    "id": "P22",
    "what": "Project Mogul balloon train (USAF 1995 report)",
    "kind": "doc",
-   "commons": "File:Mogul balloon train USAF 1995.png"
+   "commons": "File:Mogul balloon train USAF 1995.png",
+   "file": "P22_Mogul_balloon_train_USAF_1995.png",
+   "source": "https://commons.wikimedia.org/wiki/File:Mogul_balloon_train_USAF_1995.png",
+   "credit": "United States Air Force",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1995-01-01",
+   "license_ok": true
   },
   {
    "id": "P23",
    "what": "President Bill Clinton, official portrait",
    "kind": "photo",
-   "commons": "File:44 Bill Clinton 3x4.jpg"
+   "commons": "File:44 Bill Clinton 3x4.jpg",
+   "file": "P23_44_Bill_Clinton_3x4.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:44_Bill_Clinton_3x4.jpg",
+   "credit": "Bob McNeely, The White House[1]",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1993-01-01",
+   "license_ok": true
   },
   {
    "id": "P24",
    "what": "David Grusch testifying, 26 July 2023",
    "kind": "photo",
    "commons": "File:David Grusch giving testimony on 26 July 2023 before the US House Subcommittee on National Security the Border and Foreign Affairs.png",
-   "grade": "natural"
+   "grade": "natural",
+   "file": "P24_David_Grusch_giving_testimony_on_26_July_2023_be.png",
+   "source": "https://commons.wikimedia.org/wiki/File:David_Grusch_giving_testimony_on_26_July_2023_before_the_US_House_Subcommittee_on_National_Security_the_Border_and_Foreign_Affairs.png",
+   "credit": "U.S. House Subcommittee on National Security, the Border, and Foreign Affairs (screenshot from government website video broadcast)",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2023-07-26",
+   "license_ok": true
   },
   {
    "id": "P25",
    "what": "Nevada Test Site, Operation Plumbbob 1957",
    "kind": "photo",
-   "commons": "File:Nuclear explosion on September 28, 1957 at the NEVADA TEST SITE was the 23rd test of Operation Plumbbob with Code-name CHARLESTON- the device was suspended by a balloon at a height of 1500 feet. From- Plumbbob Charleston 003 (cropped).jpg"
+   "commons": "File:Nuclear explosion on September 28, 1957 at the NEVADA TEST SITE was the 23rd test of Operation Plumbbob with Code-name CHARLESTON- the device was suspended by a balloon at a height of 1500 feet. From- Plumbbob Charleston 003 (cropped).jpg",
+   "file": "P25_Nuclear_explosion_on_September_28_1957_at_the_NE.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Nuclear_explosion_on_September_28,_1957_at_the_NEVADA_TEST_SITE_was_the_23rd_test_of_Operation_Plumbbob_with_Code-name_CHARLESTON-_the_device_was_suspended_by_a_balloon_at_a_height_of_1500_feet._From-_Plumbbob_Charleston_003_(cropped).jpg",
+   "credit": "National Nuclear Security Administration / Nevada Site Office",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1957-09-28",
+   "license_ok": true
   },
   {
    "id": "P26",
    "what": "Project Blue Book status report (USAF)",
    "kind": "doc",
-   "commons": "File:Project Blue Book, complete status reports.pdf"
+   "commons": "File:Project Blue Book, complete status reports.pdf",
+   "file": "P26_Project_Blue_Book_status_reports.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Project_Blue_Book,_complete_status_reports.pdf",
+   "credit": "US Air Force",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1951-1955",
+   "license_ok": true,
+   "note": "page 1 rendered by Wikimedia"
   }
  ]
 }
