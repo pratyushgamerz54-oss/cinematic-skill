@@ -231,7 +231,14 @@
    "id": "P20",
    "what": "Howard Carter, 1924 (Chicago Daily News)",
    "kind": "photo",
-   "commons": "File:Howard carter.jpg"
+   "commons": "File:Howard carter.jpg",
+   "file": "P20_Howard_carter.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Howard_carter.jpg",
+   "credit": "Chicago Daily News, Inc., photographer",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1924",
+   "license_ok": true
   },
   {
    "id": "P21",
