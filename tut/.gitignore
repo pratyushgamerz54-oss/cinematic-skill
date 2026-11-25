@@ -11,3 +11,9 @@ audio/trimmed/
 reel/audio/trimmed/
 out/probe/
 out/test_*.mp4
+audio/sfx.wav
+audio/music/score.wav
+reel/audio/sfx.wav
+out/chunks/
+out/burn/
+reel/out/
