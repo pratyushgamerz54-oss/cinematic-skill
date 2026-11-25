@@ -76,6 +76,20 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   the user chose this over 1.17x)**. If a recorded read runs long, drop whole lines (`film_cut` in
   `saanp/script.json` shows how: guard their visuals with `has(i)`, use `nxt(i)` for clip ends) and cap the
   gaps between lines at 0.6 s; never stretch the film or speed up the voice.
+- **Visuals (the user's own words: "visual ki kami hai, bahut jagah ruk jaata hai"):** every line gets its
+  own visual that explains it, not text alone. Concretely:
+  - **Fast pace:** a new image, clip or motion graphic every 2 to 4 s; the camera never sits still (holds
+    push in and drift, `tidy_keys` in `saanp/scene.py`); no stretch of empty wall or a long static card.
+  - **Many photos:** at least one real archive photo per section, usually two or three (aim for 15 to 20
+    in a 5-minute film): people, places, documents, the scene after an event. Search Commons widely
+    (e.g. White House, DoD, State Department photos are public domain).
+  - **More 3D:** at least three 3D shots beyond the globe: a building or site model, a landscape or
+    terrain, vehicles moving on globe routes (`"vehicle": "plane" | "boat"` in `globe.json`).
+  - **Motion graphics, not only text:** animated diagrams for the ideas (networks, money trails, targets,
+    clocks, counters as figure or dot grids, candles for victims, typed testimony), from HyperFrames.
+    Plain title text alone is not a visual.
+  - **Never repeat the title card** inside the film; show it once after the opening question.
+  - Before rendering, probe one still per line and fix every line that has no clear visual.
 - Voice: the user prefers **Viraj** (ElevenLabs library voices "Viraj - Dramatic, Powerful and Epic"
   `CN3wrf4wja2qO5yPhs0E`, "TL10 Aarav - Viraj" `uuyFQegRan8rpIQCGu9K`). The free plan refuses library voices
   over the API (HTTP 402): then use George (`JBFqnCBsd6RMkjVDRZzb`, premade, verified for Hindi,
