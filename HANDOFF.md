@@ -120,7 +120,7 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
   - 3D pages `tut/assets/3d/` (shared `common.js`): `tomb.html` (0-6 s sealed door + candle = clip `door`,
     6-15 s KV62 cutaway = clip `tomb`), `coffins.html`, `valley.html` (KV9 debris buries KV62), `ctscan.html`
     (symbolic scan, not the mummy). Recorded to `assets/clips/*.mp4`.
-  - HyperFrames `tut/hf/`: qopen, title, wonder (quote card), qend, rq (reel opening question) → `hf_graphics.mp4`, cut by `trim` in `clips.json`.
+  - HyperFrames `tut/hf/`: welcome, topic, go (the YouTube intro, T00_intro), qopen, wonder (quote card), qend, rq (reel opening question) → `hf_graphics.mp4`, cut by `trim` in `clips.json`. The old `title` card is no longer used (the intro carries the title).
   - Thumbnails: `tut/thumbs.py` → `tut/out/thumbnail_youtube.jpg`, `thumbnail_reel.jpg`.
 - Next, once the audio arrives: put the takes in `tut/audio/takes/` and `REEL` in `tut/reel/audio/takes/`;
   split_takes / build_narration for each (film --target 318); prep_clips; scene.py from `saanp/scene.py`;
@@ -199,6 +199,11 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
     by the user, so neither has breaks in continuity (a reel cut from the MP4 "beech mein cut lag ke...
     discontinuity" lagta hai). The reel script should feel made only for reels, the film only for YouTube.
 14. (25 Nov 2026) Next topic: **Tutankhamun**, a history documentary and explainer (`tut/`).
+15. (25 Nov 2026) The film script stays at **50 story lines** ("ab sirf 50 line ki kar do"); the user
+    generates the voice themselves and wants **one copyable block per file** ("single single karo").
+16. (25 Nov 2026) **Start the film like a YouTube video**: welcome, then the topic, then "चलिए शुरू करते
+    हैं", then the story, with **a separate motion graphic made for this intro** (`T00_intro`; HyperFrames
+    `welcome`, `topic`, `go`). See `CLAUDE.md`.
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.

@@ -1,0 +1,114 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+.dust{position:absolute;border-radius:50%;background:#f0c060;box-shadow:0 0 8px #f0b040;}
+.chip{position:absolute;font-family:'Hind HF';font-size:62px;padding:10px 34px 4px;background:rgba(14,10,6,.85);border-left:10px solid #d8322a;color:#f3ede4;}
+</style>
+  <div id="root" data-composition-id="welcome" data-width="1920" data-height="1080">
+    <div id="wel-sun" class="clip" data-start="0" data-duration="5" style="position:absolute;left:660px;top:240px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(240,180,70,.35) 0%,rgba(240,160,40,.08) 45%,rgba(0,0,0,0) 70%)"></div>
+    <svg class="clip" id="wel-f1" data-start="0" data-duration="20" style="position:absolute;left:0;top:0" width="1920" height="1080"><path id="wel-f1-p" d="M 80 130 L 80 148 L 120 112 L 160 148 L 200 112 L 240 148 L 280 112 L 320 148 L 360 112 L 400 148 L 440 112 L 480 148 L 520 112 L 560 148 L 600 112 L 640 148 L 680 112 L 720 148 L 760 112 L 800 148 L 840 112 L 880 148 L 920 112 L 960 148 L 1000 112 L 1040 148 L 1080 112 L 1120 148 L 1160 112 L 1200 148 L 1240 112 L 1280 148 L 1320 112 L 1360 148 L 1400 112 L 1440 148 L 1480 112 L 1520 148 L 1560 112 L 1600 148 L 1640 112 L 1680 148 L 1720 112 L 1760 148 L 1800 112 L 1840 148" fill="none" stroke="#e3b04b" stroke-width="4" opacity="0.85"/><line id="wel-f1-l" x1="80" y1="164" x2="1840" y2="164" stroke="#e3b04b" stroke-width="3" opacity="0.6"/></svg>
+    <svg class="clip" id="wel-f2" data-start="0" data-duration="20" style="position:absolute;left:0;top:0" width="1920" height="1080"><path id="wel-f2-p" d="M 80 930 L 80 948 L 120 912 L 160 948 L 200 912 L 240 948 L 280 912 L 320 948 L 360 912 L 400 948 L 440 912 L 480 948 L 520 912 L 560 948 L 600 912 L 640 948 L 680 912 L 720 948 L 760 912 L 800 948 L 840 912 L 880 948 L 920 912 L 960 948 L 1000 912 L 1040 948 L 1080 912 L 1120 948 L 1160 912 L 1200 948 L 1240 912 L 1280 948 L 1320 912 L 1360 948 L 1400 912 L 1440 948 L 1480 912 L 1520 948 L 1560 912 L 1600 948 L 1640 912 L 1680 948 L 1720 912 L 1760 948 L 1800 912 L 1840 948" fill="none" stroke="#e3b04b" stroke-width="4" opacity="0.85"/><line id="wel-f2-l" x1="80" y1="964" x2="1840" y2="964" stroke="#e3b04b" stroke-width="3" opacity="0.6"/></svg>
+    <div id="wel-d0" class="clip dust" data-start="0" data-duration="5" style="left:453px;top:111px;width:3.6px;height:3.6px"></div>
+    <div id="wel-d1" class="clip dust" data-start="0" data-duration="5" style="left:1762px;top:864px;width:5.1px;height:5.1px"></div>
+    <div id="wel-d2" class="clip dust" data-start="0" data-duration="5" style="left:332px;top:115px;width:2.9px;height:2.9px"></div>
+    <div id="wel-d3" class="clip dust" data-start="0" data-duration="5" style="left:1537px;top:209px;width:3.2px;height:3.2px"></div>
+    <div id="wel-d4" class="clip dust" data-start="0" data-duration="5" style="left:1690px;top:94px;width:4.4px;height:4.4px"></div>
+    <div id="wel-d5" class="clip dust" data-start="0" data-duration="5" style="left:909px;top:96px;width:5.7px;height:5.7px"></div>
+    <div id="wel-d6" class="clip dust" data-start="0" data-duration="5" style="left:1745px;top:618px;width:5.5px;height:5.5px"></div>
+    <div id="wel-d7" class="clip dust" data-start="0" data-duration="5" style="left:1150px;top:466px;width:2.6px;height:2.6px"></div>
+    <div id="wel-d8" class="clip dust" data-start="0" data-duration="5" style="left:89px;top:676px;width:3.1px;height:3.1px"></div>
+    <div id="wel-d9" class="clip dust" data-start="0" data-duration="5" style="left:1915px;top:211px;width:3.7px;height:3.7px"></div>
+    <div id="wel-d10" class="clip dust" data-start="0" data-duration="5" style="left:683px;top:807px;width:3.3px;height:3.3px"></div>
+    <div id="wel-d11" class="clip dust" data-start="0" data-duration="5" style="left:118px;top:247px;width:5.1px;height:5.1px"></div>
+    <div id="wel-d12" class="clip dust" data-start="0" data-duration="5" style="left:341px;top:496px;width:2.2px;height:2.2px"></div>
+    <div id="wel-d13" class="clip dust" data-start="0" data-duration="5" style="left:1411px;top:1037px;width:2.1px;height:2.1px"></div>
+    <div id="wel-d14" class="clip dust" data-start="0" data-duration="5" style="left:788px;top:1019px;width:4.5px;height:4.5px"></div>
+    <div id="wel-d15" class="clip dust" data-start="0" data-duration="5" style="left:853px;top:147px;width:3.5px;height:3.5px"></div>
+    <div id="wel-d16" class="clip dust" data-start="0" data-duration="5" style="left:86px;top:183px;width:5.1px;height:5.1px"></div>
+    <div id="wel-d17" class="clip dust" data-start="0" data-duration="5" style="left:1885px;top:458px;width:2.8px;height:2.8px"></div>
+    <div id="wel-d18" class="clip dust" data-start="0" data-duration="5" style="left:1300px;top:162px;width:2.2px;height:2.2px"></div>
+    <div id="wel-d19" class="clip dust" data-start="0" data-duration="5" style="left:235px;top:572px;width:5.1px;height:5.1px"></div>
+    <div id="wel-d20" class="clip dust" data-start="0" data-duration="5" style="left:464px;top:443px;width:2.1px;height:2.1px"></div>
+    <div id="wel-d21" class="clip dust" data-start="0" data-duration="5" style="left:1596px;top:538px;width:2.1px;height:2.1px"></div>
+    <div id="wel-d22" class="clip dust" data-start="0" data-duration="5" style="left:444px;top:939px;width:2.6px;height:2.6px"></div>
+    <div id="wel-d23" class="clip dust" data-start="0" data-duration="5" style="left:1902px;top:435px;width:5.6px;height:5.6px"></div>
+    <div id="wel-d24" class="clip dust" data-start="0" data-duration="5" style="left:949px;top:100px;width:2.8px;height:2.8px"></div>
+    <div id="wel-d25" class="clip dust" data-start="0" data-duration="5" style="left:646px;top:709px;width:5.2px;height:5.2px"></div>
+    <div id="wel-d26" class="clip dust" data-start="0" data-duration="5" style="left:1257px;top:741px;width:3.1px;height:3.1px"></div>
+    <div id="wel-d27" class="clip dust" data-start="0" data-duration="5" style="left:1864px;top:1039px;width:4.7px;height:4.7px"></div>
+    <div id="wel-d28" class="clip dust" data-start="0" data-duration="5" style="left:1860px;top:721px;width:2.2px;height:2.2px"></div>
+    <div id="wel-d29" class="clip dust" data-start="0" data-duration="5" style="left:1433px;top:1002px;width:2.9px;height:2.9px"></div>
+    <div id="wel-d30" class="clip dust" data-start="0" data-duration="5" style="left:1683px;top:125px;width:5.2px;height:5.2px"></div>
+    <div id="wel-d31" class="clip dust" data-start="0" data-duration="5" style="left:1687px;top:218px;width:4.7px;height:4.7px"></div>
+    <div id="wel-d32" class="clip dust" data-start="0" data-duration="5" style="left:905px;top:569px;width:2.1px;height:2.1px"></div>
+    <div id="wel-d33" class="clip dust" data-start="0" data-duration="5" style="left:1660px;top:657px;width:2.6px;height:2.6px"></div>
+    <div id="wel-d34" class="clip dust" data-start="0" data-duration="5" style="left:20px;top:905px;width:5.3px;height:5.3px"></div>
+    <div id="wel-d35" class="clip dust" data-start="0" data-duration="5" style="left:1512px;top:336px;width:2.9px;height:2.9px"></div>
+    <div id="wel-d36" class="clip dust" data-start="0" data-duration="5" style="left:220px;top:671px;width:5.5px;height:5.5px"></div>
+    <div id="wel-d37" class="clip dust" data-start="0" data-duration="5" style="left:1491px;top:72px;width:5.5px;height:5.5px"></div>
+    <div id="wel-d38" class="clip dust" data-start="0" data-duration="5" style="left:811px;top:862px;width:2.7px;height:2.7px"></div>
+    <div id="wel-d39" class="clip dust" data-start="0" data-duration="5" style="left:949px;top:366px;width:4.2px;height:4.2px"></div>
+    <div id="wel-a" class="clip k gold" data-start="0" data-duration="5" style="top:330px;font-family:'Teko HF';font-size:240px;line-height:1">नमस्कार</div>
+    <div id="wel-b" class="clip k" data-start="0.8" data-duration="4.2" style="top:640px;font-family:'Hind HF';font-size:76px">आपका स्वागत है</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wel-d0",{opacity:0,y:0},{opacity:0.34,y:-47,x:-8,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d1",{opacity:0,y:0},{opacity:0.37,y:-94,x:-18,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d2",{opacity:0,y:0},{opacity:0.76,y:-123,x:25,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d3",{opacity:0,y:0},{opacity:0.59,y:-113,x:28,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d4",{opacity:0,y:0},{opacity:0.62,y:-91,x:-26,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d5",{opacity:0,y:0},{opacity:0.73,y:-95,x:-16,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d6",{opacity:0,y:0},{opacity:0.72,y:-91,x:-7,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d7",{opacity:0,y:0},{opacity:0.42,y:-121,x:-37,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d8",{opacity:0,y:0},{opacity:0.54,y:-87,x:-13,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d9",{opacity:0,y:0},{opacity:0.36,y:-103,x:-18,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d10",{opacity:0,y:0},{opacity:0.56,y:-130,x:-32,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d11",{opacity:0,y:0},{opacity:0.59,y:-64,x:-14,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d12",{opacity:0,y:0},{opacity:0.63,y:-130,x:36,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d13",{opacity:0,y:0},{opacity:0.41,y:-137,x:22,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d14",{opacity:0,y:0},{opacity:0.70,y:-69,x:-25,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d15",{opacity:0,y:0},{opacity:0.78,y:-73,x:-39,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d16",{opacity:0,y:0},{opacity:0.45,y:-69,x:-32,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d17",{opacity:0,y:0},{opacity:0.28,y:-46,x:-27,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d18",{opacity:0,y:0},{opacity:0.52,y:-65,x:40,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d19",{opacity:0,y:0},{opacity:0.48,y:-139,x:-2,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d20",{opacity:0,y:0},{opacity:0.48,y:-65,x:31,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d21",{opacity:0,y:0},{opacity:0.39,y:-64,x:-23,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d22",{opacity:0,y:0},{opacity:0.28,y:-133,x:5,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d23",{opacity:0,y:0},{opacity:0.61,y:-119,x:20,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d24",{opacity:0,y:0},{opacity:0.73,y:-130,x:34,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d25",{opacity:0,y:0},{opacity:0.60,y:-121,x:2,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d26",{opacity:0,y:0},{opacity:0.76,y:-136,x:-34,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d27",{opacity:0,y:0},{opacity:0.27,y:-130,x:-30,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d28",{opacity:0,y:0},{opacity:0.34,y:-104,x:6,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d29",{opacity:0,y:0},{opacity:0.25,y:-132,x:-39,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d30",{opacity:0,y:0},{opacity:0.68,y:-128,x:4,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d31",{opacity:0,y:0},{opacity:0.43,y:-129,x:22,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d32",{opacity:0,y:0},{opacity:0.27,y:-99,x:-1,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d33",{opacity:0,y:0},{opacity:0.45,y:-117,x:2,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d34",{opacity:0,y:0},{opacity:0.30,y:-94,x:-10,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d35",{opacity:0,y:0},{opacity:0.52,y:-137,x:-32,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d36",{opacity:0,y:0},{opacity:0.53,y:-83,x:29,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d37",{opacity:0,y:0},{opacity:0.36,y:-70,x:27,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d38",{opacity:0,y:0},{opacity:0.73,y:-58,x:-28,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-d39",{opacity:0,y:0},{opacity:0.75,y:-111,x:-40,duration:5,ease:"none"},0);
+    tl.fromTo("#wel-sun",{opacity:0,scale:0.6},{opacity:1,scale:1.1,duration:2.4,ease:"power2.out"},0);
+    tl.fromTo("#wel-f1-p",{strokeDasharray:5000,strokeDashoffset:5000},{strokeDashoffset:0,duration:1.6,ease:"power2.inOut"},0.1);
+    tl.fromTo("#wel-f2-p",{strokeDasharray:5000,strokeDashoffset:-5000},{strokeDashoffset:0,duration:1.6,ease:"power2.inOut"},0.1);
+    tl.fromTo(["#wel-f1-l","#wel-f2-l"],{opacity:0},{opacity:0.6,duration:0.6},1.0);
+    tl.fromTo("#wel-a",{opacity:0,y:40,scaleX:1.25},{opacity:1,y:0,scaleX:1,duration:1.0,ease:"power3.out"},0.15);
+    tl.fromTo("#wel-b",{opacity:0,y:20},{opacity:1,y:0,duration:0.6,ease:"power2.out"},0.8);
+    tl.fromTo("#wel-a",{scale:1},{scale:1.04,duration:3.8,ease:"none",immediateRender:false},1.1);
+    window.__timelines["welcome"] = tl;
+  </script>
+</template>

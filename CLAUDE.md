@@ -28,6 +28,16 @@ discontinuity"). The reel script is one continuous story that stands on its own 
 separately (film: one file per take; reel: one file `REEL`), so write two voiceover scripts (plain and v3
 emotion tags) and send both copyable lists. Reel media may reuse the film's photos, globes and 3D clips.
 
+## YouTube-style intro for the film (user, 25 Nov 2026)
+
+"Isko chalu karo aise jaise YT chalu karta hai": every YouTube film opens with its own take `T00_intro`
+before the cold open: (1) a welcome ("नमस्कार दोस्तों, आपका स्वागत है।"), (2) the topic in one or two
+lines that tease the story and name it, (3) "तो चलिए, शुरू करते हैं।", then the cold open. The intro has
+its **own motion graphic made for it** (HyperFrames: `welcome`, `topic`, `go` in `tut/hf/` are the
+template: gold dust and frieze, teaser chips on the words, the subject photo in a cartouche with the title,
+a light sweep and the year spinning back into the cold open). The title is shown there, once; no second
+title card after the opening question. The reel keeps its own format (it opens on the question, no welcome).
+
 ## The reel format (the same every time: "ek consistent reel banao, na ki kuch bhi")
 
 `saanp/reel/scene.py` is the template; copy it, change only the beats list and the media. Every beat
@@ -43,7 +53,8 @@ Open on the question beat, end on "आप क्या सोचते हैं
 
 ## Style: suspenseful, dramatic, thriller, investigative documentary
 
-- Shape: "Investigative documentary" in `skills/cinematic-film/references/story.md`. Cold open on the most
+- Shape: "Investigative documentary" in `skills/cinematic-film/references/story.md`. The YouTube intro
+  (`T00_intro`, above), then a cold open on the most
   striking fact, then **a question** (the opening hook), the title, one bridge back in time, then sections
   strictly forward in time, each one an exhibit (a real source) with a stamp or pen mark on the key word.
 - **Hooks:** open on a question; a mid-film hook at the end of almost every section ("लेकिन असली झटका...

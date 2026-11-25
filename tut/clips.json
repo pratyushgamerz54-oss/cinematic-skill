@@ -67,24 +67,46 @@
    "license": "Own work"
   },
   {
-   "id": "hf_qopen",
+   "id": "hf_welcome",
    "file": "assets/clips/hf_graphics.mp4",
    "trim": [
     0,
-    6
+    5
    ],
-   "what": "HyperFrames motion graphic: qopen",
+   "what": "HyperFrames motion graphic: welcome",
    "credit": "Made in code (HyperFrames)",
    "license": "Own work"
   },
   {
-   "id": "hf_title",
+   "id": "hf_topic",
    "file": "assets/clips/hf_graphics.mp4",
    "trim": [
-    6,
-    11
+    5,
+    16
    ],
-   "what": "HyperFrames motion graphic: title",
+   "what": "HyperFrames motion graphic: topic",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_go",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    16,
+    20
+   ],
+   "what": "HyperFrames motion graphic: go",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qopen",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    20,
+    26
+   ],
+   "what": "HyperFrames motion graphic: qopen",
    "credit": "Made in code (HyperFrames)",
    "license": "Own work"
   },
@@ -92,8 +114,8 @@
    "id": "hf_wonder",
    "file": "assets/clips/hf_graphics.mp4",
    "trim": [
-    11,
-    18
+    26,
+    33
    ],
    "what": "HyperFrames motion graphic: wonder",
    "credit": "Made in code (HyperFrames)",
@@ -103,8 +125,8 @@
    "id": "hf_qend",
    "file": "assets/clips/hf_graphics.mp4",
    "trim": [
-    18,
-    26
+    33,
+    41
    ],
    "what": "HyperFrames motion graphic: qend",
    "credit": "Made in code (HyperFrames)",
@@ -114,8 +136,8 @@
    "id": "hf_rq",
    "file": "assets/clips/hf_graphics.mp4",
    "trim": [
-    26,
-    31
+    41,
+    46
    ],
    "what": "HyperFrames motion graphic: rq",
    "credit": "Made in code (HyperFrames)",

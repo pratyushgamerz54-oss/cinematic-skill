@@ -1,0 +1,35 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+.dust{position:absolute;border-radius:50%;background:#f0c060;box-shadow:0 0 8px #f0b040;}
+.chip{position:absolute;font-family:'Hind HF';font-size:62px;padding:10px 34px 4px;background:rgba(14,10,6,.85);border-left:10px solid #d8322a;color:#f3ede4;}
+</style>
+  <div id="root" data-composition-id="go" data-width="1920" data-height="1080">
+    <div id="go-a" class="clip k" data-start="0" data-duration="4" style="top:300px;font-family:'Hind HF';font-size:80px;color:#cfc6b8">तो चलिए,</div>
+    <div id="go-b" class="clip k gold" data-start="0.45" data-duration="3.55" style="top:420px;font-family:'Teko HF';font-size:220px;line-height:1">शुरू करते हैं</div>
+    <div id="go-sweep" class="clip" data-start="0.7" data-duration="1.2" style="position:absolute;top:0;left:-600px;width:500px;height:1080px;background:linear-gradient(90deg,rgba(255,220,150,0),rgba(255,220,150,.45),rgba(255,220,150,0));transform:skewX(-18deg)"></div>
+    <div id="go-date" class="clip k" data-start="2.0" data-duration="2.0" style="top:760px;font-family:'Teko HF';font-size:110px;color:#f3ede4;letter-spacing:.05em">2026</div>
+    <div id="go-black" class="clip" data-start="3.3" data-duration="0.7" style="position:absolute;inset:0;background:#000;opacity:0"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#go-a",{opacity:0,y:20},{opacity:1,y:0,duration:0.4,ease:"power2.out"},0.0);
+    tl.fromTo("#go-b",{opacity:0,scale:1.25},{opacity:1,scale:1,duration:0.4,ease:"power4.out"},0.45);
+    tl.fromTo("#go-sweep",{x:0},{x:3000,duration:1.2,ease:"power2.inOut"},0.7);
+    const yr = {v:2026};
+    tl.fromTo(yr,{v:2026},{v:1922,duration:1.1,ease:"power2.in",onUpdate:()=>{document.querySelector("#go-date").textContent = Math.round(yr.v) <= 1922 ? "26.11.1922" : String(Math.round(yr.v));}},2.05);
+    tl.fromTo("#go-date",{opacity:0},{opacity:1,duration:0.2},2.0);
+    tl.to(["#go-a","#go-b"],{opacity:0.25,duration:0.5},2.1);
+    tl.fromTo("#go-black",{opacity:0},{opacity:1,duration:0.6},3.35);
+    window.__timelines["go"] = tl;
+  </script>
+</template>

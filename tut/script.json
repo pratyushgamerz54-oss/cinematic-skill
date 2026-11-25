@@ -3,16 +3,50 @@
  "subtitle": "मिटाया गया राजा: एक जाँच",
  "language": "hi",
  "format": {
-  "film": "1920x1080, about 5:18",
+  "film": "1920x1080, about 5:25 with the YouTube intro (T00_intro)",
   "reel": "separate script in reel/script.json"
  },
  "takes": [
+  {
+   "take": "T00_intro",
+   "heading": "स्वागत (YouTube इंट्रो)",
+   "lines": [
+    {
+     "text": "नमस्कार दोस्तों, आपका स्वागत है।",
+     "spoken": "नमस्कार दोस्तों... आपका स्वागत है।",
+     "hero": "HyperFrames intro motion graphic, part 1 (hf_welcome): gold dust, Egyptian border lines draw on, 'नमस्कार' and 'स्वागत है'",
+     "typed": "नमस्कार · स्वागत है",
+     "id": 1
+    },
+    {
+     "text": "आज की कहानी है, एक ऐसे राजा की, जो उन्नीस की उम्र में मर गया, और जिसका नाम मिटा दिया गया।",
+     "spoken": "आज की कहानी है, एक ऐसे राजा की... जो उन्नीस की उम्र में मर गया, और जिसका नाम मिटा दिया गया।",
+     "hero": "HyperFrames intro, part 2 (hf_topic): 'आज की कहानी', teaser chips land on the words: 19 साल · नाम मिटाया गया",
+     "typed": "19 साल · नाम मिटाया",
+     "id": 2
+    },
+    {
+     "text": "फिर भी, आज वो दुनिया का सबसे मशहूर फ़राओ है। तूतनख़ामुन।",
+     "spoken": "फिर भी, आज वो दुनिया का सबसे मशहूर फ़राओ है... तूतनख़ामुन।",
+     "hero": "HyperFrames intro, part 2 continued: the mask rises inside a gold cartouche, title तूतनख़ामुन (the film's one title card)",
+     "typed": "title तूतनख़ामुन",
+     "id": 3
+    },
+    {
+     "text": "तो चलिए, शुरू करते हैं।",
+     "spoken": "तो चलिए... शुरू करते हैं।",
+     "hero": "HyperFrames intro, part 3 (hf_go): the words, a gold light sweep, the calendar spins back to 26.11.1922 into the cold open",
+     "typed": "▶",
+     "id": 4
+    }
+   ]
+  },
   {
    "take": "T01_cold_open",
    "heading": "शुरुआत: वो मोमबत्ती",
    "lines": [
     {
-     "id": 1,
+     "id": 5,
      "text": "छब्बीस नवंबर, उन्नीस सौ बाईस। मिस्र, राजाओं की घाटी।",
      "spoken": "छब्बीस नवंबर, उन्नीस सौ बाईस। मिस्र, राजाओं की घाटी।",
      "hero": "3D globe: night flight down onto Luxor, Valley of the Kings; date bar slams in",
@@ -20,35 +54,35 @@
      "hook": "open"
     },
     {
-     "id": 2,
+     "id": 6,
      "text": "एक अंग्रेज़ पुरातत्वविद्, हावर्ड कार्टर, एक बंद दरवाज़े में छेद करता है।",
      "spoken": "एक अंग्रेज़ पुरातत्वविद्, हावर्ड कार्टर, एक बंद दरवाज़े में छेद करता है।",
      "hero": "archive photo: Howard Carter (Harry Burton, 1922-23); name bar",
      "typed": "हावर्ड कार्टर"
     },
     {
-     "id": 3,
+     "id": 7,
      "text": "हाथ में मोमबत्ती, और सामने, हज़ारों साल से बंद अँधेरा।",
      "spoken": "हाथ में मोमबत्ती... और सामने, हज़ारों साल से बंद अँधेरा।",
      "hero": "3D: sealed doorway in the dark, a candle flame flickers through a small hole (प्रतीकात्मक 3D मॉडल)",
      "typed": ""
     },
     {
-     "id": 4,
+     "id": 8,
      "text": "पीछे से आवाज़ आई: कुछ दिख रहा है? कार्टर बस इतना कह पाया: हाँ, अद्भुत चीज़ें।",
      "spoken": "पीछे से आवाज़ आई... कुछ दिख रहा है? कार्टर बस इतना कह पाया... हाँ... अद्भुत चीज़ें।",
      "hero": "typed testimony card: Carnarvon's question, then the HyperFrames quote card 'wonderful things', gold light spills over the board",
      "typed": "\"Can you see anything?\" · \"wonderful things\""
     },
     {
-     "id": 5,
+     "id": 9,
      "text": "अंदर था, एक उन्नीस साल के राजा का ख़ज़ाना। तूतनख़ामुन।",
      "spoken": "अंदर था, एक उन्नीस साल के राजा का ख़ज़ाना... तूतनख़ामुन।",
      "hero": "photo: the gold mask; red name bar",
      "typed": "तूतनख़ामुन"
     },
     {
-     "id": 6,
+     "id": 10,
      "text": "पर सवाल ये है: इतना ताक़तवर राजा, इतनी कम उम्र में क्यों मरा? और उसका नाम, इतिहास से किसने मिटाया?",
      "spoken": "पर सवाल ये है... इतना ताक़तवर राजा, इतनी कम उम्र में क्यों मरा? और उसका नाम, इतिहास से किसने मिटाया?",
      "hero": "HyperFrames opening question, word by word; heartbeat",
@@ -56,11 +90,11 @@
      "hook": "question"
     },
     {
-     "id": 7,
+     "id": 11,
      "text": "आज, सबूतों के सहारे, हम इस तीन हज़ार साल पुराने रहस्य की तह तक जाएँगे।",
      "spoken": "आज, सबूतों के सहारे, हम इस तीन हज़ार साल पुराने रहस्य की तह तक जाएँगे।",
-     "hero": "title card after the line (once only)",
-     "typed": "title तूतनख़ामुन"
+     "hero": "no title card here (the intro carries it): the board pulls back from the question to the first exhibit, riser",
+     "typed": ""
     }
    ]
   },
@@ -69,35 +103,35 @@
    "heading": "जड़ें: एक बाग़ी फ़राओ",
    "lines": [
     {
-     "id": 8,
+     "id": 12,
      "text": "कहानी शुरू होती है, लगभग तीन हज़ार तीन सौ साल पहले, फ़राओ अख़ेनातेन के मिस्र में।",
      "spoken": "कहानी शुरू होती है, लगभग तीन हज़ार तीन सौ साल पहले, फ़राओ अख़ेनातेन के मिस्र में।",
      "hero": "Timeline draws on (≈ 1350 ई.पू.); 2D intel map of the Nile; archive photo of the Akhenaten statue slides in with a name bar",
      "typed": "≈ 1350 ई.पू. · अख़ेनातेन"
     },
     {
-     "id": 9,
+     "id": 13,
      "text": "उसने पुराने देवताओं को छोड़, सिर्फ़ एक देवता की पूजा का हुक्म दिया: सूर्य का गोला, आतेन।",
      "spoken": "उसने पुराने देवताओं को छोड़, सिर्फ़ एक देवता की पूजा का हुक्म दिया: सूर्य का गोला, आतेन।",
      "hero": "photo: Amarna relief of the royal family under the Aten; engine motion graphic: sun disc, rays land one by one",
      "typed": "आतेन ☉"
     },
     {
-     "id": 10,
+     "id": 14,
      "text": "मंदिर बंद हुए, और रेगिस्तान में बसी एक नई राजधानी: अमरना।",
      "spoken": "मंदिर बंद हुए, और रेगिस्तान में बसी एक नई राजधानी: अमरना।",
      "hero": "map: a Route draws Thebes → Amarna, XMarker 'अमरना'; temple icons get a 'बंद' stamp",
      "typed": "थीब्स → अमरना"
     },
     {
-     "id": 11,
+     "id": 15,
      "text": "इसी उथल-पुथल में पैदा हुआ एक बच्चा, तूतनख़ातेन।",
      "spoken": "इसी उथल-पुथल में पैदा हुआ एक बच्चा, तूतनख़ातेन।",
      "hero": "cartouche drawn on the board, the name typed inside it",
      "typed": "तूतनख़ातेन"
     },
     {
-     "id": 12,
+     "id": 16,
      "text": "लेकिन ये बच्चा, बहुत जल्द, एक ऐसे तख़्त पर बैठने वाला था, जो आग पर रखा था।",
      "spoken": "लेकिन ये बच्चा... बहुत जल्द, एक ऐसे तख़्त पर बैठने वाला था, जो आग पर रखा था।",
      "hero": "3D: the golden throne (प्रतीकात्मक 3D मॉडल) in red light; riser",
@@ -111,35 +145,35 @@
    "heading": "नौ साल का फ़राओ",
    "lines": [
     {
-     "id": 13,
+     "id": 17,
      "text": "कुछ ही साल बाद, लगभग नौ साल की उम्र में, ये बच्चा फ़राओ बना।",
      "spoken": "कुछ ही साल बाद, लगभग नौ साल की उम्र में, ये बच्चा फ़राओ बना।",
      "hero": "Counter: age 9; timeline marker moves (≈ 1332 ई.पू.); crown icon lands",
      "typed": "उम्र ≈ 9"
     },
     {
-     "id": 14,
+     "id": 18,
      "text": "उसके चारों ओर थे दो ताक़तवर लोग: बूढ़ा वज़ीर आय, और सेनापति होरेमहेब।",
      "spoken": "उसके चारों ओर थे दो ताक़तवर लोग... बूढ़ा वज़ीर आय, और सेनापति होरेमहेब।",
      "hero": "network diagram: the boy in the centre; photos of Ay and Horemheb (statues) slide in, joined by red string",
      "typed": "आय · होरेमहेब"
     },
     {
-     "id": 15,
+     "id": 19,
      "text": "फिर पुराने देवता लौटाए गए, मंदिर फिर खुले, और राजा का नाम बना: तूतनख़ामुन।",
      "spoken": "फिर पुराने देवता लौटाए गए, मंदिर फिर खुले, और राजा का नाम बना: तूतनख़ामुन।",
      "hero": "photo: the Restoration Stela; then the cartouche morphs: आतेन struck out, आमुन stamps in",
      "typed": "आतेन → आमुन"
     },
     {
-     "id": 16,
+     "id": 20,
      "text": "उसकी रानी थी अंखेसेनामुन, जो शायद उसकी सौतेली बहन भी थी।",
      "spoken": "उसकी रानी थी अंखेसेनामुन, जो शायद उसकी सौतेली बहन भी थी।",
      "hero": "photo: back panel of the golden throne, the king and queen; name bar",
      "typed": "अंखेसेनामुन"
     },
     {
-     "id": 17,
+     "id": 21,
      "text": "सब कुछ पटरी पर लौट रहा था। तो क्या कहानी यहीं से सुनहरी हो गई? नहीं।",
      "spoken": "सब कुछ पटरी पर लौट रहा था। तो क्या कहानी यहीं से सुनहरी हो गई? ...नहीं।",
      "hero": "the board goes dark; one heartbeat",
@@ -153,42 +187,42 @@
    "heading": "अचानक मौत, और मिटाया गया नाम",
    "lines": [
     {
-     "id": 18,
+     "id": 22,
      "text": "लगभग उन्नीस साल की उम्र में, तूतनख़ामुन की अचानक मौत हो गई।",
      "spoken": "लगभग उन्नीस साल की उम्र में, तूतनख़ामुन की अचानक मौत हो गई।",
      "hero": "Counter runs 9 → 19; tension mood; heartbeat",
      "typed": "उम्र ≈ 19"
     },
     {
-     "id": 19,
+     "id": 23,
      "text": "उसे जल्दबाज़ी में, एक छोटी सी कब्र में दफ़नाया गया, जो शायद किसी और के लिए बनी थी।",
      "spoken": "उसे जल्दबाज़ी में, एक छोटी सी कब्र में दफ़नाया गया, जो शायद किसी और के लिए बनी थी।",
      "hero": "3D: cutaway of tomb KV62, four small rooms, camera flies down the stairs (प्रतीकात्मक 3D मॉडल)",
      "typed": "कब्र KV62"
     },
     {
-     "id": 20,
+     "id": 24,
      "text": "और दीवार पर एक अनोखी तस्वीर है: मरे हुए राजा की आख़िरी रस्म निभाता, नया राजा, आय।",
      "spoken": "और दीवार पर एक अनोखी तस्वीर है: मरे हुए राजा की आख़िरी रस्म निभाता, नया राजा, आय।",
      "hero": "photo: north wall of the burial chamber, Ay performing the Opening of the Mouth; pen circle on Ay",
      "typed": "नया राजा: आय"
     },
     {
-     "id": 21,
+     "id": 25,
      "text": "फिर आया होरेमहेब, और अमरना के राजाओं के नाम, स्मारकों से मिटाए जाने लगे।",
      "spoken": "फिर आया होरेमहेब, और अमरना के राजाओं के नाम, स्मारकों से मिटाए जाने लगे।",
      "hero": "engine motion graphic: chisel strikes erase cartouches one by one; stamp 'मिटाया'",
      "typed": "मिटाया"
     },
     {
-     "id": 22,
+     "id": 26,
      "text": "बाद की राजाओं की सूचियों में, तूतनख़ामुन का नाम ही नहीं है।",
      "spoken": "बाद की राजाओं की सूचियों में, तूतनख़ामुन का नाम ही नहीं है।",
      "hero": "photo: the Abydos King List; a pen bracket marks the gap",
      "typed": "सूची में नाम नहीं"
     },
     {
-     "id": 23,
+     "id": 27,
      "text": "एक राजा, इतिहास से ग़ायब कर दिया गया। लेकिन उसकी कब्र, अभी बाक़ी थी।",
      "spoken": "एक राजा, इतिहास से ग़ायब कर दिया गया। लेकिन उसकी कब्र... अभी बाक़ी थी।",
      "hero": "camera drifts to the tomb model in the dark; riser",
@@ -202,21 +236,21 @@
    "heading": "भूली हुई कब्र",
    "lines": [
     {
-     "id": 24,
+     "id": 28,
      "text": "राजाओं की घाटी में कब्रें लूटी जाती थीं। तूतनख़ामुन की कब्र में भी, दफ़न के कुछ समय बाद, दो बार चोर घुसे।",
      "spoken": "राजाओं की घाटी में कब्रें लूटी जाती थीं। तूतनख़ामुन की कब्र में भी, दफ़न के कुछ समय बाद, दो बार चोर घुसे।",
      "hero": "photo: the Valley of the Kings; two stamps land: 'लूट 1', 'लूट 2'; a seal icon closes the door",
      "typed": "लूट ×2"
     },
     {
-     "id": 25,
+     "id": 29,
      "text": "फिर लगभग दो सौ साल बाद, ठीक ऊपर, रामसेस छठे की कब्र खुदी, और उसका मलबा, तूतनख़ामुन के दरवाज़े पर आ गया।",
      "spoken": "फिर लगभग दो सौ साल बाद, ठीक ऊपर, रामसेस छठे की कब्र खुदी, और उसका मलबा, तूतनख़ामुन के दरवाज़े पर आ गया।",
      "hero": "3D terrain of the valley: a second tomb is cut above KV62, debris and huts cover the entrance; label रामसेस VI",
      "typed": "रामसेस VI"
     },
     {
-     "id": 26,
+     "id": 30,
      "text": "और एक भूला हुआ राजा, तीन हज़ार साल तक, मलबे के नीचे सोता रहा।",
      "spoken": "और एक भूला हुआ राजा, तीन हज़ार साल तक, मलबे के नीचे सोता रहा।",
      "hero": "archive mood: sand drifts over; Counter of years",
@@ -229,63 +263,63 @@
    "heading": "खोज",
    "lines": [
     {
-     "id": 27,
+     "id": 31,
      "text": "उन्नीस सौ सत्रह। लॉर्ड कार्नारवन के पैसे से, हावर्ड कार्टर यहाँ खुदाई शुरू करता है।",
      "spoken": "उन्नीस सौ सत्रह। लॉर्ड कार्नारवन के पैसे से, हावर्ड कार्टर यहाँ खुदाई शुरू करता है।",
      "hero": "archive photo: Lord Carnarvon; timeline marker 1917",
      "typed": "1917 · लॉर्ड कार्नारवन"
     },
     {
-     "id": 28,
+     "id": 32,
      "text": "पाँच साल, और लगभग कुछ नहीं। कार्नारवन ने कहा: बस, ये आख़िरी मौसम है।",
      "spoken": "पाँच साल... और लगभग कुछ नहीं। कार्नारवन ने कहा: बस, ये आख़िरी मौसम है।",
      "hero": "Counter of seasons 1 → 5; stamp 'आख़िरी मौक़ा'",
      "typed": "आख़िरी मौक़ा"
     },
     {
-     "id": 29,
+     "id": 33,
      "text": "चार नवंबर, उन्नीस सौ बाईस। मलबे के नीचे एक सीढ़ी मिलती है, और नीचे, तूतनख़ामुन की मुहर वाला दरवाज़ा।",
      "spoken": "चार नवंबर, उन्नीस सौ बाईस। मलबे के नीचे एक सीढ़ी मिलती है, और नीचे, तूतनख़ामुन की मुहर वाला दरवाज़ा।",
      "hero": "archive photo: the excavated stairway (Burton); date bar; then the sealed doorway with a pen circle on the seal",
      "typed": "4 नवंबर 1922 · सील"
     },
     {
-     "id": 30,
+     "id": 34,
      "text": "अंदर थीं पाँच हज़ार से ज़्यादा चीज़ें: रथ, पलंग, हथियार, और जूते तक।",
      "spoken": "अंदर थीं पाँच हज़ार से ज़्यादा चीज़ें: रथ, पलंग, हथियार, और जूते तक।",
      "hero": "dot-grid counter: 5,398 objects; icons land on each word",
      "typed": "5,398 वस्तुएँ"
     },
     {
-     "id": 31,
+     "id": 35,
      "text": "फ़रवरी उन्नीस सौ तेईस। आख़िरकार खुला, असली दफ़न कक्ष।",
      "spoken": "फ़रवरी उन्नीस सौ तेईस। आख़िरकार खुला, असली दफ़न कक्ष।",
      "hero": "archive photo: Carter at the gilded shrine (Burton, 1923)",
      "typed": "फ़रवरी 1923"
     },
     {
-     "id": 32,
+     "id": 36,
      "text": "भीतर थे तीन ताबूत, एक के अंदर एक। सबसे अंदर वाला, लगभग एक सौ दस किलो ठोस सोने का।",
      "spoken": "भीतर थे तीन ताबूत, एक के अंदर एक। सबसे अंदर वाला, लगभग एक सौ दस किलो ठोस सोने का।",
      "hero": "3D exploded view: three nested coffins pull apart; Counter 110 KG",
      "typed": "≈ 110 किलो सोना"
     },
     {
-     "id": 33,
+     "id": 37,
      "text": "और राजा के चेहरे पर, दस किलो से ज़्यादा सोने का मुखौटा।",
      "spoken": "और राजा के चेहरे पर, दस किलो से ज़्यादा सोने का मुखौटा।",
      "hero": "photo: the gold mask, slow push in; Counter 10 KG",
      "typed": "≈ 10 किलो"
     },
     {
-     "id": 34,
+     "id": 38,
      "text": "साथ में मिला एक ख़ंजर, जिसका लोहा, आसमान से गिरे एक उल्कापिंड का है।",
      "spoken": "साथ में मिला एक ख़ंजर, जिसका लोहा, आसमान से गिरे एक उल्कापिंड का है।",
      "hero": "photo: the iron dagger; engine motion graphic: a meteor streak lands on it",
      "typed": "उल्कापिंड का लोहा"
     },
     {
-     "id": 35,
+     "id": 39,
      "text": "पर एक सवाल बाक़ी था: क्या इस ख़ज़ाने की, कोई क़ीमत भी चुकानी थी?",
      "spoken": "पर एक सवाल बाक़ी था... क्या इस ख़ज़ाने की, कोई क़ीमत भी चुकानी थी?",
      "hero": "the gold dims to red; heartbeat",
@@ -299,28 +333,28 @@
    "heading": "श्राप?",
    "lines": [
     {
-     "id": 36,
+     "id": 40,
      "text": "पाँच अप्रैल, उन्नीस सौ तेईस। कब्र खुलने के कुछ ही महीनों बाद, काहिरा में, लॉर्ड कार्नारवन की मौत हो जाती है।",
      "spoken": "पाँच अप्रैल, उन्नीस सौ तेईस। कब्र खुलने के कुछ ही महीनों बाद, काहिरा में, लॉर्ड कार्नारवन की मौत हो जाती है।",
      "hero": "grief mood; date bar; Carnarvon photo turns grey",
      "typed": "5 अप्रैल 1923 · काहिरा"
     },
     {
-     "id": 37,
+     "id": 41,
      "text": "अख़बारों ने लिखा: फ़राओ का श्राप।",
      "spoken": "अख़बारों ने लिखा: फ़राओ का श्राप।",
      "hero": "PaperDoc newspaper front page (recreation), headline slams in",
      "typed": "CURSE OF THE PHARAOH"
     },
     {
-     "id": 38,
+     "id": 42,
      "text": "असल वजह थी, मच्छर का एक काटा, जो दाढ़ी बनाते वक़्त कट गया, और संक्रमण फैल गया।",
      "spoken": "असल वजह थी, मच्छर का एक काटा, जो दाढ़ी बनाते वक़्त कट गया, और संक्रमण फैल गया।",
      "hero": "diagram: mosquito icon → razor → infection spreading on a line",
      "typed": "मच्छर → कट → संक्रमण"
     },
     {
-     "id": 39,
+     "id": 43,
      "text": "तो श्राप शायद सिर्फ़ एक कहानी था। लेकिन राजा की मौत का रहस्य, अभी बाक़ी था।",
      "spoken": "तो श्राप शायद सिर्फ़ एक कहानी था। लेकिन राजा की मौत का रहस्य... अभी बाक़ी था।",
      "hero": "stamp 'कहानी' on the newspaper; riser",
@@ -334,49 +368,49 @@
    "heading": "जाँच: मौत कैसे हुई?",
    "lines": [
     {
-     "id": 40,
+     "id": 44,
      "text": "उन्नीस सौ अड़सठ। ममी का एक्स-रे होता है, और खोपड़ी के अंदर, हड्डी का एक टुकड़ा दिखता है।",
      "spoken": "उन्नीस सौ अड़सठ। ममी का एक्स-रे होता है, और खोपड़ी के अंदर, हड्डी का एक टुकड़ा दिखता है।",
      "hero": "engine motion graphic: an X-ray style skull diagram (drawn, not the mummy); pen circle on the fragment",
      "typed": "1968 · एक्स-रे"
     },
     {
-     "id": 41,
+     "id": 45,
      "text": "अख़बारों में एक नया शब्द आया: हत्या। और शक की सुई, बूढ़े वज़ीर आय की तरफ़ घूमी।",
      "spoken": "अख़बारों में एक नया शब्द आया: हत्या। और शक की सुई, बूढ़े वज़ीर आय की तरफ़ घूमी।",
      "hero": "red string from the skull to Ay's card; stamp 'हत्या?'",
      "typed": "हत्या?"
     },
     {
-     "id": 42,
+     "id": 46,
      "text": "दो हज़ार पाँच। सीटी स्कैन के मुताबिक़, वो टुकड़ा शायद ममी बनाते वक़्त टूटा। पर बाएँ पैर में फ़्रैक्चर मिला।",
      "spoken": "दो हज़ार पाँच। सीटी स्कैन के मुताबिक़, वो टुकड़ा शायद ममी बनाते वक़्त टूटा। पर बाएँ पैर में फ़्रैक्चर मिला।",
      "hero": "3D: CT-style scan slices sweep over a symbolic skeleton, the left leg lights red (प्रतीकात्मक 3D मॉडल)",
      "typed": "2005 · सीटी स्कैन"
     },
     {
-     "id": 43,
+     "id": 47,
      "text": "दो हज़ार दस। डीएनए जाँच ने एक और राज़ खोला: उसके माता-पिता, शायद आपस में भाई-बहन थे।",
      "spoken": "दो हज़ार दस। डीएनए जाँच ने एक और राज़ खोला: उसके माता-पिता, शायद आपस में भाई-बहन थे।",
      "hero": "family tree: the two parents joined by red string; stamp 'भाई-बहन'",
      "typed": "2010 · डीएनए"
     },
     {
-     "id": 44,
+     "id": 48,
      "text": "पैर की हड्डी में बीमारी थी, और ख़ून में, मलेरिया के सबसे घातक परजीवी के निशान।",
      "spoken": "पैर की हड्डी में बीमारी थी, और ख़ून में, मलेरिया के सबसे घातक परजीवी के निशान।",
      "hero": "explainer icons land: foot bone, malaria parasite under a lens",
      "typed": "हड्डी की बीमारी · मलेरिया"
     },
     {
-     "id": 45,
+     "id": 49,
      "text": "और कब्र से मिली थीं, एक सौ तीस छड़ियाँ। शायद ये राजा, छड़ी के सहारे चलता था।",
      "spoken": "और कब्र से मिली थीं, एक सौ तीस छड़ियाँ। शायद ये राजा, छड़ी के सहारे चलता था।",
      "hero": "dot grid of 130 walking sticks; Burton photo of sticks from the tomb",
      "typed": "130 छड़ियाँ"
     },
     {
-     "id": 46,
+     "id": 50,
      "text": "तो मौत की वजह क्या थी? बीमारी, कोई हादसा, या साज़िश? विशेषज्ञ आज भी एकमत नहीं हैं।",
      "spoken": "तो मौत की वजह क्या थी? बीमारी, कोई हादसा, या साज़िश? विशेषज्ञ आज भी एकमत नहीं हैं।",
      "hero": "verdict mood: three cards बीमारी · हादसा · साज़िश, none stamped",
@@ -389,28 +423,28 @@
    "heading": "फ़ैसला: अमर राजा",
    "lines": [
     {
-     "id": 47,
+     "id": 51,
      "text": "जिस राजा का नाम मिटाने की कोशिश हुई, आज वही, मिस्र का सबसे मशहूर फ़राओ है।",
      "spoken": "जिस राजा का नाम मिटाने की कोशिश हुई, आज वही, मिस्र का सबसे मशहूर फ़राओ है।",
      "hero": "the gold mask returns; 3D globe pulls out over Egypt",
      "typed": ""
     },
     {
-     "id": 48,
+     "id": 52,
      "text": "आज उसकी ममी उसी कब्र में है, और ख़ज़ाना, गीज़ा के ग्रैंड इजिप्शियन म्यूज़ियम में।",
      "spoken": "आज उसकी ममी उसी कब्र में है, और ख़ज़ाना, गीज़ा के ग्रैंड इजिप्शियन म्यूज़ियम में।",
      "hero": "map: Route Luxor → Giza; photo of the Grand Egyptian Museum",
      "typed": "लक्सर → गीज़ा"
     },
     {
-     "id": 49,
+     "id": 53,
      "text": "शायद यही इतिहास की सबसे बड़ी विडंबना है: जिन्होंने उसे भुलाया, उन्हीं की वजह से उसकी कब्र बची रही।",
      "spoken": "शायद यही इतिहास की सबसे बड़ी विडंबना है: जिन्होंने उसे भुलाया, उन्हीं की वजह से उसकी कब्र बची रही।",
      "hero": "engine quote card on the board, key word 'विडंबना' stamped",
      "typed": "विडंबना"
     },
     {
-     "id": 50,
+     "id": 54,
      "text": "तो उन्नीस साल का वो राजा, आख़िर मरा कैसे? बीमारी? हादसा? या साज़िश? आप क्या सोचते हैं?",
      "spoken": "तो उन्नीस साल का वो राजा... आख़िर मरा कैसे? बीमारी? हादसा? या साज़िश?... आप क्या सोचते हैं?",
      "hero": "red question bar, then the HyperFrames closing question; heartbeat",
