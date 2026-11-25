@@ -36,7 +36,7 @@ for one. `saanp/` (पिछवाड़े के साँप) is the finished
 | The board, camera, voice timing, sound, captions | `cinematic-film` (`skills/cinematic-film`) |
 | 3D globe: flights, great-circle routes, labelled places (look `dark`, `grid: 5`) | `make_globe.py` (three.js) + `frame-capture`, then `prep_clips.py` and `Clip` |
 | 3D elements: a building, compound, fort, ship, object (label it "प्रतीकात्मक 3D मॉडल") | three.js page like `saanp/assets/compound/`, or `threejs-scene` / `exploded-view`; check with `site-check`; record with `frame-capture` |
-| Motion graphics: the opening question, title card, quote cards, checklists, reveals, closing question | HyperFrames (`saanp/hf/` is the template: one project, one scene per graphic, rendered once and cut with `trim` in `clips.json`) |
+| Motion graphics: the opening question, title card, quote cards, checklists, reveals, closing question | HyperFrames, **used sparingly** (user: "agli baar hyperframe ka jyada use mat karna, lekin motion graphics phir bhi bahut badhiya hone chahiye"): keep it for a few hero graphics (opening question, title, closing question, one or two quote cards) and build the rest as engine motion graphics on the board (word-timed `Card`, `Stamp`, `PenMark`, `StringLine`, `Counter`, `BarChart`, `Timeline`, map pins) or three.js scenes (`saanp/hf/` is the template: one project, one scene per graphic, rendered once and cut with `trim` in `clips.json`) |
 | 2D motion graphics on the board | `Timeline`, `Counter`, `BigText`, `Card`, `Stamp`, `PenMark`, `StringLine`, `PaperDoc`, `BarChart` |
 | React motion graphics, map flights | Remotion skills, when a Mapbox/Cesium key exists; otherwise the globe |
 | AI stills or clips (illustration only, never as evidence) | `motion-assets`, `alpha-cutout` |
@@ -78,20 +78,22 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   gaps between lines at 0.6 s; never stretch the film or speed up the voice.
 - **Visuals (the user's own words: "visual ki kami hai, bahut jagah ruk jaata hai"):** every line gets its
   own visual that explains it, not text alone. Concretely:
-  - **Documentary pace, not hyper-fast:** one clear visual per *line* (not something popping on every
-    word); a new image, clip or motion graphic every 4 to 6 s; camera moves about 1 s long, gentle push in
-    and drift on holds (`tidy_keys(min_gap=0.6, hold_after=1.8, move=1.0)`, push 1.035 in `saanp/scene.py`);
-    sound: few whooshes and pops (thin them out, see `thin_cues.py`). No stretch of empty wall or a long
-    static card. (User, after a too-fast cut: "har ek word pe kuch na aaye... thoda normal karo,
-    documentary hai".) It is a documentary **and an explainer**: each visual should explain its line
-    (a diagram, map, photo with a label) and stay on screen long enough to be read, not flash past.
+  - **Documentary pace for the camera, a new element on the words:** the camera moves calmly (moves about
+    1 s long, gentle push in and drift on holds: `tidy_keys(min_gap=0.6, hold_after=1.8, move=1.0)`, push
+    1.035 in `saanp/scene.py`), but inside the held frame **something new lands on the narrator's key
+    words**: a label, highlight, stamp, arrow, number, icon, map pin, line on a diagram, a photo sliding in.
+    The frame builds up word by word, explainer style, instead of the camera jumping to a new spot. New
+    image, clip or graphic every 4 to 6 s. Sound: few whooshes and pops (`saanp/thin_cues.py`). No stretch
+    of empty wall or a long static card. (User: "har ek word pe kuch naya aaye elements ya visual... kuch
+    jyada hi fast pace aagaya hai, thoda normal karo, documentary hai".) It is a documentary **and an
+    explainer**: each visual explains its line and stays on screen long enough to be read.
   - **Many photos:** at least one real archive photo per section, usually two or three (aim for 15 to 20
     in a 5-minute film): people, places, documents, the scene after an event. Search Commons widely
     (e.g. White House, DoD, State Department photos are public domain).
   - **More 3D:** at least three 3D shots beyond the globe: a building or site model, a landscape or
     terrain, vehicles moving on globe routes (`"vehicle": "plane" | "boat"` in `globe.json`).
   - **Motion graphics, not only text:** animated diagrams for the ideas (networks, money trails, targets,
-    clocks, counters as figure or dot grids, candles for victims, typed testimony), from HyperFrames.
+    clocks, counters as figure or dot grids, candles for victims, typed testimony), mostly built on the board with the engine items, timed to the words; HyperFrames only for a few hero graphics.
     Plain title text alone is not a visual.
   - **Never repeat the title card** inside the film; show it once after the opening question.
   - Before rendering, probe one still per line and fix every line that has no clear visual.
