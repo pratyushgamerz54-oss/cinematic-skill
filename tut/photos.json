@@ -173,7 +173,14 @@
    "id": "P15",
    "what": "Innermost solid gold coffin (Leo Wehrli, 1938)",
    "kind": "photo",
-   "commons": "File:ETH-BIB-Tut-Ank-Amon's Treasures, Innermost coffin of thick gold-Dia 247-11135.tif"
+   "commons": "File:ETH-BIB-Tut-Ank-Amon's Treasures, Innermost coffin of thick gold-Dia 247-11135.tif",
+   "file": "P15_ETH_BIB_Tut_Ank_Amon_s_Treasures_Innermost_coffi.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Tut-Ank-Amon%27s_Treasures,_Innermost_coffin_of_thick_gold-Dia_247-11135.tif",
+   "credit": "Leo Wehrli",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "1938date QS:P571,+1938-00-00T00:00:00Z/9",
+   "license_ok": true
   },
   {
    "id": "P16",
@@ -192,13 +199,27 @@
    "id": "P17",
    "what": "KV62 today, entrance",
    "kind": "photo",
-   "commons": "File:KV62, Egypt 09.jpg"
+   "commons": "File:KV62, Egypt 09.jpg",
+   "file": "P17_KV62_Egypt_09.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:KV62,_Egypt_09.jpg",
+   "credit": "ولاء",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2025-02-02 11:27:53",
+   "license_ok": true
   },
   {
    "id": "P18",
    "what": "The mask on display, 2025",
    "kind": "photo",
-   "commons": "File:Mask of Tutankhamun in 2025.jpg"
+   "commons": "File:Mask of Tutankhamun in 2025.jpg",
+   "file": "P18_Mask_of_Tutankhamun_in_2025.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Mask_of_Tutankhamun_in_2025.jpg",
+   "credit": "Dawid Wdowczyk",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "date": "2025-12-12 06:42:58",
+   "license_ok": true
   },
   {
    "id": "P19",
