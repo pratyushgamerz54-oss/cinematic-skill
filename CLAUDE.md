@@ -38,6 +38,18 @@ template: gold dust and frieze, teaser chips on the words, the subject photo in 
 a light sweep and the year spinning back into the cold open). The title is shown there, once; no second
 title card after the opening question. The reel keeps its own format (it opens on the question, no welcome).
 
+## Real video footage (user, 25 Nov 2026)
+
+"Jarurat pade to video bhi utha sakte ho... kisi bhi line ya scene ke liye... lagna chahiye ke usi scene ke
+bare mein hai": when a line or scene is explained better by real moving footage, use a video clip (film and
+reel). The clip must show that exact scene, place, person or object, so the viewer feels it is about that
+moment, never generic filler. Sources: Wikimedia Commons video (`fetch_commons.py search` finds .webm/.ogv),
+public-domain archive film (e.g. US government, NASA, Library of Congress, Internet Archive public-domain
+items), always with a free licence; credit each clip in `clips.json` and `credits.md`. Cut it with `trim` in
+`clips.json`, grade it like the photos (`grade: "bw"` or `"sepia"` for archive), and play it full-frame with
+`screen()` + `into()` or inside the reel window. Label recreations or unrelated stand-ins plainly, or do not
+use them; never show victims or militant propaganda.
+
 ## The reel format (the same every time: "ek consistent reel banao, na ki kuch bhi")
 
 `saanp/reel/scene.py` is the template; copy it, change only the beats list and the media. Every beat

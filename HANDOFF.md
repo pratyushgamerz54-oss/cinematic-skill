@@ -210,6 +210,9 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
 16. (25 Nov 2026) **Start the film like a YouTube video**: welcome, then the topic, then "चलिए शुरू करते
     हैं", then the story, with **a separate motion graphic made for this intro** (`T00_intro`; HyperFrames
     `welcome`, `topic`, `go`). See `CLAUDE.md`.
+17. (25 Nov 2026) **Use real video footage when needed**, for any line or scene, to explain it; it must look
+    like it is about that very scene ("lagna chahiye ke usi scene ke bare mein hai"). Save it and use it from
+    the next film on. See `CLAUDE.md` ("Real video footage").
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.
