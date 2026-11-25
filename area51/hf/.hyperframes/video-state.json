@@ -414,5 +414,18 @@
         "attribution": "unversioned"
       }
     ]
-  }
+  },
+  "renders": {
+    "latest": {
+      "id": "7b941233-d7c1-4b7a-87b0-bb9a6c0c06d6",
+      "completedAt": 1795649775661,
+      "output": "/home/user/cinematic-skill/area51/assets/clips/hf_graphics.mp4",
+      "status": "completed",
+      "revision": "d43711ef-4f88-40ba-bc2e-3e75ca06947f"
+    },
+    "retainedRevisions": [
+      "d43711ef-4f88-40ba-bc2e-3e75ca06947f"
+    ]
+  },
+  "pendingArtifactCleanup": []
 }

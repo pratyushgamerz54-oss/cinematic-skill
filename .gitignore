@@ -3,10 +3,3 @@ node_modules/
 __pycache__/
 *.pyc
 shots/
-
-# being recorded (area51/tools/record_all.sh); commit once finished
-area51/assets/clips/terrain.mp4
-area51/assets/clips/aircraft.mp4
-area51/assets/clips/s4.mp4
-area51/assets/clips/hf_graphics.mp4
-area51/assets/footage/

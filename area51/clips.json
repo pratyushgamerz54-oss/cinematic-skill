@@ -273,6 +273,22 @@
    "what": "HyperFrames motion graphic: rq",
    "credit": "Made with HyperFrames (HTML + GSAP)",
    "license": "Own work"
+  },
+  {
+   "id": "ft_sr71",
+   "file": "assets/footage/sr71.webm",
+   "what": "Real footage: SR-71 take-off at Edwards AFB (the A-12's successor; labelled SR-71 (A-12 परिवार))",
+   "grade": "sepia",
+   "credit": "NASA Armstrong Flight Research Center, via Wikimedia Commons",
+   "license": "Public domain"
+  },
+  {
+   "id": "ft_er2",
+   "file": "assets/footage/er2_takeoff.mp4",
+   "what": "Real footage: NASA ER-2 (civil U-2) taxi and take-off, GEMx B-roll SVS14728 (772-812 s of the source); labelled NASA ER-2 (U-2 का नागरिक रूप)",
+   "grade": "natural",
+   "credit": "NASA Scientific Visualization Studio, via Wikimedia Commons",
+   "license": "Public domain"
   }
  ]
 }
