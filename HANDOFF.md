@@ -262,9 +262,10 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
     palette by topic; **more engaging backgrounds** for retention; motion graphics may come from the
     internet; **HyperFrames very little**. See `CLAUDE.md` ("Area 51 orders").
 
-18c. (25 Nov 2026) ElevenLabs gives at most ~50 lines per generation: the Area 51 story (63 lines) will come as
-    **two MP3s**; join them in order and split as one story take. Suggested split: part 1 = T01..T07 (lines 7-47),
-    part 2 = T08..T11 (lines 48-69).
+18c. (25 Nov 2026) One ElevenLabs generation cannot take 50 lines ("ek baar me 50 line na ayegi"): the Area 51
+    story comes as **several MP3s**; join them in order and split as one story take. Suggested parts (with tags):
+    A = T01-T03 (lines 7-25, ~2,240 chars), B = T04-T06 (26-44, ~2,160), C = T07-T09 (45-59, ~1,810),
+    D = T10-T11 (60-69, ~1,250); Greeting (~635) and Reel separate. If even that is too long, one file per take.
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.
