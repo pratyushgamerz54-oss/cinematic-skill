@@ -112,13 +112,14 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 
 ## The pipeline (commands as in `saanp/`)
 
-1. **Research and script** (`script.json`): about 66 lines in 9 takes, about **4,600 Hindi characters**
-   for ~5:18 at George's pace; numbers in words in `spoken`; `...` for dramatic pauses. Plus a **separate reel script** in `reel/script.json`
+1. **Research and script** (`script.json`): `T00_intro` plus **50 story lines** in 9 takes (T01..T09), about **3,700 to 3,900 Hindi
+   characters** for ~5:18 to 5:30 at Viraj's natural pace; numbers in words in `spoken`; `...` for dramatic pauses. Plus a **separate reel script** in `reel/script.json`
    (one take `REEL`, 9 to 11 lines, each with its beat headline, exhibit tag, source line and mood).
    Run `make_beats.py` until it shows 0 warnings.
 2. **Stop once for approval:** send `beats.md`, ask (one AskUserQuestion) to approve the script and pick
    the voice. This is the only stop: voice credits are limited. Everything after it runs without asking.
-3. **Voice:** ElevenLabs, one take per section. Also write `voiceover_script.md`, an emotion-tag version
+3. **Voice:** ElevenLabs, one take per section. The user may instead send three files: Greeting (= `T00_intro`),
+   the whole story in one file, and Reel; split the story as one take via `audio/_split/` (see `tut/`). Also write `voiceover_script.md`, an emotion-tag version
    for Eleven v3, and a copyable list in chat if the user records it themselves.
    `split_takes.py` -> `build_narration.py --target 318` (tempo must stay within 0.90 to 1.15).
 4. **Images:** Wikimedia Commons via `fetch_commons.py`; if it returns 429, download standard 960px
@@ -141,7 +142,7 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 - Found worse: a 6:21 version timed to a slow read. Keep films near 5:18 **at the voice's natural pace (1.0x,
   the user chose this over 1.17x)**. If a recorded read runs long, drop whole lines (`film_cut` in
   `saanp/script.json` shows how: guard their visuals with `has(i)`, use `nxt(i)` for clip ends) and cap the
-  gaps between lines at 0.6 s; never stretch the film or speed up the voice.
+  gaps between lines at 0.45 to 0.6 s; never stretch the film or speed up the voice.
 - **Visuals (the user's own words: "visual ki kami hai, bahut jagah ruk jaata hai"):** every line gets its
   own visual that explains it, not text alone. Concretely:
   - **Documentary pace for the camera, a new element on the words:** the camera moves calmly (moves about
@@ -156,7 +157,7 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   - **Many photos:** at least one real archive photo per section, usually two or three (aim for 15 to 20
     in a 5-minute film): people, places, documents, the scene after an event. Search Commons widely
     (e.g. White House, DoD, State Department photos are public domain).
-  - **More 3D:** at least three 3D shots beyond the globe: a building or site model, a landscape or
+  - **More 3D:** at least three or four 3D models beyond the globe: a building or site model, a landscape or
     terrain, vehicles moving on globe routes (`"vehicle": "plane" | "boat"` in `globe.json`).
   - **Motion graphics, not only text:** animated diagrams for the ideas (networks, money trails, targets,
     clocks, counters as figure or dot grids, candles for victims, typed testimony), mostly built on the board with the engine items, timed to the words; HyperFrames only for a few hero graphics.

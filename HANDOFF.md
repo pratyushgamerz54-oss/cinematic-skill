@@ -237,6 +237,10 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
 17. (25 Nov 2026) **Use real video footage when needed**, for any line or scene, to explain it; it must look
     like it is about that very scene ("lagna chahiye ke usi scene ke bare mein hai"). Save it and use it from
     the next film on. See `CLAUDE.md` ("Real video footage").
+18. (25 Nov 2026) The new-session block (`NEW_SESSION.md`) is the standing brief: T00_intro + 50 story lines
+    (~3,700-3,900 characters), a separate reel (9-11 lines, ~720 characters), one stop for approval with one
+    copyable v3 block per file, 15-20 photos, globe, 2D map, **at least 3-4 3D models**, HyperFrames hero
+    graphics only, voice possibly as Greeting + whole story + Reel, 1.0x always, gaps 0.45-0.6 s.
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.
