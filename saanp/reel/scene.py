@@ -43,24 +43,17 @@ def build_film(doc):
     hold(5, 0.0, E(5) + 0.1)
     film.cue("heartbeat", W(5, "इत्तेफ़ाक़"), 0.8)
     # 1, 3, 4: Abbottabad
-    clip("g_abbottabad", 1, L(1) - 0.3, E(1) + 0.4)
-    head("2 मई 2011 · एबटाबाद", 1, L(1) - 0.2, E(4) + 0.3, size=380)
-    hold(1, L(1) - 0.2, E(1) + 0.1)
-    photo("P02", X[3], -200, 3500, rot=-1.0, t_in=L(3) - 0.3, label="ओसामा बिन लादेन का ठिकाना", label_t=W(3, "ओसामा"))
+    photo("P02", X[3], -200, 3500, rot=-1.0, t_in=W(3, "ओसामा") - 0.3, label="ओसामा बिन लादेन का ठिकाना", label_t=W(3, "ओसामा"))
     head("2 मई 2011 · एबटाबाद", 3, L(3) - 0.3, E(3) + 0.3, size=380)
+    clip("g_abbottabad", 3, L(3) - 0.3, W(3, "ओसामा") - 0.1, start=3.0)     # the globe drops onto Abbottabad, then the photo
     hold(3, L(3) - 0.15, E(3) + 0.1)
     clip("compound", 4, L(4) - 0.3, E(4) + 0.4, start=3.4)
     head("फ़ौजी अकादमी से ≈ 1 किमी", 4, L(4) - 0.2, E(4) + 0.3, size=380)
     hold(4, L(4) - 0.15, E(4) + 0.1)
     # 19, 20: Mumbai
     clip("g_mumbai", 19, L(19) - 0.3, E(19) + 0.4)
-    head("मुंबई · 26/11", 19, L(19) - 0.2, E(20) + 0.3)
+    head("मुंबई · 26/11", 19, L(19) - 0.2, E(19) + 0.3)
     hold(19, L(19) - 0.15, E(19) + 0.1)
-    if "P04" in doc.meta:
-        photo("P04", X[20], -750, 3300, rot=1.2, t_in=L(20) - 0.3, label="ताज होटल · दिसंबर 2008", label_t=L(20) + 0.3)
-    film.add(Counter(X[20], 2550, 1000, 166, W(20, "छियासठ") - 0.6, dur=0.9, caption="लोग मारे गए"))
-    head("मुंबई · 26/11", 20, L(20) - 0.3, E(20) + 0.3)
-    hold(20, L(20) - 0.15, E(20) + 0.1)
     # 41: Pakistan's own investigator
     dawn = film.add(PaperDoc(X[41], 0, 3500, 4300, rot=-1.0, t_in=L(41) - 0.4, rows=14, sentence_row=6, sentence_size=135,
                              header=(("DAWN", 280, "serif"), ("3 AUGUST 2015", 110, "mono"), ("TARIQ KHOSA, FORMER FIA CHIEF", 100, "cond")),
@@ -78,11 +71,8 @@ def build_film(doc):
     film.add(Counter(X[35], -200, 1700, 132, W(35, "बत्तीस") - 1.0, dur=1.5, caption="बच्चे · पेशावर 2014"))
     for k in range(5):
         film.add(PenMark("highlight", X[35] - 1600 + k * 800, 1500, 110, 0, t_in=L(35) + 0.6 + 0.15 * k, dur=0.3, width=110, rgb=(255, 190, 90), seed=k))
-    head("फिर साँप पलटे", 35, L(35) - 0.3, E(36) + 0.3, red=True)
+    head("फिर साँप पलटे", 35, L(35) - 0.3, E(35) + 0.3, red=True)
     hold(35, L(35) - 0.15, E(35) + 0.1)
-    clip("hf_title", 36, L(36) - 0.3, E(36) + 0.4, start=0.3)
-    head("फिर साँप पलटे", 36, L(36) - 0.3, E(36) + 0.3, red=True)
-    hold(36, L(36) - 0.15, E(36) + 0.1)
     # 57, 58: the minister
     clip("hf_asif", 57, L(57) - 0.3, E(58) + 0.4)
     head("रक्षा मंत्री ने क्या कहा?", 57, L(57) - 0.2, E(58) + 0.3, size=400)

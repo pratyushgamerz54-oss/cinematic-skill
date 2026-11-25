@@ -114,7 +114,7 @@ def build_film(doc):
     hx0, hy0 = spans[0][0]
     shot(W(17, "संयुक्त"), hx0 + 900, hy0 + 100, 0.85, 1.0)
     shot(L(18) + 0.2, X2 + 6000, 0, 0.3, 0.0, radius=900, strength=0.88)   # the wall goes dark
-    shot(E(18) + 0.7, X2 + 9000, -500, 0.3, 0.0, radius=900, strength=0.9)
+    shot(min(E(18) + 0.7, L(19) - 0.45), X2 + 9000, -500, 0.3, 0.0, radius=900, strength=0.9)
     cue("heartbeat", L(18) + 0.4, 0.8); cue("heartbeat", E(18) + 0.1, 0.8)
 
     # ============================================================ MUMBAI (19-26)
@@ -141,11 +141,13 @@ def build_film(doc):
     shot(E(25), X3 + 12600, -1300, 0.52, 0.2)
     cue("riser", L(26) + 0.5, 0.6, dur=2.0)
     shot(L(26) + 0.8, (X3 + X4) / 2 + 2000, -1000, 0.2, 0.0, strength=0.4)      # the camera races back toward Abbottabad
-    shot(E(26) + 0.5, X4 - 1000, -700, 0.36, 0.0, strength=0.45)
+    screen("compound", X4, W(26, "दुनिया") - 0.5, L(27) + 0.3, start=0.4)        # ...into the 3D compound: where was he hiding?
+    shot(W(26, "दुनिया") - 0.6, X4 + 1500, 4200, 0.45, 0.0, strength=0.2)
+    into(X4, W(26, "दुनिया"), E(26) + 0.2, 1.0, 1.06)
 
     # ============================================================ ABBOTTABAD (27-33)
     photo("P01", X4, -700, 3600, rot=1.0, t_in=L(26) + 2.0, label="एबटाबाद", label_t=L(27) + 0.3)
-    film.add(BigText("2 मई 2011", X4, -3500, 520, L(27) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
+    film.add(BigText("2 मई 2011", X4, -2700, 480, L(27) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
     film.add(Stamp("पता नहीं?", X4 + 500, -300, size=440, rot=-9, t_in=W(28, "पता") - 0.05))
     shot(L(27) + 0.3, X4, -1600, 0.55, 0.0)
     shot(L(28) + 0.5, X4 + 300, -600, 0.62, -0.5)
@@ -172,7 +174,9 @@ def build_film(doc):
     shot(E(35), X5, 200, 0.58, 0.2)
     film.add(StringLine((X4 + 9600, -2100), (X5 - 900, -1800), t_in=L(36) + 0.2, dur=1.4, sag=0.12, width=34))   # the snake turns back
     shot(L(36) + 0.4, (X4 + X5) / 2 + 3000, -1400, 0.3, 0.0, strength=0.3)
-    shot(E(36), X5 - 800, -800, 0.42, 0.0)
+    screen("hf_title", X5, W(36, "पाकिस्तान") - 0.4, L(37) + 0.3, start=0.3)       # the snake turns back: full frame
+    shot(W(36, "पाकिस्तान") - 0.5, X5 + 1000, 4000, 0.45, 0.0, strength=0.2)
+    into(X5, W(36, "पाकिस्तान"), E(36) + 0.2, 1.0, 1.05)
     film.add(Card(X5 + 5200, -800, 2800, 1500, L(37) - 0.1, title="नेशनल एक्शन प्लान", lines=["दिसंबर 2014", "अपने यहाँ के गुटों पर अभियान"], rgb=(236, 230, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=140))
     film.add(Card(X5 + 4100, 1500, 2000, 1300, W(38, "भारत") - 0.2, title="'अच्छे'", lines=["भारत, अफ़ग़ानिस्तान पर"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=220, body_size=130))
     film.add(Card(X5 + 6300, 1500, 2000, 1300, W(38, "भारत") + 0.1, title="'बुरे'", lines=["पाकिस्तान पर हमला करने वाले"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=220, body_size=130))
@@ -195,9 +199,9 @@ def build_film(doc):
     dx0, dy0 = dsp[0][0]
     shot(L(41) + 0.1, dx0 + 1000, dy0 + 100, 0.82, -1.0)
     shot(E(41) + 0.2, dx0 + 1100, dy0 + 150, 0.86, -1.1)
-    film.add(BigText("पैसों का पीछा", X6, -2700, 520, W(42, "पैसों") - 0.1, rgb=CREAM))
+    film.add(BigText("पैसों का पीछा", X6, -2250, 480, W(42, "पैसों") - 0.1, rgb=CREAM))
     shot(L(42) + 0.2, X6, -2300, 0.5, 0.0)
-    film.add(BigText("जून 2018", X6, -1500, 400, L(43) - 0.05, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
+    film.add(BigText("जून 2018", X6, -1250, 380, L(43) - 0.05, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
     fatf = film.add(Card(X6, 700, 3200, 1900, L(44) - 0.1, title="FATF", lines=["आतंकी फ़ंडिंग पर निगरानी", "पाकिस्तान: जून 2018 से"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=320, body_size=150))
     grey = film.add(Stamp("ग्रे लिस्ट", X6 + 300, 900, size=520, rot=-8, t_in=W(44, "ग्रे") - 0.05, t_out=W(47, "बाहर")))
     shot(L(43) + 0.1, X6, -900, 0.55, 0.0)
@@ -225,6 +229,7 @@ def build_film(doc):
     photo("P07", X7, -900, 2200, rot=-1.5, t_in=L(51) - 0.1, label="इमरान ख़ान · जुलाई 2019", label_t=W(51, "इमरान"))
     film.add(BigText("30,000–40,000", X7, 1900, 700, W(52, "तीस") - 0.1, rgb=CREAM, type_on=0.5))
     film.add(BigText("हथियारबंद लोग, अब भी पाकिस्तान में", X7, 2500, 190, W(52, "हथियारबंद"), font="label", rgb=CREAM, hit=None, shadow=False))
+    film.add(PenMark("underline", X7, 2050, 4200, 30, t_in=W(52, "अफ़ग़ानिस्तान") - 0.2, dur=0.6, width=34, seed=52))
     shot(L(51) + 0.3, X7, -800, 0.6, 0.3)
     shot(L(52) + 0.4, X7, 1700, 0.62, 0.0)
     shot(E(52), X7, 1900, 0.64, 0.0)

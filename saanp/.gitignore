@@ -22,3 +22,6 @@ out/*
 !out/*_reel.mp4
 !out/captions*.srt
 out/*nocaptions*
+viraj/
+audio/lines_viraj/
+audio/george_backup/sfx.wav

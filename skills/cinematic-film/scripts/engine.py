@@ -44,6 +44,8 @@ WHITE = (246, 243, 236)
 COMPLEX = re.compile(r"[\u0900-\u0DFF]")
 # What counts as a letter when timing words by their share of a line: Latin plus Devanagari.
 LETTERS = r"[^a-z\u0900-\u097f]"
+# Devanagari signs drawn below the baseline (u, uu, vocalic r and rr, virama, nukta): a label bar must reach them.
+BELOW = re.compile(r"[\u0941-\u0944\u094D\u093C\u0962\u0963]")
 
 FONT_ROLES = {
     "deva": [("Noto Sans Devanagari", 700), ("Hind", 600), ("Mukta", 700), ("Lohit Devanagari", 400)],
@@ -888,7 +890,8 @@ class BigText(Item):
         if self.bar is not None:
             bu = ease_out_cubic(ramp(t, self.t_in - 0.1, 0.35))
             bh = self.size * self.bar_h
-            c.drawRect(skia.Rect.MakeXYWH(self.x - tw0 / 2 - self.size * 0.15, self.y + self.size * 0.063 - bh, (tw0 + self.size * 0.3) * bu, bh),
+            low = self.size * 0.3 if BELOW.search(self.text) else 0.0     # Devanagari vowel signs that hang below the line
+            c.drawRect(skia.Rect.MakeXYWH(self.x - tw0 / 2 - self.size * 0.15, self.y + self.size * 0.063 - bh, (tw0 + self.size * 0.3) * bu, bh + low),
                        paint(self.bar, 0.92 * self.fade(t)))
         if self.grunge:
             c.saveLayerAlpha(None, 255)
@@ -899,7 +902,7 @@ class BigText(Item):
         tw = draw_text(c, res, self.text, self.x, self.y, self.size, self.font, self.rgb, a, tr, "center", reveal)
         if self.grunge:
             wp = skia.Paint(); wp.setBlendMode(skia.BlendMode.kDstOut)
-            c.drawImageRect(res.wear(), skia.Rect.MakeXYWH(self.x - tw / 2 - 20, self.y - self.size, tw + 40, self.size * 1.15), SAMPLING, wp)
+            c.drawImageRect(res.wear(), skia.Rect.MakeXYWH(self.x - tw / 2 - 20, self.y - self.size, tw + 40, self.size * 1.5), SAMPLING, wp)
             c.restore()
         if self.rules:
             ru = ease_out_cubic(ramp(t, self.t_in + 0.2, 0.9))

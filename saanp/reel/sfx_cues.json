@@ -1,119 +1,94 @@
 {
- "duration": 62.133,
+ "duration": 58.79,
  "cues": [
   {
    "type": "heartbeat",
-   "t": 2.306,
+   "t": 3.056,
    "gain": 0.8
   },
   {
    "type": "whoosh",
-   "t": 4.067,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 9.0,
+   "t": 5.5,
    "gain": 0.8
   },
   {
    "type": "pop",
-   "t": 9.012,
+   "t": 9.837,
    "gain": 0.8
   },
   {
    "type": "whoosh",
-   "t": 13.533,
+   "t": 11.433,
    "gain": 0.8
   },
   {
    "type": "whoosh",
-   "t": 18.233,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 24.067,
+   "t": 17.7,
    "gain": 0.8
   },
   {
    "type": "pop",
-   "t": 24.074,
+   "t": 23.787,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 23.867,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 26.612,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 29.033,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 36.0,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 36.902,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 37.202,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 37.352,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 37.502,
    "gain": 0.8
   },
   {
    "type": "ticks",
-   "t": 26.375,
-   "gain": 0.6
-  },
-  {
-   "type": "pop",
-   "t": 28.298,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 28.4,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 30.259,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 32.0,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 37.067,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 37.972,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 38.272,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 38.422,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 38.572,
-   "gain": 0.8
-  },
-  {
-   "type": "ticks",
-   "t": 38.636,
+   "t": 38.183,
    "gain": 0.6
   },
   {
    "type": "whoosh",
-   "t": 41.067,
+   "t": 41.033,
    "gain": 0.8
   },
   {
    "type": "whoosh",
-   "t": 47.233,
-   "gain": 0.8
-  },
-  {
-   "type": "whoosh",
-   "t": 54.367,
+   "t": 49.033,
    "gain": 0.8
   },
   {
    "type": "boom",
-   "t": 54.672,
+   "t": 49.336,
    "gain": 0.5
   }
  ],
