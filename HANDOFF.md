@@ -8,7 +8,7 @@ hai aur test ho chuka hai, bas poora render baaki hai (neeche "Pending" dekhiye)
 
 `CLAUDE.md` is the standing order (rules for every film). This file is the state of the work and the full
 list of what the user asked for, in order, so nothing is lost between sessions.
-Last updated: 25 Nov 2026. Branch `ccr-dc7c0439-vsrxgk`.
+Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
 
 ---
 
@@ -103,7 +103,14 @@ Last updated: 25 Nov 2026. Branch `ccr-dc7c0439-vsrxgk`.
 - The mood test `out/mood_test_share.mp4` with `mood_test_stills.jpg`. The user said: **"Ha badhiya"**.
 - The reel format preview `out/reel_format_preview.jpg`.
 
-## 2. Pending (do this next if the user says go)
+## 2. Pending
+
+### tut/ — तूतनख़ामुन (new topic, 25 Nov 2026)
+- Script `tut/script.json` (film) and `tut/reel/script.json` (reel, separate) written; beats and voiceover
+  scripts sent for approval. Waiting for the user's approval and their Viraj recordings (film takes T01..T09,
+  reel `REEL`). Then: split_takes / build_narration for each, images, 3D, scene, sound, render.
+
+### saanp/ (do this if the user says go)
 1. Probe one still per line of `saanp/scene.py` and fix anything empty or cut off.
    - Known small issues: about 0.5 s of empty sepia wall just before line 11's "प्रॉक्सी वॉर"; the grief mood
      at Peshawar could read more blue.
@@ -169,6 +176,10 @@ Last updated: 25 Nov 2026. Branch `ccr-dc7c0439-vsrxgk`.
     fixed reel format (`saanp/reel/scene.py`).
 12. "ye sab jo maine bola hai wo bhi save karte jaao": keep saving every new instruction to `CLAUDE.md` and
     to this file.
+13. (25 Nov 2026) **Two scripts per topic: one for the reel, one for the long video, each voiced separately**
+    by the user, so neither has breaks in continuity (a reel cut from the MP4 "beech mein cut lag ke...
+    discontinuity" lagta hai). The reel script should feel made only for reels, the film only for YouTube.
+14. (25 Nov 2026) Next topic: **Tutankhamun**, a history documentary and explainer (`tut/`).
 
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.

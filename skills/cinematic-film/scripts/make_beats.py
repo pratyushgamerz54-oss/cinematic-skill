@@ -23,6 +23,7 @@ LPS = 14.5
 
 
 def mmss(s):
+    s = round(s, 1)
     return f"{int(s // 60)}:{s % 60:04.1f}"
 
 

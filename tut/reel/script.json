@@ -1,0 +1,137 @@
+{
+ "title": "तूतनख़ामुन",
+ "series_tag": "तूतनख़ामुन · एक जाँच",
+ "language": "hi",
+ "format": {
+  "reel": "1080x1920, about 60 s, fixed reel format (saanp/reel/scene.py), its own recording REEL"
+ },
+ "note": "Separate reel script (not cut from the film): one continuous story, opens on a question, ends on 'आप क्या सोचते हैं?'. Facts as in ../script.json fact_notes.",
+ "takes": [
+  {
+   "take": "REEL",
+   "heading": "रील",
+   "lines": [
+    {
+     "id": 1,
+     "text": "उन्नीस साल का एक राजा, जिसका नाम मिटा दिया गया। वही आज, सबसे मशहूर फ़राओ कैसे है?",
+     "spoken": "उन्नीस साल का एक राजा... जिसका नाम मिटा दिया गया। वही आज, सबसे मशहूर फ़राओ कैसे है?",
+     "hero": "HyperFrames opening question (from the film's hf project)",
+     "typed": "",
+     "headline": "मिटाया गया राजा, अमर कैसे?",
+     "tag": "सवाल",
+     "source": "—",
+     "mood": "tension",
+     "headline_color": "red"
+    },
+    {
+     "id": 2,
+     "text": "ये है तूतनख़ामुन। नौ साल की उम्र में राजा बना, और लगभग उन्नीस में, अचानक मौत।",
+     "spoken": "ये है तूतनख़ामुन। नौ साल की उम्र में राजा बना, और लगभग उन्नीस में, अचानक मौत।",
+     "hero": "photo: the gold mask; Counter 9",
+     "typed": "",
+     "headline": "9 में राजा, 19 में मौत",
+     "tag": "प्रमाण 01",
+     "source": "फ़ोटो: Wikimedia Commons",
+     "mood": "archive",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 3,
+     "text": "उसके बाद के राजाओं ने, उसका नाम, स्मारकों और राजाओं की सूचियों से मिटा दिया।",
+     "spoken": "उसके बाद के राजाओं ने, उसका नाम, स्मारकों और राजाओं की सूचियों से मिटा दिया।",
+     "hero": "photo: Abydos King List with the gap marked",
+     "typed": "",
+     "headline": "नाम मिटा दिया गया",
+     "tag": "प्रमाण 03",
+     "source": "फ़ोटो: Wikimedia Commons · अबीडोस",
+     "mood": "evidence",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 4,
+     "text": "और उसकी छोटी सी कब्र, मलबे के नीचे दबकर, तीन हज़ार साल तक छिपी रही।",
+     "spoken": "और उसकी छोटी सी कब्र, मलबे के नीचे दबकर, तीन हज़ार साल तक छिपी रही।",
+     "hero": "3D valley: debris covers the entrance",
+     "typed": "",
+     "headline": "3000 साल तक छिपी कब्र",
+     "tag": "प्रतीकात्मक 3D मॉडल",
+     "source": "राजाओं की घाटी, लक्सर",
+     "mood": "archive",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 5,
+     "text": "फिर, उन्नीस सौ बाईस। हावर्ड कार्टर ने मोमबत्ती की रोशनी में अंदर झाँका, और कहा: अद्भुत चीज़ें।",
+     "spoken": "फिर... उन्नीस सौ बाईस। हावर्ड कार्टर ने मोमबत्ती की रोशनी में अंदर झाँका... और कहा: अद्भुत चीज़ें।",
+     "hero": "archive photo: Carter at the shrine (Burton)",
+     "typed": "",
+     "headline": "1922: “wonderful things”",
+     "tag": "प्रमाण 04",
+     "source": "फ़ोटो: Harry Burton, 1923",
+     "mood": "archive",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 6,
+     "text": "अंदर थीं पाँच हज़ार से ज़्यादा चीज़ें, और एक सौ दस किलो ठोस सोने का ताबूत।",
+     "spoken": "अंदर थीं पाँच हज़ार से ज़्यादा चीज़ें, और एक सौ दस किलो ठोस सोने का ताबूत।",
+     "hero": "3D: nested coffins exploded view; Counter 110 KG",
+     "typed": "",
+     "headline": "5,398 चीज़ें · 110 किलो सोना",
+     "tag": "प्रमाण 05",
+     "source": "Griffith Institute कैटलॉग",
+     "mood": "evidence",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 7,
+     "text": "पर राजा मरा कैसे? खोपड़ी के एक्स-रे में दिखे हड्डी के टुकड़े ने, हत्या का शक जगाया।",
+     "spoken": "पर राजा मरा कैसे? खोपड़ी के एक्स-रे में दिखे हड्डी के टुकड़े ने, हत्या का शक जगाया।",
+     "hero": "X-ray style skull diagram (drawn); stamp हत्या?",
+     "typed": "",
+     "headline": "हत्या?",
+     "tag": "प्रमाण 06",
+     "source": "एक्स-रे, 1968",
+     "mood": "tension",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 8,
+     "text": "फिर डीएनए जाँच में मिले, मलेरिया के निशान, और पैर की हड्डी की बीमारी।",
+     "spoken": "फिर डीएनए जाँच में मिले, मलेरिया के निशान, और पैर की हड्डी की बीमारी।",
+     "hero": "explainer icons: parasite, foot bone; 130 sticks",
+     "typed": "",
+     "headline": "डीएनए: मलेरिया + बीमारी",
+     "tag": "प्रमाण 07",
+     "source": "JAMA, 2010",
+     "mood": "intel",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 9,
+     "text": "विडंबना देखिए: जिन्होंने उसे भुलाया, उन्हीं की वजह से उसकी कब्र बची रही।",
+     "spoken": "विडंबना देखिए: जिन्होंने उसे भुलाया, उन्हीं की वजह से उसकी कब्र बची रही।",
+     "hero": "photo: the gold mask, slow push",
+     "typed": "",
+     "headline": "भुलाने वालों ने ही बचाया",
+     "tag": "प्रमाण 08",
+     "source": "फ़ोटो: Wikimedia Commons",
+     "mood": "verdict",
+     "headline_color": "yellow"
+    },
+    {
+     "id": 10,
+     "text": "तो तूतनख़ामुन की मौत, बीमारी थी, हादसा, या साज़िश? आप क्या सोचते हैं?",
+     "spoken": "तो तूतनख़ामुन की मौत... बीमारी थी, हादसा, या साज़िश?... आप क्या सोचते हैं?",
+     "hero": "HyperFrames closing question",
+     "typed": "",
+     "headline": "बीमारी? हादसा? साज़िश?",
+     "tag": "सवाल",
+     "source": "—",
+     "mood": "tension",
+     "headline_color": "red"
+    }
+   ]
+  }
+ ]
+}

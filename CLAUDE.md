@@ -14,9 +14,19 @@ for one. `saanp/` (पिछवाड़े के साँप) is the finished
 | --- | --- |
 | Film | about **5:18** (5 to 5:30), 1920x1080, 30 fps, Hindi narration, Hindi captions burned in |
 | Caption-free film + SRT | for YouTube's own captions (burned captions can collide with on-screen quote cards) |
-| Reel | about 60 s, 1080x1920, 9 to 13 of the film's own lines (no new recording), **always the fixed reel format** below, large captions |
+| Reel | about 60 s, 1080x1920, **its own separate script and its own voice recording** (not cut from the film), 9 to 11 lines, **always the fixed reel format** below, large captions |
 | Thumbnails | YouTube 1280x720 and reel cover 1080x1920 (`saanp/thumbs.py` is the template) |
 | Credits | `credits.md` (images, voice, music, map data, fonts) and `fact_notes` in `script.json` |
+
+## Two scripts, two recordings (user, 25 Nov 2026)
+
+Every topic gets **two separate scripts**: one written only for the YouTube film (`script.json`) and one
+written only for the reel (`reel/script.json`, ~720 Hindi characters for ~60 s at Viraj's pace). The reel is
+**not cut from the film**: cutting film lines into a reel leaves jumps ("beech mein cut lag ke...
+discontinuity"). The reel script is one continuous story that stands on its own (opens on a question, ends on
+"आप क्या सोचते हैं?"), the film script is written for YouTube. The user generates the voice for each
+separately (film: one file per take; reel: one file `REEL`), so write two voiceover scripts (plain and v3
+emotion tags) and send both copyable lists. Reel media may reuse the film's photos, globes and 3D clips.
 
 ## The reel format (the same every time: "ek consistent reel banao, na ki kuch bhi")
 
@@ -80,7 +90,8 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 ## The pipeline (commands as in `saanp/`)
 
 1. **Research and script** (`script.json`): about 66 lines in 9 takes, about **4,600 Hindi characters**
-   for ~5:18 at George's pace; numbers in words in `spoken`; `...` for dramatic pauses; a `reel.lines` list.
+   for ~5:18 at George's pace; numbers in words in `spoken`; `...` for dramatic pauses. Plus a **separate reel script** in `reel/script.json`
+   (one take `REEL`, 9 to 11 lines, each with its beat headline, exhibit tag, source line and mood).
    Run `make_beats.py` until it shows 0 warnings.
 2. **Stop once for approval:** send `beats.md`, ask (one AskUserQuestion) to approve the script and pick
    the voice. This is the only stop: voice credits are limited. Everything after it runs without asking.
