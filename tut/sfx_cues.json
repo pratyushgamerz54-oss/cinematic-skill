@@ -1,0 +1,651 @@
+{
+ "duration": 326.651,
+ "cues": [
+  {
+   "type": "whoosh",
+   "t": 18.764,
+   "gain": 0.3
+  },
+  {
+   "type": "whoosh",
+   "t": 25.733,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 26.126,
+   "gain": 0.56
+  },
+  {
+   "type": "pop",
+   "t": 28.911,
+   "gain": 0.56
+  },
+  {
+   "type": "whoosh",
+   "t": 31.3,
+   "gain": 0.47
+  },
+  {
+   "type": "whoosh",
+   "t": 46.1,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 46.381,
+   "gain": 0.56
+  },
+  {
+   "type": "heartbeat",
+   "t": 57.31,
+   "gain": 0.7
+  },
+  {
+   "type": "heartbeat",
+   "t": 60.742,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 61.933,
+   "gain": 0.48
+  },
+  {
+   "type": "boom",
+   "t": 62.312,
+   "gain": 0.6
+  },
+  {
+   "type": "pencil",
+   "t": 62.612,
+   "gain": 0.5
+  },
+  {
+   "type": "pop",
+   "t": 63.212,
+   "gain": 0.42
+  },
+  {
+   "type": "pop",
+   "t": 66.858,
+   "gain": 0.56
+  },
+  {
+   "type": "whoosh",
+   "t": 69.033,
+   "gain": 0.29
+  },
+  {
+   "type": "pop",
+   "t": 69.47,
+   "gain": 0.56
+  },
+  {
+   "type": "pencil",
+   "t": 74.818,
+   "gain": 0.6,
+   "dur": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 75.767,
+   "gain": 0.43
+  },
+  {
+   "type": "stamp",
+   "t": 77.04,
+   "gain": 1.0
+  },
+  {
+   "type": "pop",
+   "t": 80.847,
+   "gain": 0.35
+  },
+  {
+   "type": "whoosh",
+   "t": 81.533,
+   "gain": 0.48
+  },
+  {
+   "type": "pencil",
+   "t": 84.8,
+   "gain": 0.6,
+   "dur": 0.6
+  },
+  {
+   "type": "riser",
+   "t": 86.839,
+   "gain": 0.5,
+   "dur": 1.8
+  },
+  {
+   "type": "heartbeat",
+   "t": 91.662,
+   "gain": 0.7
+  },
+  {
+   "type": "whoosh",
+   "t": 92.833,
+   "gain": 0.39
+  },
+  {
+   "type": "pop",
+   "t": 93.574,
+   "gain": 0.42
+  },
+  {
+   "type": "ticks",
+   "t": 94.35,
+   "gain": 0.6
+  },
+  {
+   "type": "pop",
+   "t": 98.232,
+   "gain": 0.42
+  },
+  {
+   "type": "pop",
+   "t": 102.005,
+   "gain": 0.42
+  },
+  {
+   "type": "slide",
+   "t": 102.505,
+   "gain": 0.5
+  },
+  {
+   "type": "slide",
+   "t": 103.742,
+   "gain": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 104.567,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 104.763,
+   "gain": 0.56
+  },
+  {
+   "type": "stamp",
+   "t": 107.95,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 110.567,
+   "gain": 0.3
+  },
+  {
+   "type": "pop",
+   "t": 111.006,
+   "gain": 0.56
+  },
+  {
+   "type": "whoosh",
+   "t": 115.633,
+   "gain": 0.35
+  },
+  {
+   "type": "heartbeat",
+   "t": 121.005,
+   "gain": 0.9
+  },
+  {
+   "type": "whoosh",
+   "t": 121.533,
+   "gain": 0.41
+  },
+  {
+   "type": "ticks",
+   "t": 121.98,
+   "gain": 0.6
+  },
+  {
+   "type": "pop",
+   "t": 122.261,
+   "gain": 0.42
+  },
+  {
+   "type": "marker",
+   "t": 125.9,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 126.05,
+   "gain": 0.8
+  },
+  {
+   "type": "marker",
+   "t": 126.2,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 132.833,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 133.008,
+   "gain": 0.56
+  },
+  {
+   "type": "whoosh",
+   "t": 138.4,
+   "gain": 0.32
+  },
+  {
+   "type": "pencil",
+   "t": 138.459,
+   "gain": 0.6,
+   "dur": 0.5
+  },
+  {
+   "type": "slide",
+   "t": 139.838,
+   "gain": 0.5
+  },
+  {
+   "type": "pop",
+   "t": 140.57,
+   "gain": 0.42
+  },
+  {
+   "type": "pencil",
+   "t": 143.379,
+   "gain": 0.6,
+   "dur": 0.35
+  },
+  {
+   "type": "pencil",
+   "t": 143.679,
+   "gain": 0.6,
+   "dur": 0.35
+  },
+  {
+   "type": "pencil",
+   "t": 143.979,
+   "gain": 0.6,
+   "dur": 0.35
+  },
+  {
+   "type": "stamp",
+   "t": 144.279,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 144.567,
+   "gain": 0.39
+  },
+  {
+   "type": "pop",
+   "t": 144.801,
+   "gain": 0.42
+  },
+  {
+   "type": "pencil",
+   "t": 147.97,
+   "gain": 0.6,
+   "dur": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 151.967,
+   "gain": 0.38
+  },
+  {
+   "type": "riser",
+   "t": 152.786,
+   "gain": 0.5,
+   "dur": 1.6
+  },
+  {
+   "type": "pop",
+   "t": 156.576,
+   "gain": 0.56
+  },
+  {
+   "type": "stamp",
+   "t": 164.738,
+   "gain": 1.0
+  },
+  {
+   "type": "stamp",
+   "t": 165.316,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 165.333,
+   "gain": 0.47
+  },
+  {
+   "type": "pop",
+   "t": 167.0,
+   "gain": 0.42
+  },
+  {
+   "type": "whoosh",
+   "t": 175.233,
+   "gain": 0.36
+  },
+  {
+   "type": "whoosh",
+   "t": 180.933,
+   "gain": 0.48
+  },
+  {
+   "type": "ticks",
+   "t": 180.968,
+   "gain": 0.6
+  },
+  {
+   "type": "pop",
+   "t": 181.228,
+   "gain": 0.56
+  },
+  {
+   "type": "stamp",
+   "t": 186.394,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 187.067,
+   "gain": 0.47
+  },
+  {
+   "type": "pop",
+   "t": 188.679,
+   "gain": 0.42
+  },
+  {
+   "type": "whoosh",
+   "t": 195.567,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 195.848,
+   "gain": 0.56
+  },
+  {
+   "type": "ticks",
+   "t": 196.557,
+   "gain": 0.6
+  },
+  {
+   "type": "whoosh",
+   "t": 201.533,
+   "gain": 0.31
+  },
+  {
+   "type": "pop",
+   "t": 202.007,
+   "gain": 0.56
+  },
+  {
+   "type": "ticks",
+   "t": 208.547,
+   "gain": 0.6
+  },
+  {
+   "type": "whoosh",
+   "t": 209.333,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 209.507,
+   "gain": 0.56
+  },
+  {
+   "type": "pop",
+   "t": 214.339,
+   "gain": 0.56
+  },
+  {
+   "type": "ticks",
+   "t": 215.586,
+   "gain": 0.6
+  },
+  {
+   "type": "whoosh",
+   "t": 218.1,
+   "gain": 0.29
+  },
+  {
+   "type": "pop",
+   "t": 218.535,
+   "gain": 0.56
+  },
+  {
+   "type": "slide",
+   "t": 221.218,
+   "gain": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 223.6,
+   "gain": 0.36
+  },
+  {
+   "type": "heartbeat",
+   "t": 228.165,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 230.033,
+   "gain": 0.46
+  },
+  {
+   "type": "pop",
+   "t": 230.28,
+   "gain": 0.56
+  },
+  {
+   "type": "whoosh",
+   "t": 237.367,
+   "gain": 0.29
+  },
+  {
+   "type": "pop",
+   "t": 237.945,
+   "gain": 0.56
+  },
+  {
+   "type": "stamp",
+   "t": 240.113,
+   "gain": 1.0
+  },
+  {
+   "type": "pop",
+   "t": 241.688,
+   "gain": 0.42
+  },
+  {
+   "type": "slide",
+   "t": 243.307,
+   "gain": 0.5
+  },
+  {
+   "type": "pop",
+   "t": 245.435,
+   "gain": 0.42
+  },
+  {
+   "type": "slide",
+   "t": 245.535,
+   "gain": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 246.833,
+   "gain": 0.31
+  },
+  {
+   "type": "stamp",
+   "t": 249.589,
+   "gain": 1.0
+  },
+  {
+   "type": "riser",
+   "t": 250.197,
+   "gain": 0.5,
+   "dur": 1.8
+  },
+  {
+   "type": "whoosh",
+   "t": 253.567,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 254.686,
+   "gain": 0.42
+  },
+  {
+   "type": "whoosh",
+   "t": 260.133,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 260.526,
+   "gain": 0.42
+  },
+  {
+   "type": "slide",
+   "t": 264.154,
+   "gain": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 265.9,
+   "gain": 0.47
+  },
+  {
+   "type": "whoosh",
+   "t": 274.367,
+   "gain": 0.48
+  },
+  {
+   "type": "pop",
+   "t": 278.344,
+   "gain": 0.42
+  },
+  {
+   "type": "slide",
+   "t": 279.144,
+   "gain": 0.5
+  },
+  {
+   "type": "slide",
+   "t": 280.409,
+   "gain": 0.5
+  },
+  {
+   "type": "stamp",
+   "t": 280.559,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 280.9,
+   "gain": 0.47
+  },
+  {
+   "type": "whoosh",
+   "t": 287.267,
+   "gain": 0.48
+  },
+  {
+   "type": "ticks",
+   "t": 289.116,
+   "gain": 0.6
+  },
+  {
+   "type": "pencil",
+   "t": 290.118,
+   "gain": 0.6,
+   "dur": 0.3
+  },
+  {
+   "type": "pencil",
+   "t": 290.268,
+   "gain": 0.6,
+   "dur": 0.3
+  },
+  {
+   "type": "pencil",
+   "t": 290.418,
+   "gain": 0.6,
+   "dur": 0.3
+  },
+  {
+   "type": "pencil",
+   "t": 290.568,
+   "gain": 0.6,
+   "dur": 0.3
+  },
+  {
+   "type": "pencil",
+   "t": 290.718,
+   "gain": 0.6,
+   "dur": 0.3
+  },
+  {
+   "type": "whoosh",
+   "t": 293.4,
+   "gain": 0.3
+  },
+  {
+   "type": "pop",
+   "t": 295.804,
+   "gain": 0.42
+  },
+  {
+   "type": "whoosh",
+   "t": 301.133,
+   "gain": 0.43
+  },
+  {
+   "type": "pop",
+   "t": 301.452,
+   "gain": 0.56
+  },
+  {
+   "type": "stamp",
+   "t": 302.963,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 306.633,
+   "gain": 0.48
+  },
+  {
+   "type": "heartbeat",
+   "t": 319.504,
+   "gain": 0.7
+  },
+  {
+   "type": "heartbeat",
+   "t": 321.153,
+   "gain": 0.8
+  },
+  {
+   "type": "boom",
+   "t": 321.815,
+   "gain": 0.5
+  }
+ ],
+ "room_tone": []
+}

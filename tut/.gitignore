@@ -6,3 +6,8 @@ out/*.mp4
 !out/*_share.mp4
 assets/3d/*.png
 assets/clips/*.png
+audio/_split/
+audio/trimmed/
+reel/audio/trimmed/
+out/probe/
+out/test_*.mp4
