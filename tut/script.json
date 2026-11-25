@@ -471,5 +471,13 @@
   "2010 DNA and CT study (Hawass et al., JAMA): parents were siblings; Köhler disease II and a left clubfoot; DNA of Plasmodium falciparum (malaria tropica). About 130 walking sticks/staves were found in the tomb. Some researchers dispute parts of the study; the cause of death is still debated (illness, accident such as a chariot fall, or other).",
   "The mummy remains in KV62 in a climate-controlled case. The treasure is displayed together at the Grand Egyptian Museum, Giza (fully opened 1 November 2025).",
   "Spellings: तूतनख़ामुन, अख़ेनातेन, आतेन, आमुन, अंखेसेनामुन, आय, होरेमहेब, कार्नारवन. No mummy or human-remains photos are shown; skull and skeleton are drawn diagrams or symbolic 3D models."
- ]
+ ],
+ "film_cut": {
+  "dropped_lines": [
+   11,
+   30,
+   52
+  ],
+  "note": "Viraj's read at its natural pace (1.0x) ran 5:44; lines 11 (redundant after the YouTube intro), 30 and 52 dropped so the film stays near 5:27 without speeding up the voice; gaps 0.45 s, 0.6 s at take ends."
+ }
 }

@@ -30,7 +30,7 @@
   {
    "id": "P03",
    "what": "Gold mask of Tutankhamun, Egyptian Museum Cairo",
-   "kind": "photo",
+   "kind": "color",
    "commons": "File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
    "file": "P03_CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
@@ -82,7 +82,7 @@
   {
    "id": "P07",
    "what": "Tutankhamun and Ankhesenamun, back panel of the golden throne",
-   "kind": "photo",
+   "kind": "color",
    "commons": "File:Tutankhamun and his wife B. C. 1330.jpg",
    "file": "P07_Tutankhamun_and_his_wife_B_C_1330.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_and_his_wife_B._C._1330.jpg",
@@ -172,7 +172,7 @@
   {
    "id": "P15",
    "what": "Innermost solid gold coffin (Leo Wehrli, 1938)",
-   "kind": "photo",
+   "kind": "color",
    "commons": "File:ETH-BIB-Tut-Ank-Amon's Treasures, Innermost coffin of thick gold-Dia 247-11135.tif",
    "file": "P15_ETH_BIB_Tut_Ank_Amon_s_Treasures_Innermost_coffi.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Tut-Ank-Amon%27s_Treasures,_Innermost_coffin_of_thick_gold-Dia_247-11135.tif",
@@ -185,7 +185,7 @@
   {
    "id": "P16",
    "what": "Iron dagger of Tutankhamun, Egyptian Museum Cairo",
-   "kind": "photo",
+   "kind": "color",
    "commons": "File:Kairo Museum Eisendolch Tutanchamun 01.jpg",
    "file": "P16_Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
@@ -211,7 +211,7 @@
   {
    "id": "P18",
    "what": "The mask on display, 2025",
-   "kind": "photo",
+   "kind": "color",
    "commons": "File:Mask of Tutankhamun in 2025.jpg",
    "file": "P18_Mask_of_Tutankhamun_in_2025.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Mask_of_Tutankhamun_in_2025.jpg",

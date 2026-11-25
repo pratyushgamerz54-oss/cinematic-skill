@@ -133,5 +133,11 @@
     }
    ]
   }
- ]
+ ],
+ "reel_cut": {
+  "dropped_lines": [
+   9
+  ],
+  "note": "The user's read at 1.0x ran 68 s; line 9 dropped (no speed-up), gaps 0.3 s."
+ }
 }
