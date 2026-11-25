@@ -8,7 +8,7 @@ hai aur test ho chuka hai, bas poora render baaki hai (neeche "Pending" dekhiye)
 
 `CLAUDE.md` is the standing order (rules for every film). This file is the state of the work and the full
 list of what the user asked for, in order, so nothing is lost between sessions.
-Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
+Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new sessions see everything); session branches start from it.
 
 ---
 
