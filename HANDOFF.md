@@ -122,10 +122,16 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
     (symbolic scan, not the mummy). Recorded to `assets/clips/*.mp4`.
   - HyperFrames `tut/hf/`: welcome, topic, go (the YouTube intro, T00_intro), qopen, wonder (quote card), qend, rq (reel opening question) → `hf_graphics.mp4`, cut by `trim` in `clips.json`. The old `title` card is no longer used (the intro carries the title).
   - Thumbnails: `tut/thumbs.py` → `tut/out/thumbnail_youtube.jpg`, `thumbnail_reel.jpg`.
-- Next, once the audio arrives: put the takes in `tut/audio/takes/` and `REEL` in `tut/reel/audio/takes/`;
-  split_takes / build_narration for each (film --target 318); prep_clips; scene.py from `saanp/scene.py`;
-  reel scene from `saanp/reel/scene.py` (beats from `tut/reel/script.json`: headline, tag, source, mood);
-  sound, render, captions, SRT, share copies; credits.md.
+- Voice arrived (25 Nov 2026): `audio/original/Greeting.mp3` (T00_intro), `whole_yt_video.mp3` (T01..T09 in one
+  file, split as one take STORY via `audio/_split/`), `reel/audio/original_Reel.mp3`. All 54 + 10 lines split with
+  0 flagged. Natural pace 1.0x: film 5:44 → dropped lines 11, 30, 52 (`film_cut`) → **5:27**; reel 68 s → dropped
+  line 9 (`reel_cut`, gaps 0.3 s) → **62.7 s**.
+- `tut/scene.py` (film) and `tut/reel/scene.py` (fixed reel format) written, probed line by line, test spans
+  rendered (0-20, 60-82, 296-326 s). Sound: cues thinned, sfx built, score = saanp's ElevenLabs drones
+  (drone1/drone2) cross-faded to 340 s; mixes at -15 LUFS.
+- Final render chain: /tmp script `final.sh` (film 1080p → clean captions → SRT → share copies → reel 1080x1920
+  → highlighter captions → SRT → share). Outputs in `tut/out/` and `tut/reel/out/`.
+- Still to do after the render: look at a frame every 10 s, send film, caption-free copy, SRTs, reel, thumbnails.
 - Environment "animation-studio" now has a setup script (libEGL for skia, Python Playwright, requirements):
   a fresh container lacked them.
 
