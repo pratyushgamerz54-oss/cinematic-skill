@@ -10,6 +10,14 @@
 | P06 | Hillary Clinton, official Secretary of State portrait | United States Department of State | Public domain | https://commons.wikimedia.org/wiki/File:Hillary_Clinton_official_Secretary_of_State_portrait_crop.jpg |
 | P07 | Imran Khan at the White House, July 2019 | The White House (Joyce N. Boghosian) | Public domain | https://commons.wikimedia.org/wiki/File:Imran_Khan_In_white_house.jpg |
 | P08 | Khawaja Muhammad Asif, December 2015 | USAID Pakistan | Public domain | https://commons.wikimedia.org/wiki/File:Khawaja_Muhammad_Asif_-_December_2015_(cropped).jpg |
+| P09 | Obama, Biden and the national security team in the Situation Room during the Abbottabad raid, 1 May 2011 | Pete Souza / The White House | Public domain | https://commons.wikimedia.org/wiki/File:Obama_and_Biden_await_updates_on_bin_Laden_(cropped).jpg |
+| P10 | President Reagan meets Afghan mujahideen leaders at the White House, 2 February 1983 | Michael Evans / White House Photographic Office | Public domain | https://commons.wikimedia.org/wiki/File:Reagan_sitting_with_people_from_the_Afghanistan-Pakistan_region_in_February_1983.jpg |
+| P11 | Soviet troop withdrawal from Afghanistan, 15 May 1988 | V. Kiselev / RIA Novosti archive | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:RIAN_archive_642790_Soviet_troop_withdrawal_from_Afghanistan.jpg |
+| P12 | Bullet marks at CST (VT) station, Mumbai, December 2008 | Nicholas (Nichalp) | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:2008_Mumbai_terror_attack_VT_bullet_mark.jpg |
+| P14 | Passing-out parade, Pakistan Military Academy, Kakul, 2007 | Muhammadoweis | Public domain | https://commons.wikimedia.org/wiki/File:Kakul_Passingoutprade_Oweis.JPG |
+| P15 | Baisaran valley near Pahalgam, October 2023 | Hellohappy | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Baisaran_Valley_Kashmir24102023.jpg |
+| P16 | Army Public School, Peshawar, December 2014 | Obaid Raza | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Army_Public_School.jpg |
+| P17 | Kandahar International Airport, 2012 | Karla Marshall (US Army) | Public domain | https://commons.wikimedia.org/wiki/File:Kam_Air_at_Kandahar_International_Airport_in_2012.jpg |
 
 ## Recreations drawn in code
 

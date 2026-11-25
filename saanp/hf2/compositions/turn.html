@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.src{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;}
+  </style>
+  <div id="root" data-composition-id="turn" data-width="1920" data-height="1080">
+    <div id="turn-a" class="clip" data-start="0" data-duration="6" style="position:absolute;left:1350px;top:300px;font-family:'Teko HF';font-size:110px;color:#8d857a">पड़ोसी</div>
+    <div id="turn-b" class="clip" data-start="0" data-duration="6" style="position:absolute;left:300px;top:300px;font-family:'Teko HF';font-size:110px;color:#8d857a">घर</div>
+    <svg id="turn-s" class="clip" data-start="0" data-duration="6" style="position:absolute;inset:0" width="1920" height="1080"><path id="turn-p" d="M420 560 C 700 420, 900 700, 1180 560 S 1500 460, 1460 620 S 1100 820, 820 760 S 520 640, 460 470" fill="none" stroke="#d8322a" stroke-width="14" stroke-linecap="round"/></svg>
+    <div id="turn-c" class="clip k" data-start="3.2" data-duration="2.8" style="top:860px;font-family:'Hind HF';font-size:62px">साँप पलटकर घर को डसने लगे</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#turn-p",{strokeDasharray:2600,strokeDashoffset:2600},{strokeDashoffset:0,duration:3.0,ease:"power1.inOut"},0.2);
+    tl.fromTo("#turn-a",{color:"#8d857a"},{color:"#f3ede4",duration:0.3},1.0);
+    tl.fromTo("#turn-b",{color:"#8d857a",scale:1},{color:"#d8322a",scale:1.2,duration:0.3,ease:"power3.out"},3.1);
+    tl.fromTo("#turn-c",{opacity:0,y:20},{opacity:1,y:0,duration:0.4},3.2);
+    window.__timelines["turn"] = tl;
+  </script>
+</template>

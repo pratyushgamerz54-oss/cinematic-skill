@@ -25,3 +25,5 @@ out/*nocaptions*
 viraj/
 audio/lines_viraj/
 audio/george_backup/sfx.wav
+hf2/.hyperframes/
+hf2/node_modules/

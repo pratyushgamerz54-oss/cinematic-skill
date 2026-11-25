@@ -202,25 +202,30 @@
      "from": "Kathmandu",
      "to": "Amritsar",
      "t_in": 0.6,
-     "dur": 1.2
+     "dur": 1.2,
+     "vehicle": "plane"
     },
     {
      "from": "Amritsar",
      "to": "Lahore",
      "t_in": 1.8,
-     "dur": 0.5
+     "dur": 0.5,
+     "vehicle": "plane"
     },
     {
      "from": "Lahore",
      "to": "Dubai",
      "t_in": 2.3,
-     "dur": 1.4
+     "dur": 1.4,
+     "vehicle": "plane"
     },
     {
      "from": "Dubai",
      "to": "Kandahar",
      "t_in": 3.7,
-     "dur": 1.4
+     "dur": 1.4,
+     "vehicle": "plane",
+     "vehicle_hold": true
     }
    ],
    "markers": [
@@ -310,7 +315,9 @@
      "t_in": 0.9,
      "dur": 3.0,
      "height": 0.02,
-     "width": 0.006
+     "width": 0.006,
+     "vehicle": "boat",
+     "vehicle_hold": true
     }
    ],
    "markers": [

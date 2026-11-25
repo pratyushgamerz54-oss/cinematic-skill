@@ -1,0 +1,47 @@
+[
+ {
+  "id": "target",
+  "start": 0,
+  "end": 5
+ },
+ {
+  "id": "letnet",
+  "start": 5,
+  "end": 11
+ },
+ {
+  "id": "hours",
+  "start": 11,
+  "end": 16
+ },
+ {
+  "id": "headley",
+  "start": 16,
+  "end": 22
+ },
+ {
+  "id": "turn",
+  "start": 22,
+  "end": 28
+ },
+ {
+  "id": "money",
+  "start": 28,
+  "end": 34
+ },
+ {
+  "id": "forty",
+  "start": 34,
+  "end": 40
+ },
+ {
+  "id": "many",
+  "start": 40,
+  "end": 47
+ },
+ {
+  "id": "candles",
+  "start": 47,
+  "end": 54
+ }
+]

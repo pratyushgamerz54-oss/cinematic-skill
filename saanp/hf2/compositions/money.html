@@ -1,0 +1,45 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.src{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;}
+  </style>
+  <div id="root" data-composition-id="money" data-width="1920" data-height="1080">
+    <svg id="money-l" class="clip" data-start="0" data-duration="6" style="position:absolute;inset:0" width="1920" height="1080"><line id="money-ln0" x1="300" y1="300" x2="960" y2="540" stroke="#8d857a" stroke-width="4" stroke-dasharray="14 10"/><line id="money-ln1" x1="300" y1="780" x2="960" y2="540" stroke="#8d857a" stroke-width="4" stroke-dasharray="14 10"/><line id="money-ln2" x1="960" y1="540" x2="1620" y2="300" stroke="#8d857a" stroke-width="4" stroke-dasharray="14 10"/><line id="money-ln3" x1="960" y1="540" x2="1620" y2="780" stroke="#8d857a" stroke-width="4" stroke-dasharray="14 10"/></svg>
+    <div id="money-a0" class="clip" data-start="0" data-duration="6" style="position:absolute;left:200px;top:245px;width:200px;height:110px;background:#e8e1d6;color:#151111;display:flex;align-items:center;justify-content:center;font-family:'Hind HF';font-size:44px;border-radius:10px">?</div>
+    <div id="money-a1" class="clip" data-start="0" data-duration="6" style="position:absolute;left:200px;top:725px;width:200px;height:110px;background:#e8e1d6;color:#151111;display:flex;align-items:center;justify-content:center;font-family:'Hind HF';font-size:44px;border-radius:10px">?</div>
+    <div id="money-a2" class="clip" data-start="0" data-duration="6" style="position:absolute;left:770px;top:485px;width:380px;height:110px;background:#e8e1d6;color:#151111;display:flex;align-items:center;justify-content:center;font-family:'Hind HF';font-size:44px;border-radius:10px">ट्रस्ट / चैरिटी</div>
+    <div id="money-a3" class="clip" data-start="0" data-duration="6" style="position:absolute;left:1520px;top:245px;width:200px;height:110px;background:#e8e1d6;color:#151111;display:flex;align-items:center;justify-content:center;font-family:'Hind HF';font-size:44px;border-radius:10px">?</div>
+    <div id="money-a4" class="clip" data-start="0" data-duration="6" style="position:absolute;left:1520px;top:725px;width:200px;height:110px;background:#e8e1d6;color:#151111;display:flex;align-items:center;justify-content:center;font-family:'Hind HF';font-size:44px;border-radius:10px">?</div>
+    <div id="money-d0" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d1" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d2" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d3" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d4" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d5" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d6" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-d7" class="clip" data-start="0" data-duration="6" style="position:absolute;left:0;top:0;width:26px;height:26px;border-radius:50%;background:#d8a62a"></div>
+    <div id="money-t" class="clip k" data-start="2.6" data-duration="3.4" style="top:960px;font-family:'Hind HF';font-size:52px">दुनिया ने पैसों का पीछा किया</div>
+
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    for (let k=0;k<5;k++) tl.fromTo("#money-a"+k,{opacity:0,scale:0.8},{opacity:1,scale:1,duration:0.3},0.1+k*0.12);
+    for (let k=0;k<4;k++) tl.fromTo("#money-ln"+k,{opacity:0},{opacity:1,duration:0.3},0.6+k*0.1);
+    tl.fromTo("#money-d0",{x:287,y:287,opacity:0},{x:947,y:527,opacity:1,duration:1.1,ease:"none"},0.9);
+    tl.fromTo("#money-d1",{x:287,y:767,opacity:0},{x:947,y:527,opacity:1,duration:1.1,ease:"none"},1.25);
+    tl.fromTo("#money-d2",{x:947,y:527,opacity:0},{x:1607,y:287,opacity:1,duration:1.1,ease:"none"},1.6);
+    tl.fromTo("#money-d3",{x:947,y:527,opacity:0},{x:1607,y:767,opacity:1,duration:1.1,ease:"none"},1.9499999999999997);
+    tl.fromTo("#money-d4",{x:287,y:287,opacity:0},{x:947,y:527,opacity:1,duration:1.1,ease:"none"},2.3);
+    tl.fromTo("#money-d5",{x:287,y:767,opacity:0},{x:947,y:527,opacity:1,duration:1.1,ease:"none"},2.65);
+    tl.fromTo("#money-d6",{x:947,y:527,opacity:0},{x:1607,y:287,opacity:1,duration:1.1,ease:"none"},2.9999999999999996);
+    tl.fromTo("#money-d7",{x:947,y:527,opacity:0},{x:1607,y:767,opacity:1,duration:1.1,ease:"none"},3.3499999999999996);
+    tl.fromTo("#money-t",{opacity:0},{opacity:1,duration:0.4},2.6);
+    window.__timelines["money"] = tl;
+  </script>
+</template>

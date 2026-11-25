@@ -148,6 +148,112 @@
    "what": "3D globe: Abbottabad to Pahalgam, then pull back to the whole globe",
    "credit": "Made in code (three.js); boundaries: Natural Earth",
    "license": "Own work"
+  },
+  {
+   "id": "hf2_target",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    0,
+    5
+   ],
+   "what": "HyperFrames motion graphic: target",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_letnet",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    5,
+    11
+   ],
+   "what": "HyperFrames motion graphic: letnet",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_hours",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    11,
+    16
+   ],
+   "what": "HyperFrames motion graphic: hours",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_headley",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    16,
+    22
+   ],
+   "what": "HyperFrames motion graphic: headley",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_turn",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    22,
+    28
+   ],
+   "what": "HyperFrames motion graphic: turn",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_money",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    28,
+    34
+   ],
+   "what": "HyperFrames motion graphic: money",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_forty",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    34,
+    40
+   ],
+   "what": "HyperFrames motion graphic: forty",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_many",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    40,
+    47
+   ],
+   "what": "HyperFrames motion graphic: many",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf2_candles",
+   "file": "assets/clips/hf_graphics2.mp4",
+   "trim": [
+    47,
+    54
+   ],
+   "what": "HyperFrames motion graphic: candles",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "valley",
+   "file": "assets/clips/valley.mp4",
+   "what": "Illustrative 3D valley standing for Baisaran, Pahalgam",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
   }
  ]
 }

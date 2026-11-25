@@ -84,8 +84,28 @@ const routes = cfg.routes.map(r => {
   mesh.renderOrder = 20; scene.add(mesh);
   const head = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex(), color: routeCol, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
   head.scale.setScalar(0.06); head.renderOrder = 21; scene.add(head);
-  return { r, mesh, geo, curve, head, total: geo.index.count };
+  const vehicle = r.vehicle ? makeVehicle(r.vehicle) : null;
+  return { r, mesh, geo, curve, head, vehicle, total: geo.index.count };
 });
+
+// A small 3D vehicle that rides the head of a route: "plane" or "boat" (illustrative, built from primitives).
+function makeVehicle(kind) {
+  const g = new THREE.Group(), white = new THREE.MeshStandardMaterial({ color: 0xf2f0ea, roughness: 0.5, metalness: 0.2 });
+  const red = new THREE.MeshStandardMaterial({ color: 0xd8322a, roughness: 0.6 });
+  if (kind === 'plane') {
+    const body = new THREE.Mesh(new THREE.CylinderGeometry(0.14, 0.12, 1.6, 16), white); body.rotation.z = Math.PI / 2; g.add(body);
+    const nose = new THREE.Mesh(new THREE.SphereGeometry(0.14, 16, 12), white); nose.position.x = 0.8; g.add(nose);
+    const wing = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.04, 1.7), white); wing.position.x = 0.05; g.add(wing);
+    const tail = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.42, 0.05), red); tail.position.set(-0.7, 0.22, 0); g.add(tail);
+    const stab = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.04, 0.6), white); stab.position.set(-0.7, 0.04, 0); g.add(stab);
+  } else {
+    const hull = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.22, 0.5), white); g.add(hull);
+    const bow = new THREE.Mesh(new THREE.ConeGeometry(0.25, 0.5, 4), white); bow.rotation.z = -Math.PI / 2; bow.position.x = 0.95; g.add(bow);
+    const cab = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.26, 0.36), red); cab.position.set(-0.25, 0.24, 0); g.add(cab);
+  }
+  g.visible = false; g.renderOrder = 30; scene.add(g);
+  return g;
+}
 
 function glowTex() {
   if (glowTex.t) return glowTex.t;
@@ -162,6 +182,14 @@ function draw(t) {
     const a = tout == null ? 1 : 1 - ramp(t, tout, 0.5);
     R.mesh.material.opacity = a; R.mesh.visible = u > 0;
     R.head.visible = u > 0 && u < 1; R.head.position.copy(R.curve.getPoint(u)); R.head.material.opacity = a;
+    if (R.vehicle) {
+      const uu = Math.min(Math.max(u, 0.001), 0.999), p = R.curve.getPoint(uu), tan = R.curve.getTangent(uu);
+      const up = p.clone().normalize(), side = new THREE.Vector3().crossVectors(tan, up).normalize(), fwd = new THREE.Vector3().crossVectors(up, side);
+      R.vehicle.visible = Boolean(u > 0 && a > 0.05 && (u < 1 || R.r.vehicle_hold));   // only the moving one, unless told to wait at the end
+      R.vehicle.position.copy(p).add(up.clone().multiplyScalar(0.004));
+      R.vehicle.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(fwd, up, side));
+      R.vehicle.scale.setScalar(0.03 * camera.position.distanceTo(p) * (R.r.vehicle_size ?? 1));
+    }
   }
 
   const camDir = camera.position.clone().normalize();

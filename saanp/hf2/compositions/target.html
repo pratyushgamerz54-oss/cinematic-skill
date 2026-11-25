@@ -1,0 +1,28 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.src{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;}
+  </style>
+  <div id="root" data-composition-id="target" data-width="1920" data-height="1080">
+    <div id="target-a" class="clip" data-start="0" data-duration="5" style="position:absolute;left:300px;top:470px;font-family:'Teko HF';font-size:120px;color:#8d857a">अफ़ग़ानिस्तान</div>
+    <div id="target-b" class="clip" data-start="0" data-duration="5" style="position:absolute;left:1260px;top:470px;font-family:'Teko HF';font-size:120px;color:#8d857a">कश्मीर</div>
+    <svg id="target-x" class="clip" data-start="0" data-duration="5" style="position:absolute;left:0;top:0" width="1920" height="1080"><g id="target-g"><circle cx="0" cy="0" r="120" fill="none" stroke="#d8322a" stroke-width="8"/><circle cx="0" cy="0" r="60" fill="none" stroke="#d8322a" stroke-width="5"/><line x1="-170" y1="0" x2="-70" y2="0" stroke="#d8322a" stroke-width="7"/><line x1="70" y1="0" x2="170" y2="0" stroke="#d8322a" stroke-width="7"/><line x1="0" y1="-170" x2="0" y2="-70" stroke="#d8322a" stroke-width="7"/><line x1="0" y1="70" x2="0" y2="170" stroke="#d8322a" stroke-width="7"/></g></svg>
+    <div id="target-c" class="clip k" data-start="2.8" data-duration="2.2" style="top:760px;font-family:'Hind HF';font-size:58px">नया निशाना</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#target-g",{x:560,y:520,scale:1.6,opacity:0},{x:560,y:520,scale:1,opacity:1,duration:0.4,ease:"power3.out"},0.1);
+    tl.fromTo("#target-g",{x:560},{x:1440,duration:1.4,ease:"power2.inOut",immediateRender:false},1.1);
+    tl.fromTo("#target-g",{rotation:0},{rotation:90,duration:1.4,ease:"power2.inOut",immediateRender:false},1.1);
+    tl.fromTo("#target-a",{opacity:1},{opacity:0.25,duration:0.6},1.2);
+    tl.fromTo("#target-b",{color:"#8d857a",scale:1},{color:"#f3ede4",scale:1.12,duration:0.3,ease:"power3.out"},2.5);
+    tl.fromTo("#target-c",{opacity:0,y:20},{opacity:1,y:0,duration:0.4},2.8);
+    window.__timelines["target"] = tl;
+  </script>
+</template>

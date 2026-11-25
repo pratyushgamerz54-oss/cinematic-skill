@@ -110,6 +110,86 @@
    "license_url": "",
    "date": "2015-12-01 09:47:05",
    "license_ok": true
+  },
+  {
+   "id": "P09",
+   "what": "Obama, Biden and the national security team in the Situation Room during the Abbottabad raid, 1 May 2011",
+   "kind": "photo",
+   "file": "P09_situation_room.jpg",
+   "credit": "Pete Souza / The White House",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Obama_and_Biden_await_updates_on_bin_Laden_(cropped).jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P10",
+   "what": "President Reagan meets Afghan mujahideen leaders at the White House, 2 February 1983",
+   "kind": "photo",
+   "file": "P10_reagan_1983.jpg",
+   "credit": "Michael Evans / White House Photographic Office",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Reagan_sitting_with_people_from_the_Afghanistan-Pakistan_region_in_February_1983.jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P11",
+   "what": "Soviet troop withdrawal from Afghanistan, 15 May 1988",
+   "kind": "photo",
+   "file": "P11_soviet_1988.jpg",
+   "credit": "V. Kiselev / RIA Novosti archive",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:RIAN_archive_642790_Soviet_troop_withdrawal_from_Afghanistan.jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P12",
+   "what": "Bullet marks at CST (VT) station, Mumbai, December 2008",
+   "kind": "photo",
+   "file": "P12_cst_2008.jpg",
+   "credit": "Nicholas (Nichalp)",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:2008_Mumbai_terror_attack_VT_bullet_mark.jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P14",
+   "what": "Passing-out parade, Pakistan Military Academy, Kakul, 2007",
+   "kind": "photo",
+   "file": "P14_kakul.jpg",
+   "credit": "Muhammadoweis",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Kakul_Passingoutprade_Oweis.JPG",
+   "license_ok": true
+  },
+  {
+   "id": "P15",
+   "what": "Baisaran valley near Pahalgam, October 2023",
+   "kind": "photo",
+   "file": "P15_baisaran.jpg",
+   "credit": "Hellohappy",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Baisaran_Valley_Kashmir24102023.jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P16",
+   "what": "Army Public School, Peshawar, December 2014",
+   "kind": "photo",
+   "file": "P16_aps.jpg",
+   "credit": "Obaid Raza",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Army_Public_School.jpg",
+   "license_ok": true
+  },
+  {
+   "id": "P17",
+   "what": "Kandahar International Airport, 2012",
+   "kind": "photo",
+   "file": "P17_kandahar.jpg",
+   "credit": "Karla Marshall (US Army)",
+   "license": "Public domain",
+   "source": "https://commons.wikimedia.org/wiki/File:Kam_Air_at_Kandahar_International_Airport_in_2012.jpg",
+   "license_ok": true
   }
  ],
  "recreations": [

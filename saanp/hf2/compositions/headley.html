@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1d1716 0%,#0b0909 62%,#050404 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.src{position:absolute;left:0;right:0;bottom:120px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;}
+  </style>
+  <div id="root" data-composition-id="headley" data-width="1920" data-height="1080">
+    <div id="headley-p" class="clip" data-start="0" data-duration="6" style="position:absolute;left:220px;top:240px;width:1480px;height:600px;background:#ece5d8;border-radius:6px"></div>
+    <div id="headley-h" class="clip" data-start="0" data-duration="6" style="position:absolute;left:300px;top:290px;font-family:'Tiro HF';font-size:42px;color:#5a514a">अमेरिकी अदालत · शिकागो · 2011 · गवाही का सार</div>
+    <div id="headley-t" class="clip" data-start="0" data-duration="6" style="position:absolute;left:300px;top:400px;width:1320px;font-family:'Hind HF';font-size:68px;line-height:1.5;color:#1b1614;clip-path:inset(0 100% 0 0)">गवाह ने कहा: ISI का एक अफ़सर, "मेजर इक़बाल", उसका हैंडलर था।</div>
+    <div id="headley-m" class="clip" data-start="0" data-duration="6" style="position:absolute;left:300px;top:690px;font-family:'Hind HF Light';font-size:40px;color:#5a514a">— डेविड हेडली (उसके अपने बयान के मुताबिक़)</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#headley-p",{opacity:0,y:30},{opacity:1,y:0,duration:0.4,ease:"power3.out"},0);
+    tl.fromTo("#headley-h",{opacity:0},{opacity:1,duration:0.4},0.1);
+    tl.fromTo("#headley-t",{clipPath:"inset(0 100% 0 0)"},{clipPath:"inset(0 0% 0 0)",duration:2.6,ease:"steps(40)"},0.5);
+    tl.fromTo("#headley-m",{opacity:0},{opacity:1,duration:0.5},3.2);
+    window.__timelines["headley"] = tl;
+  </script>
+</template>

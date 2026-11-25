@@ -68,9 +68,7 @@ def build_film(doc):
     head("अमेरिका की चेतावनी · 2011", 32, L(32) - 0.2, E(32) + 0.3, size=380)
     hold(32, L(32) - 0.15, E(32) + 0.1)
     # 35, 36: the snakes turn
-    film.add(Counter(X[35], -200, 1700, 132, W(35, "बत्तीस") - 1.0, dur=1.5, caption="बच्चे · पेशावर 2014"))
-    for k in range(5):
-        film.add(PenMark("highlight", X[35] - 1600 + k * 800, 1500, 110, 0, t_in=L(35) + 0.6 + 0.15 * k, dur=0.3, width=110, rgb=(255, 190, 90), seed=k))
+    clip("hf2_candles", 35, L(35) - 0.3, E(35) + 0.4, start=0.6)
     head("फिर साँप पलटे", 35, L(35) - 0.3, E(35) + 0.3, red=True)
     hold(35, L(35) - 0.15, E(35) + 0.1)
     # 57, 58: the minister
