@@ -12,6 +12,30 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
 
 ---
 
+## 0. How a new session starts (the whole workflow in one place)
+
+1. Read this file and `CLAUDE.md`. The user sends only a topic (or pastes the block in `NEW_SESSION.md` with a
+   topic). That means the full package, made the way `tut/` was made (the newest reference; `saanp/` the first).
+2. Research → `script.json` (T00_intro + 50 story lines in T01..T09, ~3,800 characters) and the separate
+   `reel/script.json` (9-11 lines, ~720 characters) → `make_beats.py` for both until 0 warnings.
+3. The one stop: send both `beats.md`, ask (one AskUserQuestion) to approve. The user records the voice
+   themselves on the ElevenLabs website with Viraj: give **one copyable block per file** (T00_intro, T01..T09,
+   REEL) with Eleven v3 emotion tags, plus `voiceover_script.md` and `voiceover_script_emotions.md`.
+4. While waiting for the voice, build everything that does not need it: photos, globes, map, 3D pages,
+   HyperFrames (intro welcome/topic/go, qopen, quote card, qend, reel question), thumbnails, and real
+   scene-matched video footage where it explains a line.
+5. The user may send the voice as three files (tut did): Greeting (= T00_intro), the whole story in one
+   file, and Reel. Split the story as one take: make `audio/_split/` with a script.json of two takes
+   (T00_intro, STORY), run `split_takes.py --project audio/_split`, copy `lines/` and fix `segments.json`
+   (scene names, gaps 0.45, 0.6 at take ends). Never speed up; drop whole lines (`film_cut`, `reel_cut`).
+6. `scene.py` from `tut/scene.py`, reel from `tut/reel/scene.py` (symlink `reel/assets -> ../assets`), probe
+   every line, test spans, sound (cues → `saanp/thin_cues.py` → `build_sfx.py` → score from
+   `saanp/audio/music/drone1.mp3` + `drone2.mp3` cross-faded to the length → `mix_soundtrack.py`), render,
+   captions, SRT, share copies, look at a frame every 10 s, send, commit and push.
+7. A fresh container may lack libEGL (skia) and Python Playwright: the "animation-studio" environment has a
+   setup script for them; if they are still missing, `apt-get install -y libegl1 libgl1 libgles2` and
+   `pip install playwright -r requirements.txt`.
+
 ## 1. What exists (built and committed)
 
 ### Skills installed in this repo (`.claude/skills/`, they work together with `cinematic-film`)
