@@ -76,6 +76,25 @@ LOOKS = {
     "night": dict(board="night.png", bg=(7, 9, 15), grade=(0.97, 1.0, 1.06), grain=0.022, glow=0.32, vignette=0.8, curve=0.3, dim=(2, 3, 8)),
 }
 
+# Moods: a background and film finish per scene or emotion, cross-faded over time with
+# film.mood(t, name). The board texture, grade, grain, vignette and the archival film effect
+# (sepia, scratches, dust, flicker, gate weave) all follow the current mood.
+MOODS = {
+    # investigative: the dark evidence wall (default; facts, exhibits, the case)
+    "evidence": dict(board="cork_dark.png", grade=(1.015, 1.0, 0.975), grain=0.026, glow=0.24, vignette=0.75, curve=0.25, desat=0.0, archive=0.0),
+    # archival: aged sepia card, heavy grain, scratches and flicker (history, the past, old footage)
+    "archive": dict(board="archive.png", grade=(1.05, 0.99, 0.88), grain=0.045, glow=0.16, vignette=0.95, curve=0.3, desat=0.0, archive=1.0),
+    # intelligence / maps: dark navy with a fine grid (maps, networks, money trails, spy agencies)
+    "intel": dict(board="intel.png", grade=(0.96, 1.0, 1.06), grain=0.022, glow=0.3, vignette=0.8, curve=0.25, desat=0.0, archive=0.0),
+    # tension: red-black (attacks, danger, the hook before a reveal)
+    "tension": dict(board="tension.png", grade=(1.07, 0.97, 0.95), grain=0.03, glow=0.26, vignette=0.9, curve=0.32, desat=0.0, archive=0.0),
+    # grief: cold blue-black, a little desaturated (victims, loss, memorials)
+    "grief": dict(board="grief.png", grade=(0.95, 0.99, 1.06), grain=0.03, glow=0.2, vignette=0.88, curve=0.25, desat=0.35, archive=0.0),
+    # verdict: neutral charcoal (the summing up, the closing question)
+    "verdict": dict(board="charcoal.png", grade=(1.0, 1.0, 1.0), grain=0.028, glow=0.22, vignette=0.8, curve=0.28, desat=0.0, archive=0.0),
+}
+MOOD_NUM = ("grain", "glow", "vignette", "curve", "desat", "archive")
+
 
 # ---------------------------------------------------------------- easing / splines
 def clamp(x, a=0.0, b=1.0):
@@ -478,9 +497,18 @@ class Board(Item):
     def __init__(self, texture="cork_dark.png", tile=2458):
         super().__init__(-1)
         self.texture, self.tile = texture, tile
+        self.film = None
 
     def draw(self, c, res, t):
-        tile_image(c, res.image(self.texture, 1024), res.view, self.tile, clip=False)
+        if self.film is None or not self.film.moods:
+            tile_image(c, res.image(self.texture, 1024), res.view, self.tile, clip=False)
+            return
+        a, b, u = self.film.mood_mix(t)
+        if u < 1 or a == b:
+            tile_image(c, res.image(MOODS[a]["board"], 1024), res.view, self.tile, clip=False)
+        if u > 0 and a != b:
+            p = skia.Paint(AntiAlias=True); p.setAlphaf(clamp(u))
+            tile_image(c, res.image(MOODS[b]["board"], 1024), res.view, self.tile, p, clip=False)
 
 
 def drop_anim(t, t_in, dur=0.5):
@@ -1396,6 +1424,10 @@ MAP_LOOKS = {
     # teal water, pale relief land, light borders, dark neighbours (modern explainer map)
     "explainer": dict(sheet=(236, 233, 226), water=TEAL, land=(188, 184, 176), border=(178, 170, 158), relief=0.24,
                       neighbor=(222, 218, 210), neighbor_line=(170, 162, 150), dark=(84, 80, 77), dark_line=(60, 58, 56), frame=(60, 58, 56)),
+    # dark intelligence map: navy water, slate land, NO borders (safe for disputed regions), cyan grid
+    "intel": dict(sheet=(6, 10, 16), water=(6, 11, 19), land=(70, 82, 94), border=None, relief=0.12, relief_tile=2600,
+                  neighbor=(74, 86, 98), neighbor_line=None, dark=(74, 86, 98), dark_line=None, frame=(70, 150, 190),
+                  grid=(70, 150, 190), coast=(110, 170, 200)),
     # parchment sheet, tan land, brown borders (old printed map)
     "period": dict(sheet=(232, 224, 204), water=(196, 206, 196), land=(222, 206, 172), border=(128, 96, 64), relief=0.18,
                    neighbor=(214, 204, 182), neighbor_line=(150, 124, 92), dark=(176, 160, 132), dark_line=(120, 96, 70), frame=(110, 86, 60)),
@@ -1432,6 +1464,14 @@ class GeoMap(Cached, Item):
         for p in self.region_paths.values():
             self.path.addPath(p)
         self.nb_paths = {n: _rings_path(r, self.w) for n, r in data.get("neighbors", {}).items()}
+        if self.look.get("border", 1) is None:          # borderless look: one merged land shape, no inner lines
+            ob = skia.OpBuilder()
+            for p_ in list(self.region_paths.values()) + list(self.nb_paths.values()):
+                ob.add(p_, skia.PathOp.kUnion_PathOp)
+            merged = ob.resolve()
+            if merged is not None:
+                self.path = merged
+            self.nb_paths = {}
         self.dark = set(data.get("dark", []))
 
     def w(self, p):
@@ -1462,17 +1502,31 @@ class GeoMap(Cached, Item):
         c.save(); c.clipRect(inner)
         c.drawRect(inner, paint(L["water"]))
         paper_fill(c, res, inner, 0.22, 2.0, skia.BlendMode.kMultiply)
+        if L.get("grid"):
+            step = self.K * 0.0873                                     # about every 5 degrees
+            x = inner.left() - (inner.left() - self.ox) % step
+            while x < inner.right():
+                c.drawLine(x, inner.top(), x, inner.bottom(), paint(L["grid"], 0.22, stroke=3)); x += step
+            y = inner.top() - (inner.top() - self.oy) % step
+            while y < inner.bottom():
+                c.drawLine(inner.left(), y, inner.right(), y, paint(L["grid"], 0.22, stroke=3)); y += step
         for name, path in self.nb_paths.items():
             dark = name in self.dark
             c.drawPath(path, paint(L["dark"] if dark else L["neighbor"], 0.96))
-            c.drawPath(path, paint(L["dark_line"] if dark else L["neighbor_line"], 0.7, stroke=4))
+            line = L["dark_line"] if dark else L["neighbor_line"]
+            c.drawPath(path, paint(line or (L["dark"] if dark else L["neighbor"]), 0.7 if line else 1.0, stroke=4))
+        if L.get("coast"):                                             # a soft glow along the outer coast only
+            c.drawPath(self.path, paint(L["coast"], 0.45, stroke=40, blur=26))
         c.drawPath(self.path, paint(L["land"]))
+        if L.get("coast"):
+            c.drawPath(self.path, paint(L["coast"], 0.85, stroke=6))
         c.save(); c.clipPath(self.path, skia.ClipOp.kIntersect, True)
         rp = skia.Paint(AntiAlias=True); rp.setBlendMode(skia.BlendMode.kOverlay); rp.setAlphaf(L["relief"])
         # tiled at a fixed world size, so the terrain grain looks the same whatever the map scale
-        tile_image(c, res.image("relief.png", 1024), inner, self.relief_tile, rp)
+        tile_image(c, res.image("relief.png", 1024), inner, L.get("relief_tile", self.relief_tile), rp)
         c.restore()
-        c.drawPath(self.path, paint(L["border"], 0.95, stroke=5))
+        if L["border"] is not None:
+            c.drawPath(self.path, paint(L["border"], 0.95, stroke=5))
         c.restore()
         c.drawRect(inner, paint(L["frame"], 0.5, stroke=4))
 
@@ -1592,6 +1646,8 @@ class Film:
         self.duration, self.fps = duration, fps
         self.look = dict(LOOKS[look]) if isinstance(look, str) else dict(look)
         self.board = Board(self.look["board"])
+        self.board.film = self
+        self.moods = []                 # [(t, name, fade)]: background and finish per scene or emotion
         self.items: list[Item] = [self.board]
         self.cam_keys, self.focus_keys, self.shakes, self.sfx = [], [], [], []
         self.room_tone = []             # [[start, end]] spans of quiet room tone under everything (optional)
@@ -1621,6 +1677,36 @@ class Film:
 
     def shake(self, t, amp=14.0, dur=0.35):
         self.shakes.append((t, amp, dur))
+
+    def mood(self, t, name, fade=1.2):
+        """From time t the background and film finish cross-fade (over `fade` s) to mood `name`
+        (see MOODS: evidence, archive, intel, tension, grief, verdict)."""
+        if name not in MOODS:
+            raise KeyError(f"mood {name!r}: pick one of {sorted(MOODS)}")
+        self.moods.append((t, name, fade)); self.moods.sort(key=lambda m: m[0])
+
+    def mood_mix(self, t):
+        """(previous mood, current mood, blend 0..1) at time t."""
+        ms = self.moods
+        if not ms:
+            return None
+        i = max([k for k, m in enumerate(ms) if m[0] <= t], default=0)
+        cur = ms[i]
+        prev = ms[i - 1][1] if i > 0 else cur[1]
+        if t < cur[0]:
+            return cur[1], cur[1], 1.0
+        return prev, cur[1], ease_in_out(ramp(t, cur[0], cur[2]))
+
+    def finish_at(self, t):
+        """The film finish (grade, grain, vignette, ... archive) at time t, blended between moods."""
+        mm = self.mood_mix(t)
+        if mm is None:
+            L = self.look
+            return dict(grade=L["grade"], **{k: L.get(k, 0.0) for k in MOOD_NUM})
+        a, b, u = mm; A, B = MOODS[a], MOODS[b]
+        out = {k: A[k] + (B[k] - A[k]) * u for k in MOOD_NUM}
+        out["grade"] = tuple(A["grade"][i] + (B["grade"][i] - A["grade"][i]) * u for i in range(3))
+        return out
 
     def cue(self, kind, t, gain=1.0, **kw):
         """A sound effect at time t (see build_sfx.py for the kinds)."""
@@ -1701,6 +1787,8 @@ class Renderer:
         yy, xx = np.mgrid[0:height, 0:width].astype(np.float32)
         d = np.sqrt(((xx - width / 2) / (width / 2)) ** 2 + ((yy - height / 2) / (height / 2)) ** 2) / math.sqrt(2)
         self.vignette = (1 - L["vignette"] * np.clip(d - 0.28, 0, 1) ** 1.5 * 1.9).clip(0.22, 1)[..., None].astype(np.float32)
+        self._vmask = (np.clip(d - 0.28, 0, 1) ** 1.5 * 1.9)[..., None].astype(np.float32)
+        self._tint_key = None
         self.items = sorted(film.items, key=lambda i: i.z)
 
     def draw_world(self, t):
@@ -1745,8 +1833,15 @@ class Renderer:
         return self.post(img, n)
 
     def post(self, img, n):
-        """Film finish: glow, S-curve, grade, vignette, grain, fades."""
-        L = self.film.look
+        """Film finish: glow, S-curve, grade, vignette, grain, fades (per mood when the film has moods),
+        then the archival effect (sepia, flicker, gate weave, scratches, dust) where the mood asks for it."""
+        L = dict(self.film.look)
+        if self.film.moods:
+            L.update(self.film.finish_at(n / self.film.fps))
+            key = (round(L["vignette"], 3),) + tuple(round(g, 3) for g in L["grade"])
+            if key != self._tint_key:
+                self._tint = ((1 - L["vignette"] * self._vmask).clip(0.22, 1) * np.array(L["grade"], np.float32)).astype(np.float32)
+                self._tint_key = key
         if not hasattr(self, "_grain"):
             # half-resolution grain that changes every 2nd frame: reads as film grain and survives
             # re-encoding (full-resolution per-frame noise made a 38 s clip 625 MB)
@@ -1765,7 +1860,14 @@ class Renderer:
             np.clip(f, 0, 1, out=f)
         cv = L["curve"]
         f *= (1 - cv) + cv * f * (3 - 2 * f)
+        ds = L.get("desat", 0.0)
+        if ds > 0.001:
+            lum = f @ np.array([0.3, 0.59, 0.11], np.float32)
+            f *= 1 - ds; f += lum[..., None] * ds
         f *= self._tint
+        ar = L.get("archive", 0.0)
+        if ar > 0.01:
+            self.archival(f, n, ar)
         tt = n / self.film.fps
         if self.film.fade_in > 0 and tt < self.film.fade_in:
             f *= ease_in_out(tt / self.film.fade_in)
@@ -1778,3 +1880,24 @@ class Renderer:
         np.clip(f, 0, 1, out=f)
         f *= 255
         return f.astype(np.uint8)
+
+    def archival(self, f, n, s):
+        """Old-film look on the float frame in place: sepia toning, exposure flicker, gate weave,
+        vertical scratches and dust, all scaled by s (0..1). Deterministic per frame."""
+        H, W = self.H, self.W
+        rng = np.random.default_rng(1000 + n)
+        lum = f @ np.array([0.3, 0.59, 0.11], np.float32)
+        k = 0.7 * s
+        f *= 1 - k; f += lum[..., None] * (np.array([1.08, 0.92, 0.7], np.float32) * k)
+        f *= 1 + s * 0.045 * (rng.random() - 0.5) * 2                       # flicker
+        dy = int(round(rng.normal() * 1.2 * s * H / 1080))
+        if dy:
+            f[:] = np.roll(f, dy, axis=0)                                      # gate weave
+        r2 = np.random.default_rng(5000 + n // 4)                              # scratches hold a few frames
+        for _ in range(r2.integers(0, 3)):
+            x = int(r2.random() * W); w = max(1, int(W / 1920 * (1 + r2.integers(0, 2))))
+            y0 = int(r2.random() * H * 0.4); y1 = int(H - r2.random() * H * 0.3)
+            f[y0:y1, x:x + w] += (0.10 + 0.08 * r2.random()) * s
+        for _ in range(rng.integers(2, 9)):                                   # dust and hairs
+            x, y = int(rng.random() * W), int(rng.random() * H); r = max(1, int(rng.integers(1, 4) * W / 1920))
+            f[max(0, y - r):y + r, max(0, x - r):x + r] *= 1 - 0.55 * s

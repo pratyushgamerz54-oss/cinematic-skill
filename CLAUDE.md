@@ -23,6 +23,21 @@ for one. `saanp/` (पिछवाड़े के साँप) is the finished
   अभी बाक़ी था।", "तो क्या कहानी यहीं ख़त्म हो गई? ...नहीं।", "पर एक सवाल बाक़ी था..."); **end on a
   question to the viewer** ("आप क्या सोचते हैं?").
 - Dark wall look, red accent, yellow date bars, heartbeat and riser cues on the hooks, a dark drone score.
+- **Mix three styles in every film** (user's order): **Archival Documentary Aesthetic** (sepia, grain,
+  scratches, flicker, real archive photos and papers), **Investigative Documentary Style** (evidence wall,
+  exhibits, stamps, pen marks, red string), **Animated Map Visualization** (2D `GeoMap` with look `intel`:
+  borderless land, coast glow, pins, `XMarker` labels, `Route` lines; plus the 3D globe).
+- **Background follows the scene and its emotion, never one board for the whole film** (user: "background
+  ko scene ya line ya style ke hisaab se... emotion ke hisaab se bhi"; the single cork wall "thoda sa ajeeb
+  lag raha hai"). Use `film.mood(t, name)` (engine `MOODS`): `archive` for the past (sepia card + old-film
+  effect), `evidence` for exhibits and testimony, `intel` for maps, networks, money trails and agencies,
+  `tension` for attacks and hooks, `grief` for victims and loss, `verdict` for the summing up.
+  `saanp/scene.py` (the `mood(...)` list before `tidy_keys`) shows a full schedule.
+- If a motion graphic is needed, make it (engine items, three.js) or take a free-licensed one from the
+  internet (credit it in `credits.md`).
+- **Test before the full render:** render a short test (two or three 20 s spans covering different
+  moods, `render.py --t0 --t1`), look at it as a viewer would ("kya ye audience ko engage kar payega?"),
+  fix what looks odd, and send the test to the user when the look changed.
 - Research and fact-check first, with sources in `fact_notes`. Say "लगभग", "आरोप", "के मुताबिक़" where
   sources disagree. On political topics state the other side's denial and its own losses, name
   organisations and officials (never a people), and show no images of victims or militant propaganda.

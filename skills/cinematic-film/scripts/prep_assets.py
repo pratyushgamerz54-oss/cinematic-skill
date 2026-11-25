@@ -141,6 +141,32 @@ def make_blueprint(size=1024):
     return (a + grid[..., None] * np.array([120, 160, 200], np.float32)).clip(0, 255)
 
 
+def make_archive(size=1024):
+    """Aged dark sepia card for archival scenes: blotchy stains, foxing specks, fibres (tileable)."""
+    base = np.array([66, 50, 34], np.float32)
+    n = 0.6 * tile_noise(size, 6, 81) + 0.35 * tile_noise(size, 20, 82) + 0.2 * tile_noise(size, 70, 83)
+    rng = np.random.default_rng(84)
+    fox = np.zeros((size, size), np.float32)
+    for _ in range(260):                                   # foxing: small brown spots
+        x, y = rng.integers(0, size, 2); r = rng.integers(2, 9)
+        yy, xx = np.ogrid[-r:r + 1, -r:r + 1]; m = (xx ** 2 + yy ** 2 <= r * r).astype(np.float32)
+        fox[np.ix_((np.arange(y - r, y + r + 1)) % size, (np.arange(x - r, x + r + 1)) % size)] += m * rng.random()
+    fox = np.asarray(Image.fromarray((fox.clip(0, 1) * 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(2.5)), np.float32) / 255
+    v = n * 0.14 - fox * 0.28
+    return (base[None, None, :] * (1 + v[..., None])).clip(0, 255)
+
+
+def make_intel(size=1024):
+    """Dark navy surface with a faint cyan grid and finer scan lines (maps, networks, agencies; tileable)."""
+    a = make_flat((14, 20, 30), 91, size, amount=0.08)
+    grid = np.zeros((size, size), np.float32)
+    for k in range(0, size, 128):
+        w = 0.16 if k % 512 == 0 else 0.07
+        grid[:, k:k + 2] = np.maximum(grid[:, k:k + 2], w); grid[k:k + 2, :] = np.maximum(grid[k:k + 2, :], w)
+    grid[::4, :] += 0.025                                   # scan lines
+    return (a + grid[..., None] * np.array([90, 170, 210], np.float32)).clip(0, 255)
+
+
 def make_relief(size=1024):
     """Faux terrain relief for map land: tileable multi-octave noise, hill-shaded, soft."""
     n = 0.6 * tile_noise(size, 90, 41) + 0.3 * tile_noise(size, 30, 42) + 0.15 * tile_noise(size, 8, 43)
@@ -174,6 +200,14 @@ def textures(prep, force=False):
         made.append(save("studio.png", make_flat((222, 220, 216), 51, amount=0.025)))
     if force or not (prep / "night.png").exists():
         made.append(save("night.png", make_flat((16, 20, 32), 61, amount=0.1)))
+    if force or not (prep / "archive.png").exists():
+        made.append(save("archive.png", make_archive()))
+    if force or not (prep / "intel.png").exists():
+        made.append(save("intel.png", make_intel()))
+    if force or not (prep / "tension.png").exists():
+        made.append(save("tension.png", make_flat((34, 14, 13), 101, amount=0.14)))
+    if force or not (prep / "grief.png").exists():
+        made.append(save("grief.png", make_flat((16, 20, 28), 111, amount=0.09)))
     if force or not (prep / "blueprint.png").exists():
         made.append(save("blueprint.png", make_blueprint()))
     made = [m for m in made if m]

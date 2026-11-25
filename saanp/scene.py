@@ -5,8 +5,10 @@ hangs a "screen": a bare Clip the camera flies into for a full-frame cutaway (3D
 with make_globe.py, the 3D compound model, and HyperFrames motion graphics). Times come from the
 voiceover (doc.L / doc.E / doc.W), so a new read re-times everything.
 """
-from engine import (HILITE, WHITE, BigText, Card, Clip, Counter, Film, PaperDoc, PenMark, Print, Stamp,
-                    StringLine, Timeline)
+import math
+
+from engine import (HILITE, WHITE, BigText, Card, Clip, Counter, Film, GeoMap, MapPin, PaperDoc, PenMark, Print, Stamp,
+                    StringLine, Timeline, XMarker)
 
 SY = 7200                  # the row of screens under the wall
 RED = (200, 40, 30)
@@ -109,15 +111,24 @@ def build_film(doc):
     film.add(BigText("1989 · कश्मीर में बग़ावत", X1 + 6500, SY - 760, 220, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
 
     # ============================================================ KASHMIR (13-18)
-    film.add(BigText("1989 · कश्मीर", X2 - 2000, -1500, 480, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
-    let = film.add(Card(X2 - 3600, 600, 3000, 1800, W(14, "लश्कर") - 0.1, title="लश्कर-ए-तैयबा", lines=["स्थापना: लगभग 1990", "मुख्यालय: मुरीदके, पाकिस्तान"],
-                        rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
     if has(15): film.add(Card(X2 + 200, 300, 2300, 1200, W(15, "आरोप") - 0.1, title="भारत: आरोप", lines=["फ़ौज और ISI का साथ"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=130))
     if has(15): film.add(Card(X2 + 200, 1800, 2300, 1200, W(15, "इनकार") - 0.1, title="पाकिस्तान: इनकार", lines=["सरकारी भूमिका से इनकार"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=130))
-    shot(L(14) + 0.3, X2 - 3600, 600, 0.62, -0.5)
-    screen("hf2_letnet", X2 - 3600, W(14, "संगठन") - 0.4, nxt(14) + 0.3)
-    shot(W(14, "संगठन") - 0.5, X2 - 3600, 4200, 0.45, 0.0, strength=0.2)
-    into(X2 - 3600, W(14, "संगठन"), E(14) + 0.4, 1.0, 1.05)
+    # animated map on the wall (borderless land, no disputed lines): where the group is based
+    md = doc.map("southasia"); K = 6200
+    fx0, fy0, fx1, fy1 = md["frame"]
+    sa = film.add(GeoMap(md, K, origin=(X2 - 3600 - (fx0 + fx1) / 2 * K, 300 - (fy0 + fy1) / 2 * K), look="intel"))
+    film.add(BigText("लश्कर-ए-तैयबा · स्थापना लगभग 1990", X2 - 3600, 300 - (fy1 - fy0) / 2 * K - 220, 200, W(14, "लश्कर") - 0.1,
+                     font="label", rgb=CREAM, bar=RED, bar_h=0.92, shadow=False, grunge=False, z=36))
+    mx, my = sa.place("Muridke")
+    film.add(MapPin(mx, my, None, t_in=W(14, "ठिकाना") - 0.3, size=2.2))
+    film.add(XMarker(mx, my, "लश्कर का मुख्यालय · मुरीदके", t_in=W(14, "ठिकाना") - 0.1, size=1.6, label_size=110, side="right"))
+    ix, iy = sa.place("Islamabad")
+    film.add(XMarker(ix, iy, "इस्लामाबाद", t_in=W(14, "संगठन") + 0.3, size=1.2, label_size=90))
+    px_, py_ = sa.place("label_pk")
+    film.add(BigText("पाकिस्तान", px_, py_, 230, W(14, "पाकिस्तान") - 0.1, font="label", rgb=(150, 200, 225), shadow=False, grunge=False, z=34))
+    shot(L(14) + 0.1, X2 - 3600, 200, 0.6, 0.0, radius=4000, strength=0.3)
+    shot(W(14, "ठिकाना") - 0.2, (mx + px_) / 2, (my + py_) / 2 - 150, 0.9, 0.0, radius=4000, strength=0.3)
+    shot(min(E(14) + 0.3, nxt(14) - 1.0), (mx + px_) / 2 + 30, (my + py_) / 2 - 150, 0.95, 0.0, radius=4000, strength=0.3)
     if has(15): shot(L(15) + 0.4, X2 + 200, 1050, 0.6, 0.4)
     if has(15): shot(E(15), X2 + 300, 1050, 0.62, 0.6)
     screen("g_ic814", X2 + 4000, L(16) - 0.2, L(17) + 0.2)
@@ -133,7 +144,7 @@ def build_film(doc):
     spans = un.phrase_spans(res, "upon his release from prison in India in 1999.")
     for k, ((hx, hy), hw) in enumerate(spans):
         film.add(PenMark("highlight", hx, hy - 40, hw + 60, 0, t_in=W(17, "संयुक्त") - 0.2 + 0.25 * k, dur=0.35, width=150, rot=1.2, seed=7 + k))
-    film.add(StringLine((X2 - 3600, -300), (X2 + 9000, -1300), t_in=W(17, "जैश") - 0.1, dur=0.8, sag=0.04, width=24))
+    film.add(StringLine((X2 - 3600, -1500), (X2 + 9000, -1300), t_in=W(17, "जैश") - 0.1, dur=0.8, sag=0.04, width=24))
     shot(L(17) + 0.3, X2 + 9000, 600, 0.55, 0.6)
     hx0, hy0 = spans[0][0]
     shot(W(17, "संयुक्त"), hx0 + 900, hy0 + 100, 0.85, 1.0)
@@ -327,8 +338,62 @@ def build_film(doc):
     cue("boom", L(66) + 0.1, 0.5)
     cue("heartbeat", W(66, "कब") , 0.7)
 
+    # ------------------------------------------------ moods: background and finish follow the scene's emotion
+    def mood(i, name, d=0.0, fade=1.2):
+        if has(i):
+            film.mood(L(i) + d, name, fade)
+    film.mood(0.0, "evidence", 0.1)
+    for args in [(7, "archive", -0.4), (14, "intel", -0.2), (16, "archive", -0.3), (18, "tension", 0.0, 0.6),
+                 (22, "evidence", -0.2), (26, "tension"), (27, "evidence", -0.3), (30, "intel"), (31, "evidence"),
+                 (33, "tension"), (34, "grief", -0.3), (36, "tension"), (39, "evidence", -0.3), (42, "intel", -0.2),
+                 (48, "tension", 0.0, 0.6), (51, "evidence"), (53, "grief", -0.2), (55, "intel"), (56, "evidence"),
+                 (60, "tension"), (61, "verdict")]:
+        mood(*args)
+
     tidy_keys(film.cam_keys)
     tidy_keys(film.focus_keys)
+
+    # ------------------------------------------------ word chips: a new explaining label on a key word,
+    # placed in a corner of wherever the camera is holding (explainer style; the camera stays calm)
+    SLOT = {"tl": (-0.30, -0.31), "tr": (0.30, -0.31), "ml": (-0.32, 0.04), "mr": (0.32, 0.04)}
+
+    def chip(i, word, text, slot, red=False):
+        if not has(i):
+            return
+        try:
+            t = W(i, word) - 0.1
+        except Exception:
+            print("chip: word not found", i, word); return
+        x, y, z, _ = film.camera(t + 0.5)
+        fx, fy = SLOT[slot]
+        film.add(BigText(text, x + fx * 3840 / z, y + fy * 2160 / z, 150 / z, t, t_out=min(E(i) + 0.5, nxt(i) + 0.2),
+                         font="label", rgb=CREAM if red else DARK, bar=RED if red else HILITE, bar_h=0.92,
+                         shadow=False, grunge=False, z=78, sfx=False))
+
+    for args in [
+        (1, "रात", "ऑपरेशन नेप्च्यून स्पीयर", "tr"),
+        (2, "कमांडो", "अमेरिकी नेवी सील्स", "tl"), (2, "दीवारों", "लगभग 12–18 फ़ुट ऊँची दीवारें", "tr"),
+        (3, "ढूँढा", "दुनिया का मोस्ट वांटेड", "tr", True),
+        (7, "अफ़ग़ानिस्तान", "सोवियत हमला · 1979", "tr"),
+        (8, "पैसा", "अरबों डॉलर · पैसा और हथियार", "tl"),
+        (9, "ख़ुफ़िया", "ख़ुफ़िया एजेंसी", "tl"),
+        (10, "विशेषज्ञों", "विशेषज्ञों की राय", "tl"),
+        (11, "कहते", "किसी और के हाथों जंग", "tr", True),
+        (16, "विमान", "IC-814 · अगवा", "tl", True), (16, "यात्रियों", "यात्रियों के बदले", "tr"),
+        (17, "जैश", "जैश-ए-मोहम्मद · 2000", "tl", True), (17, "रिकॉर्ड", "UN रिकॉर्ड", "tr"),
+        (19, "समुद्र", "समुद्र का रास्ता", "tr"), (19, "दस", "10 हमलावर", "tl", True),
+        (26, "छिपा", "कैसे छिपा?", "tl", True),
+        (27, "लौटते", "वापस: 2 मई 2011", "tr"),
+        (28, "बरसों", "लगभग 5 साल", "tl"), (28, "पता", "पाकिस्तान: \"हमें पता नहीं था\"", "tr", True),
+        (31, "अक्टूबर", "अक्टूबर 2011 · इस्लामाबाद", "tl"),
+        (33, "सच", "चेतावनी सच हुई", "tr", True),
+        (39, "गवाही", "गवाही: पाकिस्तान के अंदर से", "tl", True),
+        (40, "लिखा", "डॉन अख़बार में लेख", "tl"),
+        (51, "मानी", "ख़ुद मानी बात", "tr", True),
+        (56, "इंटरव्यू", "स्काई न्यूज़ इंटरव्यू", "tr"),
+        (64, "इनकार", "पाकिस्तान: इनकार", "tl"), (64, "हज़ारों", "हज़ारों जानें गईं", "tr", True),
+    ]:
+        chip(*args)
     film.fade_in, film.fade_out = 0.6, 1.5
     return film
 
@@ -341,6 +406,15 @@ def tidy_keys(keys, min_gap=0.6, hold_after=1.8, move=1.0):
         if keys[i + 1][0] - keys[i][0] < min_gap:
             keys[i] = (keys[i + 1][0] - min_gap,) + tuple(keys[i][1:])
     keys.sort(key=lambda k: k[0])
+    # drop a key that only brings the camera back where it was just before a move it already started
+    # (a line's closing hold landing after the next line's approach): it made the camera swing back and forth
+    i = 1
+    while i < len(keys) - 1:
+        p, a, b = keys[i - 1], keys[i], keys[i + 1]
+        if b[0] - a[0] < 1.0 and math.hypot(b[1] - p[1], b[2] - p[2]) < 400 and math.hypot(a[1] - p[1], a[2] - p[2]) > 1500:
+            del keys[i + 1]
+            continue
+        i += 1
     extra = []
     for a, b in zip(keys, keys[1:]):
         if b[0] - a[0] > hold_after:

@@ -1,10 +1,97 @@
 {
- "maps": [{
-  "name": "world",
-  "source": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
-  "object": "countries",
-  "projection": {"type": "equirect", "lon0": 10, "lat0": 0},
-  "drop": ["Antarctica"],
-  "places": {"Addis Ababa": [9.03, 38.74], "Bogota": [4.71, -74.07], "Hanoi": [21.03, 105.85]}
- }]
+ "maps": [
+  {
+   "name": "southasia",
+   "source": "saanp/assets/data/countries-50m.json",
+   "object": "countries",
+   "projection": {
+    "type": "equirect",
+    "lon0": 70,
+    "lat0": 29
+   },
+   "keep": [
+    "Pakistan",
+    "India",
+    "Afghanistan",
+    "Iran",
+    "China",
+    "Nepal",
+    "Tajikistan",
+    "Turkmenistan",
+    "Uzbekistan",
+    "Oman",
+    "United Arab Emirates",
+    "Bangladesh",
+    "Bhutan",
+    "Kyrgyzstan",
+    "Sri Lanka",
+    "Myanmar",
+    "Siachen Glacier",
+    "Qatar",
+    "Saudi Arabia"
+   ],
+   "clip": [
+    52,
+    5,
+    92,
+    42
+   ],
+   "frame": [
+    58,
+    17,
+    86,
+    38
+   ],
+   "places": {
+    "Muridke": [
+     31.8,
+     74.26
+    ],
+    "Bahawalpur": [
+     29.39,
+     71.68
+    ],
+    "Abbottabad": [
+     34.15,
+     73.21
+    ],
+    "Karachi": [
+     24.86,
+     67.01
+    ],
+    "Mumbai": [
+     19.08,
+     72.88
+    ],
+    "Kandahar": [
+     31.63,
+     65.71
+    ],
+    "Peshawar": [
+     34.01,
+     71.58
+    ],
+    "Pahalgam": [
+     34.02,
+     75.32
+    ],
+    "Delhi": [
+     28.61,
+     77.21
+    ],
+    "Islamabad": [
+     33.68,
+     73.05
+    ],
+    "Kabul": [
+     34.53,
+     69.17
+    ],
+    "label_pk": [
+     28.3,
+     68.2
+    ]
+   }
+  }
+ ]
 }
