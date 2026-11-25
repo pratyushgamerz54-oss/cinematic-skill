@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>S-4 claim</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#04060a}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Bob Lazar's 1989 CLAIM, drawn as a symbol: hangar doors cut into a mountainside at Papoose Lake open on nine
+// disc silhouettes. Not evidence: labelled "दावा" and "प्रतीकात्मक 3D मॉडल". 10 s.
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x04060a);
+S.fog = new THREE.Fog(0x04060a, 30, 120);
+const label = await labeller(S);
+let seed = 4; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+// mountain: a ridge from layered noise, the door face cut flat at z = 0
+const geo = new THREE.PlaneGeometry(160, 90, 220, 130); geo.rotateX(-Math.PI / 2);
+const P = geo.attributes.position;
+for (let i = 0; i < P.count; i++) { const x = P.getX(i), z = P.getZ(i);
+  const ridge = Math.max(0, 26 - Math.abs(z + 24) * 0.8) * (0.75 + 0.25 * Math.sin(x * 0.05));
+  let h = ridge + Math.sin(x * 0.21 + z * 0.13) * 1.4 + Math.sin(x * 0.53 - z * 0.37) * 0.6 + Math.sin(x * 1.3 + z * 0.9) * 0.25;
+  const front = clamp((-z - 4) / 8);                      // flat lakebed in front of the door wall
+  h = h * front; if (z > -4) h = 0;
+  P.setY(i, Math.max(0, h)); }
+geo.computeVertexNormals();
+const land = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: 0x6d5642, roughness: 1, flatShading: true })); S.add(land);
+const lake = new THREE.Mesh(new THREE.PlaneGeometry(160, 60), new THREE.MeshStandardMaterial({ color: 0xbdb4a2, roughness: 1 })); lake.rotation.x = -Math.PI / 2; lake.position.set(0, 0.02, 30); S.add(lake);
+// door wall: a sloped concrete face with nine doors in a row
+const conc = new THREE.MeshStandardMaterial({ color: 0x8c8a84, roughness: 0.9 });
+const wallG = new THREE.Group(); wallG.position.set(0, 0, -3.2); wallG.rotation.x = -0.18; S.add(wallG);
+const lint = new THREE.Mesh(new THREE.BoxGeometry(47, 2.6, 1.2), conc); lint.position.set(0, 7.9, 0); wallG.add(lint);
+for (let i = 0; i <= 9; i++) { const pier = new THREE.Mesh(new THREE.BoxGeometry(0.8, 6.8, 1.2), conc); pier.position.set(-22.5 + i * 5, 3.3, 0); wallG.add(pier); }
+const back = new THREE.Mesh(new THREE.BoxGeometry(47, 9, 14), new THREE.MeshStandardMaterial({ color: 0x101318, roughness: 1, side: THREE.BackSide })); back.position.set(0, 4.5, -7.5); S.add(back);
+const inside = new THREE.MeshBasicMaterial({ color: 0x05070a });
+const doors = [], discs = [], glows = [];
+const doorM = new THREE.MeshStandardMaterial({ color: 0xb8b2a6, roughness: 0.6, metalness: 0.2, transparent: true });
+for (let i = 0; i < 9; i++) { const x = -20 + i * 5;
+    const d = new THREE.Mesh(new THREE.BoxGeometry(4.3, 6.4, 0.25), doorM.clone()); d.position.set(x, 3.6, -2.45); d.rotation.x = -0.18; d.userData.y = 3.6; S.add(d); doors.push(d);
+  const disc = new THREE.Mesh(new THREE.SphereGeometry(1.6, 32, 12), new THREE.MeshStandardMaterial({ color: 0x9aa3ac, metalness: 0.9, roughness: 0.25, transparent: true, opacity: 0 }));
+  disc.scale.set(1, 0.32, 1); disc.position.set(x, 1.5, -5.2); S.add(disc); discs.push(disc);
+  const gl = new THREE.Mesh(new THREE.CircleGeometry(1.3, 32), new THREE.MeshBasicMaterial({ color: 0x3fe0cc, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false })); gl.rotation.x = -Math.PI / 2; gl.position.set(x, 0.6, -5.2); S.add(gl); glows.push(gl);
+}
+const hemi = new THREE.HemisphereLight(0x7a92c0, 0x15100a, 0.55); S.add(hemi);
+const moon = new THREE.DirectionalLight(0xa8c0ff, 2.4); moon.position.set(-30, 40, 40); S.add(moon);
+const inner = new THREE.PointLight(0x9fe8ff, 0, 40, 1.5); inner.position.set(0, 4, -6); S.add(inner);
+// stars
+{ const g = new THREE.BufferGeometry(), a = []; for (let i = 0; i < 1200; i++) { const v = new THREE.Vector3(rnd() - 0.5, rnd() * 0.6 + 0.08, rnd() - 0.9).normalize().multiplyScalar(110); a.push(v.x, v.y, v.z); } g.setAttribute('position', new THREE.Float32BufferAttribute(a, 3)); S.add(new THREE.Points(g, new THREE.PointsMaterial({ color: 0xdfe6f2, size: 1.3, sizeAttenuation: false, fog: false }))); }
+const L1 = label('S-4 · पपूज़ लेक', 'बॉब लज़ार का दावा (1989)', true); L1.position.set(-13, 15, -3);
+const L2 = label('9 उड़न तश्तरियाँ?', 'कोई सबूत नहीं मिला'); L2.position.set(13, 13, -3);
+const note = label('प्रतीकात्मक 3D मॉडल', 'दावे का चित्रण, सबूत नहीं');
+function frame(t) {
+  const k = ease(clamp(t / 10)); cam.position.set(lerp(-18, 8, k), lerp(9, 7, k), lerp(78, 60, k)); cam.lookAt(lerp(-4, 2, k), 5, -4);
+  doors.forEach((d, i) => { const o = ease(ramp(t, 2.0 + i * 0.25, 1.6)); d.position.y = d.userData.y + o * 3.0; d.material.opacity = 1 - o; d.visible = o < 0.99; });
+  discs.forEach((d, i) => { d.material.opacity = 0.85 * ramp(t, 3.0 + i * 0.25, 1.2); });
+  glows.forEach((g, i) => { g.material.opacity = 0.5 * ramp(t, 3.2 + i * 0.25, 1.0) * (0.85 + 0.15 * Math.sin(t * 3 + i)); });
+  inner.intensity = 40 * ramp(t, 2.6, 2);
+  showLabel(L1, cam, t, 1.0, 0.06); showLabel(L2, cam, t, 5.6, 0.055);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 10);
+</script></body></html>

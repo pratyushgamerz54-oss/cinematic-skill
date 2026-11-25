@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Area 51 aircraft</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#05070a}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Illustrative models (प्रतीकात्मक 3D मॉडल) of the Area 51 aircraft, built from simple geometry, not to exact plans.
+//  A 0-8 U-2 turntable · B 8-16 U-2 high above the night · C 16-24 A-12 at night · D 24-32 HAVE BLUE vs radar · E 32-40 the three over the lakebed
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x05070a);
+const label = await labeller(S);
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+// environment for metal
+const pm = new THREE.PMREMGenerator(R), es = new THREE.Scene();
+es.add(new THREE.Mesh(new THREE.SphereGeometry(20, 32, 16), new THREE.MeshBasicMaterial({ color: 0x1a2230, side: THREE.BackSide })));
+for (const [x, y, z, c, s] of [[-8, 6, 4, 0xfff0dc, 6], [8, 3, -6, 0x88b8ff, 5], [0, -6, 0, 0x30241a, 14]]) { const p = new THREE.Mesh(new THREE.PlaneGeometry(s, s), new THREE.MeshBasicMaterial({ color: c, side: THREE.DoubleSide })); p.position.set(x, y, z); p.lookAt(0, 0, 0); es.add(p); }
+S.environment = pm.fromScene(es, 0.04).texture;
+const hemi = new THREE.HemisphereLight(0xbfd6ff, 0x1a140e, 0.5); S.add(hemi);
+const key = new THREE.DirectionalLight(0xffe2b8, 2.6); key.position.set(-6, 8, 6); S.add(key);
+const rim = new THREE.DirectionalLight(0x6fd8ff, 1.2); rim.position.set(6, 3, -8); S.add(rim);
+
+const silver = new THREE.MeshStandardMaterial({ color: 0xc9ccd2, metalness: 0.85, roughness: 0.28 });
+const black = new THREE.MeshStandardMaterial({ color: 0x15171b, metalness: 0.4, roughness: 0.55 });
+const facet = new THREE.MeshStandardMaterial({ color: 0x3a3e44, metalness: 0.2, roughness: 0.6, flatShading: true });
+const glass = new THREE.MeshStandardMaterial({ color: 0x223040, metalness: 0.9, roughness: 0.1 });
+function wing(pts, th, m) { const s = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1]))); const g = new THREE.ExtrudeGeometry(s, { depth: th, bevelEnabled: true, bevelThickness: th * 0.3, bevelSize: th * 0.3, bevelSegments: 1 }); g.rotateX(Math.PI / 2); g.translate(0, th / 2, 0); return new THREE.Mesh(g, m); }
+function fin(pts, th, m) { const s = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1]))); const g = new THREE.ExtrudeGeometry(s, { depth: th, bevelEnabled: false }); g.rotateY(-Math.PI / 2); g.translate(th / 2, 0, 0); return new THREE.Mesh(g, m); }
+function body(len, r, m, taper = 0.25) {                 // lathe fuselage along +z (nose at +z)
+  const pts = []; for (let i = 0; i <= 24; i++) { const k = i / 24; const rr = r * Math.pow(Math.sin(Math.PI * Math.min(1, k * 1.15)), 0.6) * (1 - taper * k); pts.push(new THREE.Vector2(Math.max(0.001, rr), (k - 0.5) * len)); }
+  const g = new THREE.LatheGeometry(pts, 24); g.rotateX(Math.PI / 2); return new THREE.Mesh(g, m);
+}
+// U-2: slender body, very long straight wings, small tail
+function U2() { const g = new THREE.Group();
+  const b = body(6.2, 0.36, silver, -0.2); g.add(b);
+  const w = wing([[-7.8, 0.25], [7.8, 0.25], [7.8, -0.35], [0.4, -0.95], [-0.4, -0.95], [-7.8, -0.35]], 0.06, silver); w.position.z = 0.4; g.add(w);
+  const hs = wing([[-1.4, 0], [1.4, 0], [1.2, -0.45], [-1.2, -0.45]], 0.04, silver); hs.position.set(0, 0.15, -2.75); g.add(hs);
+  const vt = fin([[-0.9, 0], [0.2, 0], [-0.4, 1.3], [-0.95, 1.3]], 0.06, silver); vt.position.set(0, 0.15, -2.2); g.add(vt);
+  const cp = new THREE.Mesh(new THREE.SphereGeometry(0.28, 16, 10, 0, Math.PI * 2, 0, Math.PI / 2), glass); cp.scale.set(0.8, 0.8, 1.6); cp.position.set(0, 0.25, 1.6); g.add(cp);
+  return g; }
+// A-12: long chined body, delta wings with engine nacelles, two inward-canted tails
+function A12() { const g = new THREE.Group();
+  const b = body(9, 0.42, black, 0.1); b.scale.x = 1.5; g.add(b);
+  const ch = wing([[-0.9, 4.2], [0.9, 4.2], [1.6, 0.5], [-1.6, 0.5]], 0.05, black); g.add(ch);
+  const w = wing([[-1.4, 0.6], [1.4, 0.6], [3.9, -2.6], [3.9, -3.6], [-3.9, -3.6], [-3.9, -2.6]], 0.08, black); g.add(w);
+  for (const sx of [-2.2, 2.2]) { const n = body(6.0, 0.34, black, 0.15); n.position.set(sx, 0.05, -1.6); g.add(n);
+    const t = fin([[-0.8, 0], [0.4, 0], [-0.3, 1.4], [-0.9, 1.4]], 0.05, black); t.rotation.z = -Math.sign(sx) * 0.26; t.position.set(sx, 0.3, -2.6); g.add(t);
+    const fl = new THREE.Mesh(new THREE.ConeGeometry(0.26, 1.8, 16, 1, true), new THREE.MeshBasicMaterial({ color: 0xff8a30, transparent: true, opacity: 0, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }));
+    fl.rotation.x = -Math.PI / 2; fl.position.set(sx, 0.05, -4.9); fl.userData.flame = true; g.add(fl); }
+  return g; }
+// HAVE BLUE: faceted pyramid body, swept wings, inward-canted twin tails
+function HB() { const g = new THREE.Group();
+  const geo = new THREE.BufferGeometry(); const v = [0, 0.05, 3.2,  -0.9, 0.0, -1.0,  0.9, 0.0, -1.0,  0, 0.55, -0.6,  0, -0.2, -0.6,  -0.5, 0.05, -2.2,  0.5, 0.05, -2.2];
+  const ix = [0, 1, 3, 0, 3, 2, 0, 4, 1, 0, 2, 4, 1, 5, 3, 2, 3, 6, 3, 5, 6, 1, 4, 5, 2, 6, 4, 4, 6, 5];
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(v, 3)); geo.setIndex(ix); geo.computeVertexNormals(); g.add(new THREE.Mesh(geo, facet));
+  const w = wing([[-0.6, 1.4], [0.6, 1.4], [2.6, -1.5], [2.3, -1.9], [-2.3, -1.9], [-2.6, -1.5]], 0.07, facet); g.add(w);
+  for (const sx of [-0.55, 0.55]) { const t = fin([[-0.7, 0], [0.3, 0], [-0.3, 1.0], [-0.8, 1.0]], 0.05, facet); t.rotation.z = Math.sign(sx) * 0.5; t.position.set(sx, 0.15, -1.4); g.add(t); }
+  return g; }
+const u2 = U2(), a12 = A12(), hb = HB(); [u2, a12, hb].forEach(p => { p.visible = false; S.add(p); p.traverse(o => { if (o.isMesh) o.castShadow = true; }); });
+const u2b = U2(), a12b = A12(), hbb = HB(); [u2b, a12b, hbb].forEach(p => { p.visible = false; S.add(p); });
+// studio floor + grid
+const floor = new THREE.Mesh(new THREE.CircleGeometry(30, 64), new THREE.MeshStandardMaterial({ color: 0x0c0f14, roughness: 0.9 })); floor.rotation.x = -Math.PI / 2; floor.position.y = -1.2; S.add(floor);
+const grid = new THREE.GridHelper(60, 60, 0x1f6f68, 0x123634); grid.position.y = -1.19; S.add(grid);
+// Earth curve far below (B, C): a huge dark sphere with a thin lit limb
+const earth = new THREE.Mesh(new THREE.SphereGeometry(600, 96, 48), new THREE.MeshStandardMaterial({ color: 0x0a1220, roughness: 1 })); earth.position.set(0, -640, 0); S.add(earth);
+const limb = new THREE.Mesh(new THREE.SphereGeometry(606, 96, 48), new THREE.ShaderMaterial({ side: THREE.BackSide, transparent: true, depthWrite: false,
+  uniforms: { c: { value: new THREE.Color(0xffb870) } }, vertexShader: 'varying vec3 n; void main(){ n = normalize(normalMatrix*normal); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+  fragmentShader: 'uniform vec3 c; varying vec3 n; void main(){ float k = pow(1.0-abs(n.z), 4.0); gl_FragColor = vec4(c, k*0.9); }' })); limb.position.copy(earth.position); S.add(limb);
+// town lights on the ground (B)
+const lights = new THREE.Points(new THREE.BufferGeometry(), new THREE.PointsMaterial({ color: 0xffd28a, size: 0.9, sizeAttenuation: true, transparent: true, opacity: 0.8 }));
+{ const a = []; let seed = 3; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647; for (let i = 0; i < 900; i++) { const th = r() * 0.5 - 0.25, ph = r() * 0.5 - 0.1; const p = new THREE.Vector3(Math.sin(th) * 600, Math.cos(th) * Math.cos(ph) * 600, Math.sin(ph) * 600); a.push(p.x, p.y - 640 + 0.5, p.z); } lights.geometry.setAttribute('position', new THREE.Float32BufferAttribute(a, 3)); } S.add(lights);
+// stars
+{ const g = new THREE.BufferGeometry(), a = []; let seed = 11; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647; for (let i = 0; i < 1500; i++) { const v = new THREE.Vector3(r() - 0.5, r() * 0.8 + 0.05, r() - 0.5).normalize().multiplyScalar(500); a.push(v.x, v.y, v.z); } g.setAttribute('position', new THREE.Float32BufferAttribute(a, 3)); var stars = new THREE.Points(g, new THREE.PointsMaterial({ color: 0xdfe6f2, size: 1.2, sizeAttenuation: false, transparent: true, opacity: 0.8 })); S.add(stars); }
+// radar (D): sweep disc + blip
+const radar = new THREE.Group(); S.add(radar);
+const ringM = new THREE.MeshBasicMaterial({ color: 0x3fe0cc, transparent: true, opacity: 0.6, side: THREE.DoubleSide });
+for (let r = 2; r <= 8; r += 2) { const m = new THREE.Mesh(new THREE.RingGeometry(r - 0.02, r, 96), ringM); m.rotation.x = -Math.PI / 2; radar.add(m); }
+const sweep = new THREE.Mesh(new THREE.CircleGeometry(8, 48, 0, 0.5), new THREE.MeshBasicMaterial({ color: 0x3fe0cc, transparent: true, opacity: 0.25, side: THREE.DoubleSide })); sweep.rotation.x = -Math.PI / 2; radar.add(sweep);
+const blip = new THREE.Mesh(new THREE.SphereGeometry(0.22, 16, 10), new THREE.MeshBasicMaterial({ color: 0xffe08a, transparent: true })); radar.add(blip);
+radar.position.y = -1.18;
+// lakebed (E)
+const lake = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ color: 0xd8cbb2, roughness: 1 })); lake.rotation.x = -Math.PI / 2; lake.position.y = -6; S.add(lake);
+const hills = new THREE.Group(); S.add(hills); { let seed = 21; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647; const m = new THREE.MeshStandardMaterial({ color: 0x8a6646, roughness: 1, flatShading: true }); for (let i = 0; i < 40; i++) { const c = new THREE.Mesh(new THREE.ConeGeometry(10 + r() * 22, 8 + r() * 18, 6), m); const a = r() * Math.PI * 2, d = 110 + r() * 60; c.position.set(Math.cos(a) * d, -6, Math.sin(a) * d - 40); hills.add(c); } }
+const sky = new THREE.Mesh(new THREE.SphereGeometry(800, 32, 16), new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false, uniforms: { a: { value: new THREE.Color(0x0a1a30) }, b: { value: new THREE.Color(0xf0a060) }, k: { value: 0 } },
+  vertexShader: 'varying vec3 p; void main(){ p = normalize(position); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+  fragmentShader: 'uniform vec3 a,b; uniform float k; varying vec3 p; void main(){ vec3 c = mix(b, a, clamp(p.y*3.0,0.,1.)); gl_FragColor = vec4(c*k,1.); }' })); S.add(sky);
+
+const Lb = { u2: label('U-2', 'लॉकहीड स्कंक वर्क्स · 1955'), alt: label('60,000+ फ़ीट', 'नीचे रात, ऊपर धूप'), a12: label('A-12 · OXCART', 'आवाज़ से 3 गुना तेज़'),
+  hb: label('HAVE BLUE · 1977', 'रडार पर लगभग अदृश्य'), r1: label('U-2', ''), r2: label('A-12', ''), r3: label('HAVE BLUE', '') };
+const note = label('प्रतीकात्मक 3D मॉडल', '');
+const env = { studio: [floor, grid], high: [earth, limb, lights], night: [stars], radar: [radar], lake: [lake, hills] };
+function only(...on) { for (const [k, arr] of Object.entries(env)) arr.forEach(o => o.visible = on.includes(k)); }
+function frame(t) {
+  [u2, a12, hb, u2b, a12b, hbb].forEach(p => p.visible = false); a12.traverse(o => { if (o.userData.flame) o.material.opacity = 0; });
+  Object.values(Lb).forEach(l => l.visible = false);
+  S.background = new THREE.Color(0x05070a); sky.material.uniforms.k.value = 0; key.intensity = 2.6; key.color.setHex(0xffe2b8); hemi.intensity = 0.5; rim.intensity = 1.2;
+  if (t < 8) {                                   // A: U-2 turntable
+    only('studio'); u2.visible = true; u2.position.set(0, 0, 0); u2.rotation.set(0, t * 0.35 + 0.6, 0);
+    const k = ease(clamp(t / 8)); cam.position.set(lerp(-11, -8.5, k), lerp(4.2, 3.2, k), lerp(11, 8.5, k)); cam.lookAt(0, 0, 0);
+    Lb.u2.position.set(0, 2.3, 0); showLabel(Lb.u2, cam, t, 1.2, 0.07, 7.6);
+  } else if (t < 16) {                           // B: U-2 high above the night, sun on the wings
+    only('high', 'night'); const s = t - 8; u2.visible = true; u2.position.set(0, 0, s * 0.6); u2.rotation.set(0, 0, Math.sin(s * 0.4) * 0.03);
+    key.color.setHex(0xffc890); key.position.set(-12, 2, -6); key.intensity = 3.4; hemi.intensity = 0.12; rim.intensity = 0.6;
+    cam.position.set(lerp(-9, -6, s / 8), lerp(2.5, 1.4, s / 8), s * 0.6 + lerp(-6, 7, ease(s / 8))); cam.lookAt(0, -0.2, s * 0.6);
+    Lb.alt.position.set(2.5, 1.2, s * 0.6 + 1); showLabel(Lb.alt, cam, s, 1.5, 0.055, 7.6);
+  } else if (t < 24) {                           // C: A-12 at night, afterburners
+    only('high', 'night'); const s = t - 16; a12.visible = true; a12.position.set(0, 0, s * 2.2); key.intensity = 2.2; key.color.setHex(0xb8ccff); key.position.set(-6, 8, 4); hemi.intensity = 0.35; rim.intensity = 2.0;
+    a12.traverse(o => { if (o.userData.flame) { o.material.opacity = 0.5 + 0.15 * Math.sin(t * 40); o.scale.y = 1 + 0.15 * Math.sin(t * 33); } });
+    cam.position.set(lerp(15, 10, s / 8), lerp(1.0, 3.2, s / 8), s * 2.2 + lerp(9, -7, ease(s / 8))); cam.lookAt(0, 0, s * 2.2 - 1);
+    Lb.a12.position.set(0, 2.4, s * 2.2); showLabel(Lb.a12, cam, s, 1.2, 0.07, 7.6);
+  } else if (t < 32) {                           // D: HAVE BLUE and the radar sweep that misses it
+    only('studio', 'radar'); grid.visible = false; const s = t - 24; hb.visible = true; hb.position.set(0, 1.0, 0); hb.rotation.set(0, 0.9 + s * 0.12, 0);
+    sweep.rotation.z = -s * 2.4; const hit = ((s * 2.4) % (Math.PI * 2)); blip.position.set(Math.cos(0.9) * 4.6, 0.05, -Math.sin(0.9) * 4.6);
+    blip.material.opacity = Math.max(0, 1 - s / 3.2) * (0.4 + 0.6 * Math.pow(Math.max(0, Math.cos(hit - 0.9)), 30));
+    cam.position.set(lerp(-9, -7, s / 8), lerp(7.5, 6, s / 8), lerp(9, 7, s / 8)); cam.lookAt(0, 0.6, 0);
+    Lb.hb.position.set(0, 3.0, 0); showLabel(Lb.hb, cam, s, 0.8, 0.065, 7.6);
+  } else {                                       // E: the three over the lakebed at dawn
+    only('lake'); const s = t - 32; sky.material.uniforms.k.value = 1; key.color.setHex(0xffc890); key.position.set(-20, 6, -10); key.intensity = 2.8; hemi.intensity = 0.8;
+    const z = s * 3; u2b.visible = a12b.visible = hbb.visible = true;
+    u2b.position.set(-8, 0.6, z - 2); a12b.position.set(0, 0, z + 2); hbb.position.set(8, 0.4, z - 1); hbb.scale.setScalar(1.4);
+    a12b.traverse(o => { if (o.userData.flame) o.material.opacity = 0.35; });
+    cam.position.set(lerp(-4, 2, s / 8), lerp(1.2, 3.0, s / 8), z + lerp(22, 16, ease(s / 8))); cam.lookAt(0, 0, z);
+    Lb.r1.position.set(-8, 2.4, z - 2); Lb.r2.position.set(0, 2.4, z + 2); Lb.r3.position.set(8, 2.4, z - 1);
+    showLabel(Lb.r1, cam, s, 1.0, 0.045); showLabel(Lb.r2, cam, s, 1.4, 0.045); showLabel(Lb.r3, cam, s, 1.8, 0.045);
+  }
+  pinNote(note, cam, t % 8, 0.3);
+  R.render(S, cam);
+}
+run(frame, 40);
+</script></body></html>

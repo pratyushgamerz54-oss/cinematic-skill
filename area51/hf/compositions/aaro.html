@@ -1,0 +1,32 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,#10202a 0%,#070c12 60%,#030507 100%);overflow:hidden;color:#eef2f0;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.teal{color:#3fe0cc;} .amber{color:#ffb347;} .red{color:#e0483a;}
+.src{position:absolute;left:0;right:0;bottom:130px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#9fb3b0;letter-spacing:.02em;}
+.chip{position:absolute;font-family:'Hind HF';font-size:60px;padding:10px 34px 4px;background:rgba(6,14,18,.86);border-left:10px solid #3fe0cc;color:#eef2f0;}
+.star{position:absolute;border-radius:50%;background:#dfe8f0;}
+.ring{position:absolute;border:3px solid rgba(63,224,204,.55);border-radius:50%;}
+</style>
+  <div id="root" data-composition-id="aaro" data-width="1920" data-height="1080">
+    <div id="aaro-g" class="clip" data-start="0" data-duration="7" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(63,224,204,.22) 0%,rgba(0,0,0,0) 65%);opacity:0"></div>
+    <div id="aaro-i" class="clip k" data-start="0" data-duration="7" style="top:200px;font-family:'Hind HF';font-size:58px;color:#b8c8c6">पेंटागन का दफ़्तर AARO (मार्च 2024)</div>
+    <div id="aaro-e" class="clip k teal" data-start="0.9" data-duration="6.1" style="top:330px;left:160px;right:160px;font-family:'Tiro HF';font-size:108px;line-height:1.15">“...no evidence...”</div>
+    <div id="aaro-h" class="clip k" data-start="2.4" data-duration="4.6" style="top:660px;font-family:'Hind HF';font-size:72px">एलियन तकनीक का कोई सबूत नहीं</div>
+    <div id="aaro-s" class="clip src" data-start="2.8" data-duration="4.2">AARO, Report on the Historical Record, Vol. I, 2024</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#aaro-i",{opacity:0,y:16},{opacity:1,y:0,duration:0.6},0.1);
+    tl.fromTo("#aaro-g",{opacity:0},{opacity:1,duration:1.2},0.6);
+    tl.fromTo("#aaro-e",{opacity:0,scale:1.06,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:0.9,ease:"power3.out"},0.9);
+    tl.fromTo("#aaro-h",{opacity:0,y:20},{opacity:1,y:0,duration:0.5},2.4);
+    tl.fromTo("#aaro-s",{opacity:0},{opacity:1,duration:0.5},2.8);
+    tl.fromTo("#aaro-e",{scale:1},{scale:1.03,duration:5,ease:"none",immediateRender:false},1.8);
+    window.__timelines["aaro"] = tl;
+  </script>
+</template>

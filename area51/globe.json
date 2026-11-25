@@ -1,0 +1,386 @@
+{
+ "globes": [
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "routes": [],
+   "markers": [
+    {
+     "place": "Vegas",
+     "label": "लास वेगास",
+     "t_in": 4.2,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Groom",
+     "label": "नेवाडा रेगिस्तान",
+     "t_in": 5.2,
+     "side": "right",
+     "size": 1.3,
+     "label_size": 1.2
+    }
+   ],
+   "name": "g_nevada",
+   "what": "3D globe: from orbit down onto the Nevada desert",
+   "seconds": 8,
+   "places": {
+    "Groom": [
+     37.24,
+     -115.81
+    ],
+    "Vegas": [
+     36.08,
+     -115.15
+    ]
+   },
+   "camera": [
+    {
+     "t": 0,
+     "lat": 30,
+     "lon": -60,
+     "dist": 5.4
+    },
+    {
+     "t": 4,
+     "lat": 38,
+     "lon": -108,
+     "dist": 2.2,
+     "tilt": 6
+    },
+    {
+     "t": 8,
+     "lat": 36.9,
+     "lon": -115.4,
+     "dist": 1.35,
+     "tilt": 16,
+     "roll": -2
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "routes": [
+    {
+     "from": "Peshawar",
+     "to": "Sverdlovsk",
+     "t_in": 1.2,
+     "dur": 5.0,
+     "vehicle": "plane",
+     "vehicle_hold": true
+    }
+   ],
+   "markers": [
+    {
+     "place": "Peshawar",
+     "label": "उड़ान: 1 मई 1960",
+     "t_in": 0.8,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Sverdlovsk",
+     "label": "✕ मार गिराया",
+     "t_in": 6.4,
+     "side": "right",
+     "size": 1.4,
+     "label_size": 1.2
+    }
+   ],
+   "name": "g_powers",
+   "what": "3D globe: the 1 May 1960 U-2 flight from Peshawar towards Sverdlovsk, shot down",
+   "seconds": 9,
+   "places": {
+    "Peshawar": [
+     34.0,
+     71.5
+    ],
+    "Sverdlovsk": [
+     56.84,
+     60.6
+    ]
+   },
+   "camera": [
+    {
+     "t": 0,
+     "lat": 38,
+     "lon": 62,
+     "dist": 3.6
+    },
+    {
+     "t": 9,
+     "lat": 50,
+     "lon": 62,
+     "dist": 2.4,
+     "tilt": 8
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "routes": [
+    {
+     "from": "Iraq",
+     "to": "Israel",
+     "t_in": 1.0,
+     "dur": 2.6,
+     "vehicle": "plane"
+    },
+    {
+     "from": "Israel",
+     "to": "Groom",
+     "t_in": 4.6,
+     "dur": 4.4,
+     "vehicle": "plane",
+     "vehicle_hold": true
+    }
+   ],
+   "markers": [
+    {
+     "place": "Iraq",
+     "label": "इराक़",
+     "t_in": 0.6,
+     "side": "right",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Israel",
+     "label": "इज़राइल · 1966",
+     "t_in": 3.4,
+     "side": "left",
+     "size": 1.1,
+     "label_size": 1.0
+    },
+    {
+     "place": "Groom",
+     "label": "एरिया 51 · 1968",
+     "t_in": 8.6,
+     "side": "right",
+     "size": 1.3,
+     "label_size": 1.1
+    }
+   ],
+   "name": "g_mig",
+   "what": "3D globe: 1966, the MiG-21 flown from Iraq to Israel, then on to Nevada",
+   "seconds": 10,
+   "places": {
+    "Iraq": [
+     33.3,
+     44.4
+    ],
+    "Israel": [
+     31.0,
+     34.9
+    ],
+    "Groom": [
+     37.24,
+     -115.81
+    ]
+   },
+   "camera": [
+    {
+     "t": 0,
+     "lat": 34,
+     "lon": 40,
+     "dist": 2.6
+    },
+    {
+     "t": 4.4,
+     "lat": 36,
+     "lon": 20,
+     "dist": 4.6
+    },
+    {
+     "t": 10,
+     "lat": 42,
+     "lon": -100,
+     "dist": 3.9,
+     "tilt": 4
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "routes": [
+    {
+     "from": "Roswell",
+     "to": "Groom",
+     "t_in": 1.6,
+     "dur": 3.4
+    }
+   ],
+   "markers": [
+    {
+     "place": "Roswell",
+     "label": "रोसवेल · 1947",
+     "t_in": 0.8,
+     "side": "right",
+     "size": 1.2,
+     "label_size": 1.1
+    },
+    {
+     "place": "Groom",
+     "label": "एरिया 51 (1955 में बना)",
+     "t_in": 4.6,
+     "side": "left",
+     "size": 1.2,
+     "label_size": 1.0
+    }
+   ],
+   "name": "g_roswell",
+   "what": "3D globe: the rumour line from Roswell, New Mexico, to Area 51",
+   "seconds": 7,
+   "places": {
+    "Roswell": [
+     33.39,
+     -104.52
+    ],
+    "Groom": [
+     37.24,
+     -115.81
+    ]
+   },
+   "camera": [
+    {
+     "t": 0,
+     "lat": 33,
+     "lon": -103,
+     "dist": 2.0,
+     "tilt": 10
+    },
+    {
+     "t": 7,
+     "lat": 35.5,
+     "lon": -110,
+     "dist": 1.9,
+     "tilt": 12
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "routes": [],
+   "markers": [
+    {
+     "place": "Groom",
+     "label": "एरिया 51",
+     "t_in": 0.4,
+     "side": "right",
+     "size": 1.4,
+     "label_size": 1.2
+    }
+   ],
+   "name": "g_verdict",
+   "what": "3D globe: pull out from Groom Lake to the whole planet",
+   "seconds": 8,
+   "places": {
+    "Groom": [
+     37.24,
+     -115.81
+    ]
+   },
+   "camera": [
+    {
+     "t": 0,
+     "lat": 37.0,
+     "lon": -115.6,
+     "dist": 1.3,
+     "tilt": 16
+    },
+    {
+     "t": 8,
+     "lat": 30,
+     "lon": -100,
+     "dist": 5.2
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  }
+ ]
+}

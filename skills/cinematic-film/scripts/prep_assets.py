@@ -84,7 +84,7 @@ def prep_photos(proj, look):
             im = im.crop((int(c[0] * w), int(c[1] * h), int(c[2] * w), int(c[3] * h)))
         if max(im.size) > MAX_SIDE:
             im.thumbnail((MAX_SIDE, MAX_SIDE), Image.LANCZOS)
-        g = grade(im, p.get("kind", "photo"), look)
+        g = grade(im, p.get("kind", "photo"), p.get("grade", look))  # per-photo "grade" wins
         g.save(out / f"{p['id']}.jpg", quality=93)
         meta[p["id"]] = {"w": g.width, "h": g.height, "kind": p.get("kind", "photo")}
     (out / "meta.json").write_text(json.dumps(meta, indent=1))
