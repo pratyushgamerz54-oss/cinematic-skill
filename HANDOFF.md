@@ -110,10 +110,24 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
   `tut/reel/script.json` (reel, separate script, 10 lines, about 64 s). Beats and voiceover scripts
   (`tut/voiceover_script.md`, `tut/voiceover_script_emotions.md`) sent. The user approved and is
   **generating the voice themselves** (film takes T01..T09, reel `REEL`).
-- Next, once the audio arrives: split_takes / build_narration for the film and for `tut/reel` separately,
-  then images, 3D, maps, motion graphics, scene, sound, render (as in `saanp/`). The work that does not need
-  the voice (Commons images, globe.json, 3D models such as KV62, the coffins, the valley; HyperFrames
-  hero graphics) can start before.
+- Done before the voice (user: "upar wale kaam suru kar do"):
+  - Photos: `tut/photos.json`, 22 Commons entries (Carter, Carnarvon, mask, Akhenaten, Aten relief, Restoration
+    Stela, throne panel, Ay, Horemheb, KV62 wall, Abydos list, valley, Burton 1922-24 photos, coffin, dagger,
+    KV62 today, mask 2025). `fetch_commons.py get --project . --pause 20` fills the rest when Commons stops
+    answering 429 (run it again until every entry has a file).
+  - Globes (`tut/globe.json`): g_luxor (descent), g_carnarvon (boat England → Egypt → Luxor), g_verdict (Luxor → Giza).
+  - 2D map `tut/map.json` (Egypt: Thebes, Amarna, Abydos, Akhmim, Memphis, Giza).
+  - 3D pages `tut/assets/3d/` (shared `common.js`): `tomb.html` (0-6 s sealed door + candle = clip `door`,
+    6-15 s KV62 cutaway = clip `tomb`), `coffins.html`, `valley.html` (KV9 debris buries KV62), `ctscan.html`
+    (symbolic scan, not the mummy). Recorded to `assets/clips/*.mp4`.
+  - HyperFrames `tut/hf/`: qopen, title, wonder (quote card), qend, rq (reel opening question) → `hf_graphics.mp4`, cut by `trim` in `clips.json`.
+  - Thumbnails: `tut/thumbs.py` → `tut/out/thumbnail_youtube.jpg`, `thumbnail_reel.jpg`.
+- Next, once the audio arrives: put the takes in `tut/audio/takes/` and `REEL` in `tut/reel/audio/takes/`;
+  split_takes / build_narration for each (film --target 318); prep_clips; scene.py from `saanp/scene.py`;
+  reel scene from `saanp/reel/scene.py` (beats from `tut/reel/script.json`: headline, tag, source, mood);
+  sound, render, captions, SRT, share copies; credits.md.
+- Environment "animation-studio" now has a setup script (libEGL for skia, Python Playwright, requirements):
+  a fresh container lacked them.
 
 ### saanp/ (do this if the user says go)
 1. Probe one still per line of `saanp/scene.py` and fix anything empty or cut off.
