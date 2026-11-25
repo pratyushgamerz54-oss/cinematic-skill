@@ -78,8 +78,13 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   gaps between lines at 0.6 s; never stretch the film or speed up the voice.
 - **Visuals (the user's own words: "visual ki kami hai, bahut jagah ruk jaata hai"):** every line gets its
   own visual that explains it, not text alone. Concretely:
-  - **Fast pace:** a new image, clip or motion graphic every 2 to 4 s; the camera never sits still (holds
-    push in and drift, `tidy_keys` in `saanp/scene.py`); no stretch of empty wall or a long static card.
+  - **Documentary pace, not hyper-fast:** one clear visual per *line* (not something popping on every
+    word); a new image, clip or motion graphic every 4 to 6 s; camera moves about 1 s long, gentle push in
+    and drift on holds (`tidy_keys(min_gap=0.6, hold_after=1.8, move=1.0)`, push 1.035 in `saanp/scene.py`);
+    sound: few whooshes and pops (thin them out, see `thin_cues.py`). No stretch of empty wall or a long
+    static card. (User, after a too-fast cut: "har ek word pe kuch na aaye... thoda normal karo,
+    documentary hai".) It is a documentary **and an explainer**: each visual should explain its line
+    (a diagram, map, photo with a label) and stay on screen long enough to be read, not flash past.
   - **Many photos:** at least one real archive photo per section, usually two or three (aim for 15 to 20
     in a 5-minute film): people, places, documents, the scene after an event. Search Commons widely
     (e.g. White House, DoD, State Department photos are public domain).

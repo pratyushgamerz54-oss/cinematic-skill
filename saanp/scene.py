@@ -333,7 +333,7 @@ def build_film(doc):
     return film
 
 
-def tidy_keys(keys, min_gap=0.3, hold_after=1.3, move=0.55):
+def tidy_keys(keys, min_gap=0.6, hold_after=1.8, move=1.0):
     """Separate keys that land on the same moment, and hold each key until shortly before the next
     one so the camera rests on its hero instead of drifting through the whole line."""
     keys.sort(key=lambda k: k[0])
@@ -346,6 +346,6 @@ def tidy_keys(keys, min_gap=0.3, hold_after=1.3, move=0.55):
         if b[0] - a[0] > hold_after:
             k = list(a); k[0] = b[0] - move
             if len(k) == 5 and k[3] < 0.95:           # camera key: keep moving while it holds (push in and drift)
-                k[3] *= 1.09; k[1] += 160 / k[3]; k[2] -= 70 / k[3]; k[4] += 0.4
+                k[3] *= 1.035; k[1] += 60 / k[3]; k[2] -= 25 / k[3]; k[4] += 0.15
             extra.append(tuple(k))
     keys.extend(extra); keys.sort(key=lambda k: k[0])
