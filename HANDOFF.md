@@ -155,7 +155,13 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
   (drone1/drone2) cross-faded to 340 s; mixes at -15 LUFS.
 - Final render chain: /tmp script `final.sh` (film 1080p → clean captions → SRT → share copies → reel 1080x1920
   → highlighter captions → SRT → share). Outputs in `tut/out/` and `tut/reel/out/`.
-- Still to do after the render: look at a frame every 10 s, send film, caption-free copy, SRTs, reel, thumbnails.
+- **Delivered (25 Nov 2026):** `tut/out/tutankhamun_final_share.mp4` (5:27, clean captions),
+  `tutankhamun_no_captions_share.mp4`, `captions.srt`, `tutankhamun_reel_share.mp4` (62.6 s, highlighter),
+  `captions_reel.srt`, both thumbnails. Full-quality masters (`film_raw.mp4`, `tutankhamun_final.mp4`,
+  `reel/out/*`) are not in git (too big).
+- Known small issues if the user asks for a fix: 1-2 s near-empty frames while the camera moves at the start of
+  lines 47 and 50 and before "क़ीमत?" (line 39), motion blur in moves on lines 18 and 25; photos P08 (Ay) and
+  P11 (Abydos list) were never fetched (typeset cards stand in).
 - Environment "animation-studio" now has a setup script (libEGL for skia, Python Playwright, requirements):
   a fresh container lacked them.
 
