@@ -1,5 +1,9 @@
 # Standing order for videos in this repo
 
+**First, in every new session, read `HANDOFF.md`**: the state of the work, what is pending, and every
+instruction the user has given so far, in order. Keep it up to date: add each new instruction there and
+here, and update its "Pending" list when work is done.
+
 The user will often send **only a topic** (in Hinglish or Hindi). That is a request for the full package
 below, made with every tool listed here. Do not start a video unless the user asks for one or sends a topic
 for one. `saanp/` (पिछवाड़े के साँप) is the finished reference project: copy its patterns.
