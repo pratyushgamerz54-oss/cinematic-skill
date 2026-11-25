@@ -106,9 +106,14 @@ Last updated: 25 Nov 2026. Branch `ccr-f795a8e0-qikje4`.
 ## 2. Pending
 
 ### tut/ — तूतनख़ामुन (new topic, 25 Nov 2026)
-- Script `tut/script.json` (film) and `tut/reel/script.json` (reel, separate) written; beats and voiceover
-  scripts sent for approval. Waiting for the user's approval and their Viraj recordings (film takes T01..T09,
-  reel `REEL`). Then: split_takes / build_narration for each, images, 3D, scene, sound, render.
+- Script `tut/script.json` (film, **50 lines**: the user asked for 50, about 5:10 at Viraj's pace) and
+  `tut/reel/script.json` (reel, separate script, 10 lines, about 64 s). Beats and voiceover scripts
+  (`tut/voiceover_script.md`, `tut/voiceover_script_emotions.md`) sent. The user approved and is
+  **generating the voice themselves** (film takes T01..T09, reel `REEL`).
+- Next, once the audio arrives: split_takes / build_narration for the film and for `tut/reel` separately,
+  then images, 3D, maps, motion graphics, scene, sound, render (as in `saanp/`). The work that does not need
+  the voice (Commons images, globe.json, 3D models such as KV62, the coffins, the valley; HyperFrames
+  hero graphics) can start before.
 
 ### saanp/ (do this if the user says go)
 1. Probe one still per line of `saanp/scene.py` and fix anything empty or cut off.
