@@ -103,9 +103,10 @@ def build_film(doc):
     shot(L(11) + 0.1, X1 + 3000, 300, 0.72, 0.6)
     shot(E(11) + 0.3, X1 + 3000, 300, 0.78, 0.8)
     cue("riser", L(12) - 0.2, 0.5, dur=1.6)
-    screen("hf2_target", X1 + 6500, L(12) - 0.3, L(13) + 0.2)
+    screen("hf2_target", X1 + 6500, L(12) - 0.3, L(14) + 0.3)
     shot(L(12) - 0.35, X1 + 5500, 4300, 0.45, 0.0, strength=0.2)
-    into(X1 + 6500, L(12) + 0.05, E(12) + 0.4, 1.0, 1.05)
+    into(X1 + 6500, L(12) + 0.05, E(13) + 0.1, 1.0, 1.08)
+    film.add(BigText("1989 · कश्मीर में बग़ावत", X1 + 6500, SY - 760, 220, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False, z=60))
 
     # ============================================================ KASHMIR (13-18)
     film.add(BigText("1989 · कश्मीर", X2 - 2000, -1500, 480, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
@@ -113,7 +114,6 @@ def build_film(doc):
                         rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
     if has(15): film.add(Card(X2 + 200, 300, 2300, 1200, W(15, "आरोप") - 0.1, title="भारत: आरोप", lines=["फ़ौज और ISI का साथ"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=130))
     if has(15): film.add(Card(X2 + 200, 1800, 2300, 1200, W(15, "इनकार") - 0.1, title="पाकिस्तान: इनकार", lines=["सरकारी भूमिका से इनकार"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=130))
-    shot(L(13) + 0.3, X2 - 2000, -1600, 0.6, 0.0)
     shot(L(14) + 0.3, X2 - 3600, 600, 0.62, -0.5)
     screen("hf2_letnet", X2 - 3600, W(14, "संगठन") - 0.4, nxt(14) + 0.3)
     shot(W(14, "संगठन") - 0.5, X2 - 3600, 4200, 0.45, 0.0, strength=0.2)
@@ -137,8 +137,9 @@ def build_film(doc):
     shot(L(17) + 0.3, X2 + 9000, 600, 0.55, 0.6)
     hx0, hy0 = spans[0][0]
     shot(W(17, "संयुक्त"), hx0 + 900, hy0 + 100, 0.85, 1.0)
-    shot(L(18) + 0.2, X2 + 6000, 0, 0.3, 0.0, radius=900, strength=0.88)   # the wall goes dark
-    shot(min(E(18) + 0.7, L(19) - 0.45), X2 + 9000, -500, 0.3, 0.0, radius=900, strength=0.9)
+    film.add(BigText("असली झटका...", X2 + 6000, -2600, 600, W(18, "झटका") - 0.1, rgb=(214, 40, 30), z=70))
+    shot(L(18) + 0.2, X2 + 6000, -2500, 0.34, 0.0, radius=2600, strength=0.8)   # the wall goes dark
+    shot(min(E(18) + 0.7, L(19) - 0.45), X2 + 6000, -2600, 0.4, 0.0, radius=2600, strength=0.85)
     cue("heartbeat", L(18) + 0.4, 0.8); cue("heartbeat", E(18) + 0.1, 0.8)
 
     # ============================================================ MUMBAI (19-26)
@@ -168,8 +169,8 @@ def build_film(doc):
     shot(L(23) - 0.3, X3 + 12600, 4300, 0.45, 0.0, strength=0.2)
     into(X3 + 12600, L(23) + 0.1, E(23) + 0.2, 1.0, 1.04)
     if has(24): shot(L(24) + 0.6, X3 + 12900, 2000, 0.62, -0.4)
-    shot(L(25) + 0.3, X3 + 12600, -1200, 0.5, 0.0)
-    shot(E(25), X3 + 12600, -1300, 0.52, 0.2)
+    shot(L(25) + 0.3, X3 + 12600, -500, 0.42, 0.0)
+    shot(E(25), X3 + 12600, -600, 0.45, 0.2)
     cue("riser", L(26) + 0.5, 0.6, dur=2.0)
     shot(L(26) + 0.8, (X3 + X4) / 2 + 2000, -1000, 0.2, 0.0, strength=0.4)      # the camera races back toward Abbottabad
     screen("compound", X4, W(26, "दुनिया") - 0.5, L(27) + 0.3, start=0.4)        # ...into the 3D compound: where was he hiding?
@@ -245,6 +246,7 @@ def build_film(doc):
     fatf = film.add(Card(X6, 700, 3200, 1900, L(44) - 0.1, title="FATF", lines=["आतंकी फ़ंडिंग पर निगरानी", "पाकिस्तान: जून 2018 से"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=320, body_size=150))
     grey = film.add(Stamp("ग्रे लिस्ट", X6 + 300, 900, size=520, rot=-8, t_in=W(44, "ग्रे") - 0.05, t_out=W(47, "बाहर")))
     shot(L(43) + 0.1, X6, -900, 0.55, 0.0)
+    shot(L(44) + 0.1, X6, 500, 0.55, 0.0)
     shot(W(44, "ग्रे") + 0.2, X6, 700, 0.6, 0.3)
     screen(hf["hf_fatf"], X6, L(45) - 0.2, nxt(45) + 0.2)
     shot(L(45) - 0.3, X6, 3900, 0.45, 0.0, strength=0.2)
@@ -253,7 +255,10 @@ def build_film(doc):
     if has(46): shot(L(46) + 0.3, X6 + 4600, -500, 0.62, -0.4)
     film.add(Stamp("बाहर · अक्टूबर 2022", X6 + 200, 1700, size=300, rot=6, rgb=(60, 90, 140), t_in=W(47, "बाहर") - 0.05))
     shot(L(47) + 0.3, X6 + 100, 1100, 0.55, 0.2)
-    shot(L(48) + 0.3, X6 + 5000, 0, 0.3, 0.0, radius=900, strength=0.9)       # hard dark: "...नहीं।"
+    film.add(BigText("ख़त्म?", X6 + 5000, -300, 900, L(48) + 0.2, rgb=CREAM, z=70))
+    film.add(BigText("नहीं।", X6 + 5000, 900, 1100, W(48, "नहीं") - 0.05, rgb=(214, 40, 30), z=70))
+    shot(L(48) + 0.3, X6 + 5000, 300, 0.32, 0.0, radius=2600, strength=0.8)       # hard dark: "...नहीं।"
+    shot(E(48) + 0.2, X6 + 5000, 300, 0.36, 0.0, radius=2600, strength=0.8)
     cue("heartbeat", W(48, "नहीं"), 0.9)
 
     # ============================================================ NOW (49-60)
@@ -310,8 +315,8 @@ def build_film(doc):
     film.add(BigText("प्रॉक्सी का लंबा खेल", X5 + 600, -4700, 1500, W(63, "प्रॉक्सी") - 0.1, rgb=CREAM, z=70))
     shot(L(62) + 0.4, WALLX, -1000, 0.062, 0.0, radius=60000, strength=0.05)
     shot(L(63) + 0.3, X5 + 600, -3000, 0.12, 0.0, radius=20000, strength=0.2)
-    shot(L(64) + 0.2, X5, -200, 0.4, 0.0)                                           # Peshawar, lit once more
-    shot(E(64), X5, 0, 0.42, 0.0)
+    shot(L(64) + 0.2, X5 - 1600, 900, 0.3, 0.0)                                     # Peshawar, lit once more
+    shot(E(64), X5 - 1600, 1000, 0.33, 0.0)
     screen("g_verdict", X0, L(65) - 0.3, L(66) + 0.4)
     shot(L(65) - 0.4, X0 + 2000, 3800, 0.2, 0.0, strength=0.2)
     into(X0, L(65) + 0.2, E(65) + 0.3, 1.0, 1.03)

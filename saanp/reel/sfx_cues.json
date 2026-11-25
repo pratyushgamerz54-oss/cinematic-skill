@@ -52,31 +52,6 @@
    "gain": 0.8
   },
   {
-   "type": "marker",
-   "t": 36.902,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 37.202,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 37.352,
-   "gain": 0.8
-  },
-  {
-   "type": "marker",
-   "t": 37.502,
-   "gain": 0.8
-  },
-  {
-   "type": "ticks",
-   "t": 38.183,
-   "gain": 0.6
-  },
-  {
    "type": "whoosh",
    "t": 41.033,
    "gain": 0.8
