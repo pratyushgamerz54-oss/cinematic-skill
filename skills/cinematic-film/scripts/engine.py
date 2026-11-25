@@ -1638,6 +1638,29 @@ class XMarker(Item):
         draw_text(c, res, self.label, tx, ty, self.ls * k, "label", self.lrgb, a, 0.04, "left" if s > 0 else "right", reveal=n + 0.999)
 
 
+class Hud(Item):
+    """Screen-fixed overlay: draws `item` in screen space (4K px from the frame centre, y down), so it
+    stays put while the camera moves, pushes or rotates. For a fixed format (reel bars, a progress bar,
+    a series tag, a media window frame). The item's own t_in / t_out apply."""
+    z = 95
+
+    def __init__(self, film, item, z=None):
+        super().__init__(item.t_in, item.t_out, z, False)
+        self.film, self.item = film, item
+
+    def visible(self, t):
+        return self.item.visible(t)
+
+    def bounds(self, res):
+        return None
+
+    def draw(self, c, res, t):
+        cx, cy, z, rot = self.film.camera(t)
+        c.save(); c.translate(cx, cy); c.rotate(-rot); c.scale(1 / z, 1 / z)
+        self.item.draw(c, res, t)
+        c.restore()
+
+
 # ---------------------------------------------------------------- film
 class Film:
     """Everything that happens: items, camera keys, spotlight keys, shakes, sound cues and the look."""

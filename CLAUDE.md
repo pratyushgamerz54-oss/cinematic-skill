@@ -10,9 +10,22 @@ for one. `saanp/` (पिछवाड़े के साँप) is the finished
 | --- | --- |
 | Film | about **5:18** (5 to 5:30), 1920x1080, 30 fps, Hindi narration, Hindi captions burned in |
 | Caption-free film + SRT | for YouTube's own captions (burned captions can collide with on-screen quote cards) |
-| Reel | about 60 s, 1080x1920, 9 to 13 of the film's own lines (no new recording), hook headline over every beat, large captions |
+| Reel | about 60 s, 1080x1920, 9 to 13 of the film's own lines (no new recording), **always the fixed reel format** below, large captions |
 | Thumbnails | YouTube 1280x720 and reel cover 1080x1920 (`saanp/thumbs.py` is the template) |
 | Credits | `credits.md` (images, voice, music, map data, fonts) and `fact_notes` in `script.json` |
+
+## The reel format (the same every time: "ek consistent reel banao, na ki kuch bhi")
+
+`saanp/reel/scene.py` is the template; copy it, change only the beats list and the media. Every beat
+keeps the same layout, drawn as a screen-fixed overlay with `engine.Hud` so it never moves:
+- top: a story-style progress bar (one segment per beat) and the series tag ("<title> · एक जाँच");
+- headline: one hook headline per beat in the same place and size, yellow bar; red only for the
+  opening and closing questions to the viewer;
+- one 16:9 media window with the same frame and red corner ticks on every beat (clip, photo, map or
+  document, always inside it), an exhibit tag on its corner ("प्रमाण 01", "प्रतीकात्मक 3D मॉडल",
+  "सवाल") and a source line under it;
+- bottom quarter: highlighter captions; a mood background per beat (`film.mood`).
+Open on the question beat, end on "आप क्या सोचते हैं?". No beat breaks the layout.
 
 ## Style: suspenseful, dramatic, thriller, investigative documentary
 
