@@ -30,7 +30,7 @@
   {
    "id": "P03",
    "what": "Gold mask of Tutankhamun, Egyptian Museum Cairo",
-   "kind": "color",
+   "kind": "photo",
    "commons": "File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
    "file": "P03_CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
@@ -82,7 +82,7 @@
   {
    "id": "P07",
    "what": "Tutankhamun and Ankhesenamun, back panel of the golden throne",
-   "kind": "color",
+   "kind": "photo",
    "commons": "File:Tutankhamun and his wife B. C. 1330.jpg",
    "file": "P07_Tutankhamun_and_his_wife_B_C_1330.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_and_his_wife_B._C._1330.jpg",
@@ -172,7 +172,7 @@
   {
    "id": "P15",
    "what": "Innermost solid gold coffin (Leo Wehrli, 1938)",
-   "kind": "color",
+   "kind": "photo",
    "commons": "File:ETH-BIB-Tut-Ank-Amon's Treasures, Innermost coffin of thick gold-Dia 247-11135.tif",
    "file": "P15_ETH_BIB_Tut_Ank_Amon_s_Treasures_Innermost_coffi.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Tut-Ank-Amon%27s_Treasures,_Innermost_coffin_of_thick_gold-Dia_247-11135.tif",
@@ -185,7 +185,7 @@
   {
    "id": "P16",
    "what": "Iron dagger of Tutankhamun, Egyptian Museum Cairo",
-   "kind": "color",
+   "kind": "photo",
    "commons": "File:Kairo Museum Eisendolch Tutanchamun 01.jpg",
    "file": "P16_Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
@@ -197,7 +197,7 @@
   },
   {
    "id": "P17",
-   "what": "KV62 today: the painted wall of the burial chamber",
+   "what": "KV62 today, entrance",
    "kind": "photo",
    "commons": "File:KV62, Egypt 09.jpg",
    "file": "P17_KV62_Egypt_09.jpg",
@@ -211,7 +211,7 @@
   {
    "id": "P18",
    "what": "The mask on display, 2025",
-   "kind": "color",
+   "kind": "photo",
    "commons": "File:Mask of Tutankhamun in 2025.jpg",
    "file": "P18_Mask_of_Tutankhamun_in_2025.jpg",
    "source": "https://commons.wikimedia.org/wiki/File:Mask_of_Tutankhamun_in_2025.jpg",
@@ -225,7 +225,14 @@
    "id": "P19",
    "what": "Tomb photograph, 1923 (Burton)",
    "kind": "photo",
-   "commons": "File:Tutankhamun tomb photographs 4 291.jpg"
+   "commons": "File:Tutankhamun tomb photographs 4 291.jpg",
+   "file": "P19_Tutankhamun_tomb_photographs_4_291.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_tomb_photographs_4_291.jpg",
+   "credit": "Harry Burton (1879-1940)",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1923",
+   "license_ok": true
   },
   {
    "id": "P20",
@@ -244,13 +251,27 @@
    "id": "P21",
    "what": "KV62 today, inside",
    "kind": "photo",
-   "commons": "File:KV62, Egypt 03.jpg"
+   "commons": "File:KV62, Egypt 03.jpg",
+   "file": "P21_KV62_Egypt_03.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:KV62,_Egypt_03.jpg",
+   "credit": "ولاء",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2025-02-02 11:27:21",
+   "license_ok": true
   },
   {
    "id": "P22",
    "what": "Antechamber, 1922 (Burton)",
    "kind": "photo",
-   "commons": "File:Tutankhamun tomb photographs 2 011.jpg"
+   "commons": "File:Tutankhamun tomb photographs 2 011.jpg",
+   "file": "P22_Tutankhamun_tomb_photographs_2_011.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_tomb_photographs_2_011.jpg",
+   "credit": "Harry Burton (1879-1940)",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1922",
+   "license_ok": true
   }
  ],
  "recreations": []
