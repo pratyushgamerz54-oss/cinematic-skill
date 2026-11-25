@@ -262,6 +262,10 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
     palette by topic; **more engaging backgrounds** for retention; motion graphics may come from the
     internet; **HyperFrames very little**. See `CLAUDE.md` ("Area 51 orders").
 
+18c. (25 Nov 2026) ElevenLabs gives at most ~50 lines per generation: the Area 51 story (63 lines) will come as
+    **two MP3s**; join them in order and split as one story take. Suggested split: part 1 = T01..T07 (lines 7-47),
+    part 2 = T08..T11 (lines 48-69).
+
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.
   - Free plan: 10,000 characters a month. Check `/v1/user/subscription` before recording.

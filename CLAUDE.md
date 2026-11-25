@@ -188,6 +188,10 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 - **Less red:** "thoda red red jyada ho jata hai": pick the palette for the topic (for Area 51: desert
   amber, night blue, radar green) and keep red for one or two hooks.
 - **More engaging backgrounds** for view retention: moving, topic-matched backgrounds, not one flat board.
+- **Voice in parts (user, 25 Nov 2026):** ElevenLabs takes at most about 50 lines per generation, so a long story
+  arrives as two (or more) MP3s ("tere ko do MP3 milege... mila lena"). Join them in order (ffmpeg concat, a 0.6 s
+  gap at the join) into one story file, then split it as one take via `audio/_split/` as usual. Suggest the split
+  at a take boundary so no line is cut.
 - **Motion graphics may come from the internet** (free licence, credited); **HyperFrames very little**
   ("hyperframe ka use bahut kam hi karna hai"): only the intro and one or two hero graphics.
 
