@@ -22,6 +22,14 @@ def build_film(doc):
     L, E, W = doc.L, doc.E, doc.W
     res = doc.res()
 
+    def has(i):
+        return i in doc.seg
+
+    def nxt(i):
+        """Start of the next line that is in this read (lines can be left out of a recording)."""
+        later = [j for j in doc.seg if j > i]
+        return L(min(later)) if later else doc.duration
+
     def photo(key, x, y, w, rot=0.0, t_in=0.0, label=None, label_t=None, **kw):
         """A Print, or a named card in its place when the photo could not be fetched."""
         if key in doc.meta:
@@ -93,12 +101,12 @@ def build_film(doc):
     film.add(BigText("1989 · कश्मीर", X2 - 2000, -1500, 480, L(13) + 0.1, bar=HILITE, bar_h=0.92, rgb=DARK, shadow=False))
     let = film.add(Card(X2 - 3600, 600, 3000, 1800, W(14, "लश्कर") - 0.1, title="लश्कर-ए-तैयबा", lines=["स्थापना: लगभग 1990", "मुख्यालय: मुरीदके, पाकिस्तान"],
                         rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
-    film.add(Card(X2 + 200, 300, 2300, 1200, W(15, "आरोप") - 0.1, title="भारत: आरोप", lines=["फ़ौज और ISI का साथ"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=130))
-    film.add(Card(X2 + 200, 1800, 2300, 1200, W(15, "इनकार") - 0.1, title="पाकिस्तान: इनकार", lines=["सरकारी भूमिका से इनकार"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=130))
+    if has(15): film.add(Card(X2 + 200, 300, 2300, 1200, W(15, "आरोप") - 0.1, title="भारत: आरोप", lines=["फ़ौज और ISI का साथ"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=130))
+    if has(15): film.add(Card(X2 + 200, 1800, 2300, 1200, W(15, "इनकार") - 0.1, title="पाकिस्तान: इनकार", lines=["सरकारी भूमिका से इनकार"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=130))
     shot(L(13) + 0.3, X2 - 2000, -1600, 0.6, 0.0)
     shot(L(14) + 0.3, X2 - 3600, 600, 0.62, -0.5)
-    shot(L(15) + 0.4, X2 + 200, 1050, 0.6, 0.4)
-    shot(E(15), X2 + 300, 1050, 0.62, 0.6)
+    if has(15): shot(L(15) + 0.4, X2 + 200, 1050, 0.6, 0.4)
+    if has(15): shot(E(15), X2 + 300, 1050, 0.62, 0.6)
     screen("g_ic814", X2 + 4000, L(16) - 0.2, L(17) + 0.2)
     shot(L(16) - 0.35, X2 + 3000, 4200, 0.45, 0.0, strength=0.2)
     into(X2 + 4000, L(16) + 0.3, E(16) + 0.1, 1.0, 1.05)
@@ -131,12 +139,12 @@ def build_film(doc):
     film.add(Card(X3 + 12600, -900, 2600, 1700, L(22) - 0.1, title="अदालत · शिकागो 2011", lines=["गवाह: डेविड हेडली"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=200, body_size=150))
     iq = film.add(Card(X3 + 12600, 1700, 2600, 2200, L(23) - 0.1, title="मेजर इक़बाल", lines=["ISI अफ़सर (हेडली के मुताबिक़)", "चेहरा: अज्ञात", "हैंडलर"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
     film.add(StringLine((X3 + 12600, -50), (X3 + 12600, 600), t_in=L(23) + 0.2, dur=0.5, sag=0.02, width=20))
-    film.add(Stamp("आरोपी", X3 + 13300, 2300, size=380, rot=-10, t_in=W(24, "आरोप") - 0.05))
+    if has(24): film.add(Stamp("आरोपी", X3 + 13300, 2300, size=380, rot=-10, t_in=W(24, "आरोप") - 0.05))
     film.add(PenMark("underline", X3 + 12600, 50, 2200, 30, t_in=W(25, "शीर्ष") - 0.2, dur=0.5, width=30, seed=11, rgb=(60, 90, 140)))
     film.add(BigText("पर शीर्ष नेतृत्व शामिल नहीं: हेडली", X3 + 12600, -2350, 240, W(25, "शीर्ष") - 0.1, font="label", rgb=CREAM, hit=None, shadow=False))
     shot(L(22) + 0.3, X3 + 12600, -900, 0.6, 0.4)
     shot(L(23) + 0.4, X3 + 12600, 1300, 0.55, 0.0)
-    shot(L(24) + 0.6, X3 + 12900, 2000, 0.62, -0.4)
+    if has(24): shot(L(24) + 0.6, X3 + 12900, 2000, 0.62, -0.4)
     shot(L(25) + 0.3, X3 + 12600, -1200, 0.5, 0.0)
     shot(E(25), X3 + 12600, -1300, 0.52, 0.2)
     cue("riser", L(26) + 0.5, 0.6, dur=2.0)
@@ -151,8 +159,9 @@ def build_film(doc):
     film.add(Stamp("पता नहीं?", X4 + 500, -300, size=440, rot=-9, t_in=W(28, "पता") - 0.05))
     shot(L(27) + 0.3, X4, -1600, 0.55, 0.0)
     shot(L(28) + 0.5, X4 + 300, -600, 0.62, -0.5)
-    photo("P05", X4 + 5200, -900, 2300, rot=-1.6, t_in=W(29, "एडमिरल") - 0.2, label="एडमिरल माइक मलन", label_t=W(29, "एडमिरल") + 0.1)
-    shot(L(29) + 0.4, X4 + 5200, -700, 0.6, 0.4)
+    mullen_t = W(29, "एडमिरल") - 0.2 if has(29) else L(30) - 1.2          # without line 29, pin his photo just before the quote
+    photo("P05", X4 + 5200, -900, 2300, rot=-1.6, t_in=mullen_t, label="एडमिरल माइक मलन", label_t=mullen_t + 0.3)
+    if has(29): shot(L(29) + 0.4, X4 + 5200, -700, 0.6, 0.4)
     screen(hf["hf_mullen"], X4 + 5200, L(30) - 0.2, L(31) + 0.2)
     shot(L(30) - 0.35, X4 + 5200, 3800, 0.45, 0.0, strength=0.2)
     into(X4 + 5200, L(30) + 0.15, E(30) + 0.2, 1.0, 1.04)
@@ -174,16 +183,16 @@ def build_film(doc):
     shot(E(35), X5, 200, 0.58, 0.2)
     film.add(StringLine((X4 + 9600, -2100), (X5 - 900, -1800), t_in=L(36) + 0.2, dur=1.4, sag=0.12, width=34))   # the snake turns back
     shot(L(36) + 0.4, (X4 + X5) / 2 + 3000, -1400, 0.3, 0.0, strength=0.3)
-    screen("hf_title", X5, W(36, "पाकिस्तान") - 0.4, L(37) + 0.3, start=0.3)       # the snake turns back: full frame
+    screen("hf_title", X5, W(36, "पाकिस्तान") - 0.4, nxt(36) + 0.3, start=0.3)       # the snake turns back: full frame
     shot(W(36, "पाकिस्तान") - 0.5, X5 + 1000, 4000, 0.45, 0.0, strength=0.2)
     into(X5, W(36, "पाकिस्तान"), E(36) + 0.2, 1.0, 1.05)
-    film.add(Card(X5 + 5200, -800, 2800, 1500, L(37) - 0.1, title="नेशनल एक्शन प्लान", lines=["दिसंबर 2014", "अपने यहाँ के गुटों पर अभियान"], rgb=(236, 230, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=140))
-    film.add(Card(X5 + 4100, 1500, 2000, 1300, W(38, "भारत") - 0.2, title="'अच्छे'", lines=["भारत, अफ़ग़ानिस्तान पर"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=220, body_size=130))
-    film.add(Card(X5 + 6300, 1500, 2000, 1300, W(38, "भारत") + 0.1, title="'बुरे'", lines=["पाकिस्तान पर हमला करने वाले"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=220, body_size=130))
-    film.add(BigText("आलोचकों का आरोप", X5 + 5200, 2700, 200, W(38, "आलोचकों"), font="label", rgb=CREAM, hit=None, shadow=False))
-    shot(L(37) + 0.3, X5 + 5200, -800, 0.6, 0.4)
-    shot(L(38) + 0.4, X5 + 5200, 1600, 0.52, -0.3)
-    shot(E(38) + 0.2, X5 + 5200, 1700, 0.54, -0.4)
+    if has(37): film.add(Card(X5 + 5200, -800, 2800, 1500, L(37) - 0.1, title="नेशनल एक्शन प्लान", lines=["दिसंबर 2014", "अपने यहाँ के गुटों पर अभियान"], rgb=(236, 230, 220), text_rgb=INK, accent=(60, 90, 140), title_size=200, body_size=140))
+    if has(38): film.add(Card(X5 + 4100, 1500, 2000, 1300, W(38, "भारत") - 0.2, title="'अच्छे'", lines=["भारत, अफ़ग़ानिस्तान पर"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=220, body_size=130))
+    if has(38): film.add(Card(X5 + 6300, 1500, 2000, 1300, W(38, "भारत") + 0.1, title="'बुरे'", lines=["पाकिस्तान पर हमला करने वाले"], rgb=(205, 212, 220), text_rgb=INK, accent=(60, 90, 140), title_size=220, body_size=130))
+    if has(38): film.add(BigText("आलोचकों का आरोप", X5 + 5200, 2700, 200, W(38, "आलोचकों"), font="label", rgb=CREAM, hit=None, shadow=False))
+    if has(37): shot(L(37) + 0.3, X5 + 5200, -800, 0.6, 0.4)
+    if has(38): shot(L(38) + 0.4, X5 + 5200, 1600, 0.52, -0.3)
+    if has(38): shot(E(38) + 0.2, X5 + 5200, 1700, 0.54, -0.4)
 
     # ============================================================ MONEY (39-48)
     cue("riser", L(39) + 0.4, 0.5, dur=1.6)
@@ -206,11 +215,11 @@ def build_film(doc):
     grey = film.add(Stamp("ग्रे लिस्ट", X6 + 300, 900, size=520, rot=-8, t_in=W(44, "ग्रे") - 0.05, t_out=W(47, "बाहर")))
     shot(L(43) + 0.1, X6, -900, 0.55, 0.0)
     shot(W(44, "ग्रे") + 0.2, X6, 700, 0.6, 0.3)
-    screen(hf["hf_fatf"], X6, L(45) - 0.2, L(46) + 0.2)
+    screen(hf["hf_fatf"], X6, L(45) - 0.2, nxt(45) + 0.2)
     shot(L(45) - 0.3, X6, 3900, 0.45, 0.0, strength=0.2)
     into(X6, L(45) + 0.1, E(45) + 0.2, 1.0, 1.04)
-    film.add(Card(X6 + 4600, -500, 2800, 1700, L(46) - 0.1, title="हाफ़िज़ सईद", lines=["लश्कर का संस्थापक", "टेरर-फ़ंडिंग: 31 साल (2022)"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
-    shot(L(46) + 0.3, X6 + 4600, -500, 0.62, -0.4)
+    if has(46): film.add(Card(X6 + 4600, -500, 2800, 1700, L(46) - 0.1, title="हाफ़िज़ सईद", lines=["लश्कर का संस्थापक", "टेरर-फ़ंडिंग: 31 साल (2022)"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=230, body_size=140))
+    if has(46): shot(L(46) + 0.3, X6 + 4600, -500, 0.62, -0.4)
     film.add(Stamp("बाहर · अक्टूबर 2022", X6 + 200, 1700, size=300, rot=6, rgb=(60, 90, 140), t_in=W(47, "बाहर") - 0.05))
     shot(L(47) + 0.3, X6 + 100, 1100, 0.55, 0.2)
     shot(L(48) + 0.3, X6 + 5000, 0, 0.3, 0.0, radius=900, strength=0.9)       # hard dark: "...नहीं।"
@@ -223,9 +232,9 @@ def build_film(doc):
     shot(L(49) + 0.3, X7 - 4500, -1700, 0.55, 0.0)
     shot(W(49, "चालीस"), X7 - 4500, -700, 0.6, 0.3)
     shot(W(49, "जैश"), X7 - 10000, -1200, 0.2, 0.0, strength=0.3)
-    film.add(Card(X7 - 4500, 2400, 2600, 1300, L(50) - 0.1, title="मसूद अज़हर", lines=["UN 1267 सूची"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=220, body_size=150))
-    film.add(Stamp("1 मई 2019", X7 - 4300, 2600, size=330, rot=-7, t_in=W(50, "सूची") - 0.05))
-    shot(L(50) + 0.6, X7 - 4500, 2300, 0.6, -0.3)
+    if has(50): film.add(Card(X7 - 4500, 2400, 2600, 1300, L(50) - 0.1, title="मसूद अज़हर", lines=["UN 1267 सूची"], rgb=(236, 230, 220), text_rgb=INK, accent=RED, title_size=220, body_size=150))
+    if has(50): film.add(Stamp("1 मई 2019", X7 - 4300, 2600, size=330, rot=-7, t_in=W(50, "सूची") - 0.05))
+    if has(50): shot(L(50) + 0.6, X7 - 4500, 2300, 0.6, -0.3)
     photo("P07", X7, -900, 2200, rot=-1.5, t_in=L(51) - 0.1, label="इमरान ख़ान · जुलाई 2019", label_t=W(51, "इमरान"))
     film.add(BigText("30,000–40,000", X7, 1900, 700, W(52, "तीस") - 0.1, rgb=CREAM, type_on=0.5))
     film.add(BigText("हथियारबंद लोग, अब भी पाकिस्तान में", X7, 2500, 190, W(52, "हथियारबंद"), font="label", rgb=CREAM, hit=None, shadow=False))

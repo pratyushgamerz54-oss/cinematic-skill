@@ -573,5 +573,18 @@
   "Khawaja Asif, Sky News (Yalda Hakim), about 24/25 April 2025: Pakistan had been doing 'dirty work for the United States for about three decades', and the West; he called it a mistake. He denied any Pakistani role in Pahalgam.",
   "Operation Sindoor began on 7 May 2025 (India's strikes on sites it said were LeT and JeM camps, including Muridke and Bahawalpur).",
   "Balance: the film states Pakistan's denials (lines 15, 25, 30, 54, 59) and its own losses (lines 37 to 39, 59). It names organisations and officials, never a people, and uses no images of victims or militant propaganda."
- ]
+ ],
+ "film_cut": {
+  "dropped_lines": [
+   15,
+   24,
+   29,
+   37,
+   38,
+   46,
+   50
+  ],
+  "length": "5:27",
+  "note": "Viraj's read at its natural pace (1.0x). Lines dropped from the film so it stays near 5:18 without speeding up the voice; gaps between lines capped at 0.6 s; pauses inside lines kept."
+ }
 }
