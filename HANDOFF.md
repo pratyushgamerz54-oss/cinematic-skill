@@ -134,8 +134,13 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
   story lines in T01..T11, about 5,630 characters, about 8:15 at Viraj's pace (user: total about 8 min,
   timed to their recording). `fact_notes` hold the sources. Reel `area51/reel/script.json`: 10 lines, 756
   characters. Both `beats.md` have 0 warnings. `voiceover_script.md` and `voiceover_script_emotions.md` written.
-- **Waiting for:** the user's approval of the script; then the voice (Viraj, recorded by the user).
-- Next, before the voice: Commons photos (15-20), globe, a 3D-style tilted map and a 3D terrain map of
+- Approved by the user (25 Nov 2026). **Waiting for the voice** (Viraj, recorded by the user in parts, see 18c).
+- Done before the voice: 26 Commons photos (`photos.json`, per-photo "grade"; P04 cropped to the signs), 5 globes
+  (teal palette), 3D terrain map `assets/3d/terrain.html` (8 shots, 58 s), `aircraft.html` (U-2, A-12, HAVE BLUE,
+  40 s), `s4.html` (claim, 10 s), HyperFrames `hf/` (gen.py: welcome, topic, go, qopen, haines, aaro, qend, rq; 73 s),
+  NASA footage (SR-71 take-off, ER-2 take-off), `clips.json` (all of them, cut by trim), `credits.md`, `thumbs.py`.
+  Wikimedia 429s video originals: use the `transcoded/.../<name>.480p.vp9.webm` (or 1080p) copies instead.
+- Original plan, before the voice: Commons photos (15-20), globe, a 3D-style tilted map and a 3D terrain map of
   Groom Lake (colourful NASA/USGS imagery), 3D models (the base with runway and hangars, U-2, A-12,
   Have Blue, the S-4 hangar in the mountain), real public-domain footage (U-2, A-12/SR-71 take-offs),
   a few HyperFrames graphics only (intro welcome/topic/go, qopen, two quote cards, qend, reel question),
