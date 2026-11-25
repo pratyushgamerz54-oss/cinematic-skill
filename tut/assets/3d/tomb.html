@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>KV62</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#050506}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Illustrative 3D model of tomb KV62 (proportions after the published plan; not survey-accurate).
+// 0-6 s: the sealed doorway, a candle at a small hole, gold light behind it, the camera pushes through.
+// 6-15 s: x-ray cutaway of the whole tomb: the camera flies down the stairs and corridor, then rises
+// to show the four small rooms, labels landing one by one.
+import * as THREE from 'three';
+import { setup, goldEnv, noiseTex, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x050506);
+const env = goldEnv(R);
+const label = await labeller(S);
+const sand = noiseTex('#8d7552', '40,25,10', 0.18, 14000, 1024, 3);
+const plaster = noiseTex('#b9a586', '60,45,25', 0.12, 9000, 1024, 11);
+const stoneM = new THREE.MeshStandardMaterial({ map: sand, roughness: 0.95 });
+const goldM = new THREE.MeshStandardMaterial({ color: 0xd8a23a, metalness: 1, roughness: 0.28, envMap: env, envMapIntensity: 1.4 });
+const amb = new THREE.HemisphereLight(0x8090b0, 0x140c06, 0.06); S.add(amb);
+
+// ---------- part 1: the sealed doorway ----------
+const door = new THREE.Group(); S.add(door); door.position.set(0, 0, -200);
+const wallM = new THREE.MeshStandardMaterial({ map: plaster, roughness: 1 });
+// a wall with a small square hole (four boxes round the hole)
+const W = 4, H = 4.2, hx = -0.55, hy = 2.55, hs = 0.36;
+function wb(w, h, x, y) { const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.4), wallM); b.position.set(x, y, 0); b.receiveShadow = true; door.add(b); }
+wb((hx - hs / 2) + W / 2, H, (-W / 2 + (hx - hs / 2)) / 2, H / 2);
+wb(W / 2 - (hx + hs / 2), H, ((hx + hs / 2) + W / 2) / 2, H / 2);
+wb(hs, hy - hs / 2, hx, (hy - hs / 2) / 2);
+wb(hs, H - (hy + hs / 2), hx, (H + hy + hs / 2) / 2);
+// stone jambs and lintel
+for (const [w, h, x, y] of [[0.5, 4.8, -2.25, 2.4], [0.5, 4.8, 2.25, 2.4], [5, 0.6, 0, 4.5]]) { const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.8), stoneM); b.position.set(x, y, 0.1); door.add(b); }
+// seal impressions: dark ovals in rows
+const sealM = new THREE.MeshStandardMaterial({ color: 0x7a6040, roughness: 1 });
+for (let r = 0; r < 9; r++) for (let k = 0; k < 10; k++) {
+  const x = -1.7 + k * 0.36 + (r % 2) * 0.18 + Math.sin(r * 7 + k * 3) * 0.05, y = 0.5 + r * 0.4 + Math.cos(r * 5 + k * 11) * 0.05;
+  if (Math.abs(x - hx) < 0.32 && Math.abs(y - hy) < 0.32) continue;
+  const s = new THREE.Mesh(new THREE.CircleGeometry(0.05, 24), sealM); s.scale.set(1, 1.35, 1); s.position.set(x, y, 0.205); door.add(s);
+}
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), stoneM); floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; door.add(floor);
+// the treasure behind the wall (glimpsed through the hole)
+const behind = new THREE.Group(); door.add(behind); behind.position.set(hx, 0, -3);
+for (const [w, h, d, x, y, z] of [[1.2, 1.6, 0.8, -0.6, 0.8, -1], [0.9, 0.9, 0.9, 0.9, 0.45, -0.6], [2.4, 0.3, 0.9, 0.2, 1.2, -2.2], [0.5, 2.2, 0.5, -1.6, 1.1, -1.8], [1.6, 0.8, 0.7, 1.4, 1.4, -2.6]]) {
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), goldM); b.position.set(x, y, z); behind.add(b);
+}
+const darkStone = new THREE.MeshStandardMaterial({ map: sand, roughness: 1, color: 0x6a5a48 });
+const back = new THREE.Mesh(new THREE.BoxGeometry(7, 5, 6), darkStone); back.material.side = THREE.BackSide; back.position.set(0, 2.5, -1.5); behind.add(back);
+const head = new THREE.Mesh(new THREE.SphereGeometry(0.45, 32, 24), goldM); head.position.set(0.2, 2.1, -1.5); behind.add(head);
+const glow = new THREE.PointLight(0xffb060, 0, 9, 2); glow.position.set(hx, hy, -0.6); door.add(glow);
+// candle
+const candle = new THREE.Group(); door.add(candle);
+const wax = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.28, 16), new THREE.MeshStandardMaterial({ color: 0xe9dcc0, roughness: 0.6, emissive: 0x6a4a20 })); candle.add(wax);
+const fc = document.createElement('canvas'); fc.width = 64; fc.height = 128; const fx = fc.getContext('2d');
+const gr = fx.createRadialGradient(32, 80, 2, 32, 70, 40); gr.addColorStop(0, 'rgba(255,250,220,1)'); gr.addColorStop(0.3, 'rgba(255,190,80,0.9)'); gr.addColorStop(1, 'rgba(255,120,20,0)');
+fx.fillStyle = gr; fx.beginPath(); fx.ellipse(32, 72, 18, 46, 0, 0, Math.PI * 2); fx.fill();
+const flame = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(fc), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+flame.scale.set(0.09, 0.18, 1); flame.position.y = 0.22; candle.add(flame);
+const cl = new THREE.PointLight(0xffa850, 2.2, 7, 2); cl.position.y = 0.25; cl.castShadow = true; candle.add(cl);
+// a full-screen gold flash as the camera passes through
+const flash = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), new THREE.MeshBasicMaterial({ color: 0xffc860, transparent: true, opacity: 0, depthTest: false, blending: THREE.AdditiveBlending }));
+flash.renderOrder = 99; S.add(flash);
+
+// ---------- part 2: the tomb in x-ray ----------
+const tomb = new THREE.Group(); S.add(tomb);
+const roomM = new THREE.MeshStandardMaterial({ map: sand, roughness: 0.9, transparent: true, opacity: 0.88 });
+const floorM = new THREE.MeshStandardMaterial({ color: 0xc29a5c, roughness: 0.8, emissive: 0x3a240c });
+const edgeM = new THREE.LineBasicMaterial({ color: 0xe0362c, transparent: true, opacity: 0.9 });
+function room(x0, x1, z0, z1, y, h) {
+  const g = new THREE.Group(), w = x1 - x0, d = z1 - z0, cx = (x0 + x1) / 2, cz = (z0 + z1) / 2;
+  const f = new THREE.Mesh(new THREE.BoxGeometry(w, 0.1, d), floorM); f.position.set(cx, y, cz); f.receiveShadow = true; g.add(f);
+  const t = 0.12;
+  for (const [ww, dd, xx, zz] of [[w, t, cx, z0], [w, t, cx, z1], [t, d, x0, cz], [t, d, x1, cz]]) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(ww, h, dd), roomM); m.position.set(xx, y + h / 2, zz); m.castShadow = true; g.add(m);
+  }
+  const e = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(w, h, d)), edgeM); e.position.set(cx, y + h / 2, cz); g.add(e);
+  tomb.add(g); return g;
+}
+// stairs: 16 steps down to the west
+const steps = new THREE.Group(); tomb.add(steps);
+for (let i = 0; i < 16; i++) { const s = new THREE.Mesh(new THREE.BoxGeometry(0.44, 0.28, 1.7), floorM); s.position.set(-i * 0.44, -i * 0.28 - 0.14, 0); s.receiveShadow = true; steps.add(s); }
+const corridor = room(-15, -7, -0.85, 0.85, -4.5, 2.0);
+const ante = room(-18.6, -15, -6.9, 1.0, -4.6, 2.7);
+const burial = room(-19.4, -13, -10.9, -6.9, -5.4, 3.6);
+const treasury = room(-13, -9.2, -12.1, -7.4, -5.4, 2.3);
+const annex = room(-22.9, -18.6, -1.6, 1.0, -5.2, 2.6);
+// the gilded shrine in the burial chamber
+const shrine = new THREE.Mesh(new THREE.BoxGeometry(5.0, 2.75, 3.3), goldM); shrine.position.set(-16.2, -5.4 + 1.42, -8.9); tomb.add(shrine);
+const gl2 = new THREE.PointLight(0xffc070, 30, 14, 2); gl2.position.set(-16.2, -2.2, -6); tomb.add(gl2);
+// ground level: a faint grid sheet at y = 0 and the valley floor line
+const gc = document.createElement('canvas'); gc.width = gc.height = 512; const gx = gc.getContext('2d');
+gx.strokeStyle = 'rgba(224,54,44,0.35)'; gx.lineWidth = 2; for (let i = 0; i <= 512; i += 32) { gx.beginPath(); gx.moveTo(i, 0); gx.lineTo(i, 512); gx.stroke(); gx.beginPath(); gx.moveTo(0, i); gx.lineTo(512, i); gx.stroke(); }
+const gt = new THREE.CanvasTexture(gc); gt.wrapS = gt.wrapT = THREE.RepeatWrapping; gt.repeat.set(6, 6);
+const sheet = new THREE.Mesh(new THREE.PlaneGeometry(60, 60), new THREE.MeshBasicMaterial({ map: gt, transparent: true, opacity: 0.45, depthWrite: false }));
+sheet.rotation.x = -Math.PI / 2; sheet.position.set(-11, 0.01, -5); tomb.add(sheet);
+// the descent path, a red line drawing on
+const path = new THREE.CatmullRomCurve3([[1.5, 0.3, 0], [-7, -4.2, 0], [-14.6, -4.2, 0], [-16.8, -4.3, -3.5], [-16.2, -4.8, -7.2]].map(p => new THREE.Vector3(...p)));
+const tube = new THREE.Mesh(new THREE.TubeGeometry(path, 200, 0.08, 8), new THREE.MeshBasicMaterial({ color: 0xff3b2e })); tomb.add(tube);
+tube.geometry.setDrawRange(0, 0);
+S.add(new THREE.AmbientLight(0x404040, 0.0));
+const key = new THREE.DirectionalLight(0xfff0dd, 0); key.position.set(10, 30, 20); key.castShadow = true;
+Object.assign(key.shadow.camera, { left: -30, right: 30, top: 30, bottom: -30 }); key.shadow.mapSize.set(2048, 2048); S.add(key);
+const L = {
+  steps: label('16 सीढ़ियाँ'), corr: label('गलियारा'), ante: label('आगे का कक्ष'), burial: label('दफ़न कक्ष', 'सोने का कवच', true),
+  tre: label('ख़ज़ाना कक्ष'), annex: label('उप-कक्ष'), title: label('कब्र KV62', 'राजा के हिसाब से बहुत छोटी'), note: label('प्रतीकात्मक 3D मॉडल')
+};
+L.steps.position.set(0.8, 0.9, 1.9); L.corr.position.set(-11, -1.8, 1.2); L.ante.position.set(-16.8, -0.9, 1.6);
+L.burial.position.set(-16.2, 0.2, -10); L.tre.position.set(-11.1, -1.8, -12.6); L.annex.position.set(-20.8, -1.6, 1.4); L.title.position.set(-8, 2.5, 3);
+
+function draw(t) {
+  const p2 = t >= 6;
+  door.visible = !p2; tomb.visible = p2;
+  if (!p2) {
+    amb.intensity = 0.05; key.intensity = 0;
+    // candle comes in from the right and rises to the hole
+    const k = ease(ramp(t, 0.2, 2.6));
+    candle.position.set(lerp(1.6, hx + 0.28, k), lerp(1.4, hy - 0.22, k), 0.55);
+    const fl = 1 + 0.12 * Math.sin(t * 23) + 0.08 * Math.sin(t * 37 + 1);
+    cl.intensity = 2.2 * fl; flame.scale.set(0.09 * fl, 0.18 * (2 - fl), 1);
+    glow.intensity = 14 * ease(ramp(t, 2.2, 1.6)) * fl;
+    // camera: a slow push toward the hole, then through it
+    const c = ease(ramp(t, 0, 3.6)), c2 = ease(ramp(t, 3.6, 2.4));
+    const pos = new THREE.Vector3(lerp(0.4, hx + 0.1, c), lerp(1.9, hy - 0.05, c), lerp(6.5, 2.2, c));
+    pos.lerp(new THREE.Vector3(hx, hy, -0.6), c2);
+    cam.position.copy(pos).add(door.position);
+    cam.lookAt(new THREE.Vector3(hx, hy - 0.1 * (1 - c), -3).add(door.position));
+    cam.fov = 34; cam.updateProjectionMatrix();
+    flash.material.opacity = Math.pow(ramp(t, 5.2, 0.8), 2);
+  } else {
+    const u = t - 6;
+    amb.intensity = 0.35; key.intensity = 1.2 * ramp(u, 0, 0.8);
+    flash.material.opacity = 1 - ramp(u, 0, 0.6);
+    tube.geometry.setDrawRange(0, Math.floor(ease(ramp(u, 0.3, 3.2)) * 200 * 8 * 6));
+    // fly down the stairs and corridor, then rise to an overview and drift round it
+    const a = ease(ramp(u, 0, 3.4)), b = ease(ramp(u, 3.0, 2.6));
+    const down = new THREE.Vector3(lerp(7, -8, a), lerp(6.5, 3.0, a), lerp(7, 7.5, a));
+    const orb = 0.6 + u * 0.05;
+    const over = new THREE.Vector3(-13 + Math.cos(orb) * 15, 12, -5 + Math.sin(orb) * 15);
+    cam.position.copy(down).lerp(over, b);
+    const look = new THREE.Vector3(lerp(-6, -16, a), lerp(-3, -4.6, a), lerp(0, -2, a)).lerp(new THREE.Vector3(-14, -4.4, -5), b);
+    cam.lookAt(look);
+    cam.fov = 40; cam.updateProjectionMatrix();
+    showLabel(L.steps, cam, u, 0.6, 0.045, 3.2); showLabel(L.corr, cam, u, 1.8, 0.045, 3.6);
+    showLabel(L.ante, cam, u, 4.6, 0.04); showLabel(L.burial, cam, u, 5.2, 0.042); showLabel(L.tre, cam, u, 5.8, 0.036);
+    showLabel(L.annex, cam, u, 6.3, 0.036); showLabel(L.title, cam, u, 6.9, 0.05);
+  }
+  flash.position.copy(cam.position).add(cam.getWorldDirection(new THREE.Vector3()).multiplyScalar(0.3)); flash.quaternion.copy(cam.quaternion);
+  pinNote(L.note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(draw, 15);
+</script></body></html>

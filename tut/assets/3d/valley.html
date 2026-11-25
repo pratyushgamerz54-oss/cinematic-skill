@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Valley</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#050506}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Illustrative terrain of the Valley of the Kings (not to scale): the small doorway of KV62 on the
+// valley floor; about two centuries later the tomb of Ramesses VI is cut just above it, and its debris
+// and the workmen's huts bury the KV62 entrance.  10 s.
+import * as THREE from 'three';
+import { setup, noiseTex, labeller, showLabel, pinNote, run, ramp, ease, lerp } from './common.js';
+const { R, S, cam } = setup(0x1a1410);
+S.fog = new THREE.Fog(0x1a1410, 60, 220);
+const label = await labeller(S);
+let seed = 9; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+function n2(x, z) { return Math.sin(x * 0.21 + Math.sin(z * 0.13)) * 0.5 + Math.sin(z * 0.37 + x * 0.11) * 0.35 + Math.sin(x * 0.9 + z * 0.7) * 0.12; }
+// valley floor along x, cliffs rising on both sides
+const geo = new THREE.PlaneGeometry(240, 160, 240, 160); geo.rotateX(-Math.PI / 2);
+const P = geo.attributes.position;
+for (let i = 0; i < P.count; i++) {
+  const x = P.getX(i), z = P.getZ(i), d = Math.abs(z + Math.sin(x * 0.04) * 6);
+  const cliff = d < 10 ? 0 : Math.pow((d - 10) / 22, 1.6) * 34;
+  P.setY(i, Math.min(cliff, 60) + n2(x, z) * (0.6 + Math.min(cliff, 30) * 0.08));
+}
+geo.computeVertexNormals();
+const rock = noiseTex('#a7865c', '60,40,20', 0.22, 20000, 1024, 5); rock.repeat.set(14, 10);
+const ground = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: rock, roughness: 1, color: 0xd8b888 })); ground.receiveShadow = true; S.add(ground);
+const sun = new THREE.DirectionalLight(0xffd6a0, 2.6); sun.position.set(70, 60, -45); sun.castShadow = true;
+Object.assign(sun.shadow.camera, { left: -60, right: 60, top: 60, bottom: -60, near: 1, far: 300 }); sun.shadow.mapSize.set(2048, 2048); S.add(sun);
+S.add(new THREE.HemisphereLight(0x9fb0d0, 0x3a2614, 1.0));
+const darkM = new THREE.MeshBasicMaterial({ color: 0x060404 });
+const stoneM = new THREE.MeshStandardMaterial({ map: rock, roughness: 1, color: 0xc8a676 });
+// KV62: a small cut in the valley floor with steps going down
+const kv62 = new THREE.Vector3(4, 0, 6);
+const pit = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.25, 4.5), darkM); pit.position.copy(kv62).add(new THREE.Vector3(0, 0.12, 0)); S.add(pit);
+for (const sx of [-1, 1]) { const w = new THREE.Mesh(new THREE.BoxGeometry(0.4, 0.8, 4.8), stoneM); w.position.copy(kv62).add(new THREE.Vector3(sx * 1.2, 0.3, 0)); S.add(w); }
+const ringM = new THREE.MeshBasicMaterial({ color: 0xe0362c, transparent: true, opacity: 0, side: THREE.DoubleSide });
+const ring62 = new THREE.Mesh(new THREE.RingGeometry(3.2, 3.6, 64), ringM); ring62.rotation.x = -Math.PI / 2; ring62.position.copy(kv62).add(new THREE.Vector3(0, 0.6, 0)); S.add(ring62);
+// KV9 (Ramesses VI): a large doorway cut into the cliff face just above and behind
+const kv9 = new THREE.Vector3(-2, 6.0, 19.0);
+const door9 = new THREE.Mesh(new THREE.BoxGeometry(4.2, 5.6, 4), darkM); door9.position.copy(kv9); S.add(door9);
+const frame9 = new THREE.Mesh(new THREE.BoxGeometry(6, 1, 4.6), stoneM); frame9.position.copy(kv9).add(new THREE.Vector3(0, 3.2, 0)); S.add(frame9);
+// debris: rocks that tumble down from KV9 and pile over KV62
+const debris = [];
+for (let i = 0; i < 260; i++) {
+  const s = 0.25 + rnd() * 0.7;
+  const m = new THREE.Mesh(new THREE.DodecahedronGeometry(s, 0), stoneM); m.castShadow = true; m.receiveShadow = true;
+  const a = rnd() * Math.PI * 2, r = Math.sqrt(rnd()) * 5.2;
+  const end = new THREE.Vector3(kv62.x + Math.cos(a) * r * 1.2, 0, kv62.z + Math.sin(a) * r * 0.9);
+  end.y = Math.max(0.1, (1 - r / 5.2) * 2.4) + s * 0.4;
+  m.userData = { start: kv9.clone().add(new THREE.Vector3((rnd() - 0.5) * 3, -2 + rnd() * 2, -1)), end, t0: 2.6 + rnd() * 3.0, rot: rnd() * 6 };
+  S.add(m); debris.push(m);
+}
+// workmen's huts on top of the debris
+const huts = [];
+const hutM = new THREE.MeshStandardMaterial({ color: 0x9a7a52, roughness: 1, map: rock });
+for (let i = 0; i < 5; i++) {
+  const h = new THREE.Group();
+  const b = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.6, 2.0), hutM); b.position.y = 0.8; b.castShadow = true; h.add(b);
+  const roof = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.2, 2.3), new THREE.MeshStandardMaterial({ color: 0x5a4430, roughness: 1 })); roof.position.y = 1.7; h.add(roof);
+  h.position.set(kv62.x - 4 + i * 2.2 + (i % 2) * 0.4, 1.6 - Math.abs(i - 2) * 0.5, kv62.z - 1 + (i % 2) * 2.4); h.rotation.y = (i - 2) * 0.12;
+  h.userData.t0 = 5.6 + i * 0.25; S.add(h); huts.push(h);
+}
+const L = {
+  kv62: label('तूतनख़ामुन की कब्र', 'KV62'), kv9: label('रामसेस छठे की कब्र', 'लगभग 200 साल बाद'),
+  deb: label('मलबा और झोपड़ियाँ', 'दरवाज़ा दब गया', true), note: label('प्रतीकात्मक 3D मॉडल')
+};
+L.kv62.position.copy(kv62).add(new THREE.Vector3(0, 3.5, 0)); L.kv9.position.copy(kv9).add(new THREE.Vector3(0, 5.5, 0)); L.deb.position.copy(kv62).add(new THREE.Vector3(-3, 6, 0));
+function draw(t) {
+  for (const m of debris) {
+    const k = ramp(t, m.userData.t0, 1.1), e = k * k;
+    m.visible = t > m.userData.t0;
+    m.position.copy(m.userData.start).lerp(m.userData.end, ease(k));
+    m.position.y += Math.sin(k * Math.PI) * 1.5 * (1 - e);
+    m.rotation.set(m.userData.rot + k * 4, k * 3, 0);
+  }
+  ringM.opacity = ramp(t, 0.4, 0.4) * (1 - ramp(t, 4.0, 0.6));
+  for (const h of huts) { const k = ease(ramp(t, h.userData.t0, 0.6)); h.visible = k > 0; h.scale.set(1, Math.max(k, 0.001), 1); }
+  // camera: low on the valley floor looking at KV62, swing to show KV9 above, then pull back and up
+  const a = ease(ramp(t, 0, 3.0)), b = ease(ramp(t, 6.2, 3.5));
+  const p0 = new THREE.Vector3(22, 6, -14), p1 = new THREE.Vector3(18, 9, -16), p2 = new THREE.Vector3(34, 26, -32);
+  cam.position.copy(p0).lerp(p1, a).lerp(p2, b);
+  const l0 = kv62.clone(), l1 = new THREE.Vector3(1, 2.5, 10);
+  cam.lookAt(l0.clone().lerp(l1, a).lerp(new THREE.Vector3(0, 2, 8), b));
+  cam.fov = 38; cam.updateProjectionMatrix();
+  showLabel(L.kv62, cam, t, 0.5, 0.05, 6.0); showLabel(L.kv9, cam, t, 2.0, 0.05, 6.4); showLabel(L.deb, cam, t, 6.3, 0.055);
+  pinNote(L.note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(draw, 10);
+</script></body></html>

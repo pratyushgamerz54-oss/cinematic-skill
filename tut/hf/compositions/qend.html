@@ -1,0 +1,30 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+</style>
+  <div id="root" data-composition-id="qend" data-width="1920" data-height="1080">
+    <div id="qend-a" class="clip k" data-start="0" data-duration="8" style="top:200px;font-family:'Hind HF';font-size:76px">उन्नीस साल का वो राजा, आख़िर मरा कैसे?</div>
+    <div id="qend-w1" class="clip" data-start="0.9" data-duration="7.1" style="position:absolute;left:230px;top:380px;font-family:'Teko HF';font-size:170px;line-height:1">बीमारी?</div>
+    <div id="qend-w2" class="clip" data-start="1.5" data-duration="6.5" style="position:absolute;left:800px;top:380px;font-family:'Teko HF';font-size:170px;line-height:1">हादसा?</div>
+    <div id="qend-w3" class="clip red" data-start="2.1" data-duration="5.9" style="position:absolute;left:1330px;top:380px;font-family:'Teko HF';font-size:170px;line-height:1">साज़िश?</div>
+    <div id="qend-b" class="clip k gold" data-start="3.6" data-duration="4.4" style="top:660px;font-family:'Teko HF';font-size:150px;line-height:1">आप क्या सोचते हैं?</div>
+    <div id="qend-c" class="clip k" data-start="4.6" data-duration="3.4" style="top:850px;font-family:'Hind HF Light';font-size:40px;color:#b9b0a4">कमेंट में बताइए</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#qend-a",{opacity:0,y:30},{opacity:1,y:0,duration:0.7,ease:"power3.out"},0);
+    for (const [id,t] of [["#qend-w1",0.9],["#qend-w2",1.5],["#qend-w3",2.1]]) tl.fromTo(id,{opacity:0,y:50,scale:1.2},{opacity:1,y:0,scale:1,duration:0.3,ease:"power4.out"},t);
+    tl.fromTo("#qend-b",{opacity:0,scale:1.3},{opacity:1,scale:1,duration:0.35,ease:"power4.out"},3.6);
+    tl.fromTo("#qend-c",{opacity:0},{opacity:1,duration:0.5},4.6);
+    window.__timelines["qend"] = tl;
+  </script>
+</template>

@@ -1,0 +1,8 @@
+assets/prep/clips/
+hf/.hyperframes/
+hf/renders/
+hf/node_modules/
+out/*.mp4
+!out/*_share.mp4
+assets/3d/*.png
+assets/clips/*.png

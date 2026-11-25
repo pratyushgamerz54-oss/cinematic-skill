@@ -1,0 +1,125 @@
+{
+ "fps": 30,
+ "clips": [
+  {
+   "id": "g_luxor",
+   "file": "assets/clips/g_luxor.mp4",
+   "what": "3D globe: night descent onto the Valley of the Kings, Luxor",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_carnarvon",
+   "file": "assets/clips/g_carnarvon.mp4",
+   "what": "3D globe: by sea from England to Egypt, then up the Nile to Luxor (1917 season)",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_verdict",
+   "file": "assets/clips/g_verdict.mp4",
+   "what": "3D globe: Luxor to Giza",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "door",
+   "file": "assets/clips/tomb.mp4",
+   "trim": [
+    0,
+    6
+   ],
+   "what": "Illustrative 3D: the sealed doorway, a candle at the hole",
+   "grade": "natural",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "tomb",
+   "file": "assets/clips/tomb.mp4",
+   "trim": [
+    6,
+    15
+   ],
+   "what": "Illustrative 3D cutaway of tomb KV62 (after the published plan)",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "coffins",
+   "file": "assets/clips/coffins.mp4",
+   "what": "Illustrative 3D: the three nested coffins pulled apart",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "valley",
+   "file": "assets/clips/valley.mp4",
+   "what": "Illustrative 3D: Valley of the Kings, KV62 buried by the debris of KV9",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "ctscan",
+   "file": "assets/clips/ctscan.mp4",
+   "what": "Symbolic 3D scan diagram (not the mummy): skull fragment, left femur, foot",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qopen",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    0,
+    6
+   ],
+   "what": "HyperFrames motion graphic: qopen",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_title",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    6,
+    11
+   ],
+   "what": "HyperFrames motion graphic: title",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_wonder",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    11,
+    18
+   ],
+   "what": "HyperFrames motion graphic: wonder",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qend",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    18,
+    26
+   ],
+   "what": "HyperFrames motion graphic: qend",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_rq",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    26,
+    31
+   ],
+   "what": "HyperFrames motion graphic: rq",
+   "credit": "Made in code (HyperFrames)",
+   "license": "Own work"
+  }
+ ]
+}

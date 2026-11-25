@@ -1,5 +1,229 @@
 {
- "grade": "natural",
- "photos": [],
+ "grade": "bw",
+ "photos": [
+  {
+   "id": "P01",
+   "what": "Howard Carter, portrait, 1924",
+   "kind": "photo",
+   "commons": "File:Portrait of Howard Carter.jpg",
+   "file": "P01_Portrait_of_Howard_Carter.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Portrait_of_Howard_Carter.jpg",
+   "credit": "William Carter (1863 - 1939)",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1924",
+   "license_ok": true
+  },
+  {
+   "id": "P02",
+   "what": "Lord Carnarvon at Carter's house, Theban west bank (Burton)",
+   "kind": "photo",
+   "commons": "File:George Herbert, 5th Earl of Carnarvon, reading.jpg",
+   "file": "P02_George_Herbert_5th_Earl_of_Carnarvon_reading.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:George_Herbert,_5th_Earl_of_Carnarvon,_reading.jpg",
+   "credit": "Harry Burton",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "before 1923date QS:P,+1923-00-00T00:00:00Z/7,P1326,+1923-00-00T00:00:00Z/9",
+   "license_ok": true
+  },
+  {
+   "id": "P03",
+   "what": "Gold mask of Tutankhamun, Egyptian Museum Cairo",
+   "kind": "photo",
+   "commons": "File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+   "file": "P03_CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg",
+   "credit": "Roland Unger",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "2016-01-01",
+   "license_ok": true
+  },
+  {
+   "id": "P04",
+   "what": "Statue of Akhenaten, Egyptian Museum Cairo",
+   "kind": "photo",
+   "commons": "File:Statue of Akhenaten, Egyptian Museum, al-Qāhirah, CG, EGY (46992844015).jpg",
+   "file": "P04_Statue_of_Akhenaten_Egyptian_Museum_al_Q_hirah_C.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Statue_of_Akhenaten,_Egyptian_Museum,_al-Q%C4%81hirah,_CG,_EGY_(46992844015).jpg",
+   "credit": "Warren LeMay from Cincinnati, OH, United States",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "2019-05-12 13:43",
+   "license_ok": true
+  },
+  {
+   "id": "P05",
+   "what": "Akhenaten, Nefertiti and daughters under the Aten, relief, Berlin",
+   "kind": "photo",
+   "commons": "File:Relief of the royal family, Akhenaten, Nefertiti and the three daughters, 1352–1336 BC, painted limestone, 25 × 20 cm, Egyptian Museum of Berlin.jpg",
+   "file": "P05_Relief_of_the_royal_family_Akhenaten_Nefertiti_a.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Relief_of_the_royal_family,_Akhenaten,_Nefertiti_and_the_three_daughters,_1352%E2%80%931336_BC,_painted_limestone,_25_%C3%97_20_cm,_Egyptian_Museum_of_Berlin.jpg",
+   "credit": "Neoclassicism Enthusiast",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "2023-07-05 16:32:56",
+   "license_ok": true
+  },
+  {
+   "id": "P06",
+   "what": "Restoration Stela of Tutankhamun",
+   "kind": "photo",
+   "commons": "File:Ancient Egyptian Stone Restoration Stela (55579902238).jpg",
+   "file": "P06_Ancient_Egyptian_Stone_Restoration_Stela_5557990.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Ancient_Egyptian_Stone_Restoration_Stela_(55579902238).jpg",
+   "credit": "Nate Loper",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "date": "2023-11-27 11:33:51",
+   "license_ok": true
+  },
+  {
+   "id": "P07",
+   "what": "Tutankhamun and Ankhesenamun, back panel of the golden throne",
+   "kind": "photo",
+   "commons": "File:Tutankhamun and his wife B. C. 1330.jpg",
+   "file": "P07_Tutankhamun_and_his_wife_B_C_1330.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_and_his_wife_B._C._1330.jpg",
+   "credit": "Scan by Pataki Márta",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "date": "B. C. 1330",
+   "license_ok": true
+  },
+  {
+   "id": "P08",
+   "what": "Statue of Ay, Akhmim",
+   "kind": "photo",
+   "commons": "File:AkhmimAy.jpg"
+  },
+  {
+   "id": "P09",
+   "what": "Statue of king Horemheb with the god Amun",
+   "kind": "photo",
+   "commons": "File:Statue of king Horemheb with the god Amun.tif",
+   "file": "P09_Statue_of_king_Horemheb_with_the_god_Amun.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Statue_of_king_Horemheb_with_the_god_Amun.tif",
+   "credit": "Unknown authorUnknown author",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "21 December 2022",
+   "license_ok": true
+  },
+  {
+   "id": "P10",
+   "what": "Burial chamber painting, KV62",
+   "kind": "photo",
+   "commons": "File:Egypt.KV62.01.jpg",
+   "file": "P10_Egypt_KV62_01.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Egypt.KV62.01.jpg",
+   "credit": "",
+   "license": "CC BY-SA 3.0",
+   "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "date": "2005-05-02 04:01:34",
+   "license_ok": true
+  },
+  {
+   "id": "P11",
+   "what": "Abydos King List",
+   "kind": "photo",
+   "commons": "File:Abydos King List.jpg"
+  },
+  {
+   "id": "P12",
+   "what": "Valley of the Kings panorama",
+   "kind": "photo",
+   "commons": "File:Valley of the Kings panorama.jpg",
+   "file": "P12_Valley_of_the_Kings_panorama.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Valley_of_the_Kings_panorama.jpg",
+   "credit": "Nikola Smolenski",
+   "license": "CC BY-SA 3.0 rs",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0/rs/deed.en",
+   "date": "2008-07-24",
+   "license_ok": true
+  },
+  {
+   "id": "P13",
+   "what": "Antechamber of KV62 as found, 1922 (Burton)",
+   "kind": "photo",
+   "commons": "File:Tutankhamun tomb photographs 2 020.jpg",
+   "file": "P13_Tutankhamun_tomb_photographs_2_020.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Tutankhamun_tomb_photographs_2_020.jpg",
+   "credit": "Harry Burton (1879-1940)",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1922",
+   "license_ok": true
+  },
+  {
+   "id": "P14",
+   "what": "Carter opens the shrine doors (Burton)",
+   "kind": "photo",
+   "commons": "File:The Moment Carter Opens the Shrine.jpg",
+   "file": "P14_The_Moment_Carter_Opens_the_Shrine.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:The_Moment_Carter_Opens_the_Shrine.jpg",
+   "credit": "Harry Burton",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "3 January 1924 or 4 January 1924",
+   "license_ok": true
+  },
+  {
+   "id": "P15",
+   "what": "Innermost solid gold coffin (Leo Wehrli, 1938)",
+   "kind": "photo",
+   "commons": "File:ETH-BIB-Tut-Ank-Amon's Treasures, Innermost coffin of thick gold-Dia 247-11135.tif"
+  },
+  {
+   "id": "P16",
+   "what": "Iron dagger of Tutankhamun, Egyptian Museum Cairo",
+   "kind": "photo",
+   "commons": "File:Kairo Museum Eisendolch Tutanchamun 01.jpg",
+   "file": "P16_Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg",
+   "credit": "Olaf Tausch",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "date": "2019-10-16",
+   "license_ok": true
+  },
+  {
+   "id": "P17",
+   "what": "KV62 today, entrance",
+   "kind": "photo",
+   "commons": "File:KV62, Egypt 09.jpg"
+  },
+  {
+   "id": "P18",
+   "what": "The mask on display, 2025",
+   "kind": "photo",
+   "commons": "File:Mask of Tutankhamun in 2025.jpg"
+  },
+  {
+   "id": "P19",
+   "what": "Tomb photograph, 1923 (Burton)",
+   "kind": "photo",
+   "commons": "File:Tutankhamun tomb photographs 4 291.jpg"
+  },
+  {
+   "id": "P20",
+   "what": "Howard Carter, 1924 (Chicago Daily News)",
+   "kind": "photo",
+   "commons": "File:Howard carter.jpg"
+  },
+  {
+   "id": "P21",
+   "what": "KV62 today, inside",
+   "kind": "photo",
+   "commons": "File:KV62, Egypt 03.jpg"
+  },
+  {
+   "id": "P22",
+   "what": "Antechamber, 1922 (Burton)",
+   "kind": "photo",
+   "commons": "File:Tutankhamun tomb photographs 2 011.jpg"
+  }
+ ],
  "recreations": []
 }

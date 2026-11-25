@@ -1,0 +1,32 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+</style>
+  <div id="root" data-composition-id="wonder" data-width="1920" data-height="1080">
+    <div id="wonder-glow" class="clip" data-start="0" data-duration="7" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(255,190,90,0.55) 0%,rgba(255,150,40,0.12) 40%,rgba(0,0,0,0) 70%);opacity:0"></div>
+    <div id="wonder-q" class="clip k" data-start="0" data-duration="7" style="top:200px;font-family:'Hind HF';font-size:64px;color:#cfc6b8">लॉर्ड कार्नारवन: “Can you see anything?”</div>
+    <div id="wonder-a" class="clip k gold" data-start="2.4" data-duration="4.6" style="top:390px;font-family:'Tiro HF';font-size:150px;line-height:1.1">“Yes, wonderful things.”</div>
+    <div id="wonder-h" class="clip k" data-start="3.4" data-duration="3.6" style="top:640px;font-family:'Hind HF';font-size:80px">हाँ... अद्भुत चीज़ें।</div>
+    <div id="wonder-s" class="clip src" data-start="3.8" data-duration="3.2">हावर्ड कार्टर · 26 नवंबर 1922</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#wonder-q",{opacity:0,y:16},{opacity:1,y:0,duration:0.6,ease:"power2.out"},0.1);
+    tl.fromTo("#wonder-glow",{opacity:0},{opacity:1,duration:1.6,ease:"power2.in"},1.6);
+    tl.fromTo("#wonder-a",{opacity:0,scale:1.08,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:0.9,ease:"power3.out"},2.4);
+    tl.fromTo("#wonder-q",{opacity:1},{opacity:0.4,duration:0.6,immediateRender:false},2.6);
+    tl.fromTo("#wonder-h",{opacity:0,y:20},{opacity:1,y:0,duration:0.5,ease:"power2.out"},3.4);
+    tl.fromTo("#wonder-s",{opacity:0},{opacity:1,duration:0.5},3.8);
+    tl.fromTo("#wonder-a",{scale:1},{scale:1.04,duration:3.6,ease:"none",immediateRender:false},3.3);
+    window.__timelines["wonder"] = tl;
+  </script>
+</template>

@@ -1,0 +1,28 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+</style>
+  <div id="root" data-composition-id="title" data-width="1920" data-height="1080">
+    <svg id="title-cart" class="clip" data-start="0" data-duration="5" style="position:absolute;left:310px;top:250px" width="1300" height="400" viewBox="0 0 1300 400"><rect id="title-ring" x="20" y="20" width="1240" height="330" rx="165" fill="none" stroke="#e3b04b" stroke-width="10"/><line id="title-bar" x1="1280" y1="40" x2="1280" y2="330" stroke="#e3b04b" stroke-width="12"/></svg>
+    <div id="title-a" class="clip k gold" data-start="0" data-duration="5" style="top:300px;font-family:'Teko HF';font-size:250px;line-height:1">तूतनख़ामुन</div>
+    <div id="title-b" class="clip k" data-start="1.2" data-duration="3.8" style="top:720px;font-family:'Hind HF';font-size:56px;color:#cfc6b8">मिटाया गया राजा: एक जाँच</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#title-a",{opacity:0,y:40,scale:1.12},{opacity:1,y:0,scale:1,duration:0.9,ease:"power3.out"},0);
+    tl.fromTo("#title-ring",{strokeDasharray:3400,strokeDashoffset:3400},{strokeDashoffset:0,duration:1.4,ease:"power2.inOut"},0.3);
+    tl.fromTo("#title-bar",{opacity:0},{opacity:1,duration:0.3},1.5);
+    tl.fromTo("#title-b",{opacity:0,y:20},{opacity:1,y:0,duration:0.5,ease:"power2.out"},1.2);
+    tl.fromTo("#title-a",{scale:1},{scale:1.04,duration:4.1,ease:"none",immediateRender:false},0.9);
+    window.__timelines["title"] = tl;
+  </script>
+</template>

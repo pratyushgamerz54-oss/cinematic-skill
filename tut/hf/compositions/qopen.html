@@ -1,0 +1,31 @@
+<template>
+  <style>
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,#1f1810 0%,#0c0906 62%,#050403 100%);overflow:hidden;color:#f3ede4;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.red{color:#d8322a;}
+.rule{position:absolute;height:6px;background:#d8322a;transform-origin:0 50%;}
+.src{position:absolute;left:0;right:0;bottom:150px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#b9b0a4;letter-spacing:.02em;}
+  .gold{color:#e3b04b;}
+</style>
+  <div id="root" data-composition-id="qopen" data-width="1920" data-height="1080">
+    <div id="qopen-a" class="clip k" data-start="0" data-duration="6" style="top:250px;font-family:'Hind HF';font-size:76px;color:#cfc6b8">इतना ताक़तवर राजा, इतनी कम उम्र में...</div>
+    <div id="qopen-b" class="clip k" data-start="0.9" data-duration="5.1" style="top:370px;font-family:'Teko HF';font-size:250px;line-height:1">क्यों मरा?</div>
+    <div id="qopen-c" class="clip k red" data-start="2.9" data-duration="3.1" style="top:660px;font-family:'Teko HF';font-size:190px;line-height:1">किसने मिटाया?</div>
+    <div id="qopen-flash" class="clip" data-start="0" data-duration="6" style="position:absolute;inset:0;background:#fff;opacity:0"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#qopen-a",{opacity:0,y:20},{opacity:1,y:0,duration:0.6,ease:"power2.out"},0.05);
+    tl.fromTo("#qopen-b",{opacity:0,scale:1.35,filter:"blur(14px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:0.35,ease:"power4.out"},0.95);
+    tl.fromTo("#qopen-b",{x:0},{x:-6,duration:0.05,repeat:5,yoyo:true,ease:"none",immediateRender:false},1.3);
+    tl.fromTo("#qopen-flash",{opacity:0.35},{opacity:0,duration:0.25,ease:"power2.out"},2.9);
+    tl.fromTo("#qopen-c",{opacity:0,y:60},{opacity:1,y:0,duration:0.3,ease:"power3.out"},2.92);
+    tl.fromTo("#qopen-b",{opacity:1},{opacity:0.45,duration:0.6,ease:"power1.inOut",immediateRender:false},3.3);
+    tl.fromTo("#qopen-c",{scale:1},{scale:1.06,duration:3.0,ease:"none",immediateRender:false},3.2);
+    window.__timelines["qopen"] = tl;
+  </script>
+</template>

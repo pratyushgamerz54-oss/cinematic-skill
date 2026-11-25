@@ -1,10 +1,79 @@
 {
- "maps": [{
-  "name": "world",
-  "source": "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json",
-  "object": "countries",
-  "projection": {"type": "equirect", "lon0": 10, "lat0": 0},
-  "drop": ["Antarctica"],
-  "places": {"Addis Ababa": [9.03, 38.74], "Bogota": [4.71, -74.07], "Hanoi": [21.03, 105.85]}
- }]
+ "maps": [
+  {
+   "name": "egypt",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "projection": {
+    "type": "equirect",
+    "lon0": 31,
+    "lat0": 27
+   },
+   "keep": [
+    "Egypt",
+    "Libya",
+    "Sudan",
+    "Israel",
+    "Palestine",
+    "Jordan",
+    "Saudi Arabia",
+    "Chad",
+    "Cyprus",
+    "Greece",
+    "Turkey",
+    "Syria",
+    "Lebanon",
+    "Iraq",
+    "Eritrea",
+    "Ethiopia",
+    "Yemen"
+   ],
+   "clip": [
+    18,
+    14,
+    44,
+    36
+   ],
+   "frame": [
+    24,
+    20,
+    38,
+    33
+   ],
+   "places": {
+    "Thebes": [
+     25.7,
+     32.64
+    ],
+    "Valley": [
+     25.74,
+     32.6
+    ],
+    "Amarna": [
+     27.65,
+     30.9
+    ],
+    "Memphis": [
+     29.84,
+     31.25
+    ],
+    "Giza": [
+     29.99,
+     31.12
+    ],
+    "Abydos": [
+     26.18,
+     31.92
+    ],
+    "Akhmim": [
+     26.56,
+     31.75
+    ],
+    "Cairo": [
+     30.04,
+     31.24
+    ]
+   }
+  }
+ ]
 }

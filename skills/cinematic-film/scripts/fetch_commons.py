@@ -37,14 +37,22 @@ FREE = re.compile(r"public domain|^pd\b|^pd-|cc0|cc[- ]by(?!.*\bnc\b)(?!.*\bnd\b
 def api(**params):
     params.update(format="json", formatversion="2")
     req = urllib.request.Request(API + "?" + urllib.parse.urlencode(params), headers={"User-Agent": UA})
-    for attempt in range(4):
+    for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=40) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
-            if e.code in (429, 503) and attempt < 3:
-                time.sleep(3 * (attempt + 1)); continue
+            if e.code in (429, 503) and attempt < 5:
+                time.sleep(backoff(e, attempt)); continue
             raise
+
+
+def backoff(e, attempt):
+    """Seconds to wait after a 429/503: the server's Retry-After when it gives one, else 15, 30, 45 s..."""
+    try:
+        return max(5, min(120, int(e.headers.get("Retry-After", ""))))
+    except (TypeError, ValueError):
+        return 15 * (attempt + 1)
 
 
 def text(v):
@@ -94,19 +102,21 @@ def std_thumb(url, w):
     for sw in STD_WIDTHS:
         if sw < w and len(parts) >= 6:
             name = parts[-1]
+            if name.lower().endswith((".tif", ".tiff")):   # TIFFs render to JPEG thumbnails: lossy-page1-<w>px-Name.tif.jpg
+                return f"{u.scheme}://{u.netloc}{'/'.join(parts[:3])}/thumb/{'/'.join(parts[3:])}/lossy-page1-{sw}px-{name}.jpg"
             return f"{u.scheme}://{u.netloc}{'/'.join(parts[:3])}/thumb/{'/'.join(parts[3:])}/{sw}px-{name}"
     return url.split("?")[0]
 
 
 def download(url, dst):
     req = urllib.request.Request(url, headers={"User-Agent": UA})
-    for attempt in range(4):
+    for attempt in range(6):
         try:
             with urllib.request.urlopen(req, timeout=120) as r:
                 dst.write_bytes(r.read()); return
         except urllib.error.HTTPError as e:
-            if e.code in (429, 503) and attempt < 3:
-                time.sleep(5 * (attempt + 1)); continue
+            if e.code in (429, 503) and attempt < 5:
+                time.sleep(backoff(e, attempt)); continue
             raise
 
 
@@ -121,7 +131,10 @@ def cmd_get(a):
             continue                     # downloaded and credited (or a local/url file the user credits by hand)
         if p.get("commons"):
             title = p["commons"] if p["commons"].startswith("File:") else "File:" + p["commons"]
-            pages = (api(action="query", titles=title, **IIPROP).get("query") or {}).get("pages", [])
+            try:
+                pages = (api(action="query", titles=title, **IIPROP).get("query") or {}).get("pages", [])
+            except urllib.error.HTTPError as e:
+                print(f"{p['id']}: Commons API failed, HTTP {e.code}; run get again later"); refused += 1; continue
             if not pages or pages[0].get("missing"):
                 print(f"{p['id']}: {title} not found on Commons"); refused += 1; continue
             d = info(pages[0])
@@ -138,8 +151,9 @@ def cmd_get(a):
                     print(f"{p['id']}: download failed, HTTP {e.code}: {url}"); refused += 1; continue
             p.update(file=fname, source=d["source"], credit=p.get("credit") or d["credit"], license=d["license"],
                      license_url=d["license_url"], date=d["date"], license_ok=ok)
-            print(f"{p['id']}: {fname}  [{d['license']}]  {p['credit'][:50]}")
-            time.sleep(0.5)
+            print(f"{p['id']}: {fname}  [{d['license']}]  {p['credit'][:50]}", flush=True)
+            (proj / "photos.json").write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n")   # keep progress if a later call fails
+            time.sleep(a.pause)
         elif p.get("url"):
             ext = pathlib.Path(urllib.parse.urlparse(p["url"]).path).suffix.lower() or ".jpg"
             fname = f"{p['id']}{ext}"
@@ -180,6 +194,7 @@ def main():
     c = sub.add_parser("category"); c.add_argument("category"); c.add_argument("--limit", type=int, default=40)
     g = sub.add_parser("get"); g.add_argument("--project", required=True); g.add_argument("--force", action="store_true")
     g.add_argument("--allow-nonfree", action="store_true")
+    g.add_argument("--pause", type=float, default=0.5, help="seconds between files (use 20 when Commons answers 429)")
     k = sub.add_parser("credits"); k.add_argument("--project", required=True)
     a = ap.parse_args()
     {"search": cmd_search, "category": cmd_category, "get": cmd_get, "credits": cmd_credits}[a.cmd](a)
