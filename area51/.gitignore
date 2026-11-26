@@ -17,3 +17,6 @@ reel/audio/sfx.wav
 out/chunks/
 out/burn/
 reel/out/
+# film share copies are over GitHub's 100 MB limit (8:39 film): sent to the user, not in git
+out/area51_nocaptions_share.mp4
+out/area51_final_share.mp4
