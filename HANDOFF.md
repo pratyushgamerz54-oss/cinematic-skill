@@ -26,6 +26,12 @@ check sheet `area51/out/check_every_10s.jpg` (look at it before sending). Then s
 caption-free copy, `captions.srt`, reel + `captions_reel.srt`, `out/thumbnail_youtube.jpg`, `out/thumbnail_reel.jpg`.
 Commit and push (files over 100 MB stay out: `out/*.mp4` is ignored except `*_share.mp4`).
 
+**Area 51 delivered (26 Nov 2026):** caption-free film share copy (8:39), reel with highlighter captions + reel SRT,
+both thumbnails. The user stopped the work there ("itna me hi"): the captioned film and the film SRT were NOT made.
+If asked later: `python3 skills/cinematic-film/scripts/burn_captions.py --project area51 --video out/film_raw.mp4
+--audio audio/mix.m4a --style clean --out out/area51_final.mp4` (~25 min) and `--srt-only --out out/captions.srt`.
+`film_raw.mp4` is in `area51/out/` (not in git, 2.1 GB); a fresh container must re-render it (~35 min).
+
 **A new topic from the user = start the full package at once**, following the playbook below (copy `area51/`).
 
 ## PLAYBOOK: the exact order that worked for Area 51 (copy it for every topic)
