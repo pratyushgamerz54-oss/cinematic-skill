@@ -195,6 +195,9 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   lena"); give the user parts of about 2,000-2,300 characters with tags (about 15-20 lines), cut at take boundaries. Join them in order (ffmpeg concat, a 0.6 s
   gap at the join) into one story file, then split it as one take via `audio/_split/` as usual. Suggest the split
   at a take boundary so no line is cut.
+- **Send each deliverable the moment it is ready (user, 26 Nov 2026):** "jaise hi jiska kaam ho wo de dena": the film
+  as soon as its render is done (caption-free share copy first, then the captioned film), then the reel when it is done,
+  then SRTs and thumbnails; never hold everything for one message.
 - **Motion graphics may come from the internet** (free licence, credited); **HyperFrames very little**
   ("hyperframe ka use bahut kam hi karna hai"): only the intro and one or two hero graphics.
 

@@ -349,6 +349,9 @@ Commit and push (files over 100 MB stay out: `out/*.mp4` is ignored except `*_sh
     A = T01-T03 (lines 7-25, ~2,240 chars), B = T04-T06 (26-44, ~2,160), C = T07-T09 (45-59, ~1,810),
     D = T10-T11 (60-69, ~1,250); Greeting (~635) and Reel separate. If even that is too long, one file per take.
 
+18d. (26 Nov 2026) **Send each file as soon as it is ready**, film first, then the reel ("ek baar me mat do"). Save
+    everything for the next session; the next session starts from the playbook at the top of this file.
+
 ## 4. Environment notes (cloud environment "cinematic-skill")
 - **ElevenLabs:** the key is injected by the proxy, so send `xi-api-key: dummy`.
   - Free plan: 10,000 characters a month. Check `/v1/user/subscription` before recording.
