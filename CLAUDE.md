@@ -198,6 +198,14 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 - **Motion graphics may come from the internet** (free licence, credited); **HyperFrames very little**
   ("hyperframe ka use bahut kam hi karna hai"): only the intro and one or two hero graphics.
 
+## Turning Points orders (user, 26 Nov 2026; keep doing this)
+
+- Theme "World-Changing Turning Points" (`mod/`): **about 4 min, fitted to the user's recording**; the same rules as
+  Area 51 (questions first, hooks all through, separate reel, 3D-style maps, less red, HyperFrames very little), and
+  **3D in every section** ("3D ka bhi use karna hi hai, kyuki uske bina samajh nahi aayega"). For a theme with several
+  stories, the user chose **several turning points in one film** (five here), each with its own hook into the next.
+  Scripts are written by `mod/tools/gen_script.py` (copy it for new topics).
+
 ## Practical notes
 
 - Hindi (Devanagari) is shaped by the engine (and label bars now reach vowel signs below the line). Give

@@ -1,0 +1,424 @@
+{
+ "title": "पाँच पल, जिन्होंने दुनिया बदल दी",
+ "subtitle": "World-Changing Turning Points · एक जाँच",
+ "series": "World-Changing Turning Points",
+ "language": "hi",
+ "format": {
+  "film": "1920x1080, about 4:00 (user, 26 Nov 2026: length follows the recorded voice), with the YouTube intro T00_intro",
+  "reel": "separate script in reel/script.json"
+ },
+ "takes": [
+  {
+   "take": "T00_intro",
+   "heading": "स्वागत (YouTube इंट्रो)",
+   "lines": [
+    {
+     "id": 1,
+     "text": "नमस्कार दोस्तों, आपका स्वागत है।",
+     "spoken": "नमस्कार दोस्तों... आपका स्वागत है।",
+     "hero": "HyperFrames intro part 1 (hf_welcome): a slow brass clock dial turns in dark gold dust; 'नमस्कार' · 'स्वागत है'",
+     "typed": "नमस्कार · स्वागत है",
+     "mood": "archive",
+     "v3": "[warm, inviting]"
+    },
+    {
+     "id": 2,
+     "text": "क्या एक ग़लत मोड़, विश्व युद्ध शुरू कर सकता है? क्या एक गंदी प्लेट, करोड़ों जानें बचा सकती है?",
+     "spoken": "क्या एक ग़लत मोड़, विश्व युद्ध शुरू कर सकता है? क्या एक गंदी प्लेट... करोड़ों जानें बचा सकती है?",
+     "hero": "hf_topic: teaser chips land on the words, each with an icon: 'ग़लत मोड़?' (a car arrow bending) · 'गंदी प्लेट?' (a petri dish)",
+     "typed": "ग़लत मोड़? · गंदी प्लेट?",
+     "mood": "archive",
+     "v3": "[intrigued, mysterious]",
+     "hook": "question"
+    },
+    {
+     "id": 3,
+     "text": "और क्या, एक आदमी की एक 'ना', दुनिया को, परमाणु युद्ध से बचा सकती है?",
+     "spoken": "और क्या, एक आदमी की एक 'ना'... दुनिया को, परमाणु युद्ध से बचा सकती है?",
+     "hero": "hf_topic continued: a third chip 'एक ना?' with a launch key that is never turned; heartbeat",
+     "typed": "एक 'ना'?",
+     "mood": "archive",
+     "v3": "[intrigued, mysterious]",
+     "hook": "question"
+    },
+    {
+     "id": 4,
+     "text": "आज कहानी है, उन पाँच पलों की, जिन्होंने दुनिया बदल दी, और हर पल के पीछे है, एक छोटी सी चूक।",
+     "spoken": "आज कहानी है, उन पाँच पलों की, जिन्होंने दुनिया बदल दी... और हर पल के पीछे है, एक छोटी सी चूक।",
+     "hero": "hf_topic finale: five dates light up on the dial (1914 · 1928 · 1962 · 1983 · 1989), the title 'पाँच पल' stamps in (the film's one title card)",
+     "typed": "title पाँच पल",
+     "mood": "archive",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 5,
+     "text": "तो चलिए, शुरू करते हैं।",
+     "spoken": "तो चलिए... शुरू करते हैं।",
+     "hero": "HyperFrames intro part 3 (hf_go): the dial spins and lands on 26.09.1983, a radar scan line wipes into the cold open",
+     "typed": "▶",
+     "mood": "radar",
+     "v3": "[warm, inviting]"
+    }
+   ]
+  },
+  {
+   "take": "T01_cold_open",
+   "heading": "आधी रात का अलार्म",
+   "lines": [
+    {
+     "id": 6,
+     "text": "छब्बीस सितंबर, उन्नीस सौ तिरासी, मॉस्को के पास, एक गुप्त बंकर। आधी रात।",
+     "spoken": "छब्बीस सितंबर, उन्नीस सौ तिरासी... मॉस्को के पास, एक गुप्त बंकर। आधी रात।",
+     "hero": "3D globe (look dark, borders false, radar palette): night descent to Moscow, label 'सेरपुख़ोव-15 (गुप्त बंकर)'; date bar",
+     "typed": "26.09.1983 · आधी रात",
+     "mood": "radar",
+     "v3": "[low, suspenseful]",
+     "hook": "open"
+    },
+    {
+     "id": 7,
+     "text": "अचानक, स्क्रीन पर चमकता है, स्टार्ट। यानी, अमेरिका ने, परमाणु मिसाइल दाग दी है।",
+     "spoken": "अचानक, स्क्रीन पर चमकता है... स्टार्ट। यानी, अमेरिका ने, परमाणु मिसाइल दाग दी है।",
+     "hero": "3D bunker console (प्रतीकात्मक 3D मॉडल): dark room, world wall map; the word СТАРТ flashes red; a dotted arc rises from the US toward the USSR; siren cue",
+     "typed": "СТАРТ",
+     "mood": "tension",
+     "v3": "[tense, urgent]"
+    },
+    {
+     "id": 8,
+     "text": "ड्यूटी पर बैठे अफ़सर के पास, फ़ैसले के लिए थे, बस कुछ मिनट।",
+     "spoken": "ड्यूटी पर बैठे अफ़सर के पास, फ़ैसले के लिए थे... बस कुछ मिनट।",
+     "hero": "engine motion graphic: a countdown clock ticks on the console; heartbeat",
+     "typed": "कुछ मिनट",
+     "mood": "tension",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 9,
+     "text": "उसने क्या किया, ये आगे बताएँगे, पर दुनिया, पहले भी, ऐसे मोड़ पर आ चुकी थी।",
+     "spoken": "उसने क्या किया, ये आगे बताएँगे... पर दुनिया, पहले भी, ऐसे मोड़ पर आ चुकी थी।",
+     "hero": "the dial spins back 1983 → 1914, the archive mood fades in; riser",
+     "typed": "1983 → 1914",
+     "mood": "archive",
+     "v3": "[intrigued, mysterious]",
+     "hook": "hook"
+    }
+   ]
+  },
+  {
+   "take": "T02_sarajevo",
+   "heading": "एक ग़लत मोड़",
+   "lines": [
+    {
+     "id": 10,
+     "text": "अट्ठाईस जून, उन्नीस सौ चौदह, साराजेवो। खुली कार में, ऑस्ट्रिया के राजकुमार, फ़्रांज़ फ़र्डिनेंड।",
+     "spoken": "अट्ठाईस जून, उन्नीस सौ चौदह, साराजेवो। खुली कार में, ऑस्ट्रिया के राजकुमार, फ़्रांज़ फ़र्डिनेंड।",
+     "hero": "real archive film: Franz Ferdinand and Sophie in Sarajevo, 28 June 1914 (Commons, public domain), graded sepia; date bar; name bar",
+     "typed": "28.06.1914 · साराजेवो",
+     "mood": "archive",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 11,
+     "text": "सुबह, उनकी कार पर बम फेंका गया, पर वो बच गए। साज़िश, नाकाम लगी।",
+     "spoken": "सुबह, उनकी कार पर बम फेंका गया... पर वो बच गए। साज़िश, नाकाम लगी।",
+     "hero": "3D map of 1914 Sarajevo (tilted relief, river Miljacka, Appel Quay): the motorcade moves along the quay; a bomb marker bounces off the car and bursts behind it; stamp 'नाकाम'",
+     "typed": "पहला हमला: नाकाम",
+     "mood": "tension",
+     "v3": "[tense, urgent]"
+    },
+    {
+     "id": 12,
+     "text": "फिर रास्ता बदला गया, पर ड्राइवर को, किसी ने बताया ही नहीं।",
+     "spoken": "फिर रास्ता बदला गया... पर ड्राइवर को, किसी ने बताया ही नहीं।",
+     "hero": "3D map: the new route draws along the quay in green, the old turn into Franz Josef Street in amber; tag 'ड्राइवर को ख़बर नहीं'",
+     "typed": "नया रास्ता",
+     "mood": "evidence",
+     "v3": "[intrigued, mysterious]"
+    },
+    {
+     "id": 13,
+     "text": "कार ग़लत गली में मुड़ी, और रुक गई, ठीक उन्नीस साल के, गैवरिलो प्रिंसिप के सामने।",
+     "spoken": "कार ग़लत गली में मुड़ी, और रुक गई... ठीक उन्नीस साल के, गैवरिलो प्रिंसिप के सामने।",
+     "hero": "3D map: the car turns into Franz Josef Street and stops at the Latin Bridge corner; XMarker 'लैटिन ब्रिज'; archive photo of Princip (Commons) in a cartouche",
+     "typed": "गैवरिलो प्रिंसिप · 19",
+     "mood": "tension",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 14,
+     "text": "दो गोलियाँ, राजकुमार और उनकी पत्नी सोफ़ी, दोनों की मौत।",
+     "spoken": "दो गोलियाँ... राजकुमार और उनकी पत्नी सोफ़ी, दोनों की मौत।",
+     "hero": "two shot marks stamp on the board (no bodies); archive photo of the car in the Heeresgeschichtliches Museum, Vienna (Commons)",
+     "typed": "28.06.1914",
+     "mood": "grief",
+     "v3": "[ominous, slow]"
+    },
+    {
+     "id": 15,
+     "text": "ठीक एक महीने बाद, पहला विश्व युद्ध शुरू हुआ, जिसमें, लगभग दो करोड़ लोग मारे गए।",
+     "spoken": "ठीक एक महीने बाद, पहला विश्व युद्ध शुरू हुआ... जिसमें, लगभग दो करोड़ लोग मारे गए।",
+     "hero": "2.5D Europe map (look intel, borderless): war fronts draw on; dot-grid Counter to ≈ 2 करोड़ (estimates vary)",
+     "typed": "≈ 2 करोड़ मौतें",
+     "mood": "grief",
+     "v3": "[ominous, slow]"
+    },
+    {
+     "id": 16,
+     "text": "एक ग़लत मोड़, और दुनिया बदल गई। लेकिन अगला मोड़, छुपा था, एक प्लेट में।",
+     "spoken": "एक ग़लत मोड़... और दुनिया बदल गई। लेकिन अगला मोड़, छुपा था... एक प्लेट में।",
+     "hero": "the board slides; a glass petri dish rises out of the dark (3D, symbolic); heartbeat",
+     "typed": "अगला मोड़?",
+     "mood": "archive",
+     "v3": "[intrigued, mysterious]",
+     "hook": "hook"
+    }
+   ]
+  },
+  {
+   "take": "T03_penicillin",
+   "heading": "एक गंदी प्लेट",
+   "lines": [
+    {
+     "id": 17,
+     "text": "सितंबर, उन्नीस सौ अट्ठाईस। लंदन। वैज्ञानिक अलेक्ज़ेंडर फ़्लेमिंग, छुट्टियों से लौटे।",
+     "spoken": "सितंबर, उन्नीस सौ अट्ठाईस। लंदन। वैज्ञानिक अलेक्ज़ेंडर फ़्लेमिंग, छुट्टियों से लौटे।",
+     "hero": "3D globe: flight Sarajevo → London; archive photo of Alexander Fleming in his laboratory (Commons, public domain); date bar; name bar",
+     "typed": "1928 · अलेक्ज़ेंडर फ़्लेमिंग",
+     "mood": "archive",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 18,
+     "text": "लैब में, बैक्टीरिया की एक प्लेट, खुली छूट गई थी, और उस पर, फफूँद उग आई थी।",
+     "spoken": "लैब में, बैक्टीरिया की एक प्लेट, खुली छूट गई थी... और उस पर, फफूँद उग आई थी।",
+     "hero": "3D petri dish (प्रतीकात्मक 3D मॉडल): yellow bacteria colonies; a blue-green mould spot grows on the plate",
+     "typed": "खुली प्लेट",
+     "mood": "evidence",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 19,
+     "text": "और फफूँद के चारों तरफ़, बैक्टीरिया, ग़ायब। फ़्लेमिंग ने इसे नाम दिया, पेनिसिलिन।",
+     "spoken": "और फफूँद के चारों तरफ़... बैक्टीरिया, ग़ायब। फ़्लेमिंग ने इसे नाम दिया, पेनिसिलिन।",
+     "hero": "same 3D dish: a clear ring opens around the mould; then the real culture plate photo (Commons) with a pen circle; Card 'PENICILLIN'",
+     "typed": "बैक्टीरिया ग़ायब",
+     "mood": "evidence",
+     "v3": "[intrigued, mysterious]"
+    },
+    {
+     "id": 20,
+     "text": "उस ज़माने में, एक खरोंच भी, जान ले सकती थी। अनुमान है, इस दवा ने, करोड़ों जानें बचाईं।",
+     "spoken": "उस ज़माने में, एक खरोंच भी, जान ले सकती थी। अनुमान है, इस दवा ने... करोड़ों जानें बचाईं।",
+     "hero": "real archive footage/photos: 1940s penicillin production (US government, public domain); Counter 'करोड़ों जानें (अनुमान)'",
+     "typed": "करोड़ों जानें (अनुमान)",
+     "mood": "verdict",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 21,
+     "text": "पर अब, दुनिया के सामने था, एक नया ख़तरा, परमाणु बम।",
+     "spoken": "पर अब, दुनिया के सामने था, एक नया ख़तरा... परमाणु बम।",
+     "hero": "the board darkens; a slow 3D globe turn to the Caribbean; riser",
+     "typed": "नया ख़तरा",
+     "mood": "tension",
+     "v3": "[ominous, slow]",
+     "hook": "hook"
+    }
+   ]
+  },
+  {
+   "take": "T04_arkhipov",
+   "heading": "तीसरी चाबी",
+   "lines": [
+    {
+     "id": 22,
+     "text": "अक्टूबर, उन्नीस सौ बासठ। क्यूबा में, सोवियत परमाणु मिसाइलें, और अमेरिका ने, क्यूबा को समुद्र में घेर लिया।",
+     "spoken": "अक्टूबर, उन्नीस सौ बासठ। क्यूबा में, सोवियत परमाणु मिसाइलें... और अमेरिका ने, क्यूबा को समुद्र में घेर लिया।",
+     "hero": "real archive: US reconnaissance photo of a Cuban missile site, October 1962 (public domain); then the 3D tilted Caribbean map (NASA Blue Marble relief): the quarantine line draws around Cuba, ship icons",
+     "typed": "अक्टूबर 1962 · क्यूबा",
+     "mood": "intel",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 23,
+     "text": "सत्ताईस अक्टूबर। पानी के नीचे, सोवियत पनडुब्बी, बी-उनसठ। मॉस्को से, कोई संपर्क नहीं।",
+     "spoken": "सत्ताईस अक्टूबर। पानी के नीचे, सोवियत पनडुब्बी, बी-उनसठ। मॉस्को से, कोई संपर्क नहीं।",
+     "hero": "3D underwater scene (प्रतीकात्मक 3D मॉडल): the Foxtrot-class submarine B-59 glides in dark blue water; tag 'मॉस्को से संपर्क नहीं'",
+     "typed": "B-59 · 27.10.1962",
+     "mood": "tension",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 24,
+     "text": "ऊपर से, अमेरिकी जहाज़, सिग्नल वाले छोटे बम गिरा रहे थे। अंदर लगा, जंग शुरू हो गई है।",
+     "spoken": "ऊपर से, अमेरिकी जहाज़, सिग्नल वाले छोटे बम गिरा रहे थे। अंदर लगा... जंग शुरू हो गई है।",
+     "hero": "same 3D scene: destroyer hulls overhead, small practice depth charges sink and flash; the hull shakes",
+     "typed": "सिग्नल बम",
+     "mood": "tension",
+     "v3": "[tense, urgent]"
+    },
+    {
+     "id": 25,
+     "text": "और पनडुब्बी में था, परमाणु टॉरपीडो। गवाहों के मुताबिक़, कप्तान ने उसे तैयार करवाया।",
+     "spoken": "और पनडुब्बी में था, परमाणु टॉरपीडो। गवाहों के मुताबिक़, कप्तान ने उसे तैयार करवाया।",
+     "hero": "3D cutaway: the hull turns translucent, the torpedo bay lights up amber, label 'परमाणु टॉरपीडो'; testimony card 'वादिम ओर्लोव, B-59 (बाद का बयान)'",
+     "typed": "परमाणु टॉरपीडो",
+     "mood": "tension",
+     "v3": "[ominous, slow]"
+    },
+    {
+     "id": 26,
+     "text": "पर दाग़ने के लिए, तीन अफ़सरों की हाँ चाहिए थी। दो ने कहा, हाँ, तीसरे ने कहा, ना।",
+     "spoken": "पर दाग़ने के लिए, तीन अफ़सरों की हाँ चाहिए थी। दो ने कहा, हाँ... तीसरे ने कहा, ना।",
+     "hero": "engine motion graphic: three lamps for three officers; two turn green 'हाँ', the third stays dark and stamps 'ना'",
+     "typed": "हाँ · हाँ · ना",
+     "mood": "tension",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 27,
+     "text": "वो थे, वसीली आर्खिपोव। पनडुब्बी सतह पर आई, और लौट गई।",
+     "spoken": "वो थे, वसीली आर्खिपोव। पनडुब्बी सतह पर आई, और लौट गई।",
+     "hero": "real archive photo: B-59 surfaced beside a US destroyer, October 1962 (US Navy, public domain); photo of Arkhipov (Commons) in a cartouche",
+     "typed": "वसीली आर्खिपोव",
+     "mood": "verdict",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 28,
+     "text": "लेकिन इक्कीस साल बाद, फ़ैसला फिर, एक अकेले आदमी के हाथ में था।",
+     "spoken": "लेकिन इक्कीस साल बाद, फ़ैसला फिर... एक अकेले आदमी के हाथ में था।",
+     "hero": "the dial spins 1962 → 1983, back to the bunker console; heartbeat",
+     "typed": "1962 → 1983",
+     "mood": "radar",
+     "v3": "[intrigued, mysterious]",
+     "hook": "hook"
+    }
+   ]
+  },
+  {
+   "take": "T05_petrov",
+   "heading": "सूरज की चमक",
+   "lines": [
+    {
+     "id": 29,
+     "text": "वापस उसी बंकर में। एक मिसाइल, फिर दूसरी, कुल पाँच। ड्यूटी पर थे, स्तानिस्लाव पेत्रोव।",
+     "spoken": "वापस उसी बंकर में। एक मिसाइल, फिर दूसरी... कुल पाँच। ड्यूटी पर थे, स्तानिस्लाव पेत्रोव।",
+     "hero": "3D bunker console: five missile tracks appear one by one, counter 1 → 5; photo of Stanislav Petrov (Commons, free licence) in a cartouche; name bar",
+     "typed": "मिसाइल: 5 · पेत्रोव",
+     "mood": "radar",
+     "v3": "[tense, urgent]"
+    },
+    {
+     "id": 30,
+     "text": "पेत्रोव ने सोचा, हमला सिर्फ़ पाँच मिसाइलों से क्यों? असली हमला, सैकड़ों से होता।",
+     "spoken": "पेत्रोव ने सोचा, हमला सिर्फ़ पाँच मिसाइलों से क्यों? असली हमला... सैकड़ों से होता।",
+     "hero": "engine motion graphic: 5 dots beside a field of hundreds; a question mark lands on '5?'",
+     "typed": "5 या सैकड़ों?",
+     "mood": "evidence",
+     "v3": "[intrigued, mysterious]"
+    },
+    {
+     "id": 31,
+     "text": "उन्होंने ऊपर ख़बर दी, ये सिस्टम की ग़लती है, और कोई मिसाइल नहीं आई।",
+     "spoken": "उन्होंने ऊपर ख़बर दी, ये सिस्टम की ग़लती है... और कोई मिसाइल नहीं आई।",
+     "hero": "3D console: the phone; stamp 'झूठा अलार्म'; a clock runs on and nothing arrives",
+     "typed": "झूठा अलार्म",
+     "mood": "tension",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 32,
+     "text": "सैटेलाइट ने, बादलों पर पड़ी धूप को, मिसाइल समझ लिया था। पर आख़िरी मोड़, सबसे अजीब था।",
+     "spoken": "सैटेलाइट ने, बादलों पर पड़ी धूप को, मिसाइल समझ लिया था। पर आख़िरी मोड़... सबसे अजीब था।",
+     "hero": "3D globe: the Oko satellite in its high orbit, sunlight glints off clouds over the US, label 'बादलों पर धूप'; then a folded paper note slides in; riser",
+     "typed": "बादलों पर धूप",
+     "mood": "verdict",
+     "v3": "[intrigued, mysterious]",
+     "hook": "hook"
+    }
+   ]
+  },
+  {
+   "take": "T06_berlin",
+   "heading": "एक पर्ची",
+   "lines": [
+    {
+     "id": 33,
+     "text": "नौ नवंबर, उन्नीस सौ नवासी। अट्ठाईस साल से, एक दीवार, बर्लिन को बाँटे खड़ी थी।",
+     "spoken": "नौ नवंबर, उन्नीस सौ नवासी। अट्ठाईस साल से, एक दीवार, बर्लिन को बाँटे खड़ी थी।",
+     "hero": "3D map of Berlin (tilted, satellite colours): the wall line glows across the city; date bar; archive photo of the wall (Commons)",
+     "typed": "09.11.1989 · बर्लिन",
+     "mood": "intel",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 34,
+     "text": "प्रेस कॉन्फ़्रेंस में, नेता गुंटर शाबोव्स्की को, नए यात्रा नियमों की, एक पर्ची थमाई गई।",
+     "spoken": "प्रेस कॉन्फ़्रेंस में, नेता गुंटर शाबोव्स्की को, नए यात्रा नियमों की, एक पर्ची थमाई गई।",
+     "hero": "archive photo: Schabowski at the press conference, 9 Nov 1989 (Bundesarchiv, CC BY-SA); name bar; the note slides in",
+     "typed": "गुंटर शाबोव्स्की",
+     "mood": "evidence",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 35,
+     "text": "पूछा गया, कब से लागू? उन्होंने काग़ज़ पलटे, और कहा, तुरंत। जबकि नियम, अगले दिन से थे।",
+     "spoken": "पूछा गया, कब से लागू? उन्होंने काग़ज़ पलटे... और कहा, तुरंत। जबकि नियम, अगले दिन से थे।",
+     "hero": "HyperFrames quote card: 'sofort, unverzüglich' with the Hindi below (transcript, Wilson Center); then a pen strike and tag 'असल योजना: अगला दिन'",
+     "typed": "SOFORT · UNVERZÜGLICH",
+     "mood": "evidence",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 36,
+     "text": "हज़ारों लोग, दीवार की तरफ़ दौड़ पड़े। उसी रात, फाटक खुल गए, और एक साल में, जर्मनी एक हो गया।",
+     "spoken": "हज़ारों लोग, दीवार की तरफ़ दौड़ पड़े। उसी रात, फाटक खुल गए... और एक साल में, जर्मनी एक हो गया।",
+     "hero": "real archive footage: crowds at the Berlin Wall, November 1989 (Commons, free licence); 3D map pin 'बोर्नहोल्मर स्ट्रासे'; Timeline 1989 → 1990",
+     "typed": "1990 · जर्मनी एक",
+     "mood": "verdict",
+     "v3": "[tense, urgent]"
+    }
+   ]
+  },
+  {
+   "take": "T07_verdict",
+   "heading": "आपका सवाल",
+   "lines": [
+    {
+     "id": 37,
+     "text": "एक मोड़, एक प्लेट, एक 'ना', एक भरोसा, एक पर्ची, कभी कभी, एक छोटा सा पल, इतिहास पलट देता है।",
+     "spoken": "एक मोड़, एक प्लेट, एक 'ना', एक भरोसा, एक पर्ची... कभी कभी, एक छोटा सा पल, इतिहास पलट देता है।",
+     "hero": "five evidence cards line up on the board, one per word, each with its photo and year; a slow 3D globe at night links the five places",
+     "typed": "1914 · 1928 · 1962 · 1983 · 1989",
+     "mood": "verdict",
+     "v3": "[reflective, slow]"
+    },
+    {
+     "id": 38,
+     "text": "तो क्या आज भी, कहीं कोई ऐसा पल, चुपचाप, हमारा इंतज़ार कर रहा है? आप क्या सोचते हैं?",
+     "spoken": "तो क्या आज भी, कहीं कोई ऐसा पल... चुपचाप, हमारा इंतज़ार कर रहा है? आप क्या सोचते हैं?",
+     "hero": "HyperFrames closing question (qend), word by word, ends on the viewer question; heartbeat",
+     "typed": "qend",
+     "mood": "tension",
+     "v3": "[intrigued, mysterious]",
+     "hook": "question"
+    }
+   ]
+  }
+ ],
+ "fact_notes": [
+  "Sarajevo, 28 June 1914: Čabrinović's bomb bounced off Franz Ferdinand's car and exploded under the following car; after the town-hall reception the route was changed to visit the wounded in hospital, but the driver (Leopold Lojka) was not told, turned into Franz Josef Street, stopped when General Potiorek shouted, and Gavrilo Princip (19) shot Franz Ferdinand and Sophie near the Latin Bridge (History.com 'How a wrong turn started World War I'; Smithsonian 'Gavrilo Princip's sandwich' — the sandwich story is a myth, not used; Mental Floss WWI centennial). Austria-Hungary declared war on Serbia on 28 July 1914.",
+  "WWI deaths: estimates of military plus civilian deaths run from about 15 to 22 million; 'लगभग दो करोड़' is said as an approximation (Britannica, 'World War I: Killed, wounded and missing').",
+  "Penicillin: Alexander Fleming, St Mary's Hospital, Paddington, returned from holiday in September 1928 (28 Sept is the usual date he noticed it) and found a Staphylococcus plate contaminated by a Penicillium mould with a clear zone around it; he named the substance penicillin (paper 1929). Mass production came in the 1940s (Florey and Chain; US production for D-Day 1944). 'करोड़ों जानें बचाईं' is a widely cited estimate (Science History Institute; World History Encyclopedia; PBS NewsHour 'The real story behind the world's first antibiotic'; Live Science).",
+  "B-59, 27 October 1962: hunted by USS Randolph and destroyers, which dropped practice (signalling) depth charges to force it up; batteries low, no contact with Moscow. Per Vadim Orlov (2002) Captain Savitsky ordered the nuclear torpedo readied; launch needed the agreement of Savitsky, political officer Maslennikov and flotilla chief of staff Vasili Arkhipov, who refused; the boat surfaced (National Security Archive, nsarchive.gwu.edu/node/4005 and the 2002 Havana conference briefing book; National Geographic 2016). Accounts of the scene come from crew testimony years later: said 'के मुताबिक़'.",
+  "Petrov, 26 September 1983: Lt Col Stanislav Petrov on duty at Serpukhov-15, the Oko early-warning system reported one Minuteman launch then more (up to five); he judged it a false alarm because a real US first strike would use hundreds of missiles and he distrusted the new system; the cause was sunlight reflecting off high clouds seen by the satellite from its Molniya orbit (Britannica 'Stanislav Petrov'; RFE/RL; Wikipedia '1983 Soviet nuclear false alarm incident'). The screen word was 'СТАРТ' (start) per Petrov's interviews.",
+  "Berlin, 9 November 1989: at the evening press conference Günter Schabowski read a new travel regulation from a note he had not been briefed on; asked when it took effect he said 'Das tritt nach meiner Kenntnis... ist das sofort, unverzüglich' (transcript, Wilson Center Digital Archive 89307; Bundesregierung archive). The rule was meant to start the next day with visa applications. Crowds gathered; at Bornholmer Straße guards let the first people through around 21:20 and Harald Jäger opened the gate fully about 23:30 (berlin.de 'Opening and fall of the Wall'). The wall stood from August 1961 (28 years). Germany reunified on 3 October 1990; the USSR dissolved in December 1991.",
+  "Framing: the five moments are chosen as 'small accidents or single decisions' with large consequences; historians stress deeper causes too (alliances and nationalism in 1914; Florey and Chain's work made penicillin a drug; the end of the Cold War had many causes). The film says this in the verdict line ('हमेशा बड़े फ़ैसलों से नहीं')."
+ ],
+ "film_cut": {
+  "dropped_lines": [],
+  "note": "set after the voice arrives"
+ }
+}

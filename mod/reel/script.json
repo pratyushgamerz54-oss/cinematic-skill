@@ -1,0 +1,150 @@
+{
+ "title": "पाँच पल, जिन्होंने दुनिया बदल दी",
+ "series_tag": "पाँच पल · एक जाँच",
+ "language": "hi",
+ "format": {
+  "reel": "1080x1920, about 60 s, fixed reel format (saanp/reel/scene.py), its own recording REEL"
+ },
+ "note": "Separate reel script (not cut from the film): opens on a question, ends on 'आप क्या सोचते हैं?'. Facts as in ../script.json fact_notes.",
+ "takes": [
+  {
+   "take": "REEL",
+   "heading": "रील",
+   "lines": [
+    {
+     "id": 1,
+     "text": "क्या एक छोटी सी ग़लती, दुनिया बदल सकती है? इतिहास कहता है, हाँ, पाँच बार।",
+     "spoken": "क्या एक छोटी सी ग़लती, दुनिया बदल सकती है? इतिहास कहता है... हाँ, पाँच बार।",
+     "hero": "HyperFrames reel question (rq)",
+     "typed": "",
+     "headline": "एक ग़लती, दुनिया बदली?",
+     "tag": "सवाल",
+     "source": "—",
+     "mood": "archive",
+     "headline_color": "red",
+     "v3": "[intrigued, mysterious]"
+    },
+    {
+     "id": 2,
+     "text": "उन्नीस सौ चौदह। राजकुमार की कार, ग़लत गली में मुड़ी, और हत्यारे के सामने रुकी। शुरू हुआ, विश्व युद्ध।",
+     "spoken": "उन्नीस सौ चौदह। राजकुमार की कार, ग़लत गली में मुड़ी... और हत्यारे के सामने रुकी। शुरू हुआ, विश्व युद्ध।",
+     "hero": "1914 Sarajevo archive film; then the 3D map turn at the Latin Bridge",
+     "typed": "",
+     "headline": "1914: एक ग़लत मोड़",
+     "tag": "प्रमाण 01",
+     "source": "फ़िल्म: Wikimedia Commons (public domain)",
+     "mood": "archive",
+     "headline_color": "yellow",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 3,
+     "text": "उन्नीस सौ अट्ठाईस। फ़्लेमिंग की लैब में, एक प्लेट खुली छूटी, और उस पर उगी फफूँद से, मिली पेनिसिलिन।",
+     "spoken": "उन्नीस सौ अट्ठाईस। फ़्लेमिंग की लैब में, एक प्लेट खुली छूटी... और उस पर उगी फफूँद से, मिली पेनिसिलिन।",
+     "hero": "Fleming photo; 3D petri dish with the clear ring",
+     "typed": "",
+     "headline": "1928: एक खुली प्लेट",
+     "tag": "प्रमाण 02",
+     "source": "फ़ोटो: Wikimedia Commons",
+     "mood": "evidence",
+     "headline_color": "yellow",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 4,
+     "text": "उन्नीस सौ बासठ। क्यूबा के पास, एक सोवियत पनडुब्बी में, परमाणु टॉरपीडो तैयार था।",
+     "spoken": "उन्नीस सौ बासठ। क्यूबा के पास, एक सोवियत पनडुब्बी में, परमाणु टॉरपीडो तैयार था।",
+     "hero": "3D submarine B-59 under depth charges",
+     "typed": "",
+     "headline": "1962: पानी के नीचे",
+     "tag": "प्रतीकात्मक 3D मॉडल",
+     "source": "स्रोत: National Security Archive",
+     "mood": "tension",
+     "headline_color": "yellow",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 5,
+     "text": "तीन हाँ चाहिए थीं। वसीली आर्खिपोव ने कहा, ना।",
+     "spoken": "तीन हाँ चाहिए थीं। वसीली आर्खिपोव ने कहा... ना।",
+     "hero": "three lamps: हाँ · हाँ · ना; B-59 surfaced photo (US Navy)",
+     "typed": "",
+     "headline": "तीसरे ने कहा: ना",
+     "tag": "प्रमाण 03",
+     "source": "फ़ोटो: US Navy (public domain)",
+     "mood": "verdict",
+     "headline_color": "yellow",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 6,
+     "text": "उन्नीस सौ तिरासी। सोवियत स्क्रीन पर, पाँच मिसाइलें। पर स्तानिस्लाव पेत्रोव ने कहा, झूठा अलार्म।",
+     "spoken": "उन्नीस सौ तिरासी। सोवियत स्क्रीन पर, पाँच मिसाइलें। पर स्तानिस्लाव पेत्रोव ने कहा... झूठा अलार्म।",
+     "hero": "3D bunker console with five tracks; Petrov photo",
+     "typed": "",
+     "headline": "1983: पाँच मिसाइलें",
+     "tag": "प्रमाण 04",
+     "source": "फ़ोटो: Wikimedia Commons",
+     "mood": "radar",
+     "headline_color": "yellow",
+     "v3": "[tense, urgent]"
+    },
+    {
+     "id": 7,
+     "text": "वो सही थे। सैटेलाइट ने, बादलों पर पड़ी धूप को, मिसाइल समझा था।",
+     "spoken": "वो सही थे। सैटेलाइट ने, बादलों पर पड़ी धूप को, मिसाइल समझा था।",
+     "hero": "3D globe: satellite and sunlight on clouds",
+     "typed": "",
+     "headline": "मिसाइल नहीं, धूप",
+     "tag": "प्रतीकात्मक 3D मॉडल",
+     "source": "स्रोत: Britannica, RFE/RL",
+     "mood": "radar",
+     "headline_color": "yellow",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 8,
+     "text": "उन्नीस सौ नवासी। एक नेता ने, पर्ची ग़लत पढ़ी, और कहा, सरहद, तुरंत खुलेगी।",
+     "spoken": "उन्नीस सौ नवासी। एक नेता ने, पर्ची ग़लत पढ़ी, और कहा, सरहद... तुरंत खुलेगी।",
+     "hero": "Schabowski press conference photo; the note",
+     "typed": "",
+     "headline": "1989: एक पर्ची",
+     "tag": "प्रमाण 05",
+     "source": "फ़ोटो: Bundesarchiv (CC BY-SA)",
+     "mood": "evidence",
+     "headline_color": "yellow",
+     "v3": "[low, suspenseful]"
+    },
+    {
+     "id": 9,
+     "text": "उसी रात, बर्लिन की दीवार खुल गई।",
+     "spoken": "उसी रात, बर्लिन की दीवार खुल गई।",
+     "hero": "1989 Berlin Wall footage",
+     "typed": "",
+     "headline": "उसी रात: दीवार खुली",
+     "tag": "प्रमाण 06",
+     "source": "फ़ुटेज: Wikimedia Commons",
+     "mood": "verdict",
+     "headline_color": "yellow",
+     "v3": "[storytelling, measured]"
+    },
+    {
+     "id": 10,
+     "text": "अगर अगला ऐसा पल, आज ही हो रहा हो तो? आप क्या सोचते हैं?",
+     "spoken": "अगर अगला ऐसा पल, आज ही हो रहा हो तो? आप क्या सोचते हैं?",
+     "hero": "closing question card",
+     "typed": "",
+     "headline": "आप क्या सोचते हैं?",
+     "tag": "सवाल",
+     "source": "—",
+     "mood": "tension",
+     "headline_color": "red",
+     "v3": "[intrigued, mysterious]"
+    }
+   ]
+  }
+ ],
+ "reel_cut": {
+  "dropped_lines": []
+ }
+}
