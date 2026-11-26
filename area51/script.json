@@ -665,6 +665,6 @@
  ],
  "film_cut": {
   "dropped_lines": [],
-  "note": "Fill after the voice arrives: the user said the length follows the recorded voice (about 8 min). Drop whole lines if it runs long; never speed up; gaps 0.45 s, 0.6 s at take ends."
+  "note": "Viraj read at 1.0x, one file per take: 8:39 with gaps 0.45 s (0.6 s at take ends). The user asked for the length to follow the recording ('jitna der ka hoga uske hisaab se'), so no line is dropped."
  }
 }

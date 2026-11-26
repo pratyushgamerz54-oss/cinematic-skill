@@ -167,6 +167,26 @@ def make_intel(size=1024):
     return (a + grid[..., None] * np.array([90, 170, 210], np.float32)).clip(0, 255)
 
 
+def make_radar(size=1024):
+    """Night blue-teal surface with a fine dot grid (tileable): mystery, secret sites, surveillance."""
+    a = make_flat((8, 18, 24), 121, size, amount=0.1)
+    dots = np.zeros((size, size), np.float32)
+    for y in range(0, size, 32):
+        for x in range(0, size, 32):
+            dots[y:y + 3, x:x + 3] = 0.22 if (x % 256 == 0 or y % 256 == 0) else 0.1
+    return (a + dots[..., None] * np.array([70, 200, 190], np.float32)).clip(0, 255)
+
+
+def make_desert(size=1024):
+    """Dusky amber with soft dune-like streaks (tileable): deserts, bases, landscapes at dusk."""
+    base = np.array([58, 38, 22], np.float32)
+    n = 0.55 * tile_noise(size, 90, 131) + 0.3 * tile_noise(size, 25, 132) + 0.15 * tile_noise(size, 6, 133)
+    yy = np.arange(size)[:, None] / size; xx = np.arange(size)[None, :] / size
+    streak = 0.5 + 0.5 * np.sin((yy * 9 + xx * 2 + 0.25 * n) * 2 * math.pi)
+    v = n * 0.12 + (streak - 0.5) * 0.08
+    return (base[None, None, :] * (1 + v[..., None])).clip(0, 255)
+
+
 def make_relief(size=1024):
     """Faux terrain relief for map land: tileable multi-octave noise, hill-shaded, soft."""
     n = 0.6 * tile_noise(size, 90, 41) + 0.3 * tile_noise(size, 30, 42) + 0.15 * tile_noise(size, 8, 43)
@@ -208,6 +228,10 @@ def textures(prep, force=False):
         made.append(save("tension.png", make_flat((34, 14, 13), 101, amount=0.14)))
     if force or not (prep / "grief.png").exists():
         made.append(save("grief.png", make_flat((16, 20, 28), 111, amount=0.09)))
+    if force or not (prep / "radar.png").exists():
+        made.append(save("radar.png", make_radar()))
+    if force or not (prep / "desert.png").exists():
+        made.append(save("desert.png", make_desert()))
     if force or not (prep / "blueprint.png").exists():
         made.append(save("blueprint.png", make_blueprint()))
     made = [m for m in made if m]

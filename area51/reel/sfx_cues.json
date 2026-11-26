@@ -1,0 +1,72 @@
+{
+ "duration": 63.211,
+ "cues": [
+  {
+   "type": "heartbeat",
+   "t": 7.694,
+   "gain": 0.8
+  },
+  {
+   "type": "whoosh",
+   "t": 8.667,
+   "gain": 0.48
+  },
+  {
+   "type": "whoosh",
+   "t": 15.633,
+   "gain": 0.48
+  },
+  {
+   "type": "ticks",
+   "t": 18.579,
+   "gain": 0.6
+  },
+  {
+   "type": "whoosh",
+   "t": 20.767,
+   "gain": 0.48
+  },
+  {
+   "type": "whoosh",
+   "t": 31.233,
+   "gain": 0.48
+  },
+  {
+   "type": "stamp",
+   "t": 37.838,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 39.5,
+   "gain": 0.48
+  },
+  {
+   "type": "stamp",
+   "t": 45.318,
+   "gain": 1.0
+  },
+  {
+   "type": "whoosh",
+   "t": 47.933,
+   "gain": 0.48
+  },
+  {
+   "type": "pencil",
+   "t": 50.645,
+   "gain": 0.6,
+   "dur": 0.5
+  },
+  {
+   "type": "whoosh",
+   "t": 55.3,
+   "gain": 0.48
+  },
+  {
+   "type": "boom",
+   "t": 58.819,
+   "gain": 0.5
+  }
+ ],
+ "room_tone": []
+}

@@ -92,7 +92,16 @@ MOODS = {
     "grief": dict(board="grief.png", grade=(0.95, 0.99, 1.06), grain=0.03, glow=0.2, vignette=0.88, curve=0.25, desat=0.35, archive=0.0),
     # verdict: neutral charcoal (the summing up, the closing question)
     "verdict": dict(board="charcoal.png", grade=(1.0, 1.0, 1.0), grain=0.028, glow=0.22, vignette=0.8, curve=0.28, desat=0.0, archive=0.0),
+    # radar: night blue-teal with a fine dot grid (mystery hooks without red; secret sites, surveillance)
+    "radar": dict(board="radar.png", grade=(0.95, 1.01, 1.05), grain=0.026, glow=0.3, vignette=0.9, curve=0.3, desat=0.0, archive=0.0),
+    # desert: dusky amber (deserts, bases, landscapes at dusk)
+    "desert": dict(board="desert.png", grade=(1.05, 1.0, 0.93), grain=0.03, glow=0.24, vignette=0.85, curve=0.27, desat=0.0, archive=0.0),
 }
+# moving background per mood for Atmos: (particle rgb, particle kind, sweep rgb)
+ATMOS = {"evidence": ((235, 220, 190), "dust", None), "archive": ((240, 215, 170), "dust", None),
+         "intel": ((110, 200, 230), "dots", (90, 180, 220)), "tension": ((240, 150, 120), "dust", None),
+         "grief": ((190, 205, 225), "snow", None), "verdict": ((225, 225, 220), "dust", None),
+         "radar": ((120, 240, 220), "stars", (63, 224, 204)), "desert": ((255, 200, 130), "dust", (255, 179, 71))}
 MOOD_NUM = ("grain", "glow", "vignette", "curve", "desat", "archive")
 
 
@@ -1658,6 +1667,62 @@ class Hud(Item):
         cx, cy, z, rot = self.film.camera(t)
         c.save(); c.translate(cx, cy); c.rotate(-rot); c.scale(1 / z, 1 / z)
         self.item.draw(c, res, t)
+        c.restore()
+
+
+class Atmos(Item):
+    """A moving background just above the board, in screen space: drifting dust, stars or snow, a slow
+    light sweep and faint radar rings, coloured by the current mood (ATMOS). Keeps held frames alive
+    without moving the camera. Add once: film.add(Atmos(film))."""
+    z = -90
+
+    def __init__(self, film, n=140, seed=7, strength=1.0):
+        super().__init__(-1, None, None, False)
+        self.film, self.strength = film, strength
+        rng = np.random.default_rng(seed)
+        self.p = rng.random((n, 5))            # x, y, size, speed, phase
+
+    def bounds(self, res):
+        return None
+
+    def _layer(self, c, name, a, t):
+        rgb, kind, sweep = ATMOS.get(name, ATMOS["verdict"])
+        W, H = 3840, 2160
+        for x, y, s, v, ph in self.p:
+            if kind == "stars":
+                px, py, r = (x - 0.5) * W, (y - 0.5) * H, 2 + s * 4
+                al = 0.25 + 0.35 * (0.5 + 0.5 * math.sin(t * (0.6 + v) + ph * 6.28))
+            elif kind == "snow":
+                px = ((x + 0.01 * math.sin(t * 0.4 + ph * 6)) % 1 - 0.5) * W; py = ((y + t * (0.01 + 0.02 * v)) % 1 - 0.5) * H
+                r, al = 3 + s * 5, 0.25
+            elif kind == "dots":
+                px, py = (x - 0.5) * W, (y - 0.5) * H; r = 2.5 + s * 2
+                al = 0.12 + 0.3 * max(0.0, math.sin(t * 0.8 + ph * 6.28)) ** 4
+            else:                                # dust motes drifting up and sideways
+                px = ((x + t * (0.004 + 0.01 * v)) % 1 - 0.5) * W; py = ((y - t * (0.006 + 0.012 * v)) % 1 - 0.5) * H
+                r, al = 2 + s * 5, 0.12 + 0.18 * (0.5 + 0.5 * math.sin(t * 1.3 + ph * 6.28))
+            c.drawCircle(px, py, r * 2.6, paint(rgb, al * a * 0.25, blur=6))
+            c.drawCircle(px, py, r, paint(rgb, al * a))
+        if sweep:
+            u = (t * 0.045) % 1.0                # a soft light band crossing the frame every ~22 s
+            xs = (u * 1.6 - 0.8) * W
+            g = skia.GradientShader.MakeLinear([skia.Point(xs - 700, 0), skia.Point(xs + 700, 0)],
+                                               [color(sweep, 0.0), color(sweep, 0.07 * a), color(sweep, 0.0)], [0.0, 0.5, 1.0])
+            pt = skia.Paint(AntiAlias=True); pt.setShader(g); c.drawRect(skia.Rect.MakeLTRB(-W, -H, W, H), pt)
+            for k in range(3):                   # radar rings pulsing out from the lower right
+                ru = ((t * 0.12 + k / 3) % 1.0)
+                c.drawCircle(W * 0.32, H * 0.3, 300 + ru * 2600, paint(sweep, 0.10 * a * (1 - ru), stroke=5))
+
+    def draw(self, c, res, t):
+        if self.film.moods:
+            a, b, u = self.film.mood_mix(t)
+        else:
+            a, b, u = "verdict", "verdict", 1.0
+        cx, cy, z, rot = self.film.camera(t)
+        c.save(); c.translate(cx, cy); c.rotate(-rot); c.scale(1 / z, 1 / z)
+        if a != b and u < 1:
+            self._layer(c, a, (1 - u) * self.strength, t)
+        self._layer(c, b, (u if a != b else 1.0) * self.strength, t)
         c.restore()
 
 

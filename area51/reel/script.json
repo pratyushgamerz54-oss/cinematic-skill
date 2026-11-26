@@ -135,7 +135,9 @@
   }
  ],
  "reel_cut": {
-  "dropped_lines": [],
-  "note": "fill after the voice arrives"
+  "dropped_lines": [
+   3
+  ],
+  "note": "The user's read at 1.0x ran 69 s; line 3 (1955 base) dropped, line 2 already places the base; no speed-up, gaps 0.3 s."
  }
 }

@@ -140,6 +140,16 @@ Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new 
   40 s), `s4.html` (claim, 10 s), HyperFrames `hf/` (gen.py: welcome, topic, go, qopen, haines, aaro, qend, rq; 73 s),
   NASA footage (SR-71 take-off, ER-2 take-off), `clips.json` (all of them, cut by trim), `credits.md`, `thumbs.py`.
   Wikimedia 429s video originals: use the `transcoded/.../<name>.480p.vp9.webm` (or 1080p) copies instead.
+- **Voice arrived (26 Nov 2026)** as one file per take (Greeting = T00_intro, T01..T11) + REEL. Split with 0 flagged;
+  natural pace 1.0x: film **8:39** with gaps 0.45/0.6 s, no line dropped (user: length follows the recording);
+  reel 69 s -> line 3 dropped (`reel_cut`) -> **63 s**.
+- New engine features (skills/cinematic-film): moods **`radar`** (night teal; hooks without red) and **`desert`**
+  (dusk amber), textures radar.png/desert.png in prep_assets.py; **`Atmos(film)`**: a moving screen-space background
+  layer (dust, stars, snow, light sweep, radar rings) coloured by the current mood; per-photo `"grade"` in photos.json.
+- `area51/scene.py` (12 sections, screens below, cut() helper with `until=` for lines that go on to another visual;
+  into() ends 0.5 s before the next line so tidy_keys keeps the order), `area51/reel/scene.py` (fixed format, teal
+  progress bar). All 69 lines probed; test spans 40-60, 100-120, 380-400 s looked right. Sound: cues -> thin_cues ->
+  build_sfx; score = drone1/drone2 alternated with 4 s cross-fades to 525 s; mixes at -15 LUFS.
 - Original plan, before the voice: Commons photos (15-20), globe, a 3D-style tilted map and a 3D terrain map of
   Groom Lake (colourful NASA/USGS imagery), 3D models (the base with runway and hangars, U-2, A-12,
   Have Blue, the S-4 hangar in the mountain), real public-domain footage (U-2, A-12/SR-71 take-offs),
