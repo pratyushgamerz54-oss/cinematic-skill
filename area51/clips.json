@@ -1,0 +1,294 @@
+{
+ "fps": 30,
+ "clips": [
+  {
+   "id": "g_nevada",
+   "file": "assets/clips/g_nevada.mp4",
+   "what": "3D globe: from orbit down onto the Nevada desert",
+   "credit": "Made in code (three.js); land: Natural Earth / world-atlas",
+   "license": "Own work"
+  },
+  {
+   "id": "g_powers",
+   "file": "assets/clips/g_powers.mp4",
+   "what": "3D globe: the 1 May 1960 U-2 flight from Peshawar towards Sverdlovsk, shot down",
+   "credit": "Made in code (three.js); land: Natural Earth / world-atlas",
+   "license": "Own work"
+  },
+  {
+   "id": "g_mig",
+   "file": "assets/clips/g_mig.mp4",
+   "what": "3D globe: 1966, the MiG-21 flown from Iraq to Israel, then on to Nevada",
+   "credit": "Made in code (three.js); land: Natural Earth / world-atlas",
+   "license": "Own work"
+  },
+  {
+   "id": "g_roswell",
+   "file": "assets/clips/g_roswell.mp4",
+   "what": "3D globe: the rumour line from Roswell, New Mexico, to Area 51",
+   "credit": "Made in code (three.js); land: Natural Earth / world-atlas",
+   "license": "Own work"
+  },
+  {
+   "id": "g_verdict",
+   "file": "assets/clips/g_verdict.mp4",
+   "what": "3D globe: pull out from Groom Lake to the whole planet",
+   "credit": "Made in code (three.js); land: Natural Earth / world-atlas",
+   "license": "Own work"
+  },
+  {
+   "id": "ter_A",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    0,
+    8
+   ],
+   "what": "3D terrain map: reveal: down onto Groom Lake",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_B",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    8,
+    15
+   ],
+   "what": "3D terrain map: the base: runway and hangars rise (approximate)",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_C",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    15,
+    23
+   ],
+   "what": "3D terrain map: perimeter: boundary, orange posts, sensors",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_D",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    23,
+    31
+   ],
+   "what": "3D terrain map: ridges closed in 1984/1995, the view from Tikaboo Peak",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_E",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    31,
+    38
+   ],
+   "what": "3D terrain map: JANET lands; Route 375 and Rachel",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_F",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    38,
+    45
+   ],
+   "what": "3D terrain map: Papoose Lake, the S-4 claim",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_G",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    45,
+    52
+   ],
+   "what": "3D terrain map: smoke over the burn trench (allegation)",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ter_H",
+   "file": "assets/clips/terrain.mp4",
+   "trim": [
+    52,
+    58
+   ],
+   "what": "3D terrain map: the Nevada Test Site beside Groom Lake",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP/SRTM, open data); relief colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "air_A",
+   "file": "assets/clips/aircraft.mp4",
+   "trim": [
+    0,
+    8
+   ],
+   "what": "Illustrative 3D: U-2 turntable",
+   "credit": "Made in code (three.js), not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "air_B",
+   "file": "assets/clips/aircraft.mp4",
+   "trim": [
+    8,
+    16
+   ],
+   "what": "Illustrative 3D: U-2 above the night, sun on the wings",
+   "credit": "Made in code (three.js), not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "air_C",
+   "file": "assets/clips/aircraft.mp4",
+   "trim": [
+    16,
+    24
+   ],
+   "what": "Illustrative 3D: A-12 at night, afterburners",
+   "credit": "Made in code (three.js), not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "air_D",
+   "file": "assets/clips/aircraft.mp4",
+   "trim": [
+    24,
+    32
+   ],
+   "what": "Illustrative 3D: HAVE BLUE and the radar sweep",
+   "credit": "Made in code (three.js), not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "air_E",
+   "file": "assets/clips/aircraft.mp4",
+   "trim": [
+    32,
+    40
+   ],
+   "what": "Illustrative 3D: U-2, A-12, HAVE BLUE over the lakebed",
+   "credit": "Made in code (three.js), not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "s4",
+   "file": "assets/clips/s4.mp4",
+   "what": "Illustrative 3D of Lazar's claim: hangar doors in a mountain at Papoose Lake (labelled दावा)",
+   "credit": "Made in code (three.js)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_welcome",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    0,
+    5
+   ],
+   "what": "HyperFrames motion graphic: welcome",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_topic",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    5,
+    31
+   ],
+   "what": "HyperFrames motion graphic: topic",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_go",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    31,
+    35
+   ],
+   "what": "HyperFrames motion graphic: go",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qopen",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    35,
+    43
+   ],
+   "what": "HyperFrames motion graphic: qopen",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_haines",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    43,
+    51
+   ],
+   "what": "HyperFrames motion graphic: haines",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_aaro",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    51,
+    58
+   ],
+   "what": "HyperFrames motion graphic: aaro",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qend",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    58,
+    67
+   ],
+   "what": "HyperFrames motion graphic: qend",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_rq",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    67,
+    73
+   ],
+   "what": "HyperFrames motion graphic: rq",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "ft_sr71",
+   "file": "assets/footage/sr71.webm",
+   "what": "Real footage: SR-71 take-off at Edwards AFB (the A-12's successor; labelled SR-71 (A-12 परिवार))",
+   "grade": "sepia",
+   "credit": "NASA Armstrong Flight Research Center, via Wikimedia Commons",
+   "license": "Public domain"
+  },
+  {
+   "id": "ft_er2",
+   "file": "assets/footage/er2_takeoff.mp4",
+   "what": "Real footage: NASA ER-2 (civil U-2) taxi and take-off, GEMx B-roll SVS14728 (772-812 s of the source); labelled NASA ER-2 (U-2 का नागरिक रूप)",
+   "grade": "natural",
+   "credit": "NASA Scientific Visualization Studio, via Wikimedia Commons",
+   "license": "Public domain"
+  }
+ ]
+}

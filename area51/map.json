@@ -1,0 +1,65 @@
+{
+ "maps": [
+  {
+   "name": "sw",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "projection": {
+    "type": "equirect",
+    "lon0": -110,
+    "lat0": 36
+   },
+   "keep": [
+    "United States of America",
+    "Mexico",
+    "Canada"
+   ],
+   "clip": [
+    -128,
+    26,
+    -94,
+    46
+   ],
+   "frame": [
+    -122,
+    30,
+    -100,
+    42
+   ],
+   "places": {
+    "Groom": [
+     37.24,
+     -115.81
+    ],
+    "Vegas": [
+     36.17,
+     -115.14
+    ],
+    "Roswell": [
+     33.39,
+     -104.52
+    ],
+    "Rachel": [
+     37.645,
+     -115.745
+    ],
+    "Tonopah": [
+     38.07,
+     -117.23
+    ],
+    "Edwards": [
+     34.9,
+     -117.88
+    ],
+    "Burbank": [
+     34.18,
+     -118.31
+    ],
+    "NTS": [
+     37.0,
+     -116.05
+    ]
+   }
+  }
+ ]
+}

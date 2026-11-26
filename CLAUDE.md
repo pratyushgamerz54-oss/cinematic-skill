@@ -6,7 +6,9 @@ here, and update its "Pending" list when work is done.
 
 The user will often send **only a topic** (in Hinglish or Hindi). That is a request for the full package
 below, made with every tool listed here. Do not start a video unless the user asks for one or sends a topic
-for one. `saanp/` (पिछवाड़े के साँप) is the finished reference project: copy its patterns.
+for one. `saanp/` (पिछवाड़े के साँप) is the first reference project; **`area51/` (एरिया 51) is the newest and fullest**
+(3D terrain map, aircraft models, radar/desert moods, Atmos background, finish.sh): copy its patterns.
+The step-by-step playbook with every command is in `HANDOFF.md` ("PLAYBOOK").
 
 ## What one topic produces
 
@@ -112,13 +114,14 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 
 ## The pipeline (commands as in `saanp/`)
 
-1. **Research and script** (`script.json`): about 66 lines in 9 takes, about **4,600 Hindi characters**
-   for ~5:18 at George's pace; numbers in words in `spoken`; `...` for dramatic pauses. Plus a **separate reel script** in `reel/script.json`
+1. **Research and script** (`script.json`): `T00_intro` plus **50 story lines** in 9 takes (T01..T09), about **3,700 to 3,900 Hindi
+   characters** for ~5:18 to 5:30 at Viraj's natural pace; numbers in words in `spoken`; `...` for dramatic pauses. Plus a **separate reel script** in `reel/script.json`
    (one take `REEL`, 9 to 11 lines, each with its beat headline, exhibit tag, source line and mood).
    Run `make_beats.py` until it shows 0 warnings.
 2. **Stop once for approval:** send `beats.md`, ask (one AskUserQuestion) to approve the script and pick
    the voice. This is the only stop: voice credits are limited. Everything after it runs without asking.
-3. **Voice:** ElevenLabs, one take per section. Also write `voiceover_script.md`, an emotion-tag version
+3. **Voice:** ElevenLabs, one take per section. The user may instead send three files: Greeting (= `T00_intro`),
+   the whole story in one file, and Reel; split the story as one take via `audio/_split/` (see `tut/`). Also write `voiceover_script.md`, an emotion-tag version
    for Eleven v3, and a copyable list in chat if the user records it themselves.
    `split_takes.py` -> `build_narration.py --target 318` (tempo must stay within 0.90 to 1.15).
 4. **Images:** Wikimedia Commons via `fetch_commons.py`; if it returns 429, download standard 960px
@@ -141,7 +144,7 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
 - Found worse: a 6:21 version timed to a slow read. Keep films near 5:18 **at the voice's natural pace (1.0x,
   the user chose this over 1.17x)**. If a recorded read runs long, drop whole lines (`film_cut` in
   `saanp/script.json` shows how: guard their visuals with `has(i)`, use `nxt(i)` for clip ends) and cap the
-  gaps between lines at 0.6 s; never stretch the film or speed up the voice.
+  gaps between lines at 0.45 to 0.6 s; never stretch the film or speed up the voice.
 - **Visuals (the user's own words: "visual ki kami hai, bahut jagah ruk jaata hai"):** every line gets its
   own visual that explains it, not text alone. Concretely:
   - **Documentary pace for the camera, a new element on the words:** the camera moves calmly (moves about
@@ -156,7 +159,7 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   - **Many photos:** at least one real archive photo per section, usually two or three (aim for 15 to 20
     in a 5-minute film): people, places, documents, the scene after an event. Search Commons widely
     (e.g. White House, DoD, State Department photos are public domain).
-  - **More 3D:** at least three 3D shots beyond the globe: a building or site model, a landscape or
+  - **More 3D:** at least three or four 3D models beyond the globe: a building or site model, a landscape or
     terrain, vehicles moving on globe routes (`"vehicle": "plane" | "boat"` in `globe.json`).
   - **Motion graphics, not only text:** animated diagrams for the ideas (networks, money trails, targets,
     clocks, counters as figure or dot grids, candles for victims, typed testimony), mostly built on the board with the engine items, timed to the words; HyperFrames only for a few hero graphics.
@@ -170,6 +173,33 @@ graphic). Clips go full-frame by `screen()` + `into()` as in `saanp/scene.py`.
   the website from the script. Viraj reads about 15% slower than George: a Viraj film needs about 15% fewer
   words (about 3,900 characters) to land near 5:18.
 - HyperFrames usage note: the user said yes to sending it.
+
+## Area 51 orders (user, 25 Nov 2026; keep doing this)
+
+- **Length follows the voice:** when the user names a length ("kul 8 mint"), write for it (≈ 11.4 Hindi
+  characters a second at Viraj's pace, gaps included: 8 min ≈ 5,500 characters) and then fit the film to
+  the recording they send ("jitna der ka hoga uske hisaab se"); the 5:18 default applies only when no
+  length is named.
+- **Curiosity first:** do not start explaining at once ("suru se hi nhi batane lagi ge"). Open with
+  questions about the topic that make the viewer curious, and keep hooks going: at the start, before the
+  middle, in the middle, before the end and at the end. "Pura kaccha chittha khol dena": the full story,
+  every side, with sources.
+- **Maps: a 3D-style map animation** (a tilted 2.5D map or a 3D terrain map that moves), and colourful
+  maps or satellite images from the internet where free ones exist (NASA, USGS Landsat, Commons; credit
+  them); a flat 2D map is fine as well.
+- **Less red:** "thoda red red jyada ho jata hai": pick the palette for the topic (for Area 51: desert
+  amber, night blue, radar green) and keep red for one or two hooks.
+- **More engaging backgrounds** for view retention: moving, topic-matched backgrounds, not one flat board.
+- **Voice in parts (user, 25 Nov 2026):** one ElevenLabs generation cannot take the whole story (not even 50 lines:
+  Eleven v3 caps the text per generation), so a long story arrives as several MP3s ("tere ko do MP3 milege... mila
+  lena"); give the user parts of about 2,000-2,300 characters with tags (about 15-20 lines), cut at take boundaries. Join them in order (ffmpeg concat, a 0.6 s
+  gap at the join) into one story file, then split it as one take via `audio/_split/` as usual. Suggest the split
+  at a take boundary so no line is cut.
+- **Send each deliverable the moment it is ready (user, 26 Nov 2026):** "jaise hi jiska kaam ho wo de dena": the film
+  as soon as its render is done (caption-free share copy first, then the captioned film), then the reel when it is done,
+  then SRTs and thumbnails; never hold everything for one message.
+- **Motion graphics may come from the internet** (free licence, credited); **HyperFrames very little**
+  ("hyperframe ka use bahut kam hi karna hai"): only the intro and one or two hero graphics.
 
 ## Practical notes
 

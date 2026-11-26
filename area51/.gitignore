@@ -1,0 +1,22 @@
+assets/prep/clips/
+hf/.hyperframes/
+hf/renders/
+hf/node_modules/
+out/*.mp4
+!out/*_share.mp4
+assets/3d/*.png
+assets/clips/*.png
+audio/_split/
+audio/trimmed/
+reel/audio/trimmed/
+out/probe/
+out/test_*.mp4
+audio/sfx.wav
+audio/music/score.wav
+reel/audio/sfx.wav
+out/chunks/
+out/burn/
+reel/out/
+# film share copies are over GitHub's 100 MB limit (8:39 film): sent to the user, not in git
+out/area51_nocaptions_share.mp4
+out/area51_final_share.mp4

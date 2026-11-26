@@ -1,0 +1,670 @@
+{
+ "title": "एरिया 51",
+ "subtitle": "पूरा कच्चा चिट्ठा: एक जाँच",
+ "language": "hi",
+ "format": {
+  "film": "1920x1080, about 8:00 (user, 25 Nov 2026: length follows the recorded voice), with the YouTube intro T00_intro",
+  "reel": "separate script in reel/script.json"
+ },
+ "takes": [
+  {
+   "take": "T00_intro",
+   "heading": "स्वागत (YouTube इंट्रो)",
+   "lines": [
+    {
+     "id": 1,
+     "text": "नमस्कार दोस्तों, आपका स्वागत है।",
+     "spoken": "नमस्कार दोस्तों... आपका स्वागत है।",
+     "hero": "HyperFrames intro part 1 (hf_welcome): night desert dust, radar sweep ring draws on, 'नमस्कार' · 'स्वागत है'",
+     "typed": "नमस्कार · स्वागत है",
+     "mood": "intel"
+    },
+    {
+     "id": 2,
+     "text": "अमेरिका के रेगिस्तान में, एक ऐसी जगह है, जिसका नाम तक, सरकार लगभग साठ साल तक नहीं लेती थी।",
+     "spoken": "अमेरिका के रेगिस्तान में, एक ऐसी जगह है... जिसका नाम तक, सरकार लगभग साठ साल तक नहीं लेती थी।",
+     "hero": "HyperFrames intro part 2 (hf_topic): satellite photo of the dry lake fades up behind a redaction bar; teaser chip 'नाम लेना मना · ≈ 60 साल'",
+     "typed": "नाम लेना मना · ≈60 साल",
+     "mood": "intel"
+    },
+    {
+     "id": 3,
+     "text": "वहाँ के आसमान में, लोगों को अजीब रोशनियाँ क्यों दिखती थीं? और वहाँ जाने वालों पर, गोली चलाने की इजाज़त क्यों है?",
+     "spoken": "वहाँ के आसमान में, लोगों को अजीब रोशनियाँ क्यों दिखती थीं? और वहाँ जाने वालों पर... गोली चलाने की इजाज़त क्यों है?",
+     "hero": "hf_topic continued: question chips land on the words: 'अजीब रोशनियाँ?' (light streak over the ridge) · 'गोली की इजाज़त?' (warning sign icon)",
+     "typed": "अजीब रोशनियाँ? · गोली की इजाज़त?",
+     "mood": "intel",
+     "hook": "question"
+    },
+    {
+     "id": 4,
+     "text": "और सबसे बड़ा सवाल, क्या वहाँ सच में, किसी दूसरी दुनिया का राज़ छुपा है?",
+     "spoken": "और सबसे बड़ा सवाल... क्या वहाँ सच में, किसी दूसरी दुनिया का राज़ छुपा है?",
+     "hero": "hf_topic continued: the chips clear, a single slow light rises over the mountains; heartbeat",
+     "typed": "दूसरी दुनिया?",
+     "mood": "intel",
+     "hook": "question"
+    },
+    {
+     "id": 5,
+     "text": "आज हम खोलेंगे, दुनिया के सबसे रहस्यमयी अड्डे का, पूरा कच्चा चिट्ठा। एरिया 51।",
+     "spoken": "आज हम खोलेंगे, दुनिया के सबसे रहस्यमयी अड्डे का... पूरा कच्चा चिट्ठा। एरिया फ़िफ़्टी वन।",
+     "hero": "hf_topic finale: the redaction bar tears off, title 'एरिया 51' stamps in (the film's one title card), subtitle 'पूरा कच्चा चिट्ठा'",
+     "typed": "title एरिया 51",
+     "mood": "intel"
+    },
+    {
+     "id": 6,
+     "text": "तो चलिए, शुरू करते हैं।",
+     "spoken": "तो चलिए... शुरू करते हैं।",
+     "hero": "HyperFrames intro part 3 (hf_go): radar sweep, a scan line wipes, the date counter spins to 20.09.2019 into the cold open",
+     "typed": "▶",
+     "mood": "intel"
+    }
+   ]
+  },
+  {
+   "take": "T01_cold_open",
+   "heading": "वो दिन, जब दुनिया दरवाज़े पर पहुँची",
+   "lines": [
+    {
+     "id": 7,
+     "text": "सितंबर, दो हज़ार उन्नीस। अमेरिका का नेवाडा रेगिस्तान।",
+     "spoken": "सितंबर, दो हज़ार उन्नीस। अमेरिका का नेवाडा रेगिस्तान।",
+     "hero": "3D globe (look dark, borders false): flight from orbit down to Nevada, label नेवाडा; date bar",
+     "typed": "सितंबर 2019 · नेवाडा",
+     "mood": "intel",
+     "hook": "open"
+    },
+    {
+     "id": 8,
+     "text": "फ़ेसबुक पर, मज़ाक़ में, एक इवेंट बना, एरिया 51 पर धावा बोलो।",
+     "spoken": "फ़ेसबुक पर, मज़ाक़ में, एक इवेंट बना... एरिया फ़िफ़्टी वन पर धावा बोलो।",
+     "hero": "engine motion graphic: a phone-style event card (recreation, no real names) types the line 'Storm Area 51, They Can't Stop All of Us'",
+     "typed": "STORM AREA 51",
+     "mood": "evidence"
+    },
+    {
+     "id": 9,
+     "text": "देखते ही देखते, बीस लाख से ज़्यादा लोगों ने लिखा, हम आ रहे हैं।",
+     "spoken": "देखते ही देखते... बीस लाख से ज़्यादा लोगों ने लिखा, हम आ रहे हैं।",
+     "hero": "Counter 0 → 20,00,000+ with a dot grid filling the frame, each dot a person",
+     "typed": "20 लाख+",
+     "mood": "evidence"
+    },
+    {
+     "id": 10,
+     "text": "बीस सितंबर को, गेट तक बस कुछ दर्जन लोग पहुँचे, और आसपास के मेलों में, कुछ हज़ार।",
+     "spoken": "बीस सितंबर को, गेट तक बस कुछ दर्जन लोग पहुँचे... और आसपास के मेलों में, कुछ हज़ार।",
+     "hero": "Commons photo/footage of the Storm Area 51 crowd near Rachel (free licence); counter drops 20 लाख → ≈ 1,500",
+     "typed": "≈ 1,500",
+     "mood": "evidence"
+    },
+    {
+     "id": 11,
+     "text": "और गेट पर लगे बोर्ड पर लिखा था, जानलेवा ताक़त के इस्तेमाल की, इजाज़त है।",
+     "spoken": "और गेट पर लगे बोर्ड पर लिखा था... जानलेवा ताक़त के इस्तेमाल की, इजाज़त है।",
+     "hero": "archive photo: Area 51 warning sign 'Use of deadly force authorized' (Commons); pen underline on the words",
+     "typed": "USE OF DEADLY FORCE AUTHORIZED",
+     "mood": "evidence"
+    },
+    {
+     "id": 12,
+     "text": "तो सवाल ये है, इस बंद दरवाज़े के पीछे, आख़िर ऐसा क्या है, जिसके लिए गोली तक चल सकती है?",
+     "spoken": "तो सवाल ये है... इस बंद दरवाज़े के पीछे, आख़िर ऐसा क्या है, जिसके लिए गोली तक चल सकती है?",
+     "hero": "HyperFrames opening question (qopen), word by word; heartbeat",
+     "typed": "बंद दरवाज़े के पीछे क्या?",
+     "mood": "tension",
+     "hook": "question"
+    },
+    {
+     "id": 13,
+     "text": "इसका जवाब जानने के लिए, हमें चलना होगा, लगभग सत्तर साल पीछे।",
+     "spoken": "इसका जवाब जानने के लिए, हमें चलना होगा... लगभग सत्तर साल पीछे।",
+     "hero": "the year counter spins 2019 → 1955, archive mood fades in; riser",
+     "typed": "2019 → 1955",
+     "mood": "archive",
+     "hook": "bridge"
+    }
+   ]
+  },
+  {
+   "take": "T02_origin",
+   "heading": "1955: एक सूखी झील",
+   "lines": [
+    {
+     "id": 14,
+     "text": "उन्नीस सौ पचपन। शीत युद्ध चरम पर था, और अमेरिका जानना चाहता था, सोवियत संघ के परमाणु बम, कहाँ छुपे हैं?",
+     "spoken": "उन्नीस सौ पचपन। शीत युद्ध चरम पर था, और अमेरिका जानना चाहता था... सोवियत संघ के परमाणु बम, कहाँ छुपे हैं?",
+     "hero": "Timeline draws on (1955); archive photo: Eisenhower / Cold War era (Commons, public domain) + bomb icons and question marks land on 'कहाँ छुपे हैं?'",
+     "typed": "1955 · शीत युद्ध",
+     "mood": "archive"
+    },
+    {
+     "id": 15,
+     "text": "सीआईए ने बनवाया, एक ऐसा जासूसी विमान, जिसे कोई छू न सके, यू-टू। लॉकहीड की गुप्त टीम, स्कंक वर्क्स ने।",
+     "spoken": "सीआईए ने बनवाया, एक ऐसा जासूसी विमान, जिसे कोई छू न सके... यू-टू। लॉकहीड की गुप्त टीम, स्कंक वर्क्स ने।",
+     "hero": "archive photo: early silver U-2 (USAF, public domain); name bar; 3D U-2 model turntable (प्रतीकात्मक 3D मॉडल); altitude ruler: a fighter stalls at its ceiling, the U-2 line climbs past it",
+     "typed": "U-2 · स्कंक वर्क्स",
+     "mood": "archive"
+    },
+    {
+     "id": 16,
+     "text": "अप्रैल, उन्नीस सौ पचपन। सीआईए की टीम को, नेवाडा के रेगिस्तान में दिखी, एक सूखी, सफ़ेद, समतल झील, ग्रूम लेक।",
+     "spoken": "अप्रैल, उन्नीस सौ पचपन। सीआईए की टीम को, नेवाडा के रेगिस्तान में दिखी, एक सूखी, सफ़ेद, समतल झील... ग्रूम लेक।",
+     "hero": "colourful satellite image of Groom Lake (USGS/NASA Landsat, public domain); the 3D terrain model of the basin tilts up; XMarker 'ग्रूम लेक'; first a small plane Route searches over the tilted Nevada map (Bissell's aerial survey)",
+     "typed": "ग्रूम लेक",
+     "mood": "intel"
+    },
+    {
+     "id": 17,
+     "text": "ठीक बगल में था, परमाणु परीक्षण का इलाक़ा। यानी, कोई भूलकर भी, इधर नहीं आता।",
+     "spoken": "ठीक बगल में था, परमाणु परीक्षण का इलाक़ा। यानी, कोई भूलकर भी, इधर नहीं आता।",
+     "hero": "map: the Nevada Test Site area fills in amber next to the lake; archive footage of a 1950s Nevada test (NNSA, public domain), shown small and distant",
+     "typed": "परमाणु परीक्षण क्षेत्र",
+     "mood": "archive"
+    },
+    {
+     "id": 18,
+     "text": "नक़्शे पर, इस ज़मीन का नंबर था, इक्यावन। और यहीं से जन्म हुआ, एरिया 51 का।",
+     "spoken": "नक़्शे पर, इस ज़मीन का नंबर था... इक्यावन। और यहीं से जन्म हुआ, एरिया फ़िफ़्टी वन का।",
+     "hero": "map grid draws on, square 51 lights up and the label 'AREA 51' stamps",
+     "typed": "AREA 51",
+     "mood": "intel"
+    },
+    {
+     "id": 19,
+     "text": "लेकिन इस सूखी झील से, जल्द ही, कुछ ऐसा उड़ने वाला था, जिसने पूरे अमेरिका को चौंका दिया।",
+     "spoken": "लेकिन इस सूखी झील से, जल्द ही, कुछ ऐसा उड़ने वाला था... जिसने पूरे अमेरिका को चौंका दिया।",
+     "hero": "3D base model at dusk: hangar door opens, a silhouette rolls out; riser",
+     "typed": "—",
+     "mood": "tension",
+     "hook": "mid"
+    }
+   ]
+  },
+  {
+   "take": "T03_u2_ufo",
+   "heading": "आसमान में 'उड़न तश्तरी'",
+   "lines": [
+    {
+     "id": 20,
+     "text": "अगस्त, उन्नीस सौ पचपन। यू-टू ने, पहली बार, ग्रूम लेक से उड़ान भरी।",
+     "spoken": "अगस्त, उन्नीस सौ पचपन। यू-टू ने, पहली बार, ग्रूम लेक से उड़ान भरी।",
+     "hero": "real footage: U-2 take-off (USAF/NASA public domain), graded sepia; date bar",
+     "typed": "अगस्त 1955",
+     "mood": "archive"
+    },
+    {
+     "id": 21,
+     "text": "उस ज़माने में, यात्री विमान, बीस हज़ार फ़ीट तक उड़ते थे। और यू-टू? साठ हज़ार फ़ीट से भी ऊपर।",
+     "spoken": "उस ज़माने में, यात्री विमान, बीस हज़ार फ़ीट तक उड़ते थे। और यू-टू? साठ हज़ार फ़ीट से भी ऊपर।",
+     "hero": "altitude BarChart: airliner bar rises to 20,000 ft; then the U-2 bar shoots past the frame, Counter 60,000 FT",
+     "typed": "यात्री विमान: 10-20 हज़ार फ़ीट",
+     "mood": "intel"
+    },
+    {
+     "id": 22,
+     "text": "नीचे लोगों को दिखती, आसमान में एक चमकती, अनजान चीज़, और फ़ोन बजने लगते: उड़न तश्तरी!",
+     "spoken": "नीचे लोगों को दिखती, आसमान में एक चमकती, अनजान चीज़... और फ़ोन बजने लगते: उड़न तश्तरी!",
+     "hero": "engine motion graphic: a glowing dot over a dark town silhouette; phone icons ring one by one; newspaper headline PaperDoc 'FLYING SAUCER?' (recreation)",
+     "typed": "उड़न तश्तरी?",
+     "mood": "evidence"
+    },
+    {
+     "id": 23,
+     "text": "पर जाँच टीमों ने, लोगों को बताया, शायद मौसम, शायद तारे। असली वजह, छुपा ली गई।",
+     "spoken": "पर जाँच टीमों ने, लोगों को बताया... शायद मौसम, शायद तारे। असली वजह, छुपा ली गई।",
+     "hero": "three typed cards 'मौसम' · 'तारे' · '???' ; stamp 'छुपाया गया' on the third (Project Blue Book document photo on the left)",
+     "typed": "छुपाया गया",
+     "mood": "evidence"
+    },
+    {
+     "id": 24,
+     "text": "सीआईए के एक अध्ययन के मुताबिक़, पचास और साठ के दशक की, आधी से ज़्यादा यूएफ़ओ रिपोर्टें, यही जासूसी उड़ानें थीं।",
+     "spoken": "सीआईए के एक अध्ययन के मुताबिक़, पचास और साठ के दशक की, आधी से ज़्यादा यूएफ़ओ रिपोर्टें... यही जासूसी उड़ानें थीं।",
+     "hero": "HyperFrames quote card: CIA, Studies in Intelligence 1997 (Haines), 'over half of all UFO reports'; pie fills past 50%",
+     "typed": "50%+ यूएफ़ओ = जासूसी विमान",
+     "mood": "evidence"
+    },
+    {
+     "id": 25,
+     "text": "यानी, यूएफ़ओ की अफ़वाह, सरकार के लिए, एक परदा बन गई। लेकिन असली खेल, अभी शुरू हुआ था।",
+     "spoken": "यानी, यूएफ़ओ की अफ़वाह, सरकार के लिए, एक परदा बन गई। लेकिन असली खेल... अभी शुरू हुआ था।",
+     "hero": "a curtain motion graphic draws across the board; heartbeat",
+     "typed": "—",
+     "mood": "tension",
+     "hook": "mid"
+    }
+   ]
+  },
+  {
+   "take": "T04_oxcart",
+   "heading": "आवाज़ से तीन गुना तेज़",
+   "lines": [
+    {
+     "id": 26,
+     "text": "एक मई, उन्नीस सौ साठ। सोवियत संघ ने, एक यू-टू मार गिराया, और पायलट, फ़्रांसिस गैरी पावर्स, पकड़ा गया।",
+     "spoken": "एक मई, उन्नीस सौ साठ। सोवियत संघ ने, एक यू-टू मार गिराया... और पायलट, फ़्रांसिस गैरी पावर्स, पकड़ा गया।",
+     "hero": "3D globe: route Peshawar → Sverdlovsk, the plane icon stops with an XMarker; archive photo of Francis Gary Powers (public domain)",
+     "typed": "1.05.1960 · पावर्स",
+     "mood": "archive"
+    },
+    {
+     "id": 27,
+     "text": "अब चाहिए था, मिसाइल से भी तेज़ विमान। नाम, ए-बारह, कोडनेम, ऑक्सकार्ट। रफ़्तार, आवाज़ से तीन गुना।",
+     "spoken": "अब चाहिए था, मिसाइल से भी तेज़ विमान। नाम, ए-बारह... कोडनेम, ऑक्सकार्ट। रफ़्तार, आवाज़ से तीन गुना।",
+     "hero": "archive photo: Lockheed A-12 (CIA, public domain); Counter MACH 3+; 3D A-12 model (प्रतीकात्मक 3D मॉडल); missile line chases the plane and loses",
+     "typed": "A-12 · OXCART · MACH 3+",
+     "mood": "archive"
+    },
+    {
+     "id": 28,
+     "text": "पर इसे बनाने के लिए, चाहिए था ढेर सारा टाइटेनियम।",
+     "spoken": "पर इसे बनाने के लिए, चाहिए था ढेर सारा टाइटेनियम।",
+     "hero": "engine motion graphic: an element tile 'Ti 22' lands; a stock gauge runs low",
+     "typed": "Ti · टाइटेनियम",
+     "mood": "intel"
+    },
+    {
+     "id": 29,
+     "text": "बताया जाता है, ये टाइटेनियम, नक़ली कंपनियों के ज़रिए, सोवियत संघ से ही आया, यानी, दुश्मन की धातु से, दुश्मन की जासूसी।",
+     "spoken": "बताया जाता है, ये टाइटेनियम, नक़ली कंपनियों के ज़रिए, सोवियत संघ से ही आया... यानी, दुश्मन की धातु से, दुश्मन की जासूसी।",
+     "hero": "money-trail diagram on the intel map: USSR → shell companies → USA, StringLine and stamp 'नक़ली कंपनियाँ'",
+     "typed": "USSR → ? → USA",
+     "mood": "intel"
+    }
+   ]
+  },
+  {
+   "take": "T05_migs_stealth",
+   "heading": "दुश्मन के विमान, और अदृश्य जहाज़",
+   "lines": [
+    {
+     "id": 30,
+     "text": "पर एरिया 51 में, सिर्फ़ अमेरिकी विमान नहीं उड़ते थे।",
+     "spoken": "पर एरिया फ़िफ़्टी वन में, सिर्फ़ अमेरिकी विमान नहीं उड़ते थे।",
+     "hero": "the board slides; a red-star silhouette appears under a sheet",
+     "typed": "—",
+     "mood": "evidence"
+    },
+    {
+     "id": 31,
+     "text": "उन्नीस सौ छियासठ। एक इराक़ी पायलट, सोवियत मिग इक्कीस लेकर, इज़राइल भाग गया।",
+     "spoken": "उन्नीस सौ छियासठ। एक इराक़ी पायलट, सोवियत मिग इक्कीस लेकर, इज़राइल भाग गया।",
+     "hero": "2.5D map: Route Iraq → Israel with a jet icon; date bar",
+     "typed": "1966 · मिग-21",
+     "mood": "intel"
+    },
+    {
+     "id": 32,
+     "text": "उन्नीस सौ अड़सठ में, यही मिग, चुपचाप एरिया 51 पहुँचा। कोडनेम, हैव डोनट।",
+     "spoken": "उन्नीस सौ अड़सठ में, यही मिग, चुपचाप एरिया फ़िफ़्टी वन पहुँचा। कोडनेम... हैव डोनट।",
+     "hero": "declassified document from the National Security Archive 2013 release (HAVE DOUGHNUT); pen circle on the code name; photo of a MiG-21 in US markings (USAF, public domain)",
+     "typed": "HAVE DOUGHNUT",
+     "mood": "evidence"
+    },
+    {
+     "id": 33,
+     "text": "फिर आया, उन्नीस सौ सतहत्तर। आसमान में उड़ा, एक अजीब, नुकीला, कोणों से बना विमान, हैव ब्लू।",
+     "spoken": "फिर आया, उन्नीस सौ सतहत्तर। आसमान में उड़ा, एक अजीब, नुकीला, कोणों से बना विमान... हैव ब्लू।",
+     "hero": "archive photo: Have Blue (USAF, public domain); 3D faceted model turntable (प्रतीकात्मक 3D मॉडल)",
+     "typed": "1977 · HAVE BLUE",
+     "mood": "archive"
+    },
+    {
+     "id": 34,
+     "text": "इसे रडार पर पकड़ना, लगभग नामुमकिन था। यही बना, स्टेल्थ फ़ाइटर, एफ़ वन वन सेवन।",
+     "spoken": "इसे रडार पर पकड़ना, लगभग नामुमकिन था। यही बना, स्टेल्थ फ़ाइटर... एफ़ वन वन सेवन।",
+     "hero": "radar-scope motion graphic: the sweep passes and the blip fades; photo of F-117 (USAF, public domain)",
+     "typed": "F-117 · स्टेल्थ",
+     "mood": "intel"
+    },
+    {
+     "id": 35,
+     "text": "यानी, एरिया 51 के ज़्यादातर 'यूएफ़ओ', असल में, अमेरिका के अपने गुप्त विमान थे।",
+     "spoken": "यानी, एरिया फ़िफ़्टी वन के ज़्यादातर 'यूएफ़ओ', असल में, अमेरिका के अपने गुप्त विमान थे।",
+     "hero": "evidence wall: U-2, A-12, Have Blue cards joined to a 'UFO?' card by string; stamp 'सुलझा'",
+     "typed": "UFO = गुप्त विमान",
+     "mood": "verdict"
+    },
+    {
+     "id": 36,
+     "text": "तो क्या कहानी यहीं ख़त्म हो गई?, नहीं।",
+     "spoken": "तो क्या कहानी यहीं ख़त्म हो गई?... नहीं।",
+     "hero": "the stamp cracks; the board goes dark; heartbeat",
+     "typed": "नहीं।",
+     "mood": "tension",
+     "hook": "mid"
+    }
+   ]
+  },
+  {
+   "take": "T06_lazar",
+   "heading": "वो आदमी, जिसने सब बदल दिया",
+   "lines": [
+    {
+     "id": 37,
+     "text": "मई, उन्नीस सौ नवासी। लास वेगास का एक टीवी चैनल, और सामने आता है, एक आदमी। बॉब लज़ार।",
+     "spoken": "मई, उन्नीस सौ नवासी। लास वेगास का एक टीवी चैनल... और सामने आता है, एक आदमी। बॉब लज़ार।",
+     "hero": "engine motion graphic: an old TV set, a silhouetted interview (recreation, labelled), date bar; then the name card 'बॉब लज़ार'",
+     "typed": "मई 1989 · बॉब लज़ार",
+     "mood": "evidence"
+    },
+    {
+     "id": 38,
+     "text": "उसका दावा था, एरिया 51 के पास, एस-फ़ोर नाम की जगह पर, पहाड़ के अंदर, नौ उड़न तश्तरियाँ रखी हैं।",
+     "spoken": "उसका दावा था, एरिया फ़िफ़्टी वन के पास, एस-फ़ोर नाम की जगह पर... पहाड़ के अंदर, नौ उड़न तश्तरियाँ रखी हैं।",
+     "hero": "3D: hangar doors cut into a mountainside at Papoose Lake open (प्रतीकात्मक 3D मॉडल, labelled 'दावा'); map pin S-4 south of Groom Lake; nine discs as a dot row",
+     "typed": "S-4 · 9 तश्तरियाँ (दावा)",
+     "mood": "intel"
+    },
+    {
+     "id": 39,
+     "text": "और वो चलती हैं, एक अनजान धातु से, एलिमेंट एक सौ पंद्रह।",
+     "spoken": "और वो चलती हैं, एक अनजान धातु से... एलिमेंट एक सौ पंद्रह।",
+     "hero": "periodic tile '115' lands with a glow; 'दावा' tag",
+     "typed": "एलिमेंट 115 (दावा)",
+     "mood": "intel"
+    },
+    {
+     "id": 40,
+     "text": "ये सुनते ही, दुनिया भर में हंगामा मच गया। और एरिया 51, रातों-रात, एलियन का अड्डा बन गया।",
+     "spoken": "ये सुनते ही, दुनिया भर में हंगामा मच गया। और एरिया फ़िफ़्टी वन, रातों-रात, एलियन का अड्डा बन गया।",
+     "hero": "newspaper and TV headlines (recreations) cascade; a world map lights up with pins",
+     "typed": "एलियन का अड्डा?",
+     "mood": "evidence"
+    },
+    {
+     "id": 41,
+     "text": "लेकिन जब पत्रकारों ने खोजबीन की, तो कहानी में छेद दिखने लगे।",
+     "spoken": "लेकिन जब पत्रकारों ने खोजबीन की... तो कहानी में छेद दिखने लगे।",
+     "hero": "magnifying-glass motion graphic over Lazar's claim card; cracks appear",
+     "typed": "छेद",
+     "mood": "evidence"
+    },
+    {
+     "id": 42,
+     "text": "लज़ार ने कहा था, उसने एमआईटी और कैलटेक में पढ़ाई की। पर दोनों जगह, उसका कोई रिकॉर्ड नहीं मिला।",
+     "spoken": "लज़ार ने कहा था, उसने एमआईटी और कैलटेक में पढ़ाई की। पर दोनों जगह, उसका कोई रिकॉर्ड नहीं मिला।",
+     "hero": "two typed record cards 'MIT' · 'Caltech' with stamp 'रिकॉर्ड नहीं'",
+     "typed": "MIT ✗ · Caltech ✗",
+     "mood": "evidence"
+    },
+    {
+     "id": 43,
+     "text": "समर्थक कहते हैं, रिकॉर्ड मिटा दिए गए। आलोचक कहते हैं, कहानी ही गढ़ी गई थी।",
+     "spoken": "समर्थक कहते हैं, रिकॉर्ड मिटा दिए गए। आलोचक कहते हैं... कहानी ही गढ़ी गई थी।",
+     "hero": "split screen: 'समर्थक: मिटाए गए' vs 'आलोचक: गढ़ी कहानी'",
+     "typed": "मिटाए गए? · गढ़ी गई?",
+     "mood": "verdict"
+    },
+    {
+     "id": 44,
+     "text": "दो हज़ार तीन में, एलिमेंट एक सौ पंद्रह, सच में बनाया गया, पर वो, एक सेकंड से पहले ही, टूट जाता है।",
+     "spoken": "दो हज़ार तीन में, एलिमेंट एक सौ पंद्रह, सच में बनाया गया... पर वो, एक सेकंड से पहले ही, टूट जाता है।",
+     "hero": "the '115' tile flickers and decays; Counter 0.65 s; label मॉस्कोवियम",
+     "typed": "2003 · < 1 सेकंड",
+     "mood": "intel"
+    }
+   ]
+  },
+  {
+   "take": "T07_roswell",
+   "heading": "रोसवेल का रिश्ता",
+   "lines": [
+    {
+     "id": 45,
+     "text": "और इस कहानी में जुड़ा एक और नाम, रोसवेल। सैंतालीस में वहाँ अजीब मलबा मिला, और सेना ने कहा, उड़न तश्तरी।",
+     "spoken": "और इस कहानी में जुड़ा एक और नाम... रोसवेल। सैंतालीस में वहाँ अजीब मलबा मिला, और सेना ने कहा... उड़न तश्तरी।",
+     "hero": "archive photo: Roswell Daily Record front page 1947 (public domain) and the debris photo with Gen. Ramey (public domain); stamp swaps 'तश्तरी' → 'गुब्बारा'; first the 2.5D map Route Nevada → Roswell, dashed rumour line",
+     "typed": "1947 · रोसवेल",
+     "mood": "archive"
+    },
+    {
+     "id": 46,
+     "text": "फिर अगले दिन कहा, मौसम का गुब्बारा। बाद में वायुसेना ने माना, वो सोवियत परमाणु परीक्षण सुनने वाला गुब्बारा था। प्रोजेक्ट मोगुल।",
+     "spoken": "फिर अगले दिन कहा, मौसम का गुब्बारा। बाद में वायुसेना ने माना... वो सोवियत परमाणु परीक्षण सुनने वाला गुब्बारा था। प्रोजेक्ट मोगुल।",
+     "hero": "PaperDoc: USAF Roswell report 1995 cover (public domain); diagram of a balloon train with microphones",
+     "typed": "PROJECT MOGUL",
+     "mood": "evidence"
+    },
+    {
+     "id": 47,
+     "text": "अफ़वाह चली, कि मलबा और एलियन, एरिया 51 ले जाए गए। जबकि तब तक, एरिया 51 बना ही नहीं था।",
+     "spoken": "अफ़वाह चली, कि मलबा और एलियन, एरिया फ़िफ़्टी वन ले जाए गए। जबकि तब तक... एरिया फ़िफ़्टी वन बना ही नहीं था।",
+     "hero": "Timeline: 1947 Roswell, gap, 1955 Area 51; pen bracket '8 साल'; stamp 'सबूत नहीं'",
+     "typed": "8 साल बाद बना",
+     "mood": "verdict"
+    }
+   ]
+  },
+  {
+   "take": "T08_secrecy",
+   "heading": "असली पहरा",
+   "lines": [
+    {
+     "id": 48,
+     "text": "तो अगर एलियन नहीं, तो इतना पहरा क्यों?",
+     "spoken": "तो अगर एलियन नहीं... तो इतना पहरा क्यों?",
+     "hero": "3D terrain map of the base area, camera pulls out to show the security perimeter as a glowing line",
+     "typed": "—",
+     "mood": "intel",
+     "hook": "mid"
+    },
+    {
+     "id": 49,
+     "text": "हर सुबह, लास वेगास से, लाल पट्टी वाले सफ़ेद विमान उड़ते हैं। कोडनेम, जैनेट।",
+     "spoken": "हर सुबह, लास वेगास से, लाल पट्टी वाले सफ़ेद विमान उड़ते हैं। कोडनेम... जैनेट।",
+     "hero": "Commons photo: JANET Boeing 737 at Las Vegas (free licence); 3D globe/map route Las Vegas → Groom Lake with a plane",
+     "typed": "JANET",
+     "mood": "evidence"
+    },
+    {
+     "id": 50,
+     "text": "बेस के चारों ओर, न कोई दीवार है, न कोई बाड़। बस नारंगी खंभे, और ज़मीन में छुपे सेंसर।",
+     "spoken": "बेस के चारों ओर, न कोई दीवार है, न कोई बाड़। बस नारंगी खंभे, और ज़मीन में छुपे सेंसर।",
+     "hero": "Commons photo: Area 51 boundary marker/orange posts (free licence); sensor icons pulse along the line",
+     "typed": "नारंगी खंभे · सेंसर",
+     "mood": "evidence"
+    },
+    {
+     "id": 51,
+     "text": "पहाड़ियों पर, सफ़ेद ट्रकों में, बिना वर्दी के पहरेदार घूमते हैं, कैमो ड्यूड्स।",
+     "spoken": "पहाड़ियों पर, सफ़ेद ट्रकों में, बिना वर्दी के पहरेदार घूमते हैं... कैमो ड्यूड्स।",
+     "hero": "Commons photo of the guard truck on the ridge (free licence) or a labelled 3D pickup on the terrain",
+     "typed": "कैमो ड्यूड्स",
+     "mood": "evidence"
+    },
+    {
+     "id": 52,
+     "text": "और जिन चोटियों से बेस दिखता था, सरकार ने, उन्नीस सौ चौरासी और पंचानवे में, वो भी बंद कर दीं।",
+     "spoken": "और जिन चोटियों से बेस दिखता था, सरकार ने, उन्नीस सौ चौरासी और पंचानवे में, वो भी बंद कर दीं।",
+     "hero": "3D terrain map: the restricted zone grows in two steps, Freedom Ridge and White Sides labelled and greyed out; restricted zone grows in two steps (1984, 1995), Freedom Ridge and White Sides greyed; sight line from Tikaboo Peak ≈ 40 km",
+     "typed": "1984 · 1995",
+     "mood": "intel"
+    },
+    {
+     "id": 53,
+     "text": "पर इस पहरे के पीछे, एक ऐसा राज़ भी था, जिसने अपने ही लोगों को, बीमार कर दिया।",
+     "spoken": "पर इस पहरे के पीछे, एक ऐसा राज़ भी था... जिसने अपने ही लोगों को, बीमार कर दिया।",
+     "hero": "the terrain darkens, smoke particles drift; heartbeat",
+     "typed": "—",
+     "mood": "grief",
+     "hook": "mid"
+    }
+   ]
+  },
+  {
+   "take": "T09_toxic",
+   "heading": "असली अँधेरा: ज़हरीला धुआँ",
+   "lines": [
+    {
+     "id": 54,
+     "text": "उन्नीस सौ चौरानवे। एरिया 51 के कुछ पूर्व कर्मचारी, और दो विधवाएँ, अदालत पहुँचे।",
+     "spoken": "उन्नीस सौ चौरानवे। एरिया फ़िफ़्टी वन के कुछ पूर्व कर्मचारी, और दो विधवाएँ, अदालत पहुँचे।",
+     "hero": "PaperDoc: court filing (Frost v. Perry, typed recreation of the caption); date bar",
+     "typed": "1994 · अदालत",
+     "mood": "grief"
+    },
+    {
+     "id": 55,
+     "text": "उनका आरोप था, बेस पर, खुले गड्ढों में, ज़हरीला कचरा जलाया जाता था, और वो धुआँ, उन्होंने अपनी साँसों में लिया।",
+     "spoken": "उनका आरोप था, बेस पर, खुले गड्ढों में, ज़हरीला कचरा जलाया जाता था... और वो धुआँ, उन्होंने अपनी साँसों में लिया।",
+     "hero": "engine motion graphic: open trench diagram, barrels, smoke rising; label 'आरोप'",
+     "typed": "आरोप: ज़हरीला धुआँ",
+     "mood": "grief"
+    },
+    {
+     "id": 56,
+     "text": "उनके मुताबिक़, कई लोग बीमार पड़े। और एक कर्मचारी, रॉबर्ट फ़्रॉस्ट की, मौत हो गई।",
+     "spoken": "उनके मुताबिक़, कई लोग बीमार पड़े। और एक कर्मचारी, रॉबर्ट फ़्रॉस्ट की, मौत हो गई।",
+     "hero": "candle motion graphic; name card 'रॉबर्ट फ़्रॉस्ट' (no photo)",
+     "typed": "रॉबर्ट फ़्रॉस्ट",
+     "mood": "grief"
+    },
+    {
+     "id": 57,
+     "text": "सरकार का जवाब, बस इतना था, ये राष्ट्रीय सुरक्षा का मामला है।",
+     "spoken": "सरकार का जवाब, बस इतना था... ये राष्ट्रीय सुरक्षा का मामला है।",
+     "hero": "typed testimony: 'national security' with heavy redaction bars over the rest",
+     "typed": "राष्ट्रीय सुरक्षा",
+     "mood": "evidence"
+    },
+    {
+     "id": 58,
+     "text": "सितंबर, उन्नीस सौ पंचानवे। राष्ट्रपति बिल क्लिंटन ने, बेस को, पर्यावरण क़ानून के खुलासे से छूट दे दी।",
+     "spoken": "सितंबर, उन्नीस सौ पंचानवे। राष्ट्रपति बिल क्लिंटन ने, बेस को, पर्यावरण क़ानून के खुलासे से छूट दे दी।",
+     "hero": "archive photo: Bill Clinton (public domain); PaperDoc presidential determination 1995 (Federal Register), stamp 'छूट', Counter of years",
+     "typed": "1995 · छूट",
+     "mood": "evidence"
+    },
+    {
+     "id": 59,
+     "text": "आख़िर में, स्टेट सीक्रेट्स के नाम पर, केस ख़ारिज हो गया। वो धुआँ किस चीज़ का था, आज तक कोई नहीं जानता।",
+     "spoken": "आख़िर में, स्टेट सीक्रेट्स के नाम पर, केस ख़ारिज हो गया। वो धुआँ किस चीज़ का था... आज तक कोई नहीं जानता।",
+     "hero": "stamp 'STATE SECRETS' over the court file; the file closes",
+     "typed": "केस ख़ारिज",
+     "mood": "grief"
+    }
+   ]
+  },
+  {
+   "take": "T10_admission",
+   "heading": "आख़िरकार, स्वीकार",
+   "lines": [
+    {
+     "id": 60,
+     "text": "अगस्त, दो हज़ार तेरह। सीआईए का एक पुराना, गुप्त इतिहास, आख़िरकार बाहर आया।",
+     "spoken": "अगस्त, दो हज़ार तेरह। सीआईए का एक पुराना, गुप्त इतिहास... आख़िरकार बाहर आया।",
+     "hero": "PaperDoc: cover of the CIA history 'The CIA and Overhead Reconnaissance' (National Security Archive release); date bar",
+     "typed": "अगस्त 2013 · FOIA",
+     "mood": "evidence"
+    },
+    {
+     "id": 61,
+     "text": "उसमें, पहली बार, सरकारी काग़ज़ पर लिखा था, एरिया 51। लगभग अट्ठावन साल बाद, सरकार ने माना, हाँ, ये जगह है।",
+     "spoken": "उसमें, पहली बार, सरकारी काग़ज़ पर लिखा था... एरिया फ़िफ़्टी वन। लगभग अट्ठावन साल बाद, सरकार ने माना, हाँ, ये जगह है।",
+     "hero": "the document's own map page (public domain) zooms; pen circle on 'Area 51'; Counter 1955 → 2013 = 58 साल, stamp 'स्वीकार'",
+     "typed": "AREA 51",
+     "mood": "evidence"
+    },
+    {
+     "id": 62,
+     "text": "पर एलियन? उस दस्तावेज़ में, उनका एक शब्द तक नहीं।",
+     "spoken": "पर एलियन? उस दस्तावेज़ में, उनका एक शब्द तक नहीं।",
+     "hero": "search motion graphic: 'alien' typed into a search bar over the document, result '0'",
+     "typed": "'alien': 0",
+     "mood": "verdict"
+    },
+    {
+     "id": 63,
+     "text": "दो हज़ार तेईस। अमेरिकी संसद में, एक पूर्व ख़ुफ़िया अधिकारी, डेविड ग्रश ने दावा किया, सरकार के पास, ग़ैर-इंसानी यान हैं।",
+     "spoken": "दो हज़ार तेईस। अमेरिकी संसद में, एक पूर्व ख़ुफ़िया अधिकारी, डेविड ग्रश ने दावा किया... सरकार के पास, ग़ैर-इंसानी यान हैं।",
+     "hero": "Commons/US government photo of the July 2023 House hearing (public domain); typed quote, tag 'दावा'",
+     "typed": "2023 · ग्रश का दावा",
+     "mood": "evidence"
+    },
+    {
+     "id": 64,
+     "text": "पर अगले ही साल, पेंटागन की अपनी रिपोर्ट ने कहा, एलियन तकनीक का, कोई सबूत नहीं मिला।",
+     "spoken": "पर अगले ही साल, पेंटागन की अपनी रिपोर्ट ने कहा... एलियन तकनीक का, कोई सबूत नहीं मिला।",
+     "hero": "HyperFrames quote card 2: AARO Historical Record Report, Vol. I, March 2024, 'no evidence'",
+     "typed": "AARO 2024 · सबूत: 0",
+     "mood": "evidence"
+    },
+    {
+     "id": 65,
+     "text": "यानी, एक तरफ़ दावे, दूसरी तरफ़ इनकार, और बीच में, वही बंद दरवाज़ा।",
+     "spoken": "यानी, एक तरफ़ दावे, दूसरी तरफ़ इनकार... और बीच में, वही बंद दरवाज़ा।",
+     "hero": "split board: 'दावे' vs 'इनकार', the gate photo between them",
+     "typed": "दावे vs इनकार",
+     "mood": "verdict"
+    }
+   ]
+  },
+  {
+   "take": "T11_verdict",
+   "heading": "फ़ैसला",
+   "lines": [
+    {
+     "id": 66,
+     "text": "तो सच क्या है? सबूत यही कहते हैं, एरिया 51, अमेरिका के सबसे गुप्त विमानों की, प्रयोगशाला है।",
+     "spoken": "तो सच क्या है? सबूत यही कहते हैं... एरिया फ़िफ़्टी वन, अमेरिका के सबसे गुप्त विमानों की, प्रयोगशाला है।",
+     "hero": "verdict mood: the 3D base model at dawn, runways and hangars lit; label 'प्रयोगशाला'",
+     "typed": "गुप्त विमानों की प्रयोगशाला",
+     "mood": "verdict"
+    },
+    {
+     "id": 67,
+     "text": "यू-टू, ऑक्सकार्ट, स्टेल्थ, जो विमान आज दुनिया जानती है, वो दशकों पहले, यहीं, छुपकर उड़ रहे थे।",
+     "spoken": "यू-टू, ऑक्सकार्ट, स्टेल्थ... जो विमान आज दुनिया जानती है, वो दशकों पहले, यहीं, छुपकर उड़ रहे थे।",
+     "hero": "the U-2, A-12 and Have Blue 3D models fly past in a row over the lakebed; satellite image with new hangars circled",
+     "typed": "U-2 · A-12 · स्टेल्थ",
+     "mood": "verdict"
+    },
+    {
+     "id": 68,
+     "text": "शायद इसीलिए, एलियन की अफ़वाहें, कभी रोकी नहीं गईं, क्योंकि वो, असली राज़ का सबसे अच्छा परदा थीं।",
+     "spoken": "शायद इसीलिए, एलियन की अफ़वाहें, कभी रोकी नहीं गईं... क्योंकि वो, असली राज़ का सबसे अच्छा परदा थीं।",
+     "hero": "the curtain motion graphic from T03 returns and closes over the base",
+     "typed": "सबसे अच्छा परदा?",
+     "mood": "verdict"
+    },
+    {
+     "id": 69,
+     "text": "तो अब फ़ैसला आपका, एरिया 51 में, सिर्फ़ इंसानों के राज़ हैं? या कुछ और भी? आप क्या सोचते हैं?",
+     "spoken": "तो अब फ़ैसला आपका... एरिया फ़िफ़्टी वन में, सिर्फ़ इंसानों के राज़ हैं? या कुछ और भी? आप क्या सोचते हैं?",
+     "hero": "HyperFrames closing question (qend); heartbeat; comment prompt",
+     "typed": "कमेंट करें ↓",
+     "mood": "tension",
+     "hook": "end"
+    }
+   ]
+  }
+ ],
+ "fact_notes": [
+  "Site choice: the CIA's U-2 history (The CIA and Overhead Reconnaissance: The U-2 and OXCART Programs, 1954-1974, released in full to the National Security Archive in Aug 2013 after a 2005 FOIA request) dates the choice of Groom Lake to 12 April 1955 (Bissell, Col. Osmond Ritland, Kelly Johnson, Tony LeVier). The base lay beside the AEC's Nevada Test Site; the name 'Area 51' is its map designation (nsarchive.gwu.edu/NSAEBB/NSAEBB434; CBS News 16 Aug 2013).",
+  "'Paradise Ranch': Kelly Johnson's name for the site to attract workers (Smithsonian Air & Space, 'Area 51 origins'). Not used in the final cut but true.",
+  "U-2 first flight: LeVier became airborne by accident in a taxi test on 1 Aug 1955 (Air & Space says 29 Jul); first official flight 4 Aug 1955 (CIA, 'Area 51 and the accidental test flight'). The script says only 'अगस्त 1955'.",
+  "Altitudes: Haines (CIA, Studies in Intelligence 1997) writes that airliners then flew at 10,000-20,000 ft and the U-2 above 60,000 ft; its silver wings caught the sun at dusk; Blue Book investigators checked sightings against CIA flight logs and gave natural explanations to the public; 'later estimated by CIA officials' that manned reconnaissance flights accounted for over half of UFO reports from the late 1950s through the 1960s. Script says 'एक अध्ययन के मुताबिक़' (the figure is an estimate and is disputed by some UFO researchers).",
+  "1 May 1960: a U-2 flown by Francis Gary Powers was shot down over Sverdlovsk and he was captured (standard history).",
+  "A-12 OXCART: first flight 26 April 1962 at Groom Lake (CIA, The Oxcart Story); cruising above Mach 3. Titanium bought from the USSR through third-party/front companies: reported by Lockheed Skunk Works (Ben Rich, Skunk Works, 1994) and widely repeated; script says 'बताया जाता है'.",
+  "MiG-21: Iraqi pilot Munir Redfa defected to Israel with a MiG-21 in Aug 1966; it was lent to the US and tested at Area 51 in 1968 as HAVE DOUGHNUT (National Security Archive briefing book, 29 Oct 2013, 'Area 51 file: secret aircraft and Soviet MiGs').",
+  "HAVE BLUE: Lockheed stealth demonstrator, first flight 1 Dec 1977 at Groom Lake, precursor of the F-117 Nighthawk (USAF fact sheet; Air & Space 'Area 51's black jets').",
+  "Bob Lazar: appeared on KLAS-TV (George Knapp) in May 1989, first with face hidden as 'Dennis', then under his name in Nov 1989; claimed work at 'S-4' near Papoose Lake on nine discs powered by 'element 115'. MIT and Caltech have no record of him (Wikipedia; Skeptic). Supporters say records were erased. Element 115 (moscovium) was first made in 2003 (reported 2004); its isotopes decay in under a second. Lazar's stable element 115 has never been found.",
+  "Extraterrestrial Highway: Nevada State Route 375 was named so in 1996 (Nevada DOT).",
+  "Roswell: in July 1947 Roswell Army Air Field announced a 'flying disc', then said a weather balloon. USAF reports of 1994/1995 identified Project Mogul, a balloon train meant to detect Soviet nuclear tests. Area 51 was founded in 1955, eight years later; no evidence links Roswell debris to it.",
+  "JANET: unmarked white Boeing 737s with a red stripe fly workers from a terminal at Las Vegas airport (widely reported; e.g. Las Vegas Review-Journal). Camo dudes, orange boundary posts and road sensors: reported by visitors and the press (Smithsonian, Las Vegas Sun). 'Use of deadly force authorized' is on the boundary signs.",
+  "Land: in 1984 the Air Force took control of about 89,000 acres around Groom Range; in 1995 about 3,972 acres more, including Freedom Ridge and White Sides, the last public viewpoints. Tikaboo Peak, about 26 miles (≈ 40 km) away, is the nearest public view (Las Vegas Sun; Federal Register).",
+  "Toxic waste case: in 1994 Jonathan Turley filed Frost v. Perry and Kasza v. Browner for former workers and two widows (Helen Frost, widow of Robert Frost), alleging open-pit burning of hazardous waste. The government invoked state secrets; on 29 Sep 1995 President Clinton signed a determination exempting the Groom Lake site from RCRA disclosure, renewed each year since. Courts dismissed the cases; the Supreme Court declined review in 1998. Whether the illnesses were caused by the burning was never decided: the script says 'आरोप' and 'उनके मुताबिक़' (CS Monitor 1995; Las Vegas Sun; RCFP).",
+  "Storm Area 51: a joke Facebook event by Matty Roberts (June 2019) drew over 2 million 'going' clicks; on 20 Sep 2019 about 40 to 75 people stood at the gates (NPR, AP), the Rachel and Hiko festivals drew about 1,500 to a few thousand, a handful of arrests. The US Air Force publicly warned people away (Washington Post, July 2019).",
+  "2023-2024: David Grusch, a former intelligence officer, testified under oath before a House Oversight subcommittee on 26 July 2023 that the US has crash-retrieval programs for 'non-human' craft. AARO's Historical Record Report Vol. I (March 2024) found no evidence that any US government investigation confirmed extraterrestrial technology or that such technology was reverse-engineered (Space.com; NBC News). Both sides are given in the script.",
+  "New hangars: commercial satellite imagery shows continued construction at the base, e.g. a large new hangar reported in 2019-2020 (press reports on satellite images). The script says only that new hangars are seen in satellite images.",
+  "Interpretation in line 'सबसे अच्छा परदा': presented as 'शायद' (an inference from Haines's account that the Air Force let UFO explanations stand to protect the flights), not as a documented policy."
+ ],
+ "film_cut": {
+  "dropped_lines": [],
+  "note": "Viraj read at 1.0x, one file per take: 8:39 with gaps 0.45 s (0.6 s at take ends). The user asked for the length to follow the recording ('jitna der ka hoga uske hisaab se'), so no line is dropped."
+ }
+}

@@ -1,0 +1,42 @@
+[
+ {
+  "id": "welcome",
+  "start": 0,
+  "end": 5
+ },
+ {
+  "id": "topic",
+  "start": 5,
+  "end": 31
+ },
+ {
+  "id": "go",
+  "start": 31,
+  "end": 35
+ },
+ {
+  "id": "qopen",
+  "start": 35,
+  "end": 43
+ },
+ {
+  "id": "haines",
+  "start": 43,
+  "end": 51
+ },
+ {
+  "id": "aaro",
+  "start": 51,
+  "end": 58
+ },
+ {
+  "id": "qend",
+  "start": 58,
+  "end": 67
+ },
+ {
+  "id": "rq",
+  "start": 67,
+  "end": 73
+ }
+]

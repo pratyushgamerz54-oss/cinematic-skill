@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Groom Lake terrain</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#0a0c10}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// 3D terrain map of Groom Lake and its surroundings from AWS Terrain Tiles (USGS 3DEP / SRTM), coloured
+// relief made in code. Base, runway, boundary and ridge positions are approximate (प्रतीकात्मक).
+// One 52 s timeline, cut into shots by trim in clips.json:
+//  A 0-8 reveal · B 8-15 base · C 15-23 perimeter · D 23-31 ridges+Tikaboo · E 31-38 JANET · F 38-45 S-4 · G 45-52 smoke · H 52-58 test site
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x0a0c10);
+R.toneMappingExposure = 1.1;
+const label = await labeller(S);
+const meta = await (await fetch('terrain/meta.json')).json();
+const H = new Float32Array(await (await fetch('terrain/height.bin')).arrayBuffer());
+const tex = await new THREE.TextureLoader().loadAsync('terrain/color.jpg'); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+const KM = meta.mpp * 2 / 1000;                 // km per height.bin pixel
+const WX = meta.bw * KM, WZ = meta.bh * KM, EXG = 2.2;
+const mx = lon => (lon + 180) / 360, my = lat => { const r = lat * Math.PI / 180; return (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2; };
+const GROOM = [37.27, -115.797];
+const u = lon => (mx(lon) - mx(meta.W)) / (mx(meta.E) - mx(meta.W)), v = lat => (my(lat) - my(meta.N)) / (my(meta.S) - my(meta.N));
+const ox = u(GROOM[1]) * WX, oz = v(GROOM[0]) * WZ;
+function hAt(x, z) {                               // world x,z -> terrain height (km, exaggerated)
+  const fx = clamp((x + ox) / KM, 0, meta.bw - 1.001), fz = clamp((z + oz) / KM, 0, meta.bh - 1.001);
+  const i = Math.floor(fx), j = Math.floor(fz), a = fx - i, b = fz - j, w = meta.bw;
+  const h = H[j * w + i] * (1 - a) * (1 - b) + H[j * w + i + 1] * a * (1 - b) + H[(j + 1) * w + i] * (1 - a) * b + H[(j + 1) * w + i + 1] * a * b;
+  return (h - meta.min) / 1000 * EXG;
+}
+const P = (lat, lon, up = 0) => { const x = u(lon) * WX - ox, z = v(lat) * WZ - oz; return new THREE.Vector3(x, hAt(x, z) + up, z); };
+// terrain
+const seg = [436, 411], geo = new THREE.PlaneGeometry(WX, WZ, seg[0], seg[1]); geo.rotateX(-Math.PI / 2);
+geo.translate(WX / 2 - ox, 0, WZ / 2 - oz);
+const pos = geo.attributes.position;
+for (let i = 0; i < pos.count; i++) pos.setY(i, hAt(pos.getX(i), pos.getZ(i)));
+geo.computeVertexNormals();
+const mat = new THREE.MeshStandardMaterial({ map: tex, roughness: 0.95, metalness: 0 });
+const land = new THREE.Mesh(geo, mat); land.receiveShadow = true; land.castShadow = true; S.add(land);
+S.fog = new THREE.Fog(0x0a0c10, 60, 190);
+const hemi = new THREE.HemisphereLight(0xbcd8ff, 0x3a2a1a, 0.55); S.add(hemi);
+const sun = new THREE.DirectionalLight(0xffd7a0, 2.4); sun.position.set(-60, 40, 30); S.add(sun);
+sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -60, right: 60, top: 60, bottom: -60, far: 300 });
+// sky dome gradient (dusk)
+const sky = new THREE.Mesh(new THREE.SphereGeometry(400, 32, 16), new THREE.ShaderMaterial({ side: THREE.BackSide, depthWrite: false, fog: false,
+  uniforms: { top: { value: new THREE.Color(0x0b1626) }, mid: { value: new THREE.Color(0x30405a) }, low: { value: new THREE.Color(0xc98a52) }, k: { value: 1 } },
+  vertexShader: 'varying vec3 p; void main(){ p = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }',
+  fragmentShader: 'uniform vec3 top,mid,low; uniform float k; varying vec3 p; void main(){ float y=p.y; vec3 c = y>0.12 ? mix(mid,top,clamp((y-.12)/.5,0.,1.)) : mix(low,mid,clamp(y/.12,0.,1.)); gl_FragColor=vec4(c*k,1.); }' }));
+S.add(sky);
+
+// ---------- overlays ----------
+const tealM = new THREE.MeshBasicMaterial({ color: 0x3fe0cc, transparent: true, opacity: 0.95, fog: false });
+const amberM = new THREE.MeshBasicMaterial({ color: 0xffb347, transparent: true, opacity: 0.95, fog: false });
+const whiteM = new THREE.MeshBasicMaterial({ color: 0xf4efe6, transparent: true, fog: false });
+function drapedPath(pts, up = 0.06, close = false, n = 400) {      // [lat,lon] list -> points on the ground
+  const vs = pts.map(p => P(p[0], p[1])); if (close) vs.push(vs[0].clone());
+  const c = new THREE.CatmullRomCurve3(vs, false, 'catmullrom', 0.0), out = [];
+  for (let i = 0; i <= n; i++) { const q = c.getPoint(i / n); q.y = hAt(q.x, q.z) + up; out.push(q); }
+  return out;
+}
+function tube(points, r, m) {
+  const c = new THREE.CatmullRomCurve3(points), g = new THREE.TubeGeometry(c, points.length, r, 6, false);
+  const t = new THREE.Mesh(g, m.clone()); t.userData.n = g.index.count; g.setDrawRange(0, 0); S.add(t); return t;
+}
+const draw = (t, k) => t.geometry.setDrawRange(0, Math.floor(t.userData.n * clamp(k)));
+function fillPoly(pts, color, op) {                // a translucent fill draped over the terrain
+  const vs = pts.map(p => P(p[0], p[1]));
+  const xs = vs.map(q => q.x), zs = vs.map(q => q.z), x0 = Math.min(...xs) - 0.5, x1 = Math.max(...xs) + 0.5, z0 = Math.min(...zs) - 0.5, z1 = Math.max(...zs) + 0.5;
+  const c = document.createElement('canvas'); c.width = c.height = 512; const g = c.getContext('2d');
+  g.fillStyle = '#fff'; g.beginPath(); vs.forEach((q, i) => { const X = (q.x - x0) / (x1 - x0) * 512, Y = (q.z - z0) / (z1 - z0) * 512; i ? g.lineTo(X, Y) : g.moveTo(X, Y); }); g.closePath(); g.fill();
+  g.strokeStyle = '#fff'; g.lineWidth = 6; g.stroke();
+  const t = new THREE.CanvasTexture(c);
+  const geo = new THREE.PlaneGeometry(x1 - x0, z1 - z0, 96, 96); geo.rotateX(-Math.PI / 2); geo.translate((x0 + x1) / 2, 0, (z0 + z1) / 2);
+  const p = geo.attributes.position; for (let i = 0; i < p.count; i++) p.setY(i, hAt(p.getX(i), p.getZ(i)) + 0.06);
+  const m = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ color, alphaMap: t, transparent: true, opacity: 0, depthWrite: false, fog: false }));
+  m.userData.op = op; S.add(m); return m;
+}
+function pin(lat, lon, m = tealM, s = 1) {
+  const g = new THREE.Group(), base = P(lat, lon);
+  const stem = new THREE.Mesh(new THREE.CylinderGeometry(0.05 * s, 0.05 * s, 2.2 * s, 8), m.clone()); stem.position.y = 1.1 * s;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.28 * s, 16, 12), m.clone()); head.position.y = 2.3 * s;
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.4 * s, 0.6 * s, 32), m.clone()); ring.rotation.x = -Math.PI / 2; ring.position.y = 0.05;
+  g.add(stem, head, ring); g.position.copy(base); g.scale.setScalar(0.001); S.add(g); g.userData.top = base.clone().add(new THREE.Vector3(0, 2.9 * s, 0)); return g;
+}
+const showPin = (g, t, tin) => { const k = ease(ramp(t, tin, 0.5)); g.scale.setScalar(Math.max(0.001, k)); g.visible = k > 0.002; };
+function lab(text, sub, at, red = false) { const s = label(text, sub, red); s.position.copy(at); return s; }
+
+// places (approximate)
+const RUN = [[37.250, -115.818], [37.222, -115.792]];
+const HANG = [37.236, -115.812], PAPOOSE = [37.095, -115.84], TIKA = [37.343, -115.357], RACHEL = [37.645, -115.745];
+const FREEDOM = [37.27, -115.70], WHITES = [37.31, -115.69], TRENCH = [37.244, -115.802];
+const BOUND = [[37.43, -115.98], [37.43, -115.72], [37.33, -115.66], [37.05, -115.70], [37.02, -115.98]];
+const Z84 = [[37.43, -115.72], [37.45, -115.64], [37.34, -115.60], [37.33, -115.66]];
+const Z95 = [[37.33, -115.66], [37.34, -115.60], [37.22, -115.62], [37.22, -115.68]];
+const NTS = [[37.25, -116.40], [37.25, -116.02], [36.80, -115.94], [36.80, -116.40]];
+const HWY = [[37.53, -115.23], [37.60, -115.55], [37.645, -115.745], [37.70, -115.90]];
+
+const nts = fillPoly(NTS, 0xff7a30, 0.2);
+const z84 = fillPoly(Z84, 0x9aa4ad, 0.45), z95 = fillPoly(Z95, 0x9aa4ad, 0.45);
+const bound = tube(drapedPath(BOUND, 0.12, true, 500), 0.09, tealM);
+const hwy = tube(drapedPath(HWY, 0.08, false, 300), 0.06, amberM);
+const sight = tube([P(...TIKA, 1.0), P(...HANG, 0.6)], 0.05, whiteM);
+// runway: a dark strip on the lakebed with white edge lines
+const rw0 = P(...RUN[0], 0.03), rw1 = P(...RUN[1], 0.03), rwLen = rw0.distanceTo(rw1);
+const runway = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.02, rwLen), new THREE.MeshStandardMaterial({ color: 0x2b2c30, roughness: 0.8 }));
+runway.position.copy(rw0.clone().lerp(rw1, 0.5)); runway.lookAt(rw1.x, runway.position.y, rw1.z); runway.scale.z = 0.001; S.add(runway);
+const rwStripe = new THREE.Mesh(new THREE.BoxGeometry(0.015, 0.025, rwLen * 0.96), whiteM.clone()); runway.add(rwStripe);
+// hangars and buildings
+const hangars = new THREE.Group(); S.add(hangars);
+const hp = P(37.231, -115.830), rdir = rw1.clone().sub(rw0).setY(0).normalize(), rperp = new THREE.Vector3(-rdir.z, 0, rdir.x); let seed = 5; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const bm = new THREE.MeshStandardMaterial({ color: 0xd9d4c8, roughness: 0.7 }), glowM = new THREE.MeshBasicMaterial({ color: 0xffd08a });
+for (let i = 0; i < 24; i++) {
+  const w = 0.07 + rnd() * 0.12, d = 0.07 + rnd() * 0.1, h = 0.035 + rnd() * 0.05;
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), bm); b.castShadow = true;
+  const a = -0.75, r = (i % 8) * 0.19, s = Math.floor(i / 8) * 0.22 - 0.3;
+  const q = hp.clone().addScaledVector(rdir, r).addScaledVector(rperp, s); b.position.set(q.x, hp.y + h / 2, q.z);
+  b.rotation.y = Math.atan2(rdir.x, rdir.z); b.userData.h = h; b.scale.y = 0.001; hangars.add(b);
+  if (i % 5 === 0) { const g = new THREE.Mesh(new THREE.PlaneGeometry(w * 0.7, h * 0.7), glowM.clone()); g.position.z = d / 2 + 0.002; b.add(g); }
+}
+// orange posts and sensor pulses along the boundary
+const bpts = drapedPath(BOUND, 0, true, 500), posts = [], pulses = [];
+const postM = new THREE.MeshStandardMaterial({ color: 0xff7a1a, emissive: 0x552200, roughness: 0.6 });
+for (let i = 0; i < bpts.length; i += 12) { const p = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.5, 6), postM); p.position.copy(bpts[i]).add(new THREE.Vector3(0, 0.25, 0)); p.scale.y = 0.001; p.userData.i = i; S.add(p); posts.push(p); }
+for (let i = 6; i < bpts.length; i += 36) { const r = new THREE.Mesh(new THREE.RingGeometry(0.1, 0.18, 24), tealM.clone()); r.rotation.x = -Math.PI / 2; r.position.copy(bpts[i]).add(new THREE.Vector3(0, 0.15, 0)); r.visible = false; S.add(r); pulses.push(r); }
+// JANET 737: white body, red stripe
+const jet = new THREE.Group(); { const wm = new THREE.MeshStandardMaterial({ color: 0xf2f2f0, roughness: 0.4, metalness: 0.2 }), rm = new THREE.MeshStandardMaterial({ color: 0xc0302a, roughness: 0.5 });
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.05, 0.62, 14), wm); body.rotation.x = Math.PI / 2; jet.add(body);
+  const stripe = new THREE.Mesh(new THREE.CylinderGeometry(0.0605, 0.0505, 0.6, 14, 1, true, 1.2, 0.7), rm); stripe.rotation.x = Math.PI / 2; jet.add(stripe);
+  const wing = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.012, 0.12), wm); wing.position.z = 0.02; jet.add(wing);
+  const tail = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.13, 0.08), wm); tail.position.set(0, 0.07, -0.27); jet.add(tail);
+  const hs = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.01, 0.06), wm); hs.position.set(0, 0.02, -0.27); jet.add(hs);
+  jet.scale.setScalar(3.2); jet.visible = false; S.add(jet); }
+const jetPath = new THREE.CatmullRomCurve3([P(36.83, -115.70, 4.5), P(37.05, -115.74, 3.0), P(37.18, -115.775, 1.0), rw1.clone().add(new THREE.Vector3(0, 0.12, 0)), rw0.clone().lerp(rw1, 0.4).add(new THREE.Vector3(0, 0.08, 0))]);
+// smoke over the trench
+const smoke = []; const smM = new THREE.SpriteMaterial({ color: 0x55585c, transparent: true, opacity: 0, depthWrite: false, fog: false });
+{ const c = document.createElement('canvas'); c.width = c.height = 64; const x = c.getContext('2d'); const g = x.createRadialGradient(32, 32, 2, 32, 32, 30); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, 64, 64); smM.map = new THREE.CanvasTexture(c); }
+const tr = P(...TRENCH);
+for (let i = 0; i < 60; i++) { const s = new THREE.Sprite(smM.clone()); s.userData.o = rnd(); s.userData.dx = (rnd() - 0.5) * 0.6; s.visible = false; S.add(s); smoke.push(s); }
+const trenchM = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.02, 0.08), new THREE.MeshBasicMaterial({ color: 0xff6a20, transparent: true, opacity: 0 })); trenchM.position.copy(tr).add(new THREE.Vector3(0, 0.02, 0)); S.add(trenchM);
+
+// pins and labels
+const pGroom = pin(GROOM[0] + 0.01, GROOM[1], tealM, 1.2), pNTS = pin(37.0, -116.18, amberM, 1.1);
+const pPap = pin(...PAPOOSE, amberM, 1.0), pTika = pin(...TIKA, tealM, 1.0), pRachel = pin(...RACHEL, amberM, 0.9);
+const pFree = pin(...FREEDOM, whiteM, 0.7), pWhite = pin(...WHITES, whiteM, 0.7);
+const L = {
+  groom: lab('ग्रूम लेक', 'सूखी झील · नेवाडा', pGroom.userData.top),
+  nts: lab('परमाणु परीक्षण क्षेत्र', 'नेवाडा टेस्ट साइट', pNTS.userData.top, true),
+  runway: lab('रनवे', 'स्थान लगभग', P(...RUN[0], 0.9)),
+  bound: lab('सीमा (लगभग)', 'न दीवार, न बाड़', P(37.43, -115.85, 1.6)),
+  posts: lab('नारंगी खंभे · सेंसर', '', P(37.33, -115.66, 1.4)),
+  free: lab('फ़्रीडम रिज', 'बंद: 1995', pFree.userData.top),
+  white: lab('व्हाइट साइड्स', 'बंद: 1995', pWhite.userData.top),
+  z84: lab('1984', 'पहाड़ियाँ क़ब्ज़े में', P(37.40, -115.66, 1.2), true),
+  tika: lab('टिकाबू पीक', 'सबसे पास का खुला नज़ारा', pTika.userData.top),
+  dist: lab('≈ 40 किमी', '', P(37.29, -115.58, 1.2)),
+  rachel: lab('रेचल', 'एक्स्ट्राटेरेस्ट्रियल हाईवे', pRachel.userData.top),
+  janet: lab('JANET', 'लास वेगास से', new THREE.Vector3()),
+  pap: lab('S-4 (दावा)', 'पपूज़ लेक', pPap.userData.top, true),
+  smoke: lab('आरोप', 'खुले गड्ढों में कचरा जलाना', tr.clone().add(new THREE.Vector3(0.9, 0.9, 0)), true),
+};
+const note = label('प्रतीकात्मक 3D मॉडल', 'ऊँचाई: AWS Terrain Tiles · USGS'), note2 = label('ऊँचाई 2.2 गुना', '');
+
+// ---------- camera ----------
+const V = (x, y, z) => new THREE.Vector3(x, y, z), g0 = P(...GROOM), hb = P(...HANG), pp = P(...PAPOOSE), tk = P(...TIKA);
+const SHOTS = [
+  [0, [V(-46, 62, 78), V(0, 0, 0)], [V(-9, 11, 17), g0.clone()]],
+  [8, [hb.clone().add(V(-4.5, 3.2, 5.5)), hb.clone()], [hb.clone().add(V(-2.6, 1.6, 3.2)), hb.clone().add(V(0.3, 0, -0.3))]],
+  [15, [V(-6, 52, 40), V(0, 0, -2)], [V(-2, 46, 30), V(0, 0, -3)]],
+  [23, [V(16, 16, 30), V(12, 0, -4)], [V(12, 13, 26), V(10, 0, -5)]],
+  [31, [P(36.86, -115.66, 7), P(37.1, -115.76, 2)], [hb.clone().add(V(2.5, 1.6, 4.5)), hb.clone()]],
+  [38, [pp.clone().add(V(-11, 8, 13)), pp.clone().add(V(0, 1, 0))], [pp.clone().add(V(-7, 5.5, 9)), pp.clone().add(V(0, 1, 0))]],
+  [45, [tr.clone().add(V(-5, 3.0, 5.6)), tr.clone().add(V(0, 0.6, 0))], [tr.clone().add(V(-3.6, 2.2, 4.2)), tr.clone().add(V(0, 0.8, 0))]],
+  [52, [V(16, 68, 70), V(-14, 0, 12)], [V(14, 60, 62), V(-14, 0, 12)]],
+  [58]];
+function camAt(t) {
+  let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++;
+  const [t0, a, b] = SHOTS[i], t1 = SHOTS[i + 1][0], k = ease(clamp((t - t0) / (t1 - t0)));
+  cam.position.lerpVectors(a[0], b[0], k); cam.lookAt(a[1].clone().lerp(b[1], k)); return i;
+}
+function look(name) {                                   // per-shot light/mood
+  const dusk = { sun: [0xffd7a0, 2.4], hemi: 0.55, exp: 1.1, sky: 1, fog: 0x0a0c10 };
+  return { A: dusk, B: { sun: [0xff9a5a, 1.7], hemi: 0.4, exp: 1.0, sky: 0.7, fog: 0x0a0c10 }, C: { sun: [0xcfe4ff, 1.6], hemi: 0.7, exp: 1.0, sky: 0.6, fog: 0x081018 },
+    D: dusk, E: { sun: [0xffc890, 2.2], hemi: 0.6, exp: 1.08, sky: 1, fog: 0x0a0c10 }, F: { sun: [0x9ab8ff, 1.2], hemi: 0.45, exp: 0.95, sky: 0.45, fog: 0x060a12 },
+    G: { sun: [0x8a96a8, 0.9], hemi: 0.35, exp: 0.9, sky: 0.3, fog: 0x07090c } }[name];
+}
+function frame(t) {
+  const i = camAt(t), lk = look('ABCDEFGA'[i]);
+  sun.color.setHex(lk.sun[0]); sun.intensity = lk.sun[1]; hemi.intensity = lk.hemi; R.toneMappingExposure = lk.exp;
+  sky.material.uniforms.k.value = lk.sky; S.fog.color.setHex(lk.fog);
+  // A
+  showPin(pGroom, t, 3.2); showLabel(L.groom, cam, t, 3.6, 0.075, 8);
+  nts.material.opacity = nts.userData.op * ramp(t, 53.0, 0.8); showPin(pNTS, t, 53.2); showLabel(L.nts, cam, t, 53.6, 0.075);
+  if (t > 8 && t < 52) pGroom.visible = false; if (t >= 52) { showPin(pGroom, t, 52.2); showLabel(L.groom, cam, t, 52.4, 0.05); }
+  if (t >= 52) { hangars.visible = false; runway.visible = false; trenchM.visible = false; smoke.forEach(q => q.visible = false); L.smoke.visible = false; bound.visible = false; posts.forEach(q => q.visible = false); }
+  // B: runway and buildings (stay for later shots)
+  runway.scale.z = Math.max(0.001, ease(ramp(t, 8.8, 1.4))); showLabel(L.runway, cam, t, 10.0, 0.07, 15);
+  hangars.children.forEach((b, j) => { b.scale.y = Math.max(0.001, ease(ramp(t, 10.2 + j * 0.05, 0.6))); b.visible = b.scale.y > 0.01; b.position.y = hb.y + b.userData.h * b.scale.y / 2; });
+  // C: boundary, posts, sensors
+  draw(bound, ease(ramp(t, 15.6, 2.8))); showLabel(L.bound, cam, t, 17.0, 0.06, 23);
+  posts.forEach(p => { p.scale.y = Math.max(0.001, ramp(t, 18.4 + p.userData.i / 500 * 1.6, 0.3)); });
+  showLabel(L.posts, cam, t, 19.6, 0.055, 23);
+  pulses.forEach((r, j) => { const k = ((t - 20 - j * 0.13) % 1.2 + 1.2) % 1.2; r.visible = t > 20 && t < 23.2; r.scale.setScalar(1 + k * 5); r.material.opacity = 0.9 * (1 - k / 1.2); });
+  // D: ridges and the view from Tikaboo
+  showPin(pFree, t, 23.5); showPin(pWhite, t, 23.8); showLabel(L.free, cam, t, 24.0, 0.05, 31); showLabel(L.white, cam, t, 24.3, 0.05, 31);
+  z84.material.opacity = z84.userData.op * ramp(t, 25, 0.6) * (1 - ramp(t, 31, 0.3)); showLabel(L.z84, cam, t, 25.2, 0.05, 31);
+  z95.material.opacity = z95.userData.op * ramp(t, 26.8, 0.6) * (1 - ramp(t, 31, 0.3));
+  [pFree, pWhite].forEach(p => p.children.forEach(c => c.material.color.setHex(t > 27 ? 0x8a9098 : 0xf4efe6)));
+  showPin(pTika, t, 28.2); showLabel(L.tika, cam, t, 28.5, 0.055, 31);
+  draw(sight, ease(ramp(t, 29.0, 1.2))); showLabel(L.dist, cam, t, 29.8, 0.06, 31);
+  if (t > 31) { [pFree, pWhite, pTika].forEach(p => p.visible = false); sight.visible = false; }
+  // E: JANET lands
+  draw(hwy, ease(ramp(t, 31.4, 1.6)) * (t < 38 ? 1 : 0)); showPin(pRachel, t, 31.6); showLabel(L.rachel, cam, t, 32.0, 0.05, 34.5); if (t > 38) pRachel.visible = false;
+  const jk = clamp((t - 31.2) / 6.2); jet.visible = t > 31.2 && t < 38;
+  if (jet.visible) { const e = 1 - Math.pow(1 - jk, 1.6), p = jetPath.getPointAt(e), q = jetPath.getPointAt(Math.min(1, e + 0.01)); jet.position.copy(p); jet.lookAt(q); L.janet.position.copy(p).add(V(0, 1.0, 0));
+    const back = p.clone().sub(q).normalize(); cam.position.copy(p).add(back.multiplyScalar(lerp(9, 5, jk))).add(V(lerp(3, 1.5, jk), lerp(2.6, 1.6, jk), 0)); cam.lookAt(p.clone().lerp(hb, 0.25 + 0.5 * jk)); }
+  showLabel(L.janet, cam, t, 32.2, 0.06, 37.6);
+  // F: S-4
+  showPin(pPap, t, 39.2); showLabel(L.pap, cam, t, 39.8, 0.07, 45); if (t > 45) pPap.visible = false;
+  // G: smoke (allegation)
+  trenchM.material.opacity = 0.9 * ramp(t, 45.4, 0.5);
+  smoke.forEach((s, j) => { const age = ((t - 45.6 - s.userData.o * 3) % 3 + 3) % 3, on = t > 45.6 + s.userData.o * 3 * 0;
+    s.visible = t > 45.6; s.position.copy(tr).add(V(s.userData.dx * age, 0.1 + age * 0.55, -age * 0.25)); s.scale.setScalar(0.25 + age * 0.45); s.material.opacity = 0.5 * Math.sin(Math.PI * age / 3) * ramp(t, 45.6, 0.8); });
+  showLabel(L.smoke, cam, t, 46.5, 0.065, 51.8);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 58);
+</script></body></html>

@@ -4,7 +4,7 @@
 
 ```
 इस repo (cinematic-skill) में पहले HANDOFF.md और CLAUDE.md पूरा पढ़ो। उनमें मेरे सारे order लिखे हैं, उन्हीं के हिसाब से काम करो।
-saanp/ और tut/ (तूतनख़ामुन) तैयार reference projects हैं, उनके patterns copy करो।
+saanp/, tut/ (तूतनख़ामुन) और area51/ (एरिया 51, सबसे नया) तैयार reference projects हैं, उनके patterns copy करो।
 
 मैं सिर्फ़ topic दूँगा। उसका मतलब है पूरा package:
 1. Research + fact-check (sources fact_notes में), फिर दो अलग स्क्रिप्ट:
@@ -20,6 +20,13 @@ saanp/ और tut/ (तूतनख़ामुन) तैयार reference pr
 6. भेजो: फ़िल्म (captions के साथ), caption-free copy, SRT, रील + SRT, दोनों थंबनेल। फिर commit + push करो (100 MB से बड़ी फ़ाइलें git में नहीं)।
 मेरा हर नया order HANDOFF.md और CLAUDE.md में सेव करते जाओ।
 
+Topic: <यहाँ अपना topic लिखें>
+```
+
+## सबसे छोटा version (अब यही काफ़ी है)
+
+```
+HANDOFF.md और CLAUDE.md पढ़ो। area51/ सबसे नया reference है। पिछला काम अधूरा हो तो पहले उसे पूरा करो (bash area51/tools/finish.sh)।
 Topic: <यहाँ अपना topic लिखें>
 ```
 
