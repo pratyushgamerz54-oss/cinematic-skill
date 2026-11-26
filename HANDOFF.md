@@ -8,7 +8,74 @@ hai aur test ho chuka hai, bas poora render baaki hai (neeche "Pending" dekhiye)
 
 `CLAUDE.md` is the standing order (rules for every film). This file is the state of the work and the full
 list of what the user asked for, in order, so nothing is lost between sessions.
-Last updated: 25 Nov 2026. All work is on `main` (the user asked for it, so new sessions see everything); session branches start from it.
+Last updated: 26 Nov 2026. All work is on `main` (the user asked for it, so new sessions see everything); session branches start from it.
+
+---
+
+## NOW (26 Nov 2026): where the work stands, and how to continue
+
+**Area 51 (`area51/`) is the newest and most complete reference.** Everything up to the final render is built and
+committed: scripts (approved), voice (split), all assets, `scene.py`, `reel/scene.py`, sound mixes.
+The final 1080p render was running when the session ended. **To finish it, a new session runs one command:**
+
+    bash area51/tools/finish.sh
+
+It renders the film (skips if `area51/out/film_raw.mp4` exists) and the reel, burns captions (film: clean;
+reel: highlighter), writes both SRTs, makes the share copies (`*_share.mp4`, the only mp4s in git) and a
+check sheet `area51/out/check_every_10s.jpg` (look at it before sending). Then send to the user: film with captions,
+caption-free copy, `captions.srt`, reel + `captions_reel.srt`, `out/thumbnail_youtube.jpg`, `out/thumbnail_reel.jpg`.
+Commit and push (files over 100 MB stay out: `out/*.mp4` is ignored except `*_share.mp4`).
+
+**A new topic from the user = start the full package at once**, following the playbook below (copy `area51/`).
+
+## PLAYBOOK: the exact order that worked for Area 51 (copy it for every topic)
+
+1. **Research** with WebSearch (sources into `fact_notes`; say आरोप / के मुताबिक़ / दावा; give both sides).
+2. **Film script** `script.json` (T00_intro + takes; length as the user asks; ≈ 11.4 Hindi characters/s at Viraj's pace,
+   gaps included: 5:18 ≈ 3,800, 8 min ≈ 5,500). Open with curiosity questions, hooks before/at/after the middle and at
+   the end. Generate it with a small Python script (spoken text with `...`, display text derived; see the area51
+   history). **Reel script** `reel/script.json` (10 lines, ~720-760 chars, headline/tag/source/mood per line).
+   `make_beats.py --project <p>` and `--project <p>/reel` until 0 warnings (split lines over ~22 words; never type and
+   speak the same phrase).
+3. **The one stop:** send both beats.md + `voiceover_script_emotions.md`, give one copyable v3 block per take
+   (no line numbers inside the blocks), AskUserQuestion to approve. The user records Viraj on the website; one
+   generation takes ~2,000-2,300 characters, so per-take files are best (they sent T00..T11 + REEL for Area 51).
+4. **While waiting for the voice** (all of it, in this order; run heavy jobs one at a time):
+   - photos.json (25+ Commons; per-photo `"grade": "natural"` for colour photos, `"crop"` to remove private people),
+     `fetch_commons.py get --project <p> --pause 8` in the background (Commons 429s: it retries; a PDF page:
+     `.../thumb/<a>/<ab>/<name>.pdf/page1-960px-<name>.pdf.jpg`).
+   - globe.json (look dark, borders false, `"atmosphere"` and `"grid_rgb"` overrides for the topic palette), `--still`
+     checks, then `make_globe.py` in the background.
+   - 3D pages in `assets/3d/` (copy area51's `common.js`, `terrain.html`, `aircraft.html`, `s4.html`): check with
+     `node tools/stills.js <url> <prefix> t1 t2 ...` (served by `python3 -m http.server 8765 --directory assets/3d`),
+     then record all with `tools/record_all.sh` (frame-capture record.py, then the HyperFrames render).
+   - **Real terrain**: `tools/make_terrain.py` (AWS Terrain Tiles, open data; s3.amazonaws.com works) gives height +
+     coloured relief; the three.js terrain page drapes pins, routes, zones and labels on it.
+   - HyperFrames hero graphics from `hf/gen.py` (one Python generator writes all compositions + index + segments):
+     `plugin-cli.mjs lint`, `snapshot --at ...`, `render --output ../assets/clips/hf_graphics.mp4`.
+   - Footage: Wikimedia refuses video originals (429); download the transcode
+     `https://upload.wikimedia.org/wikipedia/commons/transcoded/<a>/<ab>/<name>/<name>.480p.vp9.webm` (or 1080p),
+     trim with ffmpeg; label stand-ins plainly (e.g. "SR-71 · A-12 परिवार (NASA फ़ुटेज)").
+   - clips.json (every clip, trims for the shots), credits.md (`fetch_commons.py credits` + clips, data, fonts),
+     thumbs.py (copy area51's).
+5. **Voice:** put takes in `audio/takes/<take>.wav` (reel: `reel/audio/takes/REEL.wav`), `split_takes.py`, set
+   `gap_after` 0.45 (0.6 at take ends) in segments.json, `build_narration.py` (natural 1.0x). Too long: drop whole
+   lines by deleting them from segments.json and record it in `film_cut` / `reel_cut`.
+6. **Scene:** copy `area51/scene.py` (helpers photo/card/bar/tag/screen/into/cut(until=)/look, mood list, chips,
+   tidy_keys). `prep_assets.py` and `prep_clips.py` first. Probe one still per line (times = segment middles from
+   audio/timing.json), build contact sheets, fix, re-probe; `--strip t0:t1:8` to debug a line.
+   **Lessons:** give each section enough room (sections were colliding; area51 XS spacing ~26-40k); a cutaway's
+   last camera key must come before the next line's first key (into ends `nxt(i) - 0.5`); use `cut(..., until=t)` when
+   a line goes on to another visual; GeoMap K is per radian (K≈24000 for a 20° map); flat 2D maps of an inland spot
+   read as blank: use a motion graphic or the 3D terrain instead.
+7. **Test** three 20 s spans (`render.py --t0 --t1 --size 1280x720 --out out/test_<t>.mp4 --audio audio/mix.m4a`,
+   about 45 s each) and look at a frame every 2 s.
+8. **Sound:** `render.py --cues` -> `saanp/thin_cues.py <p>/sfx_cues.json` -> `build_sfx.py` -> score (area51 built it
+   from saanp's drone1/drone2 alternated with 4 s cross-fades, see the history) -> `mix_soundtrack.py --music
+   audio/music/score.wav --music-db -4 --sfx-db -3 --duck-ratio 3 --duck-threshold 0.03 --music-level 0.07
+   --music-eq-dip 4 --lufs -15`. Same for the reel with `--music ../audio/music/score.wav`.
+9. **Render and finish:** `tools/finish.sh` (film 1080p took about 30-40 min for 8:39; the reel a few minutes).
+10. Keep HANDOFF.md, CLAUDE.md and `NEW_SESSION.md` up to date; commit and push after every stage.
 
 ---
 

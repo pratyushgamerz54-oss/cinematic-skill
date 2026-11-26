@@ -6,7 +6,9 @@ here, and update its "Pending" list when work is done.
 
 The user will often send **only a topic** (in Hinglish or Hindi). That is a request for the full package
 below, made with every tool listed here. Do not start a video unless the user asks for one or sends a topic
-for one. `saanp/` (पिछवाड़े के साँप) is the finished reference project: copy its patterns.
+for one. `saanp/` (पिछवाड़े के साँप) is the first reference project; **`area51/` (एरिया 51) is the newest and fullest**
+(3D terrain map, aircraft models, radar/desert moods, Atmos background, finish.sh): copy its patterns.
+The step-by-step playbook with every command is in `HANDOFF.md` ("PLAYBOOK").
 
 ## What one topic produces
 
