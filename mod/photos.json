@@ -1,0 +1,229 @@
+{
+ "grade": "bw",
+ "photos": [
+  {
+   "id": "P01",
+   "what": "Franz Ferdinand and Sophie leave the Sarajevo Guildhall, 28 June 1914",
+   "kind": "photo",
+   "commons": "File:Franz Ferdinand & Sophie Leave Sarajevo Guildhall.jpg",
+   "grade": "bw",
+   "file": "P01_Franz_Ferdinand_Sophie_Leave_Sarajevo_Guildhall.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Franz_Ferdinand_%26_Sophie_Leave_Sarajevo_Guildhall.jpg",
+   "credit": "Unknown photographer (1914)",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "date": "1914-06-28",
+   "license_ok": true
+  },
+  {
+   "id": "P02",
+   "what": "Archduke Franz Ferdinand in Sarajevo, June 1914 (IWM Q91848)",
+   "kind": "photo",
+   "commons": "File:Archduke Franz Ferdinand in Sarajevo, June 1914 Q91848.jpg",
+   "grade": "bw",
+   "file": "P02_Archduke_Franz_Ferdinand_in_Sarajevo_June_1914_Q.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Archduke_Franz_Ferdinand_in_Sarajevo,_June_1914_Q91848.jpg",
+   "credit": "Unknown authorUnknown author",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "28 June 1914 (First World War, Pre-1914)",
+   "license_ok": true
+  },
+  {
+   "id": "P03",
+   "what": "Domenica del Corriere front page, 12 July 1914 (drawing of the Sarajevo attack)",
+   "kind": "photo",
+   "commons": "File:DC-1914-27-d-Sarajevo-cropped.jpg",
+   "grade": "natural",
+   "file": "P03_DC_1914_27_d_Sarajevo_cropped.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:DC-1914-27-d-Sarajevo-cropped.jpg",
+   "credit": "Achille Beltrame",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1914-07-12",
+   "license_ok": true
+  },
+  {
+   "id": "P04",
+   "what": "Gavrilo Princip in his cell, 1914",
+   "kind": "photo",
+   "commons": "File:Gavrilo Princip, cell, headshot, bw (cropped).jpg",
+   "grade": "bw",
+   "file": "P04_Gavrilo_Princip_cell_headshot_bw_cropped_.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Gavrilo_Princip,_cell,_headshot,_bw_(cropped).jpg",
+   "credit": "Unknown authorUnknown author",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "Taken on 2 July 1914",
+   "license_ok": true
+  },
+  {
+   "id": "P05",
+   "what": "The Gräf & Stift car of Franz Ferdinand, Heeresgeschichtliches Museum, Vienna",
+   "kind": "photo",
+   "commons": "File:Gräf & Stift automobile of Archduke Franz Ferdinand of Austria-0486.jpg",
+   "grade": "natural",
+   "file": "P05_Gr_f_Stift_automobile_of_Archduke_Franz_Ferdinan.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Gr%C3%A4f_%26_Stift_automobile_of_Archduke_Franz_Ferdinand_of_Austria-0486.jpg",
+   "credit": "Hubertl",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "date": "2015-10-02 14:44:46",
+   "license_ok": true
+  },
+  {
+   "id": "P06",
+   "what": "Sarajevo near the Latin Bridge, the 1914 corner (1930s)",
+   "kind": "photo",
+   "commons": "File:1930s-Sarajevo-near-Latin-Bridge.jpg",
+   "grade": "bw",
+   "file": "P06_1930s_Sarajevo_near_Latin_Bridge.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:1930s-Sarajevo-near-Latin-Bridge.jpg",
+   "credit": "Unknown photographer",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "ca. 1930s",
+   "license_ok": true
+  },
+  {
+   "id": "P07",
+   "what": "Alexander Fleming in his laboratory at St Mary's Hospital (IWM D17801)",
+   "kind": "photo",
+   "commons": "File:Professor Alexander Fleming at work in his laboratory at St Mary's Hospital, London, during the Second World War. D17801.jpg",
+   "grade": "bw",
+   "file": "P07_Professor_Alexander_Fleming_at_work_in_his_labor.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Professor_Alexander_Fleming_at_work_in_his_laboratory_at_St_Mary%27s_Hospital,_London,_during_the_Second_World_War._D17801.jpg",
+   "credit": "Ministry of Information Photo Division Photographer",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "between 1939 and 1945date QS:P571,+1950-00-00T00:00:00Z/7,P1319,+1939-00-00T00:00:00Z/9,P1326,+1945-00-00T00:00:00Z/9",
+   "license_ok": true
+  },
+  {
+   "id": "P08",
+   "what": "Penicillin production, England, 1943 (IWM D16959)",
+   "kind": "photo",
+   "commons": "File:Penicillin Past, Present and Future- the Development and Production of Penicillin, England, 1943 D16959.jpg",
+   "grade": "bw",
+   "file": "P08_Penicillin_Past_Present_and_Future_the_Developme.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Penicillin_Past,_Present_and_Future-_the_Development_and_Production_of_Penicillin,_England,_1943_D16959.jpg",
+   "credit": "Richard Stone",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1943date QS:P571,+1943-00-00T00:00:00Z/9",
+   "license_ok": true
+  },
+  {
+   "id": "P09",
+   "what": "Synthetic production of penicillin, 1943 (IWM TR1468)",
+   "kind": "photo",
+   "commons": "File:Synthetic Production of Penicillin TR1468.jpg",
+   "grade": "natural",
+   "file": "P09_Synthetic_Production_of_Penicillin_TR1468.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Synthetic_Production_of_Penicillin_TR1468.jpg",
+   "credit": "Official photographer",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1943date QS:P571,+1943-00-00T00:00:00Z/9",
+   "license_ok": true
+  },
+  {
+   "id": "P10",
+   "what": "US reconnaissance photo: MRBM site, San Cristobal, Cuba, 1 Nov 1962",
+   "kind": "photo",
+   "commons": "File:Cuban missiles.jpg",
+   "grade": "bw",
+   "file": "P10_Cuban_missiles.jpg",
+   "source": "https://commons.wikimedia.org/wiki/File:Cuban_missiles.jpg",
+   "credit": "see above",
+   "license": "Public domain",
+   "license_url": "",
+   "date": "1962-11-01",
+   "license_ok": true
+  },
+  {
+   "id": "P11",
+   "what": "MRBM Launch Site 1, San Cristobal, 25 Oct 1962",
+   "kind": "photo",
+   "commons": "File:MRBM Launch Site 1, 25 October 1962.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P12",
+   "what": "Kennedy signs the Cuba quarantine proclamation, 23 Oct 1962",
+   "kind": "photo",
+   "commons": "File:Signing Cuba Quarantine Proclamation. President Kennedy. White House, Oval Office. - NARA - 194218.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P13",
+   "what": "Soviet submarine B-59 forced to the surface near Cuba, 28-29 Oct 1962 (US Navy)",
+   "kind": "photo",
+   "commons": "File:Soviet b-59 submarine.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P14",
+   "what": "Vasili Arkhipov",
+   "kind": "photo",
+   "commons": "File:Vasili Arkhipov (cropped).jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P15",
+   "what": "Stanislav Petrov, 2016",
+   "kind": "photo",
+   "commons": "File:Stanislaw-jewgrafowitsch-petrow-2016.jpg",
+   "grade": "natural"
+  },
+  {
+   "id": "P16",
+   "what": "Günter Schabowski at the press conference, 9 Nov 1989 (Bundesarchiv 183-1989-1109-030)",
+   "kind": "photo",
+   "commons": "File:Bundesarchiv Bild 183-1989-1109-030, Berlin, Schabowski auf Pressekonferenz.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P17",
+   "what": "Schabowski's own note for the press conference, 9 Nov 1989",
+   "kind": "photo",
+   "commons": "File:Schabowski-notizzettel.jpg",
+   "grade": "natural"
+  },
+  {
+   "id": "P18",
+   "what": "People on the Berlin Wall at the Brandenburg Gate, 9 Nov 1989",
+   "kind": "photo",
+   "commons": "File:BerlinWall-BrandenburgGate.jpg",
+   "grade": "natural"
+  },
+  {
+   "id": "P19",
+   "what": "East German workers building the Berlin Wall, 20 Nov 1961",
+   "kind": "photo",
+   "commons": "File:Berlin Wall 1961-11-20.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P20",
+   "what": "On the Berlin Wall, 16 Nov 1989",
+   "kind": "photo",
+   "commons": "File:Juggling on the Berlin Wall 1a.jpg",
+   "grade": "natural"
+  },
+  {
+   "id": "P21",
+   "what": "Kennedy meets the reconnaissance pilots, 30 Oct 1962",
+   "kind": "photo",
+   "commons": "File:LeMay Cuban Missile Crisis.jpg",
+   "grade": "bw"
+  },
+  {
+   "id": "P22",
+   "what": "Berlin Wall 1961-1989 (IWM HU99516)",
+   "kind": "photo",
+   "commons": "File:The Berlin Wall 1961 - 1989 HU99516.jpg",
+   "grade": "bw"
+  }
+ ]
+}

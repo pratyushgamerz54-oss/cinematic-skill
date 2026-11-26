@@ -1,0 +1,461 @@
+{
+ "globes": [
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "name": "g_moscow",
+   "what": "3D globe: night descent to the Serpukhov-15 bunker near Moscow (1983)",
+   "seconds": 8,
+   "places": {
+    "Bunker": [
+     55.08,
+     37.0
+    ],
+    "Moscow": [
+     55.75,
+     37.62
+    ]
+   },
+   "routes": [],
+   "markers": [
+    {
+     "place": "Bunker",
+     "label": "मॉस्को के पास · गुप्त बंकर",
+     "t_in": 5.0,
+     "side": "right",
+     "size": 1.3,
+     "label_size": 1.2
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "lat": 40,
+     "lon": 10,
+     "dist": 5.4
+    },
+    {
+     "t": 4,
+     "lat": 52,
+     "lon": 32,
+     "dist": 2.2,
+     "tilt": 6
+    },
+    {
+     "t": 8,
+     "lat": 54.6,
+     "lon": 37.1,
+     "dist": 1.35,
+     "tilt": 16,
+     "roll": -2
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "name": "g_oko",
+   "what": "3D globe from above the pole: a symbolic warning arc rises from the US toward the USSR; the satellite's false alarm",
+   "seconds": 9,
+   "places": {
+    "Montana": [
+     47.5,
+     -111.2
+    ],
+    "Moscow": [
+     55.75,
+     37.62
+    ],
+    "Sun": [
+     40,
+     -100
+    ]
+   },
+   "routes": [
+    {
+     "from": "Montana",
+     "to": "Moscow",
+     "t_in": 1.5,
+     "dur": 5.0
+    }
+   ],
+   "markers": [
+    {
+     "place": "Montana",
+     "label": "अमेरिका · ‘लॉन्च’?",
+     "t_in": 1.0,
+     "side": "right",
+     "size": 1.2,
+     "label_size": 1.1
+    },
+    {
+     "place": "Moscow",
+     "label": "सोवियत संघ",
+     "t_in": 5.8,
+     "side": "right",
+     "size": 1.0,
+     "label_size": 1.0
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "lat": 68,
+     "lon": -55,
+     "dist": 4.6
+    },
+    {
+     "t": 9,
+     "lat": 70,
+     "lon": -30,
+     "dist": 3.8,
+     "tilt": 8
+    }
+   ],
+   "atmosphere": [
+    70,
+    160,
+    150
+   ],
+   "grid_rgb": [
+    34,
+    96,
+    90
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "name": "g_london",
+   "what": "3D globe: Sarajevo 1914 to London 1928, the next turning point",
+   "seconds": 7,
+   "places": {
+    "Sarajevo": [
+     43.86,
+     18.41
+    ],
+    "London": [
+     51.51,
+     -0.13
+    ]
+   },
+   "routes": [
+    {
+     "from": "Sarajevo",
+     "to": "London",
+     "t_in": 1.2,
+     "dur": 3.6
+    }
+   ],
+   "markers": [
+    {
+     "place": "Sarajevo",
+     "label": "साराजेवो · 1914",
+     "t_in": 0.6,
+     "side": "right",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "London",
+     "label": "लंदन · 1928",
+     "t_in": 4.6,
+     "side": "left",
+     "size": 1.3,
+     "label_size": 1.2
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "lat": 44,
+     "lon": 18,
+     "dist": 2.4,
+     "tilt": 8
+    },
+    {
+     "t": 7,
+     "lat": 49,
+     "lon": 6,
+     "dist": 1.9,
+     "tilt": 14
+    }
+   ],
+   "atmosphere": [
+    200,
+    150,
+    80
+   ],
+   "grid_rgb": [
+    96,
+    72,
+    40
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "name": "g_cuba",
+   "what": "3D globe: turn to the Caribbean, 1962; Cuba, Florida, the quarantine area and B-59",
+   "seconds": 9,
+   "places": {
+    "Havana": [
+     23.11,
+     -82.37
+    ],
+    "Miami": [
+     25.76,
+     -80.19
+    ],
+    "Washington": [
+     38.9,
+     -77.04
+    ],
+    "Moscow": [
+     55.75,
+     37.62
+    ],
+    "B59": [
+     24.6,
+     -68.5
+    ]
+   },
+   "routes": [
+    {
+     "from": "Moscow",
+     "to": "Havana",
+     "t_in": 0.8,
+     "dur": 3.2,
+     "vehicle": "boat"
+    }
+   ],
+   "markers": [
+    {
+     "place": "Havana",
+     "label": "क्यूबा",
+     "t_in": 3.8,
+     "side": "left",
+     "size": 1.3,
+     "label_size": 1.2
+    },
+    {
+     "place": "Washington",
+     "label": "वॉशिंगटन",
+     "t_in": 5.0,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "B59",
+     "label": "B-59 (लगभग यहाँ)",
+     "t_in": 6.6,
+     "side": "right",
+     "size": 1.2,
+     "label_size": 1.1
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "lat": 40,
+     "lon": -20,
+     "dist": 5.0
+    },
+    {
+     "t": 4.5,
+     "lat": 30,
+     "lon": -60,
+     "dist": 2.8,
+     "tilt": 6
+    },
+    {
+     "t": 9,
+     "lat": 25,
+     "lon": -76,
+     "dist": 1.7,
+     "tilt": 18,
+     "roll": -2
+    }
+   ],
+   "atmosphere": [
+    80,
+    140,
+    210
+   ],
+   "grid_rgb": [
+    36,
+    70,
+    110
+   ]
+  },
+  {
+   "fps": 30,
+   "size": "1920x1080",
+   "source": "assets/data/countries-50m.json",
+   "object": "countries",
+   "look": "dark",
+   "borders": false,
+   "grid": 5,
+   "fills": [],
+   "name": "g_verdict",
+   "what": "3D globe at night: the five places of the five turning points",
+   "seconds": 9,
+   "places": {
+    "Sarajevo": [
+     43.86,
+     18.41
+    ],
+    "London": [
+     51.51,
+     -0.13
+    ],
+    "Cuba": [
+     23.11,
+     -82.37
+    ],
+    "Moscow": [
+     55.75,
+     37.62
+    ],
+    "Berlin": [
+     52.52,
+     13.4
+    ]
+   },
+   "routes": [
+    {
+     "from": "Sarajevo",
+     "to": "London",
+     "t_in": 0.8,
+     "dur": 1.4
+    },
+    {
+     "from": "London",
+     "to": "Cuba",
+     "t_in": 2.2,
+     "dur": 1.6
+    },
+    {
+     "from": "Cuba",
+     "to": "Moscow",
+     "t_in": 3.8,
+     "dur": 1.6
+    },
+    {
+     "from": "Moscow",
+     "to": "Berlin",
+     "t_in": 5.4,
+     "dur": 1.2
+    }
+   ],
+   "markers": [
+    {
+     "place": "Sarajevo",
+     "label": "1914",
+     "t_in": 0.6,
+     "side": "right",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "London",
+     "label": "1928",
+     "t_in": 2.0,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Cuba",
+     "label": "1962",
+     "t_in": 3.6,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Moscow",
+     "label": "1983",
+     "t_in": 5.2,
+     "side": "right",
+     "size": 1.0,
+     "label_size": 1.0
+    },
+    {
+     "place": "Berlin",
+     "label": "1989",
+     "t_in": 6.4,
+     "side": "left",
+     "size": 1.0,
+     "label_size": 1.0
+    }
+   ],
+   "camera": [
+    {
+     "t": 0,
+     "lat": 45,
+     "lon": 10,
+     "dist": 3.0
+    },
+    {
+     "t": 4,
+     "lat": 38,
+     "lon": -30,
+     "dist": 4.6
+    },
+    {
+     "t": 9,
+     "lat": 45,
+     "lon": 0,
+     "dist": 4.2,
+     "tilt": 6
+    }
+   ],
+   "atmosphere": [
+    200,
+    150,
+    80
+   ],
+   "grid_rgb": [
+    96,
+    72,
+    40
+   ]
+  }
+ ]
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Caribbean 1962</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#06101c}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// 3D relief of the Caribbean with the sea floor (AWS Terrain Tiles: SRTM + ETOPO1 bathymetry), October 1962.
+// One 24 s timeline: A 0-8 Cuba + missile reach · B 8-15 the quarantine line, ships · C 15-24 B-59 hunted.
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+import { terrain, drawTube, showPin, sky, shotCam } from './terra.js';
+const { R, S, cam } = setup(0x06101c);
+const label = await labeller(S);
+const T = await terrain(S, 'carib', [23.0, -78.0], { exg: 5, km: 10, seg: [500, 340] });
+const { P, tube, pin, hAt } = T;
+S.fog = new THREE.Fog(0x0a1626, 160, 520);
+S.add(new THREE.HemisphereLight(0xd8ecff, 0x10223a, 0.75));
+const sun = new THREE.DirectionalLight(0xfff0d8, 2.0); sun.position.set(-80, 120, 60); S.add(sun);
+sky(S, 0x050a14, 0x14304e, 0x2a5a7a);
+const M = c => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.95, fog: false });
+const amber = M(0xffb347), white = M(0xf4efe6), cyan = M(0x6fe0ff), soft = M(0xffd27a);
+// sea surface: a faint translucent sheet at sea level so the deep floor reads as water
+const sea0 = (0 - T.meta.min) / 1000 / 10 * 5;
+const seaS = new THREE.Mesh(new THREE.PlaneGeometry(400, 300), new THREE.MeshStandardMaterial({ color: 0x1c5a86, transparent: true, opacity: 0.32, roughness: 0.3, metalness: 0.1, depthWrite: false }));
+seaS.rotation.x = -Math.PI / 2; seaS.position.y = sea0 + 0.02; S.add(seaS);
+const onSea = (lat, lon, up = 0.15) => { const p = P(lat, lon); p.y = Math.max(p.y, sea0) + up; return p; };
+// circle of radius km around a point (on the sphere), as [lat,lon]
+function circle(lat0, lon0, km, a0 = 0, a1 = 360, n = 180) {
+  const R = 6371, d = km / R, la = lat0 * Math.PI / 180, lo = lon0 * Math.PI / 180, out = [];
+  for (let i = 0; i <= n; i++) { const b = (a0 + (a1 - a0) * i / n) * Math.PI / 180;
+    const la2 = Math.asin(Math.sin(la) * Math.cos(d) + Math.cos(la) * Math.sin(d) * Math.cos(b));
+    const lo2 = lo + Math.atan2(Math.sin(b) * Math.sin(d) * Math.cos(la), Math.cos(d) - Math.sin(la) * Math.sin(la2));
+    out.push([la2 * 180 / Math.PI, lo2 * 180 / Math.PI]); }
+  return out;
+}
+const inBox = q => q[0] > T.meta.S + 0.2 && q[0] < T.meta.N - 0.2 && q[1] > T.meta.W + 0.2 && q[1] < T.meta.E - 0.2;
+function ringTube(pts, r, m) { const v = pts.filter(inBox).map(q => onSea(q[0], q[1], 0.4)); return tube(v, r, m); }
+const SITE = [22.7, -83.3], MAISI = [20.25, -74.13], HAV = [23.11, -82.37], MIA = [25.76, -80.19], B59 = [24.6, -68.5];
+const reach = ringTube(circle(...SITE, 1100, 300, 420, 160), 0.5, amber);          // MRBM reach (shown in part)
+const reach2 = ringTube(circle(...SITE, 600, 0, 360, 200), 0.35, soft);
+const quar = ringTube(circle(...MAISI, 926, -40, 120, 220), 0.6, cyan);            // 500 nautical miles
+// ships along the line, and destroyers closing on B-59
+function ship(s = 1) { const g = new THREE.Group(), m = new THREE.MeshStandardMaterial({ color: 0xc8d0d8, roughness: 0.5 });
+  const h = new THREE.Mesh(new THREE.BoxGeometry(0.5, 0.25, 2.2), m); h.position.y = 0.12; g.add(h);
+  const b = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.4, 0.5), m); b.position.set(0, 0.45, -0.2); g.add(b);
+  g.scale.setScalar(s); g.visible = false; S.add(g); return g; }
+const qpts = circle(...MAISI, 926, -30, 110, 12).filter(inBox), ships = qpts.map(() => ship(1.6));
+ships.forEach((g, i) => { g.position.copy(onSea(...qpts[i], 0)); const nx = qpts[Math.min(i + 1, qpts.length - 1)]; g.lookAt(onSea(...nx, 0)); });
+const hunt = [0, 1, 2, 3, 4, 5].map(() => ship(1.2));
+const huntStart = circle(...B59, 160, 0, 300, 5), sonar = [];
+for (let i = 0; i < 3; i++) { const r = new THREE.Mesh(new THREE.RingGeometry(0.8, 1.1, 48), cyan.clone()); r.rotation.x = -Math.PI / 2; r.position.copy(onSea(...B59, 0.1)); r.visible = false; S.add(r); sonar.push(r); }
+const sub = new THREE.Mesh(new THREE.CapsuleGeometry(0.35, 2.4, 6, 12), new THREE.MeshStandardMaterial({ color: 0x1a1e22, roughness: 0.6 }));
+sub.rotation.z = Math.PI / 2; sub.position.copy(onSea(...B59, -0.4)); S.add(sub);
+const pCuba = pin(22.9, -80.5, amber, 4), pMia = pin(...MIA, white, 3), pB = pin(...B59, cyan, 4);
+const L = {
+  cuba: label('क्यूबा', 'सोवियत मिसाइलें · अक्टूबर 1962', true), fl: label('फ़्लोरिडा', 'अमेरिका'),
+  reach: label('मिसाइल की पहुँच', '≈ 1,800 किमी · वॉशिंगटन तक'), quar: label('अमेरिकी घेरा', '500 नॉटिकल मील · 24 अक्टूबर'),
+  b59: label('B-59', 'सोवियत पनडुब्बी (जगह लगभग)', true), hunt: label('अमेरिकी जहाज़', 'सिग्नल बम · 27 अक्टूबर'),
+};
+L.cuba.position.copy(onSea(20.4, -77.6, 6)); L.fl.position.copy(onSea(28.4, -82.2, 6));
+L.reach.position.copy(onSea(31.0, -77.5, 8)); L.quar.position.copy(onSea(28.6, -70.5, 8));
+L.b59.position.copy(pB.userData.top.clone().add(new THREE.Vector3(7, -2.5, 4))); L.hunt.position.copy(onSea(26.2, -69.2, 6));
+const note = label('प्रतीकात्मक 3D मॉडल', 'समुद्र की गहराई: AWS Terrain Tiles · ETOPO1');
+const V = (x, y, z) => new THREE.Vector3(x, y, z), cu = P(22.6, -79.5), b5 = onSea(...B59, 0);
+const SHOTS = [
+  [0, [V(-25, 115, 145), V(0, 0, -10)], [cu.clone().add(V(-20, 70, 95)), cu.clone().add(V(10, 0, -25))]],
+  [8, [V(30, 120, 150), V(40, 0, -30)], [V(40, 105, 125), V(55, 0, -40)]],
+  [15, [b5.clone().add(V(-40, 45, 60)), b5.clone()], [b5.clone().add(V(-18, 16, 24)), b5.clone()]],
+  [24]];
+function frame(t) {
+  shotCam(cam, SHOTS, t);
+  showPin(pCuba, t, 1.0); showLabel(L.cuba, cam, t, 1.4, 0.05, 15);
+  showPin(pMia, t, 2.4, 15); showLabel(L.fl, cam, t, 2.8, 0.04, 15);
+  drawTube(reach2, ease(ramp(t, 3.4, 1.4)) * (t < 15 ? 1 : 0)); drawTube(reach, ease(ramp(t, 4.4, 2.0)) * (t < 15 ? 1 : 0)); showLabel(L.reach, cam, t, 5.2, 0.04, 8.4);
+  drawTube(quar, ease(ramp(t, 8.6, 2.6)) * (t < 15 ? 1 : 0)); showLabel(L.quar, cam, t, 9.6, 0.045, 15);
+  ships.forEach((g, i) => { g.visible = t > 10.6 + i * 0.18 && t < 15; });
+  showPin(pB, t, 16.0); showLabel(L.b59, cam, t, 16.4, 0.05);
+  hunt.forEach((g, i) => { const k = ease(clamp((t - 17.2) / 6)); const a = onSea(...huntStart[i], 0), b = onSea(...circle(...B59, 35, i * 60, i * 60, 1)[0], 0);
+    g.visible = t > 17.0; g.position.lerpVectors(a, b, k); g.lookAt(b5.x, g.position.y, b5.z); });
+  showLabel(L.hunt, cam, t, 18.2, 0.04);
+  sonar.forEach((r, i) => { const k = ((t - 18.5 - i * 0.6) % 1.8 + 1.8) % 1.8; r.visible = t > 18.5; r.scale.setScalar(1 + k * 4); r.material.opacity = 0.9 * (1 - k / 1.8); });
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 24);
+</script></body></html>

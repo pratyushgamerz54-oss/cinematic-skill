@@ -1,0 +1,32 @@
+[
+ {
+  "id": "welcome",
+  "start": 0,
+  "end": 5
+ },
+ {
+  "id": "topic",
+  "start": 5,
+  "end": 29
+ },
+ {
+  "id": "go",
+  "start": 29,
+  "end": 33
+ },
+ {
+  "id": "sofort",
+  "start": 33,
+  "end": 42
+ },
+ {
+  "id": "qend",
+  "start": 42,
+  "end": 52
+ },
+ {
+  "id": "rq",
+  "start": 52,
+  "end": 59
+ }
+]

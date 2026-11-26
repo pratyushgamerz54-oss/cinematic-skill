@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Petri dish 1928</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#0c0a08}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Symbolic petri dish (प्रतीकात्मक 3D मॉडल): bacteria colonies, the mould spot grows, a clear ring opens around it.
+// 16 s: A 0-4 the dish on the bench · B 4-9 the mould grows · C 9-16 the ring opens, close-up.
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x0c0a08);
+const label = await labeller(S);
+S.add(new THREE.HemisphereLight(0xfff0dc, 0x2a1e12, 0.7));
+const key = new THREE.SpotLight(0xffe2b0, 60, 30, 0.6, 0.5); key.position.set(-3, 7, 3); key.castShadow = true; S.add(key);
+const rim = new THREE.DirectionalLight(0x9ab8ff, 0.8); rim.position.set(5, 3, -4); S.add(rim);
+// bench (wood) with a lab note card
+const c = document.createElement('canvas'); c.width = c.height = 512; const g = c.getContext('2d');
+g.fillStyle = '#4a3422'; g.fillRect(0, 0, 512, 512); for (let i = 0; i < 90; i++) { g.strokeStyle = `rgba(30,18,10,${0.15 + Math.random() * 0.2})`; g.lineWidth = 1 + Math.random() * 3; g.beginPath(); const y = Math.random() * 512; g.moveTo(0, y); g.bezierCurveTo(170, y + 8, 340, y - 8, 512, y + 4); g.stroke(); }
+const wt = new THREE.CanvasTexture(c); wt.colorSpace = THREE.SRGBColorSpace; wt.wrapS = wt.wrapT = THREE.RepeatWrapping; wt.repeat.set(3, 3);
+const bench = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.MeshStandardMaterial({ map: wt, roughness: 0.8 })); bench.rotation.x = -Math.PI / 2; bench.receiveShadow = true; S.add(bench);
+// dish: glass wall, agar disk (texture drawn per frame), half-lifted lid
+const AG = 1024, ac = document.createElement('canvas'); ac.width = ac.height = AG; const ag = ac.getContext('2d');
+const at = new THREE.CanvasTexture(ac); at.colorSpace = THREE.SRGBColorSpace;
+const agar = new THREE.Mesh(new THREE.CylinderGeometry(2.0, 2.0, 0.12, 96), [new THREE.MeshStandardMaterial({ color: 0xc9a85a, roughness: 0.4 }), new THREE.MeshStandardMaterial({ map: at, roughness: 0.35 }), new THREE.MeshStandardMaterial({ color: 0xc9a85a })]);
+agar.position.y = 0.08; agar.castShadow = true; S.add(agar);
+const glass = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.05, transmission: 0.9, transparent: true, opacity: 0.35, thickness: 0.05 });
+const wall = new THREE.Mesh(new THREE.CylinderGeometry(2.08, 2.08, 0.34, 96, 1, true), glass); wall.position.y = 0.17; S.add(wall);
+const lid = new THREE.Mesh(new THREE.CylinderGeometry(2.2, 2.2, 0.06, 96), glass); lid.position.set(2.6, 0.5, -1.2); lid.rotation.z = 0.35; S.add(lid);
+let seed = 21; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const cols = []; for (let i = 0; i < 230; i++) { const r = Math.sqrt(rnd()) * 0.92, a = rnd() * 6.283; cols.push([0.5 + Math.cos(a) * r * 0.5, 0.5 + Math.sin(a) * r * 0.5, 4 + rnd() * 9]); }
+const MOULD = [0.36, 0.40];
+function paint(t) {
+  const grow = ease(ramp(t, 4.0, 5.0)), halo = ease(ramp(t, 8.6, 4.5));
+  ag.fillStyle = '#d6b66a'; ag.fillRect(0, 0, AG, AG);
+  const gr = ag.createRadialGradient(AG / 2, AG / 2, 10, AG / 2, AG / 2, AG / 2); gr.addColorStop(0, 'rgba(255,240,200,0.25)'); gr.addColorStop(1, 'rgba(90,60,20,0.3)'); ag.fillStyle = gr; ag.fillRect(0, 0, AG, AG);
+  const mx = MOULD[0] * AG, my = MOULD[1] * AG, mr = 18 + grow * 95, hr = mr + halo * 170;
+  if (halo > 0) { const h = ag.createRadialGradient(mx, my, mr, mx, my, hr); h.addColorStop(0, 'rgba(250,236,190,0.95)'); h.addColorStop(0.85, 'rgba(240,222,170,0.75)'); h.addColorStop(1, 'rgba(214,182,106,0)'); ag.fillStyle = h; ag.beginPath(); ag.arc(mx, my, hr, 0, 7); ag.fill(); }
+  for (const [x, y, s] of cols) { const X = x * AG, Y = y * AG, d = Math.hypot(X - mx, Y - my); const fade = halo > 0 ? clamp((d - mr) / Math.max(1, hr - mr)) : 1;
+    if (fade <= 0.02) continue; ag.fillStyle = `rgba(242,226,150,${0.95 * fade})`; ag.beginPath(); ag.arc(X, Y, s * (0.5 + 0.5 * fade), 0, 7); ag.fill();
+    ag.strokeStyle = `rgba(160,130,60,${0.6 * fade})`; ag.lineWidth = 1.5; ag.stroke(); }
+  if (t > 3.8) { for (let i = 0; i < 160; i++) { const a = i * 2.39996, r = Math.sqrt(i / 160) * mr; ag.fillStyle = i % 3 ? 'rgba(70,128,110,0.9)' : 'rgba(210,230,200,0.85)'; ag.beginPath(); ag.arc(mx + Math.cos(a) * r, my + Math.sin(a) * r, 3 + (i % 5), 0, 7); ag.fill(); }
+    const m = ag.createRadialGradient(mx, my, 0, mx, my, mr); m.addColorStop(0, 'rgba(40,96,88,0.9)'); m.addColorStop(0.7, 'rgba(90,150,130,0.75)'); m.addColorStop(1, 'rgba(220,240,220,0.5)'); ag.fillStyle = m; ag.beginPath(); ag.arc(mx, my, mr, 0, 7); ag.fill(); }
+  at.needsUpdate = true;
+}
+const dishPt = (u, v, y = 0.2) => new THREE.Vector3((u - 0.5) * 4, y, (v - 0.5) * 4);
+const L = { dish: label('बैक्टीरिया की प्लेट', 'सेंट मैरीज़ अस्पताल · 1928'), mould: label('फफूँद', 'पेनिसिलियम', false), ring: label('बैक्टीरिया ग़ायब', 'साफ़ घेरा', true), col: label('बैक्टीरिया', 'स्टैफ़िलोकोकस') };
+L.dish.position.set(-1.8, 1.6, -1.2); L.col.position.copy(dishPt(0.72, 0.62, 0.9)); L.mould.position.copy(dishPt(0.36, 0.40, 0.9)); L.ring.position.copy(dishPt(0.46, 0.66, 0.5));
+const note = label('प्रतीकात्मक 3D मॉडल', 'असली प्लेट की फ़ोटो अलग से');
+const V = (x, y, z) => new THREE.Vector3(x, y, z), mp = dishPt(...MOULD, 0.1);
+const SHOTS = [[0, [V(-6, 5.5, 7), V(0, 0, 0)], [V(-4.4, 4.2, 5.2), V(0, 0, 0)]],
+  [4, [V(-2.6, 4.6, 3.4), V(-0.4, 0, -0.2)], [V(-2.0, 3.8, 2.6), mp.clone()]],
+  [9, [mp.clone().add(V(-1.8, 4.2, 3.6)), mp.clone().add(V(0, 0, 0.3))], [mp.clone().add(V(-1.3, 3.4, 2.9)), mp.clone().add(V(0, 0, 0.3))]], [16]];
+function camAt(t) { let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++; const [t0, a, b] = SHOTS[i], k = ease(clamp((t - t0) / (SHOTS[i + 1][0] - t0))); cam.position.lerpVectors(a[0], b[0], k); cam.lookAt(a[1].clone().lerp(b[1], k)); }
+function frame(t) {
+  camAt(t); paint(t);
+  showLabel(L.dish, cam, t, 0.8, 0.05, 4); showLabel(L.col, cam, t, 2.2, 0.045, 8.6);
+  showLabel(L.mould, cam, t, 5.2, 0.05); showLabel(L.ring, cam, t, 11.0, 0.05);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 16);
+</script></body></html>

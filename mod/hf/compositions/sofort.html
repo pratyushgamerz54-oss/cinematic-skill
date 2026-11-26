@@ -1,0 +1,33 @@
+<template>
+  <style>
+.gold{color:#e8c27a;} .dust{position:absolute;border-radius:50%;background:#f0d8a0;}
+@font-face{font-family:"Teko HF";src:url("assets/fonts/cond.ttf");}
+@font-face{font-family:"Hind HF";src:url("assets/fonts/label.ttf");}
+@font-face{font-family:"Hind HF Light";src:url("assets/fonts/labelm.ttf");}
+@font-face{font-family:"Tiro HF";src:url("assets/fonts/serif.ttf");}
+#root{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,#2a2016 0%,#100c08 60%,#050403 100%);overflow:hidden;color:#eef2f0;}
+.k{position:absolute;left:0;right:0;text-align:center;}
+.teal{color:#3fe0cc;} .amber{color:#ffb347;} .red{color:#e0483a;}
+.src{position:absolute;left:0;right:0;bottom:130px;text-align:center;font-family:"Hind HF Light";font-size:34px;color:#9fb3b0;letter-spacing:.02em;}
+.chip{position:absolute;font-family:'Hind HF';font-size:60px;padding:10px 34px 4px;background:rgba(6,14,18,.86);border-left:10px solid #3fe0cc;color:#eef2f0;}
+.star{position:absolute;border-radius:50%;background:#dfe8f0;}
+.ring{position:absolute;border:3px solid rgba(63,224,204,.55);border-radius:50%;}
+</style>
+  <div id="root" data-composition-id="sofort" data-width="1920" data-height="1080">
+    <div id="sofort-g" class="clip" data-start="0" data-duration="9" style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(63,224,204,.22) 0%,rgba(0,0,0,0) 65%);opacity:0"></div>
+    <div id="sofort-i" class="clip k" data-start="0" data-duration="9" style="top:200px;font-family:'Hind HF';font-size:58px;color:#b8c8c6">गुंटर शाबोव्स्की · प्रेस कॉन्फ़्रेंस, 9 नवंबर 1989</div>
+    <div id="sofort-e" class="clip k teal" data-start="0.9" data-duration="8.1" style="top:330px;left:160px;right:160px;font-family:'Tiro HF';font-size:108px;line-height:1.15">„...sofort, unverzüglich.“</div>
+    <div id="sofort-h" class="clip k" data-start="2.4" data-duration="6.6" style="top:660px;font-family:'Hind HF';font-size:72px">तुरंत... बिना देरी के</div>
+    <div id="sofort-s" class="clip src" data-start="2.8" data-duration="6.2">प्रेस कॉन्फ़्रेंस की ट्रांसक्रिप्ट · Wilson Center Digital Archive</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sofort-i",{opacity:0,y:16},{opacity:1,y:0,duration:0.6},0.1);
+    tl.fromTo("#sofort-g",{opacity:0},{opacity:1,duration:1.2},0.6);
+    tl.fromTo("#sofort-e",{opacity:0,scale:1.06,filter:"blur(10px)"},{opacity:1,scale:1,filter:"blur(0px)",duration:0.9,ease:"power3.out"},0.9);
+    tl.fromTo("#sofort-h",{opacity:0,y:20},{opacity:1,y:0,duration:0.5},2.4);
+    tl.fromTo("#sofort-s",{opacity:0},{opacity:1,duration:0.5},2.8);
+    tl.fromTo("#sofort-e",{scale:1},{scale:1.03,duration:7,ease:"none",immediateRender:false},1.8);
+    window.__timelines["sofort"] = tl;
+  </script>
+</template>

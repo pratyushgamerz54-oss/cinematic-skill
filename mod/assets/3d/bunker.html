@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Serpukhov-15 1983</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#030806}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Symbolic early-warning command room, Serpukhov-15, night of 26 September 1983 (प्रतीकात्मक 3D मॉडल).
+// 18 s: A 0-5 the room, СТАРТ flashes · B 5-11 one track, then five · C 11-18 the phone: "false alarm".
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x030806);
+const label = await labeller(S);
+S.fog = new THREE.Fog(0x030806, 14, 40);
+S.add(new THREE.HemisphereLight(0x6fd8c0, 0x050505, 0.35));
+const lamp = new THREE.SpotLight(0xffd8a0, 30, 14, 0.5, 0.6); lamp.position.set(0, 5, 3); lamp.target.position.set(0, 0, 0); S.add(lamp, lamp.target);
+// room: floor, back wall with the map screen
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.MeshStandardMaterial({ color: 0x14181a, roughness: 0.9 })); floor.rotation.x = -Math.PI / 2; S.add(floor);
+const wall = new THREE.Mesh(new THREE.PlaneGeometry(30, 12), new THREE.MeshStandardMaterial({ color: 0x101414, roughness: 0.95 })); wall.position.set(0, 6, -6); S.add(wall);
+// map canvas (world + tracks drawn per frame)
+const base = new Image(); base.src = 'worldmap.png'; await base.decode();
+const MW = 2048, MH = 1024, mc = document.createElement('canvas'); mc.width = MW; mc.height = MH; const mg = mc.getContext('2d');
+const mt = new THREE.CanvasTexture(mc); mt.colorSpace = THREE.SRGBColorSpace;
+const screen = new THREE.Mesh(new THREE.PlaneGeometry(12, 6), new THREE.MeshBasicMaterial({ map: mt, fog: false })); screen.position.set(0, 4.2, -5.9); S.add(screen);
+const glowL = new THREE.PointLight(0x40e0b0, 8, 16); glowL.position.set(0, 4, -4); S.add(glowL);
+const xy = (lat, lon) => [(lon + 180) / 360 * MW, (90 - lat) / 180 * MH];
+const US = [[47.5, -111.2], [46.9, -104.5], [48.4, -101.3], [41.1, -104.8], [38.7, -93.6]], MOS = [55.75, 37.62];
+function paintMap(t) {
+  mg.drawImage(base, 0, 0);
+  mg.fillStyle = 'rgba(0,0,0,0.25)'; for (let y = 0; y < MH; y += 6) mg.fillRect(0, y, MW, 2);               // scan lines
+  const n = t < 5.2 ? 0 : Math.min(5, 1 + Math.floor((t - 6.6) / 0.9) + (t > 6.6 ? 0 : 0)), shown = t < 5.2 ? 0 : t < 6.6 ? 1 : Math.min(5, 1 + Math.floor((t - 6.6) / 0.9) + 1);
+  for (let i = 0; i < shown; i++) {
+    const [x0, y0] = xy(...US[i]), [x1, y1] = xy(...MOS), k = ease(clamp((t - (5.2 + i * 0.9)) / 1.6));
+    mg.strokeStyle = 'rgba(255,120,60,0.95)'; mg.lineWidth = 6; mg.setLineDash([22, 14]); mg.beginPath();
+    const cx = (x0 + x1) / 2, cy = Math.min(y0, y1) - 110;
+    for (let s = 0; s <= 60 * k; s++) { const u = s / 60, X = (1 - u) ** 2 * x0 + 2 * (1 - u) * u * cx + u * u * x1, Y = (1 - u) ** 2 * y0 + 2 * (1 - u) * u * cy + u * u * y1; s ? mg.lineTo(X, Y) : mg.moveTo(X, Y); }
+    mg.stroke(); mg.setLineDash([]);
+    mg.fillStyle = '#ff7a3c'; mg.beginPath(); mg.arc(x0, y0, 14 + 6 * Math.sin(t * 8), 0, 7); mg.fill();
+  }
+  const [mx, my] = xy(...MOS); mg.strokeStyle = '#7ff0d0'; mg.lineWidth = 4; mg.beginPath(); mg.arc(mx, my, 18, 0, 7); mg.stroke();
+  if (t > 11) { mg.fillStyle = `rgba(240,240,230,${0.9 * ramp(t, 13, 0.6)})`; mg.font = 'bold 90px sans-serif'; }
+  mt.needsUpdate = true;
+}
+// СТАРТ panel above the screen
+const sc = document.createElement('canvas'); sc.width = 1024; sc.height = 256; const sg = sc.getContext('2d');
+sg.fillStyle = '#3a0805'; sg.fillRect(0, 0, 1024, 256); sg.fillStyle = '#ff3a1e'; sg.font = 'bold 190px sans-serif'; sg.textAlign = 'center'; sg.textBaseline = 'middle'; sg.fillText('СТАРТ', 512, 136);
+const startM = new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, fog: false });
+const start = new THREE.Mesh(new THREE.PlaneGeometry(3.4, 0.85), startM); start.position.set(0, 7.8, -5.88); S.add(start);
+const redL = new THREE.PointLight(0xff3010, 0, 18); redL.position.set(0, 6.5, -3); S.add(redL);
+// consoles: rows of desks with small lights
+const deskM = new THREE.MeshStandardMaterial({ color: 0x2c3330, roughness: 0.7 }), bulbs = [];
+let seed = 4; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+for (const [z, n] of [[-1.6, 5], [0.8, 4]]) for (let i = 0; i < n; i++) {
+  const x = (i - (n - 1) / 2) * 2.3, d = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.9, 0.9), deskM); d.position.set(x, 0.45, z); S.add(d);
+  const p = new THREE.Mesh(new THREE.BoxGeometry(1.9, 0.6, 0.08), deskM); p.position.set(x, 1.15, z - 0.4); p.rotation.x = -0.35; S.add(p);
+  for (let b = 0; b < 8; b++) { const m = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 6), new THREE.MeshBasicMaterial({ color: rnd() > 0.7 ? 0xffb030 : 0x40e0a0 })); m.position.set(x - 0.75 + b * 0.21, 1.2, z - 0.33); m.userData.o = rnd(); S.add(m); bulbs.push(m); }
+}
+// the duty officer's phone
+const phone = new THREE.Group(); { const m = new THREE.MeshStandardMaterial({ color: 0x1c1c1c, roughness: 0.4 });
+  const b = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.14, 0.34), m); phone.add(b); const h = new THREE.Mesh(new THREE.CapsuleGeometry(0.05, 0.36, 4, 8), m); h.rotation.z = Math.PI / 2; h.position.set(0, 0.13, 0); phone.add(h);
+  phone.position.set(-0.2, 0.98, 1.0); S.add(phone); }
+const phoneL = new THREE.PointLight(0xffd8a0, 0, 4); phoneL.position.set(-0.2, 1.6, 1.2); S.add(phoneL);
+const L = {
+  room: label('सेरपुख़ोव-15', 'चेतावनी केंद्र · 26 सितंबर 1983, आधी रात'), start: label('СТАРТ', 'यानी: मिसाइल लॉन्च', true),
+  n1: label('एक मिसाइल', 'अमेरिका से'), n5: label('कुल पाँच', ''), phone: label('झूठा अलार्म', 'पेत्रोव ने ऊपर यही ख़बर दी'),
+};
+L.room.position.set(-5.0, 7.7, -5.5); L.start.position.set(3.6, 7.0, -5.5); L.n1.position.set(-2.4, 5.0, -5.5); L.n5.position.set(2.4, 6.0, -5.5); L.phone.position.set(-0.3, 1.45, 0.9);
+const note = label('प्रतीकात्मक 3D मॉडल', '');
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const SHOTS = [[0, [V(-2, 2.6, 9), V(0, 4, -5)], [V(-1, 2.4, 7), V(0, 4.6, -5)]],
+  [5, [V(0, 4.3, 5.2), V(0, 4.3, -6)], [V(0, 4.3, 4.2), V(0, 4.3, -6)]],
+  [11, [V(2.6, 2.8, 4.6), V(-0.2, 1.1, 1.0)], [V(2.0, 2.4, 3.8), V(-0.2, 1.1, 1.0)]], [18]];
+function frame(t) {
+  let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++;
+  const [t0, a, b] = SHOTS[i], k = ease(clamp((t - t0) / (SHOTS[i + 1][0] - t0))); cam.position.lerpVectors(a[0], b[0], k); cam.lookAt(a[1].clone().lerp(b[1], k));
+  paintMap(t);
+  const fl = t > 1.6 && t < 12 ? (Math.sin(t * 9) > 0 ? 1 : 0.25) : t >= 12 ? 0.25 : 0; startM.opacity = fl; redL.intensity = 16 * fl;
+  bulbs.forEach(m => m.visible = Math.sin(t * 3 + m.userData.o * 20) > -0.6);
+  phoneL.intensity = 10 * ramp(t, 11.4, 0.5);
+  showLabel(L.room, cam, t, 0.6, 0.045, 5); showLabel(L.start, cam, t, 2.0, 0.05, 5);
+  showLabel(L.n1, cam, t, 5.8, 0.04, 11); showLabel(L.n5, cam, t, 9.4, 0.05, 11); showLabel(L.phone, cam, t, 13.0, 0.06);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 18);
+</script></body></html>

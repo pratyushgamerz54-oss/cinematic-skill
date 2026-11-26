@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>B-59 1962</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#021018}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// Symbolic Foxtrot-class submarine B-59 under the US ships, 27 October 1962 (प्रतीकात्मक 3D मॉडल).
+// 24 s: A 0-7 glide · B 7-14 signal depth charges · C 14-19 cutaway: the nuclear torpedo · D 19-24 three officers: yes, yes, no.
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+const { R, S, cam } = setup(0x042436);
+const rimL = new THREE.DirectionalLight(0x7fd8ff, 1.4); rimL.position.set(-4, 3, -8); S.add(rimL);
+const label = await labeller(S);
+S.fog = new THREE.FogExp2(0x042436, 0.045);
+S.add(new THREE.HemisphereLight(0x5ab0d0, 0x020a10, 0.9));
+const top = new THREE.DirectionalLight(0x9ae0ff, 1.6); top.position.set(2, 20, 4); S.add(top);
+// surface: a bright rippled sheet far above
+const surf = new THREE.Mesh(new THREE.PlaneGeometry(3000, 3000, 2, 2), new THREE.MeshBasicMaterial({ color: 0x6cc8e0, transparent: true, opacity: 0.6, side: THREE.DoubleSide, fog: true }));
+surf.rotation.x = Math.PI / 2; surf.position.y = 14; S.add(surf);
+// light shafts
+const shafts = []; for (let i = 0; i < 9; i++) { const m = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 1.8, 30, 12, 1, true), new THREE.MeshBasicMaterial({ color: 0x8fdcff, transparent: true, opacity: 0.05, depthWrite: false, side: THREE.DoubleSide }));
+  m.position.set(-14 + i * 3.6, 0, -6 + (i % 3) * 3); m.rotation.z = 0.18; S.add(m); shafts.push(m); }
+// particles (marine snow)
+let seed = 9; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const pg = new THREE.BufferGeometry(), pp = []; for (let i = 0; i < 2500; i++) pp.push(rnd() * 60 - 30, rnd() * 26 - 12, rnd() * 40 - 20);
+pg.setAttribute('position', new THREE.Float32BufferAttribute(pp, 3));
+const snow = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xbfe8ff, size: 0.05, transparent: true, opacity: 0.6 })); S.add(snow);
+// the submarine (lathe hull, sail, planes, three screws)
+const hullM = new THREE.MeshStandardMaterial({ color: 0x23282c, roughness: 0.55, metalness: 0.35, transparent: true });
+const prof = []; for (let i = 0; i <= 40; i++) { const x = i / 40; const r = x < 0.12 ? Math.sqrt(x / 0.12) * 0.78 : x > 0.78 ? 0.78 * Math.pow((1 - x) / 0.22, 0.75) : 0.78; prof.push(new THREE.Vector2(Math.max(0.02, r), (x - 0.5) * 10)); }
+const sub = new THREE.Group(); S.add(sub);
+const hull = new THREE.Mesh(new THREE.LatheGeometry(prof, 40), hullM); hull.rotation.z = Math.PI / 2; sub.add(hull);
+const sail = new THREE.Mesh(new THREE.CapsuleGeometry(0.32, 1.5, 6, 12), hullM); sail.rotation.x = Math.PI / 2; sail.rotation.z = Math.PI / 2; sail.scale.set(1, 0.6, 1.4); sail.position.set(0.9, 0.95, 0); sub.add(sail);
+const plane = (x, w) => { const p = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.05, w), hullM); p.position.set(x, 0, 0); sub.add(p); };
+plane(3.6, 2.4); plane(-4.2, 2.6);
+const screws = []; for (const z of [-0.55, 0, 0.55]) { const g = new THREE.Group(); for (let b = 0; b < 4; b++) { const bl = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.42, 0.1), new THREE.MeshStandardMaterial({ color: 0x8a7a50, metalness: 0.8, roughness: 0.3 })); bl.rotation.x = b * Math.PI / 2; g.add(bl); } g.position.set(-5.05, 0, z); sub.add(g); screws.push(g); }
+const tagC = document.createElement('canvas'); tagC.width = 256; tagC.height = 96; { const x = tagC.getContext('2d'); x.fillStyle = '#cfd6da'; x.font = 'bold 64px sans-serif'; x.fillText('Б-59', 30, 70); }
+const tag = new THREE.Mesh(new THREE.PlaneGeometry(0.9, 0.34), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(tagC), transparent: true })); tag.position.set(1.0, 1.2, 0.36); sub.add(tag);
+// torpedo bay (shown in the cutaway)
+const bay = new THREE.Group(); sub.add(bay);
+const torp = new THREE.Mesh(new THREE.CapsuleGeometry(0.13, 2.0, 6, 12), new THREE.MeshStandardMaterial({ color: 0xffb347, emissive: 0xff8a20, emissiveIntensity: 0.0, roughness: 0.4 }));
+torp.rotation.z = Math.PI / 2; torp.position.set(3.4, -0.1, 0.18); bay.add(torp);
+for (const z of [-0.28, 0.48]) { const t2 = new THREE.Mesh(new THREE.CapsuleGeometry(0.11, 1.8, 6, 12), new THREE.MeshStandardMaterial({ color: 0x5a6066, roughness: 0.5 })); t2.rotation.z = Math.PI / 2; t2.position.set(3.4, -0.1, z); bay.add(t2); }
+const glow = new THREE.PointLight(0xffa040, 0, 6); glow.position.set(3.4, 0, 0.2); sub.add(glow);
+// three lamps above the sail (three officers)
+const lamps = [0, 1, 2].map(i => { const m = new THREE.Mesh(new THREE.SphereGeometry(0.22, 20, 14), new THREE.MeshStandardMaterial({ color: 0x1a1a1a, emissive: 0x000000, roughness: 0.3 })); m.position.set(0.2 + i * 0.75, 2.4, 0); sub.add(m); return m; });
+// US ships overhead (dark hulls against the light) and depth charges
+const ships = [[-6, -3], [3, 4], [9, -2]].map(([x, z]) => { const h = new THREE.Mesh(new THREE.BoxGeometry(6, 0.8, 1.0), new THREE.MeshBasicMaterial({ color: 0x0a1a22, fog: false })); h.position.set(x, 13.5, z); S.add(h); return h; });
+const charges = []; for (let i = 0; i < 10; i++) { const c = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.09, 0.22, 10), new THREE.MeshStandardMaterial({ color: 0x334048 })); c.userData = { t0: 7.4 + i * 0.6 + rnd() * 0.2, x: rnd() * 10 - 5, z: rnd() * 6 - 3, b: 1.2 + rnd() * 2.4 }; S.add(c); charges.push(c); }
+const flashes = charges.map(() => { const f = new THREE.Mesh(new THREE.SphereGeometry(1, 16, 10), new THREE.MeshBasicMaterial({ color: 0xd8f4ff, transparent: true, opacity: 0, fog: false, depthWrite: false })); S.add(f); return f; });
+const fl = new THREE.PointLight(0xcff0ff, 0, 18); S.add(fl);
+const L = {
+  sub: label('B-59', 'सोवियत पनडुब्बी · 27 अक्टूबर 1962'), cut: label('मॉस्को से संपर्क नहीं', 'बैटरी कम · अंदर भीषण गर्मी'),
+  dc: label('सिग्नल बम', 'अमेरिकी जहाज़ ऊपर से गिरा रहे थे'), torp: label('परमाणु टॉरपीडो', 'गवाहों के मुताबिक़: तैयार', true),
+  y1: label('हाँ', 'कप्तान'), y2: label('हाँ', 'राजनीतिक अफ़सर'), no: label('ना', 'वसीली आर्खिपोव', true),
+};
+const note = label('प्रतीकात्मक 3D मॉडल', '');
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+const SHOTS = [[0, [V(-12, 1.5, 9), V(0, 0, 0)], [V(-7, 1.0, 7), V(1, 0.3, 0)]],
+  [7, [V(-6, -4.5, 13), V(0, 5, 0)], [V(-4, -4.0, 12), V(0, 6, 0)]],
+  [14, [V(6.5, 1.6, 5.2), V(3.0, 0, 0)], [V(5.4, 1.2, 3.8), V(3.2, -0.1, 0.1)]],
+  [19, [V(2.2, 4.2, 6.8), V(0.95, 2.4, 0)], [V(1.8, 3.8, 5.6), V(0.95, 2.5, 0)]], [24]];
+function frame(t) {
+  let i = 0; while (i < SHOTS.length - 2 && t >= SHOTS[i + 1][0]) i++;
+  const [t0, a, b] = SHOTS[i], k = ease(clamp((t - t0) / (SHOTS[i + 1][0] - t0)));
+  cam.position.lerpVectors(a[0], b[0], k); const look = a[1].clone().lerp(b[1], k);
+  // shake on the blasts
+  let shake = 0; charges.forEach(c => { const d = t - (c.userData.t0 + 1.6); if (d > 0 && d < 0.6) shake = Math.max(shake, (0.6 - d) / 0.6); });
+  cam.position.add(V(Math.sin(t * 61) * 0.12 * shake, Math.sin(t * 47) * 0.1 * shake, 0)); cam.lookAt(look);
+  sub.position.set(-0.6 + t * 0.06, Math.sin(t * 0.5) * 0.08, 0); sub.rotation.x = Math.sin(t * 61) * 0.02 * shake;
+  screws.forEach(s => s.rotation.x = t * 6);
+  surf.position.y = 14 + Math.sin(t) * 0.05; shafts.forEach((m, j) => m.material.opacity = 0.04 + 0.025 * Math.sin(t * 0.7 + j));
+  snow.position.x = -t * 0.12;
+  // B: charges sink, flash
+  fl.intensity = 0;
+  charges.forEach((c, j) => { const d = t - c.userData.t0, f = flashes[j]; c.visible = d > 0 && d < 1.6;
+    c.position.set(c.userData.x, 13 - d * (13 - c.userData.b) / 1.6, c.userData.z); c.rotation.x = d * 3;
+    const e = t - (c.userData.t0 + 1.6); f.position.set(c.userData.x, c.userData.b, c.userData.z);
+    if (e > 0 && e < 0.7) { f.scale.setScalar(0.15 + e * 1.1); f.material.opacity = 0.55 * (1 - e / 0.7); fl.position.copy(f.position); fl.intensity = Math.max(fl.intensity, 40 * (1 - e / 0.7)); } else f.material.opacity = 0; });
+  ships.forEach((s, j) => s.position.x += Math.sin(t * 0.3 + j) * 0.002);
+  // C: cutaway
+  const cut = ease(ramp(t, 14.2, 1.2)) * (1 - ease(ramp(t, 19.2, 0.8)) * 0.6);
+  hullM.opacity = 1 - 0.78 * cut; hullM.depthWrite = cut < 0.2;
+  bay.visible = cut > 0.05; torp.material.emissiveIntensity = 1.4 * ramp(t, 15.4, 0.8) * (0.75 + 0.25 * Math.sin(t * 6)); glow.intensity = 6 * torp.material.emissiveIntensity;
+  // D: lamps
+  [20.0, 20.9].forEach((ts, j) => { const on = ramp(t, ts, 0.25); lamps[j].material.emissive.setRGB(0.05 * on, 0.85 * on, 0.3 * on); lamps[j].material.color.setRGB(0.1, 0.1 + 0.3 * on, 0.1); });
+  const no = ramp(t, 22.0, 0.3); lamps[2].material.emissive.setRGB(0.95 * no, 0.18 * no, 0.06 * no); lamps.forEach(m => m.visible = t > 19);
+  [L.y1, L.y2, L.no].forEach((s, j) => s.position.copy(lamps[j].getWorldPosition(V(0, 0, 0))).add(V(0, 0.55, 0)));
+  L.sub.position.copy(sub.position).add(V(-1.5, 2.4, 0)); L.cut.position.copy(sub.position).add(V(-3.6, 1.6, 0.4));
+  L.dc.position.set(-2, 6.5, 0); L.torp.position.copy(sub.position).add(V(3.6, 1.0, 0.6));
+  showLabel(L.sub, cam, t, 1.0, 0.05, 7); showLabel(L.cut, cam, t, 3.4, 0.04, 7); showLabel(L.dc, cam, t, 8.4, 0.05, 14);
+  showLabel(L.torp, cam, t, 15.6, 0.05, 19); showLabel(L.y1, cam, t, 20.0, 0.055); showLabel(L.y2, cam, t, 20.9, 0.055); showLabel(L.no, cam, t, 22.0, 0.065);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 24);
+</script></body></html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Berlin 1989</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#070a12}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// 3D night map of Berlin (heights: AWS Terrain Tiles), the wall around West Berlin (line approximate, प्रतीकात्मक).
+// One 22 s timeline: A 0-8 the wall draws on · B 8-14 crowds at Bornholmer Straße · C 14-22 the gate opens, the wall fades.
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+import { terrain, drawTube, showPin, sky, shotCam } from './terra.js';
+const { R, S, cam } = setup(0x070a12);
+const label = await labeller(S);
+const T = await terrain(S, 'berlin', [52.515, 13.38], { exg: 22, km: 1, seg: [300, 300], tint: 0x6c7a96 });
+const { P, drapedPath, tube, fillPoly, pin } = T;
+S.fog = new THREE.Fog(0x070a12, 30, 110);
+S.add(new THREE.HemisphereLight(0x8ea8d8, 0x101420, 0.7));
+const moon = new THREE.DirectionalLight(0xb8c8ff, 1.1); moon.position.set(-30, 50, 20); S.add(moon);
+sky(S, 0x03050a, 0x0c1424, 0x1c2a44);
+const M = c => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.95, fog: false });
+const amber = M(0xffb347), white = M(0xf4efe6), cyan = M(0x6fe0ff);
+const WALL = [[52.665, 13.29], [52.645, 13.36], [52.60, 13.385], [52.555, 13.398], [52.537, 13.39], [52.516, 13.377], [52.509, 13.376],
+  [52.507, 13.390], [52.502, 13.446], [52.48, 13.47], [52.445, 13.49], [52.42, 13.50], [52.39, 13.43], [52.38, 13.40], [52.40, 13.37],
+  [52.39, 13.27], [52.405, 13.21], [52.413, 13.09], [52.47, 13.12], [52.53, 13.12], [52.56, 13.14], [52.62, 13.20], [52.63, 13.22]];
+const west = fillPoly(WALL, 0x3c6ea8, 0.22);
+const wall = tube(drapedPath(WALL, 0.1, true, 900), 0.06, amber);
+// city lights: warm dots in the west, dimmer in the east
+let seed = 3; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const inside = (lat, lon) => { let c = false; for (let i = 0, j = WALL.length - 1; i < WALL.length; j = i++) { const [yi, xi] = WALL[i], [yj, xj] = WALL[j];
+  if (((yi > lat) !== (yj > lat)) && (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi)) c = !c; } return c; };
+const lg = new THREE.BufferGeometry(), lp = [], lc = [];
+for (let i = 0; i < 9000; i++) { const lat = 52.36 + rnd() * 0.31, lon = 13.10 + rnd() * 0.48; const d = Math.hypot((lat - 52.515) * 1.6, lon - 13.40); if (rnd() > Math.exp(-d * 6)) continue;
+  const q = P(lat, lon, 0.05); lp.push(q.x, q.y, q.z); const w = inside(lat, lon); lc.push(...(w ? [1, 0.82, 0.55] : [0.55, 0.62, 0.7])); }
+lg.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3)); lg.setAttribute('color', new THREE.Float32BufferAttribute(lc, 3));
+S.add(new THREE.Points(lg, new THREE.PointsMaterial({ size: 0.09, vertexColors: true, transparent: true, opacity: 0.85, fog: false })));
+// crowd: particles from the east streaming to the Bornholmer crossing, then through it
+const BORN = [52.5545, 13.3985], BRAND = [52.5163, 13.3777];
+const bp = P(...BORN, 0.1), crowd = [], cg = new THREE.SphereGeometry(0.04, 6, 4), cm = new THREE.MeshBasicMaterial({ color: 0xfff1d0, fog: false });
+for (let i = 0; i < 320; i++) { const m = new THREE.Mesh(cg, cm); const a = rnd() * Math.PI * 0.9 - 0.2, r = 1.0 + rnd() * 3.2;
+  m.userData.s = bp.clone().add(new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r * 0.6 + 0.4)); m.userData.o = rnd(); m.visible = false; S.add(m); crowd.push(m); }
+const pBorn = pin(...BORN, white, 0.5), pBrand = pin(...BRAND, cyan, 0.5);
+const L = {
+  wall: label('बर्लिन की दीवार', '1961-1989 · लगभग 155 किमी'), west: label('पश्चिम बर्लिन', ''), east: label('पूर्वी बर्लिन', ''),
+  born: label('बोर्नहोल्मर स्ट्रासे', '9 नवंबर, रात'), open: label('फाटक खुला', 'हज़ारों लोग पश्चिम की ओर'), brand: label('ब्रांडेनबर्ग गेट', ''),
+};
+L.wall.position.copy(P(52.60, 13.20, 2)); L.west.position.copy(P(52.47, 13.25, 1.5)); L.east.position.copy(P(52.52, 13.52, 1.5));
+L.born.position.copy(pBorn.userData.top.clone().add(new THREE.Vector3(0.6, 0.2, 0))); L.open.position.copy(P(52.548, 13.37, 1.6)); L.brand.position.copy(pBrand.userData.top);
+const note = label('प्रतीकात्मक 3D मॉडल', 'ऊँचाई: AWS Terrain Tiles · दीवार की लाइन लगभग');
+const V = (x, y, z) => new THREE.Vector3(x, y, z), c0 = P(52.50, 13.30);
+const SHOTS = [
+  [0, [V(-10, 46, 44), c0.clone()], [V(-4, 36, 34), c0.clone().add(V(1, 0, -1))]],
+  [8, [bp.clone().add(V(4, 5, 7)), bp.clone()], [bp.clone().add(V(2.6, 3.2, 4.6)), bp.clone().add(V(-0.3, 0, 0))]],
+  [14, [bp.clone().add(V(2.2, 2.6, 3.8)), bp.clone().add(V(-0.5, 0, 0))], [V(4, 26, 30), c0.clone().add(V(3, 0, -2))]],
+  [22]];
+function frame(t) {
+  shotCam(cam, SHOTS, t);
+  drawTube(wall, ease(ramp(t, 0.8, 4.5))); west.material.opacity = west.userData.op * ramp(t, 3.4, 1.2) * (1 - 0.7 * ramp(t, 17, 2));
+  showLabel(L.wall, cam, t, 2.0, 0.045, 8); showLabel(L.west, cam, t, 4.2, 0.04, 8); showLabel(L.east, cam, t, 4.6, 0.04, 8);
+  showPin(pBorn, t, 8.4); showLabel(L.born, cam, t, 8.8, 0.05, 16);
+  crowd.forEach(m => { const o = m.userData.o; m.visible = t > 9.0 + o * 1.5;
+    const k = clamp((t - 9.0 - o * 1.5) / 4.2); const hold = m.userData.s.clone().lerp(bp, ease(k) * 0.85);
+    if (t > 14.2) { const g = clamp((t - 14.2 - o * 3) / 2.4); hold.lerp(bp.clone().add(V(-2.2 - o * 2, 0, 0.6 - o * 1.2)), ease(g)); }
+    hold.y = bp.y + 0.03 + Math.abs(Math.sin((t + o * 9) * 7)) * 0.02; m.position.copy(hold); });
+  showLabel(L.open, cam, t, 14.6, 0.045, 20);
+  wall.material.color.setRGB(lerp(1, 0.96, ramp(t, 16, 3)), lerp(0.5, 0.94, ramp(t, 16, 3)), lerp(0.12, 0.9, ramp(t, 16, 3)));
+  wall.material.opacity = 0.95 * (1 - 0.65 * ramp(t, 18, 3));
+  showPin(pBrand, t, 17.2); showLabel(L.brand, cam, t, 17.6, 0.04);
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 22);
+</script></body></html>

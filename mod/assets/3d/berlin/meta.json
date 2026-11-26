@@ -1,0 +1,15 @@
+{
+ "W": 13.05,
+ "E": 13.62,
+ "S": 52.33,
+ "N": 52.69,
+ "z": 11,
+ "min": 26.12109375,
+ "max": 111.80859375,
+ "w": 830,
+ "h": 861,
+ "mpp": 46.521329925237765,
+ "bw": 415,
+ "bh": 430,
+ "source": "AWS Terrain Tiles (terrarium): USGS 3DEP, SRTM, GMTED2010, ETOPO1 \u2014 open data"
+}

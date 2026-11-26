@@ -1,0 +1,40 @@
+{
+ "fps": 30,
+ "clips": [
+  {
+   "id": "g_moscow",
+   "file": "assets/clips/g_moscow.mp4",
+   "what": "3D globe: night descent to the Serpukhov-15 bunker near Moscow (1983)",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_oko",
+   "file": "assets/clips/g_oko.mp4",
+   "what": "3D globe from above the pole: a symbolic warning arc rises from the US toward the USSR; the satellite's false alarm",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_london",
+   "file": "assets/clips/g_london.mp4",
+   "what": "3D globe: Sarajevo 1914 to London 1928, the next turning point",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_verdict",
+   "file": "assets/clips/g_verdict.mp4",
+   "what": "3D globe at night: the five places of the five turning points",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "g_cuba",
+   "file": "assets/clips/g_cuba.mp4",
+   "what": "3D globe: turn to the Caribbean, 1962; Cuba, Florida, the quarantine area and B-59",
+   "credit": "Made in code (three.js); boundaries: Natural Earth",
+   "license": "Own work"
+  }
+ ]
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><title>Sarajevo 1914</title>
+<style>@font-face{font-family:"L";src:url("fonts/label.ttf")}html,body{margin:0;height:100%;overflow:hidden;background:#0c0a08}canvas{display:block;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script type="importmap">{"imports":{"three":"./three.module.min.js"}}</script>
+<script type="module">
+// 3D map of Sarajevo, 28 June 1914 (heights: AWS Terrain Tiles). River, quay, bridges and the route are
+// approximate (प्रतीकात्मक). One 40 s timeline cut into shots by trim in clips.json:
+//  A 0-6 valley · B 6-14 motorcade + bomb · C 14-18 town hall · D 18-26 new/old route · E 26-34 wrong turn, stop · F 34-40 shots, pull out
+import * as THREE from 'three';
+import { setup, labeller, showLabel, pinNote, run, ramp, ease, lerp, clamp } from './common.js';
+import { terrain, drawTube, showPin, sky, shotCam } from './terra.js';
+const { R, S, cam } = setup(0x0c0a08);
+const label = await labeller(S);
+const LB = [43.8579, 18.4290];
+const T = await terrain(S, 'sarajevo', LB, { exg: 1.4, km: 0.1, seg: [520, 350] });
+const { P, drapedPath, tube, fillPoly, pin, hAt } = T;
+S.fog = new THREE.Fog(0x2a2218, 30, 95);
+const hemi = new THREE.HemisphereLight(0xffe8c8, 0x3a2a1a, 0.6); S.add(hemi);
+const sun = new THREE.DirectionalLight(0xffd7a0, 2.3); sun.position.set(-30, 40, 20); S.add(sun);
+sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -40, right: 40, top: 40, bottom: -40, far: 200 });
+const sk = sky(S, 0x141a24, 0x3e3a34, 0x6a5440);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.MeshBasicMaterial({ color: 0x2a2218 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -0.5; S.add(ground);
+T.mat.color.setRGB(1.0, 0.92, 0.8);                      // warm sepia cast for 1914
+
+const M = c => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: 0.95, fog: false });
+const water = M(0x6fb6d8), green = M(0x7ee08a), amber = M(0xffb347), white = M(0xf4efe6), red = M(0xe0482a);
+const RIVER = [[43.8556, 18.398], [43.8561, 18.405], [43.8567, 18.412], [43.8571, 18.418], [43.8575, 18.4245], [43.8577, 18.4290],
+  [43.8582, 18.4318], [43.8590, 18.4338], [43.8594, 18.437], [43.8590, 18.443]];
+const QUAY = RIVER.slice(0, 8).map(([a, b]) => [a + 0.00042, b]);
+const TOWN = [43.8594, 18.4339], CUM = [43.8579, 18.4262], CORNER = [43.8582, 18.4290];
+const FJS = [[43.85815, 18.4290], [43.8590, 18.42885], [43.8600, 18.4287], [43.8613, 18.4285]];
+const river = tube(drapedPath(RIVER, 0.05, false, 500), 0.22, water);
+const quay = tube(drapedPath(QUAY, 0.08, false, 400), 0.07, white);
+const fjs = tube(drapedPath(FJS, 0.1, false, 120), 0.07, white);
+// new plan: back west along the quay; old plan: the turn into Franz Josef Street
+const NEW = [...QUAY].reverse().slice(0, 7).map(([a, b]) => [a, b]);
+const newR = tube(drapedPath(NEW, 0.22, false, 400), 0.11, green);
+const OLD = [QUAY[7], [43.8586, 18.4318], [43.85825, 18.4296], ...FJS];
+const oldR = tube(drapedPath(OLD, 0.25, false, 300), 0.11, amber);
+// bridges
+for (const b of [CUM, LB, [43.8590, 18.4338]]) {
+  const p = P(b[0], b[1], 0.12), m = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.08, 0.9), new THREE.MeshStandardMaterial({ color: 0xcdb89a, roughness: 0.8 }));
+  m.position.copy(p); S.add(m);
+}
+// town: scattered blocks on both banks (not on the river or the streets)
+let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const wallM = new THREE.MeshStandardMaterial({ color: 0xe6dccb, roughness: 0.85 }), roofM = new THREE.MeshStandardMaterial({ color: 0x7a5e48, roughness: 0.85 });
+const blocks = new THREE.Group(); S.add(blocks);
+const rp = drapedPath(RIVER, 0, false, 300), sp = drapedPath(FJS, 0, false, 60), qp = drapedPath(QUAY, 0, false, 300);
+const near = (q, pts, d) => pts.some(r => (r.x - q.x) ** 2 + (r.z - q.z) ** 2 < d * d);
+for (let i = 0; i < 900; i++) {
+  const lat = 43.8525 + rnd() * 0.012, lon = 18.401 + rnd() * 0.04, q = P(lat, lon);
+  if (near(q, rp, 0.75) || near(q, sp, 0.35) || near(q, qp, 0.38)) continue;
+  if (q.y > 3.6) continue;                                  // no houses high on the hills
+  const w = 0.18 + rnd() * 0.26, d = 0.18 + rnd() * 0.26, h = 0.14 + rnd() * 0.22;
+  const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), wallM); b.position.set(q.x, q.y + h / 2 - 0.05, q.z); b.rotation.y = rnd() * 0.5; b.castShadow = true; b.receiveShadow = true;
+  const r = new THREE.Mesh(new THREE.ConeGeometry(Math.max(w, d) * 0.72, 0.12, 4), roofM); r.position.y = h / 2 + 0.06; r.rotation.y = Math.PI / 4; b.add(r);
+  blocks.add(b);
+}
+// cars: the archduke's open car (dark) and the following car
+function car(c) {
+  const g = new THREE.Group(), m = new THREE.MeshStandardMaterial({ color: c, roughness: 0.4, metalness: 0.3 });
+  const body = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.14, 0.8), m); body.position.y = 0.16; g.add(body);
+  const hood = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.1, 0.25), m); hood.position.set(0, 0.26, 0.24); g.add(hood);
+  const wm = new THREE.MeshStandardMaterial({ color: 0x111111 });
+  for (const [x, z] of [[-0.18, 0.28], [0.18, 0.28], [-0.18, -0.26], [0.18, -0.26]]) { const w = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.05, 14), wm); w.rotation.z = Math.PI / 2; w.position.set(x, 0.08, z); g.add(w); }
+  const flag = new THREE.Mesh(new THREE.PlaneGeometry(0.12, 0.08), new THREE.MeshBasicMaterial({ color: 0xf2d34a, side: THREE.DoubleSide })); flag.position.set(0.15, 0.42, 0.38); g.add(flag);
+  g.scale.setScalar(0.62); S.add(g); return g;
+}
+const carA = car(0x1c2230), carB = car(0x3a3a3a);
+const route1 = new THREE.CatmullRomCurve3(drapedPath(QUAY.slice(1), 0.12, false, 300));            // east to the town hall
+const route2 = new THREE.CatmullRomCurve3(drapedPath([QUAY[7], [43.8588, 18.4325], [43.8586, 18.4318], [43.85825, 18.4300], [43.85818, 18.42915], [43.8589, 18.42888]], 0.12, false, 200));
+function place(g, curve, k, back = 0) { const kk = clamp(k - back, 0, 0.999), p = curve.getPointAt(kk), q = curve.getPointAt(Math.min(0.9999, kk + 0.004)); g.position.copy(p); g.lookAt(q.x, p.y, q.z); }
+// bomb arc and burst
+const bomb = new THREE.Mesh(new THREE.SphereGeometry(0.06, 12, 8), new THREE.MeshBasicMaterial({ color: 0x222222 })); S.add(bomb);
+const burst = new THREE.Mesh(new THREE.SphereGeometry(1, 24, 16), new THREE.MeshBasicMaterial({ color: 0xffa040, transparent: true, opacity: 0, fog: false })); S.add(burst);
+const flash = new THREE.PointLight(0xffa050, 0, 30); S.add(flash);
+const pTown = pin(...TOWN, white, 0.4), pLB = pin(...CORNER, red, 0.42), pCum = pin(...CUM, amber, 0.36);
+const L = {
+  city: label('साराजेवो', '28 जून 1914'), river: label('मिलियाका नदी', ''), quay: label('अपेल क्वे', 'राजकुमार का रास्ता'),
+  bomb: label('बम: नाकाम', 'कार से टकराकर, पीछे फटा', true), town: label('टाउन हॉल', ''),
+  neu: label('नया रास्ता', 'सीधे अस्पताल'), old: label('पुराना रास्ता', 'ड्राइवर को यही पता था'),
+  turn: label('ग़लत मोड़', 'कार यहीं रुकी', true), lb: label('लैटिन ब्रिज', 'गैवरिलो प्रिंसिप यहीं खड़ा था', true),
+};
+const note = label('प्रतीकात्मक 3D मॉडल', 'ऊँचाई: AWS Terrain Tiles · रास्ते लगभग');
+const V = (x, y, z) => new THREE.Vector3(x, y, z), lb = P(...LB), tw = P(...TOWN), cm = P(...CUM), mid = P(43.858, 18.418);
+L.city.position.copy(P(43.8635, 18.414, 3)); L.river.position.copy(P(43.8562, 18.407, 1.2)); L.quay.position.copy(P(43.8575, 18.414, 1.6));
+L.bomb.position.copy(cm.clone().add(V(0, 1.5, 0))); L.town.position.copy(pTown.userData.top);
+L.neu.position.copy(P(43.8575, 18.420, 1.4)); L.old.position.copy(P(43.8605, 18.4287, 1.4)); L.turn.position.copy(P(43.8592, 18.4282, 1.0)); L.lb.position.copy(pLB.userData.top);
+const SHOTS = [
+  [0, [V(-34, 30, 34), V(0, 0, -2)], [V(-20, 18, 22), mid.clone()]],
+  [6, [cm.clone().add(V(-6, 4, 7)), cm.clone().add(V(-1, 0, 0))], [cm.clone().add(V(-3.6, 2.4, 4.4)), cm.clone().add(V(0.4, 0, 0))]],
+  [14, [tw.clone().add(V(-5, 3.4, 5.5)), tw.clone()], [tw.clone().add(V(-3.6, 2.4, 4.2)), tw.clone()]],
+  [18, [V(-6, 30, 22), V(0, 0, -1)], [V(-3, 26, 18), V(1, 0, -1.5)]],
+  [26, [lb.clone().add(V(6, 4.4, 6.5)), lb.clone().add(V(1.0, 0, 0))], [lb.clone().add(V(2.6, 2.0, 3.4)), lb.clone().add(V(0, 0.2, -0.3))]],
+  [34, [lb.clone().add(V(2.2, 1.6, 2.8)), lb.clone().add(V(0, 0.3, -0.3))], [lb.clone().add(V(-10, 11, 14)), lb.clone()]],
+  [40]];
+function frame(t) {
+  shotCam(cam, SHOTS, t);
+  drawTube(river, ease(ramp(t, 0.6, 2.2))); drawTube(quay, ease(ramp(t, 2.2, 1.6))); drawTube(fjs, ease(ramp(t, 2.8, 1.0)));
+  showLabel(L.city, cam, t, 1.0, 0.06, 6); showLabel(L.river, cam, t, 2.0, 0.045, 6); showLabel(L.quay, cam, t, 3.2, 0.045, 6);
+  // B: motorcade, bomb near the Ćumurija bridge
+  const k1 = t < 9.2 ? lerp(0, 0.74, clamp((t - 5.5) / 3.7)) : lerp(0.74, 0.985, ease(clamp((t - 9.2) / 5.6))), k2 = clamp((t - 26.2) / 6.2);
+  if (t < 26) { place(carA, route1, k1); place(carB, route1, k1, 0.03); }
+  else { place(carA, route2, 1 - Math.pow(1 - k2, 2.2)); place(carB, route1, 0.95); }
+  carB.visible = t < 26;
+  showPin(pCum, t, 6.6, 14); const bk = clamp((t - 8.4) / 0.8);
+  bomb.visible = t > 8.4 && t < 9.2;
+  if (bomb.visible) { const a = cm.clone().add(V(0.3, 0.3, 0.9)), b = carA.position.clone().add(V(0, 0.3, 0)); bomb.position.lerpVectors(a, b, bk).add(V(0, Math.sin(bk * Math.PI) * 0.8, 0)); }
+  const bb = clamp((t - 9.4) / 0.9); burst.position.copy(carB.position).add(V(0, 0.2, 0)); burst.scale.setScalar(0.1 + bb * 0.7); burst.material.opacity = t > 9.4 ? 0.85 * (1 - bb) : 0;
+  flash.position.copy(burst.position); flash.intensity = t > 9.4 ? 40 * (1 - bb) : 0;
+  showLabel(L.bomb, cam, t, 10.0, 0.05, 14);
+  // C: town hall
+  showPin(pTown, t, 14.4, 18); showLabel(L.town, cam, t, 14.8, 0.05, 18);
+  // D: new route (green) vs old route (amber)
+  drawTube(newR, ease(ramp(t, 18.6, 2.4)) * (t < 34 ? 1 : 0)); showLabel(L.neu, cam, t, 19.6, 0.04, 26);
+  drawTube(oldR, ease(ramp(t, 21.6, 2.0)) * (t < 34 ? 1 : 0)); showLabel(L.old, cam, t, 22.4, 0.04, 26);
+  // E: wrong turn, stop, Princip at the corner
+  showLabel(L.turn, cam, t, 30.2, 0.05, 34); showPin(pLB, t, 31.4); showLabel(L.lb, cam, t, 32.0, 0.05);
+  // F: two shots
+  for (const ts of [35.0, 35.8]) { const f = clamp((t - ts) / 0.35); if (t > ts && t < ts + 0.35) { flash.position.copy(P(...CORNER, 1.2)); flash.intensity = 80 * (1 - f); } }
+  sk.material.uniforms.k.value = t > 34.8 ? lerp(1, 0.55, ramp(t, 34.8, 2)) : 1;
+  R.toneMappingExposure = t > 34.8 ? lerp(1.05, 0.85, ramp(t, 34.8, 2)) : 1.05;
+  pinNote(note, cam, t, 0.3);
+  R.render(S, cam);
+}
+run(frame, 40);
+</script></body></html>
