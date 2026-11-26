@@ -35,6 +35,330 @@
    "what": "3D globe: turn to the Caribbean, 1962; Cuba, Florida, the quarantine area and B-59",
    "credit": "Made in code (three.js); boundaries: Natural Earth",
    "license": "Own work"
+  },
+  {
+   "id": "sj_A",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    0,
+    6
+   ],
+   "what": "3D map of Sarajevo 1914: valley reveal, river, quay",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "sj_B",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    6,
+    14
+   ],
+   "what": "3D map of Sarajevo 1914: motorcade on Appel Quay, the bomb bounces and bursts behind",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "sj_C",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    14,
+    18
+   ],
+   "what": "3D map of Sarajevo 1914: the town hall",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "sj_D",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    18,
+    26
+   ],
+   "what": "3D map of Sarajevo 1914: new route (green) vs old route (amber)",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "sj_E",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    26,
+    34
+   ],
+   "what": "3D map of Sarajevo 1914: the wrong turn into Franz Josef Street, the stop at the Latin Bridge",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "sj_F",
+   "file": "assets/clips/sarajevo.mp4",
+   "trim": [
+    34,
+    40
+   ],
+   "what": "3D map of Sarajevo 1914: two shots, pull out",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "cb_A",
+   "file": "assets/clips/carib.mp4",
+   "trim": [
+    0,
+    8
+   ],
+   "what": "3D Caribbean relief with sea floor, 1962: Cuba and the missile reach",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "cb_B",
+   "file": "assets/clips/carib.mp4",
+   "trim": [
+    8,
+    15
+   ],
+   "what": "3D Caribbean relief with sea floor, 1962: the US quarantine line, ships",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "cb_C",
+   "file": "assets/clips/carib.mp4",
+   "trim": [
+    15,
+    24
+   ],
+   "what": "3D Caribbean relief with sea floor, 1962: B-59 hunted by US ships",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "bl_A",
+   "file": "assets/clips/berlin.mp4",
+   "trim": [
+    0,
+    8
+   ],
+   "what": "3D night map of Berlin 1989: the wall draws around West Berlin",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "bl_B",
+   "file": "assets/clips/berlin.mp4",
+   "trim": [
+    8,
+    14
+   ],
+   "what": "3D night map of Berlin 1989: crowds at Bornholmer Straße",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "bl_C",
+   "file": "assets/clips/berlin.mp4",
+   "trim": [
+    14,
+    22
+   ],
+   "what": "3D night map of Berlin 1989: the gate opens, the wall fades",
+   "credit": "3D terrain map, AWS Terrain Tiles (USGS 3DEP / SRTM / ETOPO1, open data); colours and overlays made in code; positions approximate",
+   "license": "Own work (data: open)"
+  },
+  {
+   "id": "ds_A",
+   "file": "assets/clips/dish.mp4",
+   "trim": [
+    0,
+    4
+   ],
+   "what": "Symbolic 3D petri dish: the plate on the bench",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "ds_B",
+   "file": "assets/clips/dish.mp4",
+   "trim": [
+    4,
+    9
+   ],
+   "what": "Symbolic 3D petri dish: the mould grows",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "ds_C",
+   "file": "assets/clips/dish.mp4",
+   "trim": [
+    9,
+    16
+   ],
+   "what": "Symbolic 3D petri dish: the clear ring: bacteria gone",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "sb_A",
+   "file": "assets/clips/sub.mp4",
+   "trim": [
+    0,
+    7
+   ],
+   "what": "Symbolic 3D submarine B-59: B-59 glides, no contact with Moscow",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "sb_B",
+   "file": "assets/clips/sub.mp4",
+   "trim": [
+    7,
+    14
+   ],
+   "what": "Symbolic 3D submarine B-59: signal depth charges",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "sb_C",
+   "file": "assets/clips/sub.mp4",
+   "trim": [
+    14,
+    19
+   ],
+   "what": "Symbolic 3D submarine B-59: cutaway: the nuclear torpedo",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "sb_D",
+   "file": "assets/clips/sub.mp4",
+   "trim": [
+    19,
+    24
+   ],
+   "what": "Symbolic 3D submarine B-59: three officers: yes, yes, no",
+   "credit": "Made in code (three.js), symbolic, not to exact plans",
+   "license": "Own work"
+  },
+  {
+   "id": "bk_A",
+   "file": "assets/clips/bunker.mp4",
+   "trim": [
+    0,
+    5
+   ],
+   "what": "Symbolic 3D early-warning room, Serpukhov-15: the room, СТАРТ flashes",
+   "credit": "Made in code (three.js), symbolic, not to exact plans; world land: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "bk_B",
+   "file": "assets/clips/bunker.mp4",
+   "trim": [
+    5,
+    11
+   ],
+   "what": "Symbolic 3D early-warning room, Serpukhov-15: one track, then five",
+   "credit": "Made in code (three.js), symbolic, not to exact plans; world land: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "bk_C",
+   "file": "assets/clips/bunker.mp4",
+   "trim": [
+    11,
+    18
+   ],
+   "what": "Symbolic 3D early-warning room, Serpukhov-15: the phone: false alarm",
+   "credit": "Made in code (three.js), symbolic, not to exact plans; world land: Natural Earth",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_welcome",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    0,
+    5
+   ],
+   "what": "HyperFrames motion graphic: welcome",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_topic",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    5,
+    29
+   ],
+   "what": "HyperFrames motion graphic: topic",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_go",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    29,
+    33
+   ],
+   "what": "HyperFrames motion graphic: go",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_sofort",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    33,
+    42
+   ],
+   "what": "HyperFrames motion graphic: sofort",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_qend",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    42,
+    52
+   ],
+   "what": "HyperFrames motion graphic: qend",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "hf_rq",
+   "file": "assets/clips/hf_graphics.mp4",
+   "trim": [
+    52,
+    59
+   ],
+   "what": "HyperFrames motion graphic: rq",
+   "credit": "Made with HyperFrames (HTML + GSAP)",
+   "license": "Own work"
+  },
+  {
+   "id": "ft_border",
+   "file": "assets/footage/border1989.webm",
+   "what": "Real footage: the border opens, Selmsdorf (GDR) - Lübeck-Schlutup, November 1989 (labelled: सीमा खुली, लुबेक-श्लुटुप, नवंबर 1989)",
+   "grade": "natural",
+   "credit": "Manfred Krellenberg, via Wikimedia Commons",
+   "license": "CC BY 3.0"
+  },
+  {
+   "id": "ft_brink",
+   "file": "assets/footage/brink.webm",
+   "what": "Real footage: To the Brink: JFK and the Cuban Missile Crisis (US National Archives film), parts used: reconnaissance and ships",
+   "grade": "bw",
+   "credit": "US National Archives, via Wikimedia Commons",
+   "license": "Public domain (US government work; check on download)"
   }
  ]
 }
